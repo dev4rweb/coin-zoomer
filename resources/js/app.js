@@ -1,9 +1,10 @@
 require('./bootstrap');
 import React from 'react';
 import { render } from 'react-dom';
-import { InertiaApp } from '@inertiajs/inertia-react';
 import { InertiaProgress } from '@inertiajs/progress';
-
+import {App} from '@inertiajs/inertia-react'
+import {Provider} from "react-redux";
+import {store} from './reducers'
 InertiaProgress.init({
     color: '#ED8936',
     showSpinner: true
@@ -12,9 +13,11 @@ InertiaProgress.init({
 const app = document.getElementById('app');
 
 render(
-    <InertiaApp
-        initialPage={JSON.parse(app.dataset.page)}
-        resolveComponent={name => require(`./Pages/${name}`).default}
-    />,
+    <Provider store={store}>
+        <App
+            initialPage={JSON.parse(app.dataset.page)}
+            resolveComponent={name => require(`./Pages/${name}`).default}
+        />
+    </Provider>,
     app
 );

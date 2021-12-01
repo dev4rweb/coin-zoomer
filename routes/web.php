@@ -1,6 +1,13 @@
 <?php
 
+use App\Http\Controllers\AdcPageController;
+use App\Http\Controllers\AdminPageController;
+use App\Http\Controllers\AirDropPageController;
+use App\Http\Controllers\ContactsPageController;
+use App\Http\Controllers\ErrorPageController;
 use App\Http\Controllers\HomePageController;
+use App\Http\Controllers\UserPageController;
+use App\Http\Controllers\VerifiedPageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,3 +30,12 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/', [HomePageController::class, 'index']);
+Route::get('/adc', [AdcPageController::class, 'index']);
+Route::get('/admin-panel', [AdminPageController::class, 'index']);
+Route::get('/air-drop', [AirDropPageController::class, 'index']);
+Route::get('/contacts', [ContactsPageController::class, 'index']);
+Route::get('/user-panel', [UserPageController::class, 'index']);
+Route::get('/verified', [VerifiedPageController::class, 'index']);
+
+// Error Page
+Route::fallback([ErrorPageController::class, 'index']);

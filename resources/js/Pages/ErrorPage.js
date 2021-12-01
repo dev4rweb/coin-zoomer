@@ -1,12 +1,12 @@
 import React from 'react';
 import Layout from "../components/Layout";
 
-const HomePage = () => {
+const ErrorPage = () => {
     return (
         <Layout>
-            <h1>Home Page</h1>
+            <h1>404</h1>
         </Layout>
     );
 };
 
-export default HomePage;
+export default ErrorPage;
