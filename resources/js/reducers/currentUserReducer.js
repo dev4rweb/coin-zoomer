@@ -16,4 +16,4 @@ export default function currentUserReducer (state = defaultState, action) {
     }
 }
 
-export const setCurrentUser = user => ({type: SET_CURRENT_USER, payload: user})
+export const setCurrentUserAction = user => ({type: SET_CURRENT_USER, payload: user})

@@ -1,0 +1,15 @@
+@import "../../variables";
+
+.navBar{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    .menuWrapper{
+        display: flex;
+    }
+
+    .authWrapper {
+        display: flex;
+    }
+}

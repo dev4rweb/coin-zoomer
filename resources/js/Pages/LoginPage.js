@@ -20,7 +20,7 @@ const LoginPage = () => {
                 console.log(res)
                 if (res.status === 204) {
                     console.log('You are logged in')
-                    Inertia.visit('/home')
+                    Inertia.visit('/user-panel')
                 }
             })
             .catch(err => {

@@ -3,12 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 class ContactsPageController extends Controller
 {
     public function index(): \Inertia\Response
     {
-        return Inertia::render('ContactsPage');
+        $user = Auth::user();
+
+        return Inertia::render('ContactsPage', [
+            'currentUser' => $user,
+        ]);
     }
 }

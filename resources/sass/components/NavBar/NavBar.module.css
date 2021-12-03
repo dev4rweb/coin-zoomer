@@ -1,0 +1,10 @@
+.navBar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between; }
+  .navBar .menuWrapper {
+    display: flex; }
+  .navBar .authWrapper {
+    display: flex; }
+
+/*# sourceMappingURL=NavBar.module.css.map */

@@ -42,17 +42,14 @@ const RegisterPage = () => {
                     <div className="card">
                         <Form onSubmit={submitHandler}>
                             <Form.Group className="mb-3" controlId="formBasicName">
-                                <Form.Label>Email address</Form.Label>
+                                <Form.Label>Name</Form.Label>
                                 <Form.Control
                                     type="text"
                                     name="name"
                                     value={name}
-                                    placeholder="Enter Email"
+                                    placeholder="Your name"
                                     onChange={event => setName(event.target.value)}
                                 />
-                                <Form.Text className="text-muted">
-                                    We'll never share your name with anyone else.
-                                </Form.Text>
                             </Form.Group>
 
                             <Form.Group className="mb-3" controlId="formBasicEmail">

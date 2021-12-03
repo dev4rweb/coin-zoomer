@@ -10,6 +10,10 @@ class AdcPageController extends Controller
 {
     public function index()
     {
-        return Inertia::render('AdcPage');
+        $user = Auth::user();
+
+        return Inertia::render('AdcPage', [
+            'currentUser' => $user,
+        ]);
     }
 }
