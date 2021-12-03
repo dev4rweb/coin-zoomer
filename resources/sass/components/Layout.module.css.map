@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AASA,EAAE;EACE,KAAK,EAAE,KAAK;;ACRhB,OAAO;EACH,UAAU,EAAE,KAAK",
+"sources": ["../_variables.scss","Layout.module.scss"],
+"names": [],
+"file": "Layout.module.css"
+}

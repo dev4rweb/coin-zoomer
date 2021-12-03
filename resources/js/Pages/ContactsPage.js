@@ -10,7 +10,7 @@ const ContactsPage = ({currentUser, errors}) => {
 
     useEffect(() => {
         dispatch(setCurrentUserAction(currentUser))
-        dispatch(setErrorsAction(errors))
+        // dispatch(setErrorsAction(errors))
     }, []);
 
     return (

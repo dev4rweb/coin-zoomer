@@ -1,37 +1,49 @@
 import React, {useState} from 'react';
 import {Inertia} from "@inertiajs/inertia";
-import {Button, Form} from "react-bootstrap";
+import {Button, FloatingLabel, Form} from "react-bootstrap";
 import Layout from "../components/Layout";
+import {useDispatch} from "react-redux";
+import {setErrorsAction} from "../reducers/errorsReducer";
 
 const RegisterPage = () => {
+    const dispatch = useDispatch()
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [passwordConfirm, setPasswordConfirm] = useState('')
+    const [validated, setValidated] = useState(false);
 
     const submitHandler = (e) => {
-        e.preventDefault()
+        const form = e.currentTarget;
+        e.preventDefault();
+        e.stopPropagation();
         // console.log('email', email)
         // console.log('password', password)
 
-        const fd = new FormData();
-        fd.set('name', name)
-        fd.set('email', email)
-        fd.set('password', password)
-        fd.set('password_confirmation', passwordConfirm)
+        if (form.checkValidity() === true) {
 
+            const fd = new FormData();
+            fd.set('name', name);
+            fd.set('email', email);
+            fd.set('password', password);
+            fd.set('password_confirmation', passwordConfirm);
 
-        axios.post('/register', fd)
-            .then(res => {
-                console.log('register', res)
-                if (res.status === 201) { // before was 204
-                    // console.log('You are logged in')
-                    Inertia.visit('/user-panel')
-                }
-            })
-            .catch(err => {
-                console.log(err.response.data)
-            })
+            axios.post('/register', fd)
+                .then(res => {
+                    // console.log('register', res)
+                    if (res.status === 201) { // before was 204
+                        // console.log('You are logged in')
+                        Inertia.visit('/user-panel')
+                        dispatch(setErrorsAction({message: 'Account Created!'}))
+                    }
+                })
+                .catch(err => {
+                    // console.log(err.response.data)
+                    dispatch(setErrorsAction(err.response.data))
+                });
+        }
+
+        setValidated(true);
     };
 
     return (
@@ -39,54 +51,95 @@ const RegisterPage = () => {
             <h1>Register Page</h1>
             <div className="container">
                 <div className="row justify-content-center">
-                    <div className="card">
-                        <Form onSubmit={submitHandler}>
-                            <Form.Group className="mb-3" controlId="formBasicName">
-                                <Form.Label>Name</Form.Label>
+                    <div className="card p-5">
+                        <Form
+                            noValidate
+                            validated={validated}
+                            onSubmit={submitHandler}
+                        >
+                            <FloatingLabel
+                                className="mb-3"
+                                controlId="formBasicName"
+                                label="Name"
+                            >
                                 <Form.Control
+                                    required
                                     type="text"
                                     name="name"
                                     value={name}
                                     placeholder="Your name"
                                     onChange={event => setName(event.target.value)}
                                 />
-                            </Form.Group>
+                                <Form.Control.Feedback>
+                                    Looks good!
+                                </Form.Control.Feedback>
+                                <Form.Control.Feedback type="invalid">
+                                    Please write your name.
+                                </Form.Control.Feedback>
+                            </FloatingLabel>
 
-                            <Form.Group className="mb-3" controlId="formBasicEmail">
-                                <Form.Label>Email address</Form.Label>
+                            <FloatingLabel
+                                className="mb-3"
+                                controlId="formBasicEmail"
+                                label="Email address"
+                            >
                                 <Form.Control
+                                    required
                                     type="email"
                                     name="email"
                                     value={email}
                                     placeholder="Enter email"
                                     onChange={event => setEmail(event.target.value)}
                                 />
-                                <Form.Text className="text-muted">
-                                    We'll never share your email with anyone else.
-                                </Form.Text>
-                            </Form.Group>
+                                <Form.Control.Feedback>
+                                    Looks good!
+                                </Form.Control.Feedback>
+                                <Form.Control.Feedback type="invalid">
+                                    Please write Email.
+                                </Form.Control.Feedback>
+                            </FloatingLabel>
 
-                            <Form.Group className="mb-3" controlId="formBasicPassword">
-                                <Form.Label>Password</Form.Label>
+                            <FloatingLabel
+                                className="mb-3"
+                                controlId="formBasicPassword"
+                                label="Password"
+                            >
                                 <Form.Control
+                                    required
                                     name="password"
                                     type="password"
                                     value={password}
                                     placeholder="Password"
                                     onChange={event => setPassword(event.target.value)}
                                 />
-                            </Form.Group>
+                                <Form.Control.Feedback>
+                                    Looks good!
+                                </Form.Control.Feedback>
+                                <Form.Control.Feedback type="invalid">
+                                    Please write Password.
+                                </Form.Control.Feedback>
+                            </FloatingLabel>
 
-                            <Form.Group className="mb-3" controlId="formBasicPasswordConfirm">
-                                <Form.Label>Password</Form.Label>
+                            <FloatingLabel
+                                className="mb-3"
+                                controlId="formBasicPasswordConfirm"
+                                label="Password confirm"
+                            >
                                 <Form.Control
+                                    required
                                     name="password_confirmation"
                                     type="password"
                                     value={passwordConfirm}
                                     placeholder="Password"
                                     onChange={event => setPasswordConfirm(event.target.value)}
                                 />
-                            </Form.Group>
+                                <Form.Control.Feedback>
+                                    Looks good!
+                                </Form.Control.Feedback>
+                                <Form.Control.Feedback type="invalid">
+                                    Please confirm Password.
+                                </Form.Control.Feedback>
+                            </FloatingLabel>
 
                             <Button variant="primary" type="submit">
                                 Submit

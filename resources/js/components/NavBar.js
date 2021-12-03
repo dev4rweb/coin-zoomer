@@ -11,6 +11,7 @@ import {
 } from "../utils/routesPath";
 import {useDispatch, useSelector} from "react-redux";
 import {setCurrentUserAction} from "../reducers/currentUserReducer";
+import {setErrorsAction} from "../reducers/errorsReducer";
 
 const NavBar = () => {
     const dispatch = useDispatch()
@@ -22,6 +23,7 @@ const NavBar = () => {
             .then(res => {
                 console.log('logoutHandler res', res)
                 if (res.status === 204) {
+                    dispatch(setErrorsAction({message: 'You are logout'}))
                     dispatch(setCurrentUserAction(null))
                 }
             })
