@@ -5,9 +5,17 @@
 @import 'variables';
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+//@import '~bootstrap/scss/bootstrap';
+@import '../../node_modules/bootstrap/scss/bootstrap';
 
 .nav-link {
     border: none;
     background: none;
+}
+
+.navbar-dark, .bg-dark{
+    background: linear-gradient( 90deg, rgb(36,41,81) 0%, rgb(17,20,44) 100%);
+    background-image: -moz-linear-gradient( 90deg, rgb(36,41,81) 0%, rgb(17,20,44) 100%);
+    background-image: -webkit-linear-gradient( 90deg, rgb(36,41,81) 0%, rgb(17,20,44) 100%);
+    background-image: -ms-linear-gradient( 90deg, rgb(36,41,81) 0%, rgb(17,20,44) 100%);
 }

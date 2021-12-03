@@ -12,6 +12,8 @@ import {
 import {useDispatch, useSelector} from "react-redux";
 import {setCurrentUserAction} from "../reducers/currentUserReducer";
 import {setErrorsAction} from "../reducers/errorsReducer";
+import {Inertia} from "@inertiajs/inertia";
+import AppNavBtn from "./UI/AppNavBtn";
 
 const NavBar = () => {
     const dispatch = useDispatch()
@@ -25,6 +27,7 @@ const NavBar = () => {
                 if (res.status === 204) {
                     dispatch(setErrorsAction({message: 'You are logout'}))
                     dispatch(setCurrentUserAction(null))
+                    Inertia.visit(PATH_HOME_PAGE)
                 }
             })
             .catch(err => {
@@ -34,11 +37,18 @@ const NavBar = () => {
 
     return (
         <Navbar
-            bg="primary"
+            // bg="primary"
             variant="dark"
+            style={{height: '60px'}}
         >
-            <Container>
-                <Navbar.Brand href={PATH_HOME_PAGE}>Coin Zoomer</Navbar.Brand>
+            <Container className={s.container}>
+                <AppNavBtn />
+                <InertiaLink
+                    href={PATH_HOME_PAGE}
+                    className={'navbar-brand'}
+                >
+                    Coin Zoomer
+                </InertiaLink>
                 <Nav className={`me-auto ${s.navBar}`}>
                     <div className={s.menuWrapper}>
                         <InertiaLink

@@ -2,6 +2,8 @@
 
 .navBar{
     width: 100%;
+
+
     display: flex;
     justify-content: space-between;
 
@@ -11,5 +13,12 @@
 
     .authWrapper {
         display: flex;
+        justify-self: flex-end;
     }
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }

@@ -1,12 +1,71 @@
+//@import "../assets/font/stylesheet.css";
+/*@font-face {
+    font-family: NekstRegular;
+    src: url(../assets/fonts/Nekst-Regular.ttf);
+}*/
+
 // Body
 $body-bg: #f8fafc;
 
+// colors
+$color-one: #a6b2c6;
+$color-two: #1f244c;
+$color-three: #181c3f;
+
+
 // Typography
 $font-family-sans-serif: 'Nunito', sans-serif;
+$font-next: 'Nekst', sans-serif;
+;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 
+* {
+    font-family: $font-next;
+}
 
-h1{
+
+h1 {
     color: white;
+    font-size: 48px;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+h3 {
+    font-size: 16px;
+}
+
+h4 {
+    font-size: 14px;
+}
+
+p {
+    font-size: 12px;
+}
+
+.gradient-purple {
+    background-image: -moz-linear-gradient( -90deg, rgb(42,48,114) 0%, rgb(86,95,176) 100%);
+    background-image: -webkit-linear-gradient( -90deg, rgb(42,48,114) 0%, rgb(86,95,176) 100%);
+    background-image: -ms-linear-gradient( -90deg, rgb(42,48,114) 0%, rgb(86,95,176) 100%);
+}
+
+.gradient-green {
+    background-image: -moz-linear-gradient( -38deg, rgb(28,81,99) 0%, rgb(46,240,152) 100%);
+    background-image: -webkit-linear-gradient( -38deg, rgb(28,81,99) 0%, rgb(46,240,152) 100%);
+    background-image: -ms-linear-gradient( -38deg, rgb(28,81,99) 0%, rgb(46,240,152) 100%);
+}
+
+.gradient-red {
+    background-image: -moz-linear-gradient( -38deg, rgb(75,45,115) 0%, rgb(224,37,140) 100%);
+    background-image: -webkit-linear-gradient( -38deg, rgb(75,45,115) 0%, rgb(224,37,140) 100%);
+    background-image: -ms-linear-gradient( -38deg, rgb(75,45,115) 0%, rgb(224,37,140) 100%);
+}
+
+.gradient-blue {
+    background-image: -moz-linear-gradient( -38deg, rgb(46,58,130) 0%, rgb(40,113,171) 100%);
+    background-image: -webkit-linear-gradient( -38deg, rgb(46,58,130) 0%, rgb(40,113,171) 100%);
+    background-image: -ms-linear-gradient( -38deg, rgb(46,58,130) 0%, rgb(40,113,171) 100%);
 }

@@ -1,0 +1,74 @@
+/*@font-face {
+    font-family: NekstRegular;
+    src: url(../assets/fonts/Nekst-Regular.ttf);
+}*/
+* {
+  font-family: "Nekst", sans-serif; }
+
+h1 {
+  color: white;
+  font-size: 48px; }
+
+h2 {
+  font-size: 24px; }
+
+h3 {
+  font-size: 16px; }
+
+h4 {
+  font-size: 14px; }
+
+p {
+  font-size: 12px; }
+
+.gradient-purple {
+  background-image: -moz-linear-gradient(-90deg, #2a3072 0%, #565fb0 100%);
+  background-image: -webkit-linear-gradient(-90deg, #2a3072 0%, #565fb0 100%);
+  background-image: -ms-linear-gradient(-90deg, #2a3072 0%, #565fb0 100%); }
+
+.gradient-green {
+  background-image: -moz-linear-gradient(-38deg, #1c5163 0%, #2ef098 100%);
+  background-image: -webkit-linear-gradient(-38deg, #1c5163 0%, #2ef098 100%);
+  background-image: -ms-linear-gradient(-38deg, #1c5163 0%, #2ef098 100%); }
+
+.gradient-red {
+  background-image: -moz-linear-gradient(-38deg, #4b2d73 0%, #e0258c 100%);
+  background-image: -webkit-linear-gradient(-38deg, #4b2d73 0%, #e0258c 100%);
+  background-image: -ms-linear-gradient(-38deg, #4b2d73 0%, #e0258c 100%); }
+
+.gradient-blue {
+  background-image: -moz-linear-gradient(-38deg, #2e3a82 0%, #2871ab 100%);
+  background-image: -webkit-linear-gradient(-38deg, #2e3a82 0%, #2871ab 100%);
+  background-image: -ms-linear-gradient(-38deg, #2e3a82 0%, #2871ab 100%); }
+
+.appNavBtn {
+  background-color: #181c3f;
+  width: 32px !important;
+  margin-right: 15px;
+  padding: 8px;
+  height: 60px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .appNavBtn .navBtn {
+    background-image: url(../../../../assets/img/btn-app.png);
+    width: 15px;
+    height: 15px;
+    position: relative; }
+    .appNavBtn .navBtn .message {
+      position: absolute;
+      right: -4px;
+      top: -4px;
+      background-color: #ef3e3e;
+      width: 8px;
+      height: 8px;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 50%; }
+  .appNavBtn:hover {
+    cursor: pointer; }
+    .appNavBtn:hover .navBtn {
+      background-image: url(../../../../assets/img/btn-app-hover.png); }
+
+/*# sourceMappingURL=AppNavBtn.module.css.map */
