@@ -1,0 +1,32 @@
+@import "../../../variables";
+
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 200px;
+    margin-bottom: 15px;
+
+    .icon {
+        width: 50px;
+        height: auto;
+    }
+
+    .content{
+        width: 100%;
+        max-width: 135px;
+
+        .title {
+            margin-bottom: 2px;
+        }
+
+        .text{
+            font-size: 9px;
+            font-family: $font-next;
+            color: rgba(16, 17, 45, 0.42);
+            margin-bottom: 0;
+            line-height: 10px;
+        }
+    }
+}

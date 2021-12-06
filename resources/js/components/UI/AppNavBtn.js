@@ -1,14 +1,24 @@
 import React from 'react';
 import s from '../../../sass/components/UI/AppNavBtn/AppNavBtn.module.scss'
 import {OverlayTrigger, Popover} from "react-bootstrap";
+import winImg from '../../../assets/img/win.png'
+import PopoverItem from "./Popover/PopoverItem";
 
 /*https://react-bootstrap.github.io/components/overlays/#popovers*/
+
+const data = [
+    {id: 0, img: winImg, title: 'NFT MARKETPLACE', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do'},
+    {id: 1, img: winImg, title: 'NFT MARKETPLACE', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do'},
+    {id: 2, img: winImg, title: 'NFT MARKETPLACE', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do'},
+]
+
 const popover = (
     <Popover id="popover-basic">
-        <Popover.Header as="h3">Popover</Popover.Header>
+        {/*<Popover.Header as="h3">Popover</Popover.Header>*/}
         <Popover.Body>
-            And here's some <strong>amazing</strong> content. It's very engaging.
-            right?
+            {
+                data && data.map(item => <PopoverItem key={item.id} data={item} />)
+            }
         </Popover.Body>
     </Popover>
 );

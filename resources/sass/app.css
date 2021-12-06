@@ -19,6 +19,10 @@ h3, .h3 {
 h4, .h4 {
   font-size: 14px; }
 
+h5, .h5 {
+  font-size: 12px;
+  font-weight: bold; }
+
 p {
   font-size: 12px; }
 
@@ -8727,12 +8731,37 @@ textarea.form-control-lg {
     display: none !important; } }
 .nav-link {
   border: none;
-  background: none; }
+  background: none;
+  border-bottom: 1px solid transparent;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 0px 3px 7px rgba(0, 0, 0, 0.56);
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  -ms-transition: all .3s;
+  -o-transition: all .3s;
+  transition: all .3s; }
+  .nav-link:hover, .nav-link.active {
+    background: linear-gradient(0deg, #009bf7, #00b096) 30% 30%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border-image: linear-gradient(0deg, #009bf7, #00b096) 30% 30%; }
 
 .navbar-dark, .bg-dark {
   background: linear-gradient(90deg, #242951 0%, #11142c 100%);
   background-image: -moz-linear-gradient(90deg, #242951 0%, #11142c 100%);
   background-image: -webkit-linear-gradient(90deg, #242951 0%, #11142c 100%);
   background-image: -ms-linear-gradient(90deg, #242951 0%, #11142c 100%); }
+
+.popover-body {
+  padding-left: 0;
+  padding-bottom: 0; }
+
+.btn-close {
+  background: transparent url("../assets/icons/close.svg") center;
+  width: 20px;
+  height: 20px; }
 
 /*# sourceMappingURL=app.css.map */

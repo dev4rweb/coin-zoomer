@@ -1,0 +1,19 @@
+@import "../../../variables";
+
+.outlineBtn {
+    max-height: 35px;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 12px;
+
+    &:hover{
+        background-image: -moz-linear-gradient( 0deg, rgb(0,155,247) 0%, rgb(0,176,150) 100%);
+        background-image: -webkit-linear-gradient( 0deg, rgb(0,155,247) 0%, rgb(0,176,150) 100%);
+        background-image: -ms-linear-gradient( 0deg, rgb(0,155,247) 0%, rgb(0,176,150) 100%);
+        color: white;
+    }
+}
+
+
+

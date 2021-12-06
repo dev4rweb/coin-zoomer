@@ -18,6 +18,10 @@ h3 {
 h4 {
   font-size: 14px; }
 
+h5 {
+  font-size: 12px;
+  font-weight: bold; }
+
 p {
   font-size: 12px; }
 
@@ -49,7 +53,10 @@ p {
     display: flex; }
   .navBar .authWrapper {
     display: flex;
-    justify-self: flex-end; }
+    justify-self: flex-end;
+    width: 220px;
+    justify-content: space-between;
+    align-items: center; }
 
 .container {
   width: 100%;

@@ -2,4 +2,18 @@
 
 .layout{
     min-height: 100vh;
+
+    .toggleMob{
+        display: none;
+        @media screen and (max-width: 768px){
+            display: block;
+        }
+    }
+
+    .toggleDesktop{
+        display: block;
+        @media screen and (max-width: 768px){
+            display: none;
+        }
+    }
 }

@@ -14,13 +14,22 @@ import {setCurrentUserAction} from "../reducers/currentUserReducer";
 import {setErrorsAction} from "../reducers/errorsReducer";
 import {Inertia} from "@inertiajs/inertia";
 import AppNavBtn from "./UI/AppNavBtn";
+import OutlineBtn from "./UI/OutlineBtn/OutlineBtn";
 
 const NavBar = () => {
     const dispatch = useDispatch()
     const currentUser = useSelector(state => state.currentUser.user)
+    const routes = [
+        {name: 'AirDrop', url: PATH_AIR_DROP_PAGE},
+        {name: 'Verified', url: PATH_VERIFIED_PAGE},
+        {name: 'Adc', url: PATH_ADC_PAGE},
+        {name: 'Contntacts', url: PATH_CONTACTS_PAGE},
+    ]
+
+    console.log('NavBar location', window.location.href.includes(PATH_AIR_DROP_PAGE))
 
     const logoutHandler = e => {
-        console.log('NavBar currentUser', currentUser)
+        // console.log('NavBar currentUser', currentUser)
         axios.post(PATH_LOGOUT)
             .then(res => {
                 console.log('logoutHandler res', res)
@@ -42,7 +51,7 @@ const NavBar = () => {
             style={{height: '60px'}}
         >
             <Container className={s.container}>
-                <AppNavBtn />
+                <AppNavBtn/>
                 <InertiaLink
                     href={PATH_HOME_PAGE}
                     className={'navbar-brand'}
@@ -51,35 +60,28 @@ const NavBar = () => {
                 </InertiaLink>
                 <Nav className={`me-auto ${s.navBar}`}>
                     <div className={s.menuWrapper}>
-                        <InertiaLink
-                            className={'nav-link'}
-                            href={PATH_AIR_DROP_PAGE}
-                        >
-                            AirDrop
-                        </InertiaLink>
-                        <InertiaLink
-                            className={'nav-link'}
-                            href={PATH_VERIFIED_PAGE}
-                        >
-                            Verified
-                        </InertiaLink>
-                        <InertiaLink
-                            className={'nav-link'}
-                            href={PATH_ADC_PAGE}
-                        >
-                            Adc
-                        </InertiaLink>
-                        <InertiaLink
-                            className={'nav-link'}
-                            href={PATH_CONTACTS_PAGE}
-                        >
-                            Contacts
-                        </InertiaLink>
+                        {
+                            routes.map((item, index) => {
+                                const isActive = window.location.href.includes(item.url);
+                                const activeClass = isActive ? 'active' : ''
+
+                                return (
+                                    <InertiaLink
+                                        key={index}
+                                        className={`nav-link ${activeClass}`}
+                                        href={item.url}
+                                    >
+                                        {item.name}
+                                    </InertiaLink>
+                                )
+                            })
+                        }
                     </div>
 
                     {
                         currentUser ?
                             <div className={s.authWrapper}>
+                                <OutlineBtn>Add Coin</OutlineBtn>
                                 {
                                     currentUser.is_admin ?
                                         <InertiaLink
@@ -107,6 +109,7 @@ const NavBar = () => {
                             </div>
                             :
                             <div className={s.authWrapper}>
+                                <OutlineBtn>Add Coin</OutlineBtn>
                                 <InertiaLink
                                     className={'nav-link'}
                                     href={PATH_LOGIN_PAGE}

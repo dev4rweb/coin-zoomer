@@ -11,6 +11,24 @@
 .nav-link {
     border: none;
     background: none;
+    border-bottom: 1px solid transparent;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 0px 3px 7px rgba(0, 0, 0, 0.56);
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+
+    &:hover, &.active{
+        background: linear-gradient(0deg, rgb(0,155,247), rgb(0,176,150)) 30% 30%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        border-image: linear-gradient(0deg, rgb(0,155,247), rgb(0,176,150)) 30% 30%;
+    }
 }
 
 .navbar-dark, .bg-dark{
@@ -18,4 +36,15 @@
     background-image: -moz-linear-gradient( 90deg, rgb(36,41,81) 0%, rgb(17,20,44) 100%);
     background-image: -webkit-linear-gradient( 90deg, rgb(36,41,81) 0%, rgb(17,20,44) 100%);
     background-image: -ms-linear-gradient( 90deg, rgb(36,41,81) 0%, rgb(17,20,44) 100%);
+}
+
+.popover-body{
+    padding-left: 0;
+    padding-bottom: 0;
+}
+
+.btn-close{
+    background: transparent url('../assets/icons/close.svg') center;
+    width: 20px;
+    height: 20px;
 }

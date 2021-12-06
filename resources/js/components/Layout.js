@@ -2,6 +2,7 @@ import React from 'react';
 import s from '../../sass/components/Layout.module.scss'
 import NavBar from "./NavBar";
 import Messages from "./UI/Messages/Messages";
+import MobNavBar from "./UI/MobNavBar/MobNavBar";
 
 const Layout = ({children}) => {
     return (
@@ -10,11 +11,17 @@ const Layout = ({children}) => {
             aria-atomic="true"
             className={`bg-dark position-relative ${s.layout}`}
         >
-            <NavBar/>
+
+            <div className={s.toggleMob}>
+                <MobNavBar/>
+            </div>
+            <div className={s.toggleDesktop}>
+                <NavBar/>
+            </div>
             <main>
                 {children}
             </main>
-            <Messages />
+            <Messages/>
         </div>
     );
 };
