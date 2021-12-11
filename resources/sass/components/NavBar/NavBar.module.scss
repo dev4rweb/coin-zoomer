@@ -14,7 +14,7 @@
     .authWrapper {
         display: flex;
         justify-self: flex-end;
-        width: 220px;
+        width: 250px;
         justify-content: space-between;
         align-items: center;
     }
@@ -24,4 +24,8 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+}
+.border {
+    border-bottom: 2px solid #272c5d;
+    padding-bottom: 1px;
 }

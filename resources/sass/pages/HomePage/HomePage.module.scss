@@ -1,0 +1,55 @@
+@import "../../variables";
+
+.homePage {
+    background-image: url('../../../assets/img/polygonal-blue-abstract.png');
+    background-repeat: no-repeat;
+    background-size: cover, 533px;
+    background-position-y: 0px;
+    height: 100%;
+
+    .alertWrapper{
+        margin-top: 50px;
+    }
+
+    .titleWrapper{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 40px;
+
+        p{
+            font-size: 14px;
+        }
+    }
+
+    .medalBlock {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 970px;
+        margin-bottom: 30px;
+    }
+
+    .tableBlock{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .rightSide{
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            align-items: center;
+            justify-content: center;
+
+            h2{
+                font-size: 36px;
+                position: absolute;
+                width: 100%;
+                text-align: center;
+                top: 320px;
+            }
+        }
+    }
+}

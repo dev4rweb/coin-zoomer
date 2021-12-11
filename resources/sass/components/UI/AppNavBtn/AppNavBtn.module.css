@@ -5,25 +5,35 @@
 * {
   font-family: "Nekst", sans-serif; }
 
+body {
+  background-color: #10112d; }
+
 h1 {
   color: white;
   font-size: 48px; }
 
 h2 {
-  font-size: 24px; }
+  color: white;
+  font-size: 24px;
+  font-weight: bold; }
 
 h3 {
+  color: white;
   font-size: 16px; }
 
 h4 {
+  color: white;
   font-size: 14px; }
 
 h5 {
+  color: white;
   font-size: 12px;
   font-weight: bold; }
 
 p {
-  font-size: 12px; }
+  font-size: 12px;
+  color: white;
+  font-family: "Nekst", sans-serif; }
 
 .gradient-purple {
   background-image: -moz-linear-gradient(-90deg, #2a3072 0%, #565fb0 100%);

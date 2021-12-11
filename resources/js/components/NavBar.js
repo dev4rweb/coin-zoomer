@@ -49,6 +49,7 @@ const NavBar = () => {
             // bg="primary"
             variant="dark"
             style={{height: '60px'}}
+            className={s.border}
         >
             <Container className={s.container}>
                 <AppNavBtn/>

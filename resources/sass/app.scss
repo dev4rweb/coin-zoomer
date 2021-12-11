@@ -23,28 +23,121 @@
     -o-transition: all .3s;
     transition: all .3s;
 
-    &:hover, &.active{
-        background: linear-gradient(0deg, rgb(0,155,247), rgb(0,176,150)) 30% 30%;
+    &:hover, &.active {
+        background: linear-gradient(0deg, rgb(0, 155, 247), rgb(0, 176, 150)) 30% 30%;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        border-image: linear-gradient(0deg, rgb(0,155,247), rgb(0,176,150)) 30% 30%;
+        border-image: linear-gradient(0deg, rgb(0, 155, 247), rgb(0, 176, 150)) 30% 30%;
     }
 }
 
-.navbar-dark, .bg-dark{
-    background: linear-gradient( 90deg, rgb(36,41,81) 0%, rgb(17,20,44) 100%);
-    background-image: -moz-linear-gradient( 90deg, rgb(36,41,81) 0%, rgb(17,20,44) 100%);
-    background-image: -webkit-linear-gradient( 90deg, rgb(36,41,81) 0%, rgb(17,20,44) 100%);
-    background-image: -ms-linear-gradient( 90deg, rgb(36,41,81) 0%, rgb(17,20,44) 100%);
+.navbar-dark, .bg-dark {
+    background: linear-gradient(90deg, rgb(36, 41, 81) 0%, rgb(17, 20, 44) 100%);
+    background-image: -moz-linear-gradient(90deg, rgb(36, 41, 81) 0%, rgb(17, 20, 44) 100%);
+    background-image: -webkit-linear-gradient(90deg, rgb(36, 41, 81) 0%, rgb(17, 20, 44) 100%);
+    background-image: -ms-linear-gradient(90deg, rgb(36, 41, 81) 0%, rgb(17, 20, 44) 100%);
 }
 
-.popover-body{
+.popover-body {
     padding-left: 0;
     padding-bottom: 0;
 }
 
-.btn-close{
+.btn-close {
     background: transparent url('../assets/icons/close.svg') center;
     width: 20px;
     height: 20px;
+}
+
+.alert {
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    padding: 0;
+    min-height: 60px;
+
+    .btn-close {
+        width: 15px !important;
+        height: 15px !important;
+        font-size: 15px;
+        background-size: 15px;
+        background-repeat: no-repeat;
+    }
+}
+
+.alert-primary {
+    background-color: #0e1731;
+    color: white;
+}
+
+.alert-heading {
+    font-family: $font-next;
+    font-size: 12px;
+    font-weight: lighter;
+    margin-bottom: 0;
+    line-height: 16px;
+
+    strong {
+        color: #bd3840;
+    }
+}
+
+.title-gradient {
+    font-size: 48px;
+    text-transform: uppercase;
+    line-height: 1.396;
+    font-family: $font-next;
+    font-weight: bold;
+    background: -webkit-linear-gradient(0deg, #009fe6 0%, #00abac 83%, #00f5f6 30%);
+    //background: -webkit-linear-gradient(90deg, #009fe6, #00f5f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.btn-info {
+    max-height: 35px;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 14px;
+    background-image: -moz-linear-gradient(0deg, rgb(0, 155, 247) 0%, rgb(0, 176, 150) 100%);
+    background-image: -webkit-linear-gradient(0deg, rgb(0, 155, 247) 0%, rgb(0, 176, 150) 100%);
+    background-image: -ms-linear-gradient(0deg, rgb(0, 155, 247) 0%, rgb(0, 176, 150) 100%);
+
+    box-shadow: #00f5f6 0px 0px 50px 4px;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+
+    &:hover, &:active, &:focus {
+        color: white;
+        -webkit-transform: scale(1.2, 1.2);
+        -moz-transform: scale(1.2, 1.2);
+        -ms-transform: scale(1.2, 1.2);
+        -o-transform: scale(1.2, 1.2);
+        transform: scale(1.2, 1.2);
+        box-shadow: #00f5f6 0px 0px 25px 10px;
+    }
+}
+
+.table-dark {
+    --bs-table-bg: #1d2147;
+    --bs-table-striped-bg: #1f244c;
+    --bs-table-striped-color: #fff;
+    //--bs-table-active-bg: -webkit-linear-gradient(0deg, #009fe6 0%, #00abac 83%, #00f5f6 30%);
+    //--bs-table-active-bg: linear-gradient( -38deg, rgb(46,58,130) 0%, rgb(40,113,171) 100%);
+    --bs-table-active-bg: #2a3072;
+    --bs-table-active-color: #fff;
+    //--bs-table-hover-bg: -webkit-linear-gradient(0deg, #009fe6 0%, #00abac 83%, #00f5f6 30%);
+    //--bs-table-hover-bg:linear-gradient( -38deg, rgb(46,58,130) 0%, rgb(40,113,171) 100%);
+    --bs-table-hover-bg: #2a3072;
+    --bs-table-hover-color: #fff;
+    color: #fff;
+    border-color: transparent;
+    //box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }

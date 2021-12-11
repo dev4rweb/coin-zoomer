@@ -5,7 +5,7 @@
 }*/
 
 // Body
-$body-bg: #f8fafc;
+$body-bg: #10112d;
 
 // colors
 $color-one: #a6b2c6;
@@ -25,6 +25,9 @@ $line-height-base: 1.6;
     font-family: $font-next;
 }
 
+body{
+    background-color: $body-bg;
+}
 
 h1 {
     color: white;
@@ -32,18 +35,23 @@ h1 {
 }
 
 h2 {
+    color: white;
     font-size: 24px;
+    font-weight: bold;
 }
 
 h3 {
+    color: white;
     font-size: 16px;
 }
 
 h4 {
+    color: white;
     font-size: 14px;
 }
 
 h5{
+    color: white;
     font-size: 12px;
     font-weight: bold;
 
@@ -51,6 +59,8 @@ h5{
 
 p {
     font-size: 12px;
+    color: white;
+    font-family: $font-next;
 }
 
 .gradient-purple {

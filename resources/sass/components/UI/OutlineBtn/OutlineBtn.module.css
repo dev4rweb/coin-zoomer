@@ -5,25 +5,35 @@
 * {
   font-family: "Nekst", sans-serif; }
 
+body {
+  background-color: #10112d; }
+
 h1 {
   color: white;
   font-size: 48px; }
 
 h2 {
-  font-size: 24px; }
+  color: white;
+  font-size: 24px;
+  font-weight: bold; }
 
 h3 {
+  color: white;
   font-size: 16px; }
 
 h4 {
+  color: white;
   font-size: 14px; }
 
 h5 {
+  color: white;
   font-size: 12px;
   font-weight: bold; }
 
 p {
-  font-size: 12px; }
+  font-size: 12px;
+  color: white;
+  font-family: "Nekst", sans-serif; }
 
 .gradient-purple {
   background-image: -moz-linear-gradient(-90deg, #2a3072 0%, #565fb0 100%);
@@ -50,11 +60,17 @@ p {
   color: white;
   padding-left: 20px;
   padding-right: 20px;
-  font-size: 12px; }
-  .outlineBtn:hover {
+  font-size: 12px;
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  -ms-transition: all .3s;
+  -o-transition: all .3s;
+  transition: all .3s; }
+  .outlineBtn:hover, .outlineBtn:active, .outlineBtn:focus {
     background-image: -moz-linear-gradient(0deg, #009bf7 0%, #00b096 100%);
     background-image: -webkit-linear-gradient(0deg, #009bf7 0%, #00b096 100%);
     background-image: -ms-linear-gradient(0deg, #009bf7 0%, #00b096 100%);
-    color: white; }
+    color: white;
+    box-shadow: #00f5f6 0px 0px 50px 4px; }
 
 /*# sourceMappingURL=OutlineBtn.module.css.map */
