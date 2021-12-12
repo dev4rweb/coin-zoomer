@@ -1,36 +1,34 @@
 import React from 'react';
 import {Table} from "react-bootstrap";
 import s from '../../../../../sass/components/UI/Tables/SimpleTable/SimpleTable.module.scss'
+import SimpleTableItem from "./SimpleTableItem";
 
 const SimpleTable = () => {
+    const tableData = [
+        {id: 1, name: 'Coins name long name', symbol: 'NameSymbol', isUp: true, dynamicValue: 12.993, marketCap: 897.755, launchDate: 14, upVotes: 87946},
+        {id: 2, name: 'Coins name long name', symbol: 'NameSymbol', isUp: true, dynamicValue: 12.993, marketCap: 897.755, launchDate: 14, upVotes: 87946},
+        {id: 3, name: 'Coins name long name', symbol: 'NameSymbol', isUp: true, dynamicValue: 12.993, marketCap: 897.755, launchDate: 14, upVotes: 87946},
+        {id: 4, name: 'Coins name long name', symbol: 'NameSymbol', isUp: true, dynamicValue: 12.993, marketCap: 897.755, launchDate: 14, upVotes: 87946},
+        {id: 5, name: 'Coins name long name', symbol: 'NameSymbol', isUp: true, dynamicValue: 12.993, marketCap: 897.755, launchDate: 14, upVotes: 87946},
+    ]
+
     return (
         <Table className={s.simpleTable} striped hover variant="dark">
             <thead>
             <tr>
-                <th>#</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Username</th>
+                <th className={s.coinsCol}>Coins</th>
+                <th>Symbol</th>
+                <th>1h</th>
+                <th>Market Cap</th>
+                <th>Launch</th>
+                <th>Upvotes</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>1</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td colSpan={2}>Larry the Bird</td>
-                <td>@twitter</td>
-            </tr>
+            {
+                tableData.map((i, index) =>
+                    <SimpleTableItem key={i.id} data={i} index={index}/>)
+            }
             </tbody>
         </Table>
     );

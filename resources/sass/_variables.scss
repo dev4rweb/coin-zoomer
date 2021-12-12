@@ -63,6 +63,30 @@ p {
     font-family: $font-next;
 }
 
+
+.table > :not(:first-child){
+    border-top: none;
+}
+
+.table > thead{
+    height: 40px;
+    color: $color-one;
+    font-weight: bold;
+    font-size: 12px;
+    text-align: center;
+}
+
+td{
+    font-size: 12px;
+
+    &>div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 60px;
+    }
+}
+
 .gradient-purple {
     background-image: -moz-linear-gradient( -90deg, rgb(42,48,114) 0%, rgb(86,95,176) 100%);
     background-image: -webkit-linear-gradient( -90deg, rgb(42,48,114) 0%, rgb(86,95,176) 100%);

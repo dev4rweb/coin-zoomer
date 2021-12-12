@@ -1,5 +1,8 @@
 @import "../../variables";
 
+.mainSection {
+    margin-bottom: 50px;
+}
 .homePage {
     background-image: url('../../../assets/img/polygonal-blue-abstract.png');
     background-repeat: no-repeat;
@@ -50,6 +53,15 @@
                 text-align: center;
                 top: 320px;
             }
+
+            .graphWrapper{
+                position: absolute;
+                top: 365px;
+            }
         }
     }
+}
+
+.topCoinsSection{
+
 }

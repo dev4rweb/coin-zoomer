@@ -35,6 +35,24 @@ p {
   color: white;
   font-family: "Nekst", sans-serif; }
 
+.table > :not(:first-child) {
+  border-top: none; }
+
+.table > thead {
+  height: 40px;
+  color: #a6b2c6;
+  font-weight: bold;
+  font-size: 12px;
+  text-align: center; }
+
+td {
+  font-size: 12px; }
+  td > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px; }
+
 .gradient-purple {
   background-image: -moz-linear-gradient(-90deg, #2a3072 0%, #565fb0 100%);
   background-image: -webkit-linear-gradient(-90deg, #2a3072 0%, #565fb0 100%);
@@ -54,6 +72,9 @@ p {
   background-image: -moz-linear-gradient(-38deg, #2e3a82 0%, #2871ab 100%);
   background-image: -webkit-linear-gradient(-38deg, #2e3a82 0%, #2871ab 100%);
   background-image: -ms-linear-gradient(-38deg, #2e3a82 0%, #2871ab 100%); }
+
+.mainSection {
+  margin-bottom: 50px; }
 
 .homePage {
   background-image: url("../../../assets/img/polygonal-blue-abstract.png");
@@ -93,5 +114,8 @@ p {
         width: 100%;
         text-align: center;
         top: 320px; }
+      .homePage .tableBlock .rightSide .graphWrapper {
+        position: absolute;
+        top: 365px; }
 
 /*# sourceMappingURL=HomePage.module.css.map */

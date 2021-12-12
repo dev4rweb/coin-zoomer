@@ -18,6 +18,23 @@
         background-image: -ms-linear-gradient( 0deg, rgb(0,155,247) 0%, rgb(0,176,150) 100%);
         color: white;
         box-shadow: #00f5f6 0px 0px 50px 4px;
+
+        span{
+            color: white;
+            background: white;
+            //background: -webkit-linear-gradient(90deg, #009fe6, #00f5f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: snow;
+        }
+    }
+
+    span{
+        font-family: $font-next;
+        font-weight: bold;
+        background: -webkit-linear-gradient(0deg, #009fe6, #00f5f6);
+        //background: -webkit-linear-gradient(90deg, #009fe6, #00f5f6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
 }
 

@@ -35,6 +35,24 @@ p {
   color: white;
   font-family: "Nekst", sans-serif; }
 
+.table > :not(:first-child) {
+  border-top: none; }
+
+.table > thead {
+  height: 40px;
+  color: #a6b2c6;
+  font-weight: bold;
+  font-size: 12px;
+  text-align: center; }
+
+td {
+  font-size: 12px; }
+  td > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px; }
+
 .gradient-purple {
   background-image: -moz-linear-gradient(-90deg, #2a3072 0%, #565fb0 100%);
   background-image: -webkit-linear-gradient(-90deg, #2a3072 0%, #565fb0 100%);
@@ -72,5 +90,16 @@ p {
     background-image: -ms-linear-gradient(0deg, #009bf7 0%, #00b096 100%);
     color: white;
     box-shadow: #00f5f6 0px 0px 50px 4px; }
+    .outlineBtn:hover span, .outlineBtn:active span, .outlineBtn:focus span {
+      color: white;
+      background: white;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: snow; }
+  .outlineBtn span {
+    font-family: "Nekst", sans-serif;
+    font-weight: bold;
+    background: -webkit-linear-gradient(0deg, #009fe6, #00f5f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; }
 
 /*# sourceMappingURL=OutlineBtn.module.css.map */

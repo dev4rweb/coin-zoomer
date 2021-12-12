@@ -1,0 +1,26 @@
+@import "../../../variables";
+
+.graphIncrease{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-image: url(../../../../assets/img/graph-increase-bh.png);
+    -webkit-background-size: cover;
+    background-size: cover;
+    width: 165px;
+    height: 39px;
+    padding-left: 5px;
+
+    img{
+        margin-right: 8px;
+    }
+
+    p{
+        margin-bottom: 0;
+    }
+}
+
+.greenText {
+    color: #7dd75c;
+    font-size: 12px;
+}
