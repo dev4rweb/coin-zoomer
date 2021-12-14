@@ -39,12 +39,23 @@
         justify-content: space-between;
         align-items: center;
 
+        @media screen and (max-width: 1024px){
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+
         .rightSide{
             display: flex;
             flex-direction: column;
             position: relative;
             align-items: center;
             justify-content: center;
+
+            .dogWin{
+                width: 100%;
+            }
+
 
             h2{
                 font-size: 36px;
@@ -64,4 +75,18 @@
 
 .topCoinsSection{
 
+    .cardWrapper{
+        height: 650px;
+        position: relative;
+        overflow: hidden;
+        margin-top: -50px;
+
+        @media screen and (max-width: 1200px){
+            height: 1100px;
+        }
+
+        @media screen and (max-width: 1200px){
+            height: 1700px;
+        }
+    }
 }

@@ -102,12 +102,18 @@ td {
     display: flex;
     justify-content: space-between;
     align-items: center; }
+    @media screen and (max-width: 1024px) {
+      .homePage .tableBlock {
+        flex-wrap: wrap;
+        justify-content: center; } }
     .homePage .tableBlock .rightSide {
       display: flex;
       flex-direction: column;
       position: relative;
       align-items: center;
       justify-content: center; }
+      .homePage .tableBlock .rightSide .dogWin {
+        width: 100%; }
       .homePage .tableBlock .rightSide h2 {
         font-size: 36px;
         position: absolute;
@@ -117,5 +123,17 @@ td {
       .homePage .tableBlock .rightSide .graphWrapper {
         position: absolute;
         top: 365px; }
+
+.topCoinsSection .cardWrapper {
+  height: 650px;
+  position: relative;
+  overflow: hidden;
+  margin-top: -50px; }
+  @media screen and (max-width: 1200px) {
+    .topCoinsSection .cardWrapper {
+      height: 1100px; } }
+  @media screen and (max-width: 1200px) {
+    .topCoinsSection .cardWrapper {
+      height: 1700px; } }
 
 /*# sourceMappingURL=HomePage.module.css.map */

@@ -2,6 +2,10 @@
 
 .simpleTable {
 
+    @media screen and (max-width: 520px){
+        overflow: scroll;
+    }
+
     .coinsCol{
         width: 150px;
     }

@@ -1,0 +1,87 @@
+@import "../../variables";
+
+.topCoins {
+    //width: 355px;
+    width: 677px;
+    //height: 455px;
+    height: 649px;
+}
+
+.header{
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.greenBg {
+    background-image: url(../../../assets/img/green-card.png);
+    position: absolute;
+    left: -120px;
+    @media screen and (max-width: 998px) {
+        left: 55%;
+        transform: translate(-50%, 0);
+    }
+    @media screen and (max-width: 768px) {
+        left: 58%;
+    }
+
+    .contentWrapper {
+        position: relative;
+        width: 355px;
+        height: 455px;
+        margin-left: 125px;
+        margin-top: 90px;
+    }
+}
+
+.pinkBg {
+    background-image: url(../../../assets/img/pink-card.png);
+    position: absolute;
+    left: 47%;
+    transform: translate(-50%, 0);
+
+    @media screen and (max-width: 1200px) {
+        top: 500px;
+    }
+
+    @media screen and (max-width: 998px) {
+        left: 44%;
+    }
+
+    @media screen and (max-width: 480px) {
+        left: 41%;
+    }
+
+    .contentWrapper {
+        position: relative;
+        width: 355px;
+        height: 455px;
+        margin-left: 200px;
+        margin-top: 90px;
+    }
+}
+
+.blueBg {
+    background-image: url(../../../assets/img/blue-card.png);
+    position: absolute;
+    right: -120px;
+    @media screen and (max-width: 998px) {
+        top: 1000px;
+        right: 0;
+        left: 44%;
+        transform: translate(-50%, 0);
+    }
+
+    @media screen and (max-width: 480px) {
+        left: 41%;
+    }
+
+    .contentWrapper {
+        position: relative;
+        width: 355px;
+        height: 455px;
+        margin-left: 200px;
+        margin-top: 90px;
+    }
+}

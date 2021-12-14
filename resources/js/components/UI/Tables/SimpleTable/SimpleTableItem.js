@@ -44,7 +44,7 @@ const SimpleTableItem = ({data, index}) => {
                 </div>
             </td>
             <td>
-                <div>
+                <div style={{paddingRight: '15px'}}>
                     <OutlineBtn>
                         <span>{data.upVotes}</span>
                     </OutlineBtn>

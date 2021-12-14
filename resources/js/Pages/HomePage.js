@@ -12,6 +12,7 @@ import SimpleTable from "../components/UI/Tables/SimpleTable/SimpleTable";
 import dogWin from '../../assets/img/win-dog.png'
 import GraphicIncrease from "../components/UI/GraphicIncrease/GraphicIncrease";
 import SectionSeparator from "../components/UI/SectionSeparator/SectionSeparator";
+import TopCoins from "../components/TopCoins/TopCoins";
 
 const HomePage = ({currentUser, errors}) => {
     const dispatch = useDispatch();
@@ -50,7 +51,7 @@ const HomePage = ({currentUser, errors}) => {
                         <div className={s.tableBlock}>
                             <SimpleTable />
                             <div className={s.rightSide}>
-                                <img src={dogWin} alt="dog"/>
+                                <img className={s.dogWin} src={dogWin} alt="dog"/>
                                 <h2>Coin Name</h2>
                                 <div className={s.graphWrapper}>
                                     <GraphicIncrease />
@@ -60,6 +61,20 @@ const HomePage = ({currentUser, errors}) => {
                     </section>
                     <section className={s.topCoinsSection}>
                         <SectionSeparator sectionName={`Tap coins`} />
+
+                        <div className={s.cardWrapper}>
+                            <TopCoins
+                                title={'Top coins of the 1h'}
+                            />
+                            <TopCoins
+                                title={'Top coins of the 24h'}
+                                classBg={'pink'}
+                            />
+                            <TopCoins
+                                title={'Top coins of the week'}
+                                classBg={'blue'}
+                            />
+                        </div>
                     </section>
                 </Container>
                 {/*<img src={bg} width="100%" alt="bg"/>*/}

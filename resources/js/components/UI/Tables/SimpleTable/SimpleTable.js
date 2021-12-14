@@ -13,7 +13,7 @@ const SimpleTable = () => {
     ]
 
     return (
-        <Table className={s.simpleTable} striped hover variant="dark">
+        <Table className={s.simpleTable} striped hover responsive variant="dark">
             <thead>
             <tr>
                 <th className={s.coinsCol}>Coins</th>
