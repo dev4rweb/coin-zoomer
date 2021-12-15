@@ -29,6 +29,10 @@ body{
     background-color: $body-bg;
 }
 
+main{
+    overflow-x: hidden;
+}
+
 h1 {
     color: white;
     font-size: 48px;

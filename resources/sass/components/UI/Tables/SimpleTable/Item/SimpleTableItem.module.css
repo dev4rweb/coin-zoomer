@@ -8,6 +8,9 @@
 body {
   background-color: #10112d; }
 
+main {
+  overflow-x: hidden; }
+
 h1 {
   color: white;
   font-size: 48px; }
@@ -83,6 +86,15 @@ td {
     .tableItem .coinsCol .coins p {
       margin-bottom: 0;
       font-weight: bold;
+      font-size: 12px; }
+  .tableItem .coinsCol .coinsLong {
+    display: flex;
+    align-items: center; }
+    .tableItem .coinsCol .coinsLong img {
+      margin-right: 10px; }
+    .tableItem .coinsCol .coinsLong p {
+      margin-bottom: 0;
+      color: #a6b2c6;
       font-size: 12px; }
   .tableItem .symbol {
     color: #a6b2c6;

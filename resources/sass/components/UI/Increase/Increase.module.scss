@@ -1,0 +1,17 @@
+@import "../../../variables";
+
+.increase{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    img{
+        margin-right: 8px;
+    }
+
+    p{
+        margin-bottom: 0;
+        color: #7dd75c;
+        font-size: 12px;
+    }
+}

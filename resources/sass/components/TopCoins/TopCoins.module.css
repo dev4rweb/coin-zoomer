@@ -8,6 +8,9 @@
 body {
   background-color: #10112d; }
 
+main {
+  overflow-x: hidden; }
+
 h1 {
   color: white;
   font-size: 48px; }
@@ -82,6 +85,11 @@ td {
   display: flex;
   justify-content: center;
   align-items: center; }
+
+.listContent {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0; }
 
 .greenBg {
   background-image: url(../../../assets/img/green-card.png);

@@ -1,7 +1,8 @@
 import React from 'react';
 import s from '../../../sass/components/TopCoins/TopCoins.module.scss'
+import TopCoinsItem from "./TopCoinsItem";
 
-const TopCoins = ({classBg = 'green', title}) => {
+const TopCoins = ({classBg = 'green', title, data}) => {
     let isClass = s.greenBg
     switch (classBg) {
         case 'pink':
@@ -18,6 +19,13 @@ const TopCoins = ({classBg = 'green', title}) => {
                 <div className={s.header}>
                     <span>Top</span> {title}
                 </div>
+                <ul className={s.listContent}>
+                    {
+                        data && data.map((i, index) =>
+                            <TopCoinsItem key={index} data={i} index={index}/>
+                        )
+                    }
+                </ul>
             </div>
         </div>
     );

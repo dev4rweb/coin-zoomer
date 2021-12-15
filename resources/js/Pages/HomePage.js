@@ -13,9 +13,22 @@ import dogWin from '../../assets/img/win-dog.png'
 import GraphicIncrease from "../components/UI/GraphicIncrease/GraphicIncrease";
 import SectionSeparator from "../components/UI/SectionSeparator/SectionSeparator";
 import TopCoins from "../components/TopCoins/TopCoins";
+import oneImg from '../../assets/img/top_coins/one.png'
+import twoImg from '../../assets/img/top_coins/two.png'
+import threeImg from '../../assets/img/top_coins/three.png'
+import fourImg from '../../assets/img/top_coins/four.png'
+import fiveImg from '../../assets/img/top_coins/five.png'
+import CoinsRateTable from "../components/UI/Tables/CoinsRateTable/CoinsRateTable";
 
 const HomePage = ({currentUser, errors}) => {
     const dispatch = useDispatch();
+    const topCoinsData = [
+        {id: 1, logo: oneImg, name: 'CoinName', isIncrease: true, val: `12.993%`, price: '$ 475.45', isFav: true},
+        {id: 1, logo: twoImg, name: 'CoinName', isIncrease: true, val: `12.993%`, price: '$ 475.45', isFav: true},
+        {id: 1, logo: threeImg, name: 'CoinName', isIncrease: true, val: `12.993%`, price: '$ 475.45', isFav: true},
+        {id: 1, logo: fourImg, name: 'CoinName', isIncrease: true, val: `12.993%`, price: '$ 475.45', isFav: false},
+        {id: 1, logo: fiveImg, name: 'CoinName', isIncrease: true, val: `12.993%`, price: '$ 475.45', isFav: false},
+    ]
 
     useEffect(() => {
         dispatch(setCurrentUserAction(currentUser))
@@ -65,15 +78,25 @@ const HomePage = ({currentUser, errors}) => {
                         <div className={s.cardWrapper}>
                             <TopCoins
                                 title={'Top coins of the 1h'}
+                                data={topCoinsData}
                             />
                             <TopCoins
                                 title={'Top coins of the 24h'}
                                 classBg={'pink'}
+                                data={topCoinsData}
                             />
                             <TopCoins
                                 title={'Top coins of the week'}
                                 classBg={'blue'}
+                                data={topCoinsData}
                             />
+                        </div>
+                    </section>
+
+                    <section className={s.coinsRateSection}>
+                        <SectionSeparator sectionName={`Coins rate`} />
+                        <div className={s.coinsTableWrapper}>
+                            <CoinsRateTable />
                         </div>
                     </section>
                 </Container>

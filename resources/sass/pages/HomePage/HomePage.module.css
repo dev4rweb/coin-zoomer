@@ -8,6 +8,9 @@
 body {
   background-color: #10112d; }
 
+main {
+  overflow-x: hidden; }
+
 h1 {
   color: white;
   font-size: 48px; }
@@ -127,7 +130,6 @@ td {
 .topCoinsSection .cardWrapper {
   height: 650px;
   position: relative;
-  overflow: hidden;
   margin-top: -50px; }
   @media screen and (max-width: 1200px) {
     .topCoinsSection .cardWrapper {
@@ -135,5 +137,9 @@ td {
   @media screen and (max-width: 1200px) {
     .topCoinsSection .cardWrapper {
       height: 1700px; } }
+
+.coinsRateSection .coinsTableWrapper {
+  margin-top: 50px;
+  margin-bottom: 80px; }
 
 /*# sourceMappingURL=HomePage.module.css.map */

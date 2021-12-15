@@ -14,6 +14,12 @@
     align-items: center;
 }
 
+.listContent{
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
 .greenBg {
     background-image: url(../../../assets/img/green-card.png);
     position: absolute;

@@ -1,7 +1,6 @@
 // Fonts
 //@import url('https://fonts.googleapis.com/css?family=Nunito');
 
-
 // Bootstrap
 //@import '~bootstrap/scss/bootstrap';
 @import '../../node_modules/bootstrap/scss/bootstrap';
@@ -123,6 +122,20 @@
         box-shadow: #00f5f6 0px 0px 25px 10px;
     }
 }
+
+.fill-btn {
+    box-shadow: none;
+
+    &:hover, &:active, &:focus {
+        color: white;
+        -webkit-transform: none;
+        -moz-transform: none;
+        -ms-transform: none;
+        -o-transform: none;
+        transform: none;
+    }
+}
+
 
 .table-dark {
     --bs-table-bg: #1d2147;

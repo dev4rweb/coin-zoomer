@@ -8688,6 +8688,9 @@ textarea.form-control-lg {
 body {
   background-color: #10112d; }
 
+main {
+  overflow-x: hidden; }
+
 h1, .h1 {
   color: white;
   font-size: 48px; }
@@ -8849,6 +8852,16 @@ td {
     -o-transform: scale(1.2, 1.2);
     transform: scale(1.2, 1.2);
     box-shadow: #00f5f6 0px 0px 25px 10px; }
+
+.fill-btn {
+  box-shadow: none; }
+  .fill-btn:hover, .fill-btn:active, .fill-btn:focus {
+    color: white;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none; }
 
 .table-dark {
   --bs-table-bg: #1d2147;

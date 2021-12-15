@@ -19,6 +19,20 @@
                 font-size: 12px;
             }
         }
+
+        .coinsLong{
+            display: flex;
+            align-items: center;
+            img{
+                margin-right: 10px;
+            }
+
+            p{
+                margin-bottom: 0;
+                color: $color-one;
+                font-size: 12px;
+            }
+        }
     }
 
     .symbol{

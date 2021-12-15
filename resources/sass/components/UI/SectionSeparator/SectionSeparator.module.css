@@ -8,6 +8,9 @@
 body {
   background-color: #10112d; }
 
+main {
+  overflow-x: hidden; }
+
 h1 {
   color: white;
   font-size: 48px; }
@@ -80,6 +83,7 @@ td {
   align-items: center;
   position: relative; }
   .sectionSeparator p {
-    margin-top: -20px; }
+    margin-top: -20px;
+    color: #a6b2c6; }
 
 /*# sourceMappingURL=SectionSeparator.module.css.map */
