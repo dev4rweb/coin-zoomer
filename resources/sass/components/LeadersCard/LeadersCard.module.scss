@@ -1,0 +1,39 @@
+@import "../../variables";
+
+.leadersCard{
+    width: 412px;
+    height: 298px;
+    background-image: url(../../../assets/img/leaders-card.png);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .wrapper{
+        width: 350px;
+        height: 230px;
+        margin-right: 20px;
+        margin-bottom: 20px;
+        .header {
+            height: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            color: white;
+        }
+
+        .listContent{
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 0;
+        }
+    }
+}
+
+
+.striped{
+    background-image: url(../../../assets/img/leaders-str-line.png);
+    width: 412px;
+    height: 114px;
+}

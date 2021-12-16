@@ -3,6 +3,7 @@ import s from '../../sass/components/Layout.module.scss'
 import NavBar from "./NavBar";
 import Messages from "./UI/Messages/Messages";
 import MobNavBar from "./UI/MobNavBar/MobNavBar";
+import Footer from "./Footer/Footer";
 
 const Layout = ({children}) => {
     return (
@@ -21,6 +22,7 @@ const Layout = ({children}) => {
             <main>
                 {children}
             </main>
+            <Footer />
             <Messages/>
         </div>
     );

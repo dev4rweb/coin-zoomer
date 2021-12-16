@@ -30,6 +30,31 @@
     }
 }
 
+footer {
+    .nav-link {
+        border: none;
+        background: none;
+        border-top: 1px solid transparent;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-shadow: 0px 3px 7px rgba(0, 0, 0, 0.56);
+        -webkit-transition: all .3s;
+        -moz-transition: all .3s;
+        -ms-transition: all .3s;
+        -o-transition: all .3s;
+        transition: all .3s;
+
+        &:hover, &.active {
+            background: linear-gradient(0deg, rgb(0, 155, 247), rgb(0, 176, 150)) 30% 30%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            border-image: linear-gradient(0deg, rgb(0, 155, 247), rgb(0, 176, 150)) 30% 30%;
+        }
+    }
+}
+
 .navbar-dark, .bg-dark {
     background: linear-gradient(90deg, rgb(36, 41, 81) 0%, rgb(17, 20, 44) 100%);
     background-image: -moz-linear-gradient(90deg, rgb(36, 41, 81) 0%, rgb(17, 20, 44) 100%);
@@ -136,6 +161,29 @@
     }
 }
 
+.btn-outline-secondary {
+    color: $color-one;
+    border-color: $color-one;
+}
+
+.btn-check:checked + .btn-outline-secondary {
+    background: none;
+    color: $color-four;
+    border-bottom-color: $color-four;
+}
+
+.btn-outline-light {
+    color: $color-one;
+    border-color: $color-one;
+}
+
+.btn-check:checked + .btn-outline-light {
+    color: $color-four;
+    border-color: $color-four;
+    background: none;
+}
+
+
 
 .table-dark {
     --bs-table-bg: #1d2147;
@@ -153,4 +201,15 @@
     border-color: transparent;
     //box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.form-control{
+    background: none;
+    border: none;
+    color: $color-one;
+    &:hover, &:active, &:focus{
+        background: none;
+        border: none;
+        color: $color-one;
+    }
 }

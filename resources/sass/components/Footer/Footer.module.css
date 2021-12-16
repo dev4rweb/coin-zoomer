@@ -1,0 +1,93 @@
+/*@font-face {
+    font-family: NekstRegular;
+    src: url(../assets/fonts/Nekst-Regular.ttf);
+}*/
+* {
+  font-family: "Nekst", sans-serif; }
+
+body {
+  background-color: #10112d; }
+
+main {
+  overflow-x: hidden; }
+
+h1 {
+  color: white;
+  font-size: 48px; }
+
+h2 {
+  color: white;
+  font-size: 24px;
+  font-weight: bold; }
+
+h3 {
+  color: white;
+  font-size: 16px; }
+
+h4 {
+  color: white;
+  font-size: 14px; }
+
+h5 {
+  color: white;
+  font-size: 12px;
+  font-weight: bold; }
+
+p {
+  font-size: 12px;
+  color: white;
+  font-family: "Nekst", sans-serif; }
+
+.table > :not(:first-child) {
+  border-top: none; }
+
+.table > thead {
+  height: 40px;
+  color: #a6b2c6;
+  font-weight: bold;
+  font-size: 12px;
+  text-align: center; }
+
+td {
+  font-size: 12px; }
+  td > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px; }
+
+.gradient-purple {
+  background-image: -moz-linear-gradient(-90deg, #2a3072 0%, #565fb0 100%);
+  background-image: -webkit-linear-gradient(-90deg, #2a3072 0%, #565fb0 100%);
+  background-image: -ms-linear-gradient(-90deg, #2a3072 0%, #565fb0 100%); }
+
+.gradient-green {
+  background-image: -moz-linear-gradient(-38deg, #1c5163 0%, #2ef098 100%);
+  background-image: -webkit-linear-gradient(-38deg, #1c5163 0%, #2ef098 100%);
+  background-image: -ms-linear-gradient(-38deg, #1c5163 0%, #2ef098 100%); }
+
+.gradient-red {
+  background-image: -moz-linear-gradient(-38deg, #4b2d73 0%, #e0258c 100%);
+  background-image: -webkit-linear-gradient(-38deg, #4b2d73 0%, #e0258c 100%);
+  background-image: -ms-linear-gradient(-38deg, #4b2d73 0%, #e0258c 100%); }
+
+.gradient-blue {
+  background-image: -moz-linear-gradient(-38deg, #2e3a82 0%, #2871ab 100%);
+  background-image: -webkit-linear-gradient(-38deg, #2e3a82 0%, #2871ab 100%);
+  background-image: -ms-linear-gradient(-38deg, #2e3a82 0%, #2871ab 100%); }
+
+.footer {
+  margin-top: -40px;
+  color: white; }
+  .footer .footerBorder {
+    height: 2px;
+    background-image: url(../../../assets/img/footer-border.png); }
+  .footer .footerContent {
+    min-height: 59px;
+    background-image: url(../../../assets/img/footer-bg.png);
+    background-size: cover; }
+    .footer .footerContent .navWrapper {
+      display: flex;
+      justify-content: space-between; }
+
+/*# sourceMappingURL=Footer.module.css.map */

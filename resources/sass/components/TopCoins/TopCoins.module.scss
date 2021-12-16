@@ -12,6 +12,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 16px;
+    color: white;
+
+    span{
+        color: $color-four;
+        margin-right: 5px;
+    }
 }
 
 .listContent{

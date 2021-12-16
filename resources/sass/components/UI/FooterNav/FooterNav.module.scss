@@ -1,0 +1,38 @@
+@import "../../../variables";
+
+.footerNav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media screen and (max-width: 998px) {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    @media screen and (max-width: 525px) {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    a {
+        color: white;
+    }
+
+    .navBar {
+        display: flex;
+
+        .menuWrapper {
+            display: flex;
+            justify-self: flex-end;
+            width: 250px;
+            justify-content: space-between;
+            align-items: center;
+
+            @media screen and (max-width: 388px) {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    }
+}

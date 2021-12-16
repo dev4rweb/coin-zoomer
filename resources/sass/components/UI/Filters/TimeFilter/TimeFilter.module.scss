@@ -1,0 +1,46 @@
+@import "../../../../variables";
+
+.timeFilter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .medal {
+        margin-right: 15px;
+    }
+
+    .content {
+        .title {
+            color: $color-one;
+            margin-bottom: 5px;
+
+            .blue{
+                color: $color-four;
+            }
+        }
+
+        .radioBtnGroup {
+            color: red;
+
+            .radioBtn {
+            }
+
+            .radioBtnFirst{
+                border-top-left-radius: 5px;
+                border-bottom-left-radius: 5px;
+                border-right: none;
+            }
+
+            .radioBtnSecond{
+                border-left: none;
+                border-right: none;
+            }
+
+            .radioBtnThird{
+                border-top-right-radius: 5px;
+                border-bottom-right-radius: 5px;
+                border-left: none;
+            }
+        }
+    }
+}

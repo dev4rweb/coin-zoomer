@@ -6,8 +6,9 @@ import Increase from "../UI/Increase/Increase";
 
 const TopCoinsItem = ({data, index}) => {
 
+
     return (
-        <li className={s.coinItem}>
+        <li className={`${s.coinItem}`}>
             <span className={s.num}>{index + 1}</span>
             <div className={s.content}>
                 <img src={data.logo} alt="logo"/>

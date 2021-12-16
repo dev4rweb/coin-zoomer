@@ -1,0 +1,22 @@
+@import "../../variables";
+
+.footer{
+    margin-top: -40px;
+    color: white;
+
+    .footerBorder{
+        height: 2px;
+        background-image: url(../../../assets/img/footer-border.png);
+    }
+
+    .footerContent {
+        min-height: 59px;
+        background-image: url(../../../assets/img/footer-bg.png);
+        background-size: cover;
+
+        .navWrapper{
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}

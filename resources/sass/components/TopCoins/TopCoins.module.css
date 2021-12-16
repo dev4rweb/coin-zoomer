@@ -84,7 +84,12 @@ td {
   height: 70px;
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  font-size: 16px;
+  color: white; }
+  .header span {
+    color: #0dcaf0;
+    margin-right: 5px; }
 
 .listContent {
   list-style: none;

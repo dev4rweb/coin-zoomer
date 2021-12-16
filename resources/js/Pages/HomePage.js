@@ -19,15 +19,25 @@ import threeImg from '../../assets/img/top_coins/three.png'
 import fourImg from '../../assets/img/top_coins/four.png'
 import fiveImg from '../../assets/img/top_coins/five.png'
 import CoinsRateTable from "../components/UI/Tables/CoinsRateTable/CoinsRateTable";
+import TimeFilter from "../components/UI/Filters/TimeFilter/TimeFilter";
+import CategoryFilter from "../components/UI/Filters/CategoryFilter/CategoryFilter";
+import Searching from "../components/UI/Filters/Searching/Searching";
+import LeadersCard from "../components/LeadersCard/LeadersCard";
+import SubscribeBlock from "../components/SubscribeBlock/SubscribeBlock";
 
 const HomePage = ({currentUser, errors}) => {
     const dispatch = useDispatch();
     const topCoinsData = [
         {id: 1, logo: oneImg, name: 'CoinName', isIncrease: true, val: `12.993%`, price: '$ 475.45', isFav: true},
-        {id: 1, logo: twoImg, name: 'CoinName', isIncrease: true, val: `12.993%`, price: '$ 475.45', isFav: true},
-        {id: 1, logo: threeImg, name: 'CoinName', isIncrease: true, val: `12.993%`, price: '$ 475.45', isFav: true},
-        {id: 1, logo: fourImg, name: 'CoinName', isIncrease: true, val: `12.993%`, price: '$ 475.45', isFav: false},
-        {id: 1, logo: fiveImg, name: 'CoinName', isIncrease: true, val: `12.993%`, price: '$ 475.45', isFav: false},
+        {id: 2, logo: twoImg, name: 'CoinName', isIncrease: true, val: `12.993%`, price: '$ 475.45', isFav: true},
+        {id: 3, logo: threeImg, name: 'CoinName', isIncrease: true, val: `12.993%`, price: '$ 475.45', isFav: true},
+        {id: 4, logo: fourImg, name: 'CoinName', isIncrease: true, val: `12.993%`, price: '$ 475.45', isFav: false},
+        {id: 5, logo: fiveImg, name: 'CoinName', isIncrease: true, val: `12.993%`, price: '$ 475.45', isFav: false},
+    ]
+
+    const leadersData =[
+        {id: 1, logo: oneImg, name: 'CoinName', isIncrease: true, val: `12.993%`, price: '$ 475.45', isFav: true},
+        {id: 2, logo: twoImg, name: 'CoinName', isIncrease: true, val: `12.993%`, price: '$ 475.45', isFav: true},
     ]
 
     useEffect(() => {
@@ -77,16 +87,16 @@ const HomePage = ({currentUser, errors}) => {
 
                         <div className={s.cardWrapper}>
                             <TopCoins
-                                title={'Top coins of the 1h'}
+                                title={'coins of the 1h'}
                                 data={topCoinsData}
                             />
                             <TopCoins
-                                title={'Top coins of the 24h'}
+                                title={'coins of the 24h'}
                                 classBg={'pink'}
                                 data={topCoinsData}
                             />
                             <TopCoins
-                                title={'Top coins of the week'}
+                                title={'coins of the week'}
                                 classBg={'blue'}
                                 data={topCoinsData}
                             />
@@ -98,8 +108,31 @@ const HomePage = ({currentUser, errors}) => {
                         <div className={s.coinsTableWrapper}>
                             <CoinsRateTable />
                         </div>
+                        <div className={s.filterTableWrapper}>
+                            <div className={s.filterWrapper}>
+                                <TimeFilter />
+                                <CategoryFilter/>
+                                <Searching />
+                            </div>
+                            <CoinsRateTable />
+                        </div>
                     </section>
+
+
                 </Container>
+                <section className={s.cardsSection}>
+                    <Container className={s.wrapper}>
+                        <LeadersCard
+                            title={`Leaders of 24 hours`}
+                            data={leadersData}
+                        />
+                        <LeadersCard
+                            title={`Leaders of 124 hours`}
+                            data={leadersData}
+                        />
+                        <SubscribeBlock />
+                    </Container>
+                </section>
                 {/*<img src={bg} width="100%" alt="bg"/>*/}
             </div>
         </Layout>

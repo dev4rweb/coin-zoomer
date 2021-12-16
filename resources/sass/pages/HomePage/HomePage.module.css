@@ -127,6 +127,9 @@ td {
         position: absolute;
         top: 365px; }
 
+@media screen and (max-width: 525px) {
+  .topCoinsSection {
+    overflow-x: hidden; } }
 .topCoinsSection .cardWrapper {
   height: 650px;
   position: relative;
@@ -138,8 +141,35 @@ td {
     .topCoinsSection .cardWrapper {
       height: 1700px; } }
 
-.coinsRateSection .coinsTableWrapper {
-  margin-top: 50px;
-  margin-bottom: 80px; }
+.coinsRateSection {
+  margin-bottom: 50px; }
+  .coinsRateSection .coinsTableWrapper {
+    margin-top: 20px;
+    margin-bottom: 80px; }
+  .coinsRateSection .filterTableWrapper .filterWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px; }
+    @media screen and (max-width: 1200px) {
+      .coinsRateSection .filterTableWrapper .filterWrapper {
+        flex-wrap: wrap;
+        justify-content: center; } }
+
+.cardsSection {
+  min-height: 450px;
+  height: 100%;
+  background-image: url(../../../assets/img/card-section-bg.png);
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .cardsSection .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+    @media screen and (max-width: 1200px) {
+      .cardsSection .wrapper {
+        flex-wrap: wrap;
+        justify-content: center; } }
 
 /*# sourceMappingURL=HomePage.module.css.map */

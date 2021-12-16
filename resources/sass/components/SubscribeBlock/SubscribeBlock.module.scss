@@ -1,0 +1,29 @@
+@import "../../variables";
+
+.subscribe {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 60px;
+
+    .text{
+        max-width: 280px;
+        margin-bottom: 25px;
+        color: $color-one;
+    }
+
+    .inputGroup{
+        display: flex;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        border: 1px solid $color-one;
+        padding: 1px;
+    }
+
+    .btn{
+        font-weight: 500;
+        text-transform: capitalize;
+    }
+}

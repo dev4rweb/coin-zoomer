@@ -74,6 +74,9 @@
 }
 
 .topCoinsSection{
+    @media screen and (max-width: 525px){
+        overflow-x: hidden;
+    }
 
     .cardWrapper{
         height: 650px;
@@ -91,9 +94,45 @@
 }
 
 .coinsRateSection{
+    margin-bottom: 50px;
 
     .coinsTableWrapper{
-        margin-top: 50px;
+        margin-top: 20px;
         margin-bottom: 80px;
+    }
+
+    .filterTableWrapper{
+
+        .filterWrapper{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+
+            @media screen and (max-width: 1200px){
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    }
+}
+
+.cardsSection{
+    min-height: 450px;
+    height: 100%;
+    background-image: url(../../../assets/img/card-section-bg.png);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .wrapper{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @media screen and (max-width: 1200px){
+            flex-wrap: wrap;
+            justify-content: center;
+        }
     }
 }

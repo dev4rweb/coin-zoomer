@@ -1,0 +1,42 @@
+@import "../../../../variables";
+
+.searching {
+    .title {
+        color: $color-one;
+        margin-bottom: 5px;
+    }
+
+    .form {
+        border: 1px solid $color-one;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+
+        .inputSearch {
+            background: none;
+            border: none;
+            color: $color-one;
+
+            &:hover, &:active, &:focus {
+                background: none;
+                border: none;
+                box-shadow: none;
+            }
+        }
+
+        .btnSearch {
+            border: none;
+
+            &:hover, &:active, &:focus {
+                background: none;
+                border: none;
+                box-shadow: none;
+            }
+
+            img {
+                width: 22px;
+                height: 22px;
+            }
+        }
+    }
+}

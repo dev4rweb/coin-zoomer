@@ -1,0 +1,25 @@
+@import "../../variables";
+
+.socialBlock {
+    display: flex;
+    width: 100%;
+    max-width: 250px;
+    justify-content: space-between;
+    align-items: center;
+
+    .social {
+        -webkit-transition: all .3s;
+        -moz-transition: all .3s;
+        -ms-transition: all .3s;
+        -o-transition: all .3s;
+        transition: all .3s;
+
+        &:hover {
+            -webkit-transform: scale(1.2, 1.2);
+            -moz-transform: scale(1.2, 1.2);
+            -ms-transform: scale(1.2, 1.2);
+            -o-transform: scale(1.2, 1.2);
+            transform: scale(1.2, 1.2);
+        }
+    }
+}
