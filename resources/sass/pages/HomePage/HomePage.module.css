@@ -54,7 +54,7 @@ td {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 60px; }
+    min-height: 60px; }
 
 .gradient-purple {
   background-image: -moz-linear-gradient(-90deg, #2a3072 0%, #565fb0 100%);
@@ -153,22 +153,6 @@ td {
     margin-bottom: 30px; }
     @media screen and (max-width: 1200px) {
       .coinsRateSection .filterTableWrapper .filterWrapper {
-        flex-wrap: wrap;
-        justify-content: center; } }
-
-.cardsSection {
-  min-height: 450px;
-  height: 100%;
-  background-image: url(../../../assets/img/card-section-bg.png);
-  display: flex;
-  justify-content: center;
-  align-items: center; }
-  .cardsSection .wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center; }
-    @media screen and (max-width: 1200px) {
-      .cardsSection .wrapper {
         flex-wrap: wrap;
         justify-content: center; } }
 

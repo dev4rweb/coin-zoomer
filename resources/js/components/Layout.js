@@ -4,6 +4,7 @@ import NavBar from "./NavBar";
 import Messages from "./UI/Messages/Messages";
 import MobNavBar from "./UI/MobNavBar/MobNavBar";
 import Footer from "./Footer/Footer";
+import OutlineBtn from "./UI/OutlineBtn/OutlineBtn";
 
 const Layout = ({children}) => {
     return (

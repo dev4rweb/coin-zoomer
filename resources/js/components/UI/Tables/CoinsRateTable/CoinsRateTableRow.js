@@ -1,7 +1,5 @@
 import React from 'react';
 import s from "../../../../../sass/components/UI/Tables/SimpleTable/Item/SimpleTableItem.module.scss";
-import coinLogo from "../../../../../assets/img/coin-logo.png";
-import iconUp from "../../../../../assets/img/icon-up.png";
 import OutlineBtn from "../../OutlineBtn/OutlineBtn";
 import GraphicIncrease from "../../GraphicIncrease/GraphicIncrease";
 import {Button} from "react-bootstrap";
@@ -11,7 +9,7 @@ const CoinsRateTableRow = ({data}) => {
     return (
         <tr className={s.tableItem}>
             <td className={s.coinsCol}>
-                <div className={s.coinsLong}>
+                <div className={s.coinsLong} >
                     <img src={data.logo} alt="coin"/>
                     <p>{data.name}</p>
                 </div>

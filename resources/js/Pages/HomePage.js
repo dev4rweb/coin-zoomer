@@ -24,6 +24,7 @@ import CategoryFilter from "../components/UI/Filters/CategoryFilter/CategoryFilt
 import Searching from "../components/UI/Filters/Searching/Searching";
 import LeadersCard from "../components/LeadersCard/LeadersCard";
 import SubscribeBlock from "../components/SubscribeBlock/SubscribeBlock";
+import LeadersSubscribeBlock from "../components/LeadersSubscribeBlock/LeadersSubscribeBlock";
 
 const HomePage = ({currentUser, errors}) => {
     const dispatch = useDispatch();
@@ -33,11 +34,6 @@ const HomePage = ({currentUser, errors}) => {
         {id: 3, logo: threeImg, name: 'CoinName', isIncrease: true, val: `12.993%`, price: '$ 475.45', isFav: true},
         {id: 4, logo: fourImg, name: 'CoinName', isIncrease: true, val: `12.993%`, price: '$ 475.45', isFav: false},
         {id: 5, logo: fiveImg, name: 'CoinName', isIncrease: true, val: `12.993%`, price: '$ 475.45', isFav: false},
-    ]
-
-    const leadersData =[
-        {id: 1, logo: oneImg, name: 'CoinName', isIncrease: true, val: `12.993%`, price: '$ 475.45', isFav: true},
-        {id: 2, logo: twoImg, name: 'CoinName', isIncrease: true, val: `12.993%`, price: '$ 475.45', isFav: true},
     ]
 
     useEffect(() => {
@@ -120,20 +116,7 @@ const HomePage = ({currentUser, errors}) => {
 
 
                 </Container>
-                <section className={s.cardsSection}>
-                    <Container className={s.wrapper}>
-                        <LeadersCard
-                            title={`Leaders of 24 hours`}
-                            data={leadersData}
-                        />
-                        <LeadersCard
-                            title={`Leaders of 124 hours`}
-                            data={leadersData}
-                        />
-                        <SubscribeBlock />
-                    </Container>
-                </section>
-                {/*<img src={bg} width="100%" alt="bg"/>*/}
+                <LeadersSubscribeBlock />
             </div>
         </Layout>
     );

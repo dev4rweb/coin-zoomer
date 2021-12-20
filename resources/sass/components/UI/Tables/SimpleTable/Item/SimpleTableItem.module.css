@@ -54,7 +54,7 @@ td {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 60px; }
+    min-height: 60px; }
 
 .gradient-purple {
   background-image: -moz-linear-gradient(-90deg, #2a3072 0%, #565fb0 100%);
@@ -77,7 +77,7 @@ td {
   background-image: -ms-linear-gradient(-38deg, #2e3a82 0%, #2871ab 100%); }
 
 .tableItem {
-  height: 65px; }
+  min-height: 65px; }
   .tableItem .coinsCol .coins {
     display: flex;
     align-items: center; }
@@ -96,9 +96,27 @@ td {
       margin-bottom: 0;
       color: #a6b2c6;
       font-size: 12px; }
+  .tableItem .coinsCol .coinsStatus {
+    display: flex;
+    padding-left: 20px;
+    align-items: flex-start; }
+    .tableItem .coinsCol .coinsStatus img {
+      margin-right: 10px; }
+    .tableItem .coinsCol .coinsStatus p {
+      margin-bottom: 0;
+      color: #a6b2c6;
+      font-size: 12px; }
   .tableItem .symbol {
     color: #a6b2c6;
     font-size: 12px; }
+  .tableItem .endDate .text {
+    color: #a6b2c6; }
+  .tableItem .endDate .line {
+    width: 32px;
+    height: 3px;
+    background-color: #a6b2c6; }
+  .tableItem .text {
+    color: #a6b2c6; }
 
 .greenCol {
   display: flex;

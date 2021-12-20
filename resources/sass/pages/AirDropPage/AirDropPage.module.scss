@@ -1,0 +1,33 @@
+@import "../../variables";
+
+.airDropPage {
+
+    .airDropMain {
+        min-height: 1000px;
+        background-image: url(../../../assets/img/air-drop-page-bg.png);
+        -webkit-background-size: cover;
+        background-size: cover;
+
+        .airDropWrapper{
+            margin-top: 30px;
+
+            .medalWrapper{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 35px;
+                margin-bottom: 50px;
+
+                .medalText{
+                    color: $color-one;
+                    font-weight: 500;
+                    font-size: 12px;
+                }
+            }
+
+            .tableWrapper{
+                padding-bottom: 70px;
+            }
+        }
+    }
+}

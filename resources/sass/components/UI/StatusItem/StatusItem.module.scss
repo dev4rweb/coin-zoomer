@@ -1,0 +1,35 @@
+@import "../../../variables";
+
+.statusActive {
+    border: 1px solid #7dd75c;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+
+    span{
+        color: #7dd75c;
+        font-weight: 500;
+        font-size: 12px;
+    }
+}
+
+.statusInactive {
+    border: 1px solid #d73c3c;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+
+    span{
+        color: #d73c3c;
+        font-weight: 500;
+        font-size: 12px;
+    }
+}

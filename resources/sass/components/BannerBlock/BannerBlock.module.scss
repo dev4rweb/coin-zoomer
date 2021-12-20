@@ -1,0 +1,24 @@
+@import "../../variables";
+
+.banners{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+
+    .banner{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #202447;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px;
+        height: 62px;
+        width: 100%;
+        max-width: 350px;
+
+        p{
+            margin-bottom: 0;
+        }
+    }
+}
