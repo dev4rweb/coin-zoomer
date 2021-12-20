@@ -85,7 +85,7 @@ td {
   .navBar .authWrapper {
     display: flex;
     justify-self: flex-end;
-    width: 250px;
+    width: 300px;
     justify-content: space-between;
     align-items: center; }
 
