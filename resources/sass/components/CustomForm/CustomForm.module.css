@@ -76,30 +76,4 @@ td {
   background-image: -webkit-linear-gradient(-38deg, #2e3a82 0%, #2871ab 100%);
   background-image: -ms-linear-gradient(-38deg, #2e3a82 0%, #2871ab 100%); }
 
-.banners {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 30px; }
-  @media screen and (max-width: 480px) {
-    .banners {
-      flex-direction: column;
-      justify-content: center;
-      align-items: center; } }
-  .banners .banner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #202447;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    border-radius: 2px;
-    height: 62px;
-    width: 100%;
-    max-width: 350px; }
-    @media screen and (max-width: 480px) {
-      .banners .banner {
-        margin-bottom: 20px; } }
-    .banners .banner p {
-      margin-bottom: 0; }
-
-/*# sourceMappingURL=BannerBlock.module.css.map */
+/*# sourceMappingURL=CustomForm.module.css.map */

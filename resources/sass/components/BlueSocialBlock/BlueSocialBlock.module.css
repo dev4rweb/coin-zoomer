@@ -76,30 +76,28 @@ td {
   background-image: -webkit-linear-gradient(-38deg, #2e3a82 0%, #2871ab 100%);
   background-image: -ms-linear-gradient(-38deg, #2e3a82 0%, #2871ab 100%); }
 
-.banners {
+.socialBlock {
+  width: 100%;
+  max-width: 560px;
   display: flex;
   justify-content: space-between;
-  margin-top: 30px; }
-  @media screen and (max-width: 480px) {
-    .banners {
-      flex-direction: column;
-      justify-content: center;
-      align-items: center; } }
-  .banners .banner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #202447;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    border-radius: 2px;
-    height: 62px;
+  align-items: center;
+  flex-wrap: wrap; }
+  .socialBlock .social {
     width: 100%;
-    max-width: 350px; }
-    @media screen and (max-width: 480px) {
-      .banners .banner {
-        margin-bottom: 20px; } }
-    .banners .banner p {
-      margin-bottom: 0; }
+    max-width: 92px;
+    height: auto;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s; }
+    .socialBlock .social:hover {
+      cursor: pointer;
+      -webkit-transform: scale(1.2, 1.2);
+      -moz-transform: scale(1.2, 1.2);
+      -ms-transform: scale(1.2, 1.2);
+      -o-transform: scale(1.2, 1.2);
+      transform: scale(1.2, 1.2); }
 
-/*# sourceMappingURL=BannerBlock.module.css.map */
+/*# sourceMappingURL=BlueSocialBlock.module.css.map */
