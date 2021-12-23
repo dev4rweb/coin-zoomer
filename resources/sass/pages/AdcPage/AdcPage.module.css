@@ -1,0 +1,135 @@
+/*@font-face {
+    font-family: NekstRegular;
+    src: url(../assets/fonts/Nekst-Regular.ttf);
+}*/
+* {
+  font-family: "Nekst", sans-serif; }
+
+body {
+  background-color: #10112d; }
+
+main {
+  overflow-x: hidden; }
+
+h1 {
+  color: white;
+  font-size: 48px; }
+
+h2 {
+  color: white;
+  font-size: 24px;
+  font-weight: bold; }
+
+h3 {
+  color: white;
+  font-size: 16px; }
+
+h4 {
+  color: white;
+  font-size: 14px; }
+
+h5 {
+  color: white;
+  font-size: 12px;
+  font-weight: bold; }
+
+p {
+  font-size: 12px;
+  color: white;
+  font-family: "Nekst", sans-serif; }
+
+.table > :not(:first-child) {
+  border-top: none; }
+
+.table > thead {
+  height: 40px;
+  color: #a6b2c6;
+  font-weight: bold;
+  font-size: 12px;
+  text-align: center; }
+
+td {
+  font-size: 12px; }
+  td > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60px; }
+
+.gradient-purple {
+  background-image: -moz-linear-gradient(-90deg, #2a3072 0%, #565fb0 100%);
+  background-image: -webkit-linear-gradient(-90deg, #2a3072 0%, #565fb0 100%);
+  background-image: -ms-linear-gradient(-90deg, #2a3072 0%, #565fb0 100%); }
+
+.gradient-green {
+  background-image: -moz-linear-gradient(-38deg, #1c5163 0%, #2ef098 100%);
+  background-image: -webkit-linear-gradient(-38deg, #1c5163 0%, #2ef098 100%);
+  background-image: -ms-linear-gradient(-38deg, #1c5163 0%, #2ef098 100%); }
+
+.gradient-red {
+  background-image: -moz-linear-gradient(-38deg, #4b2d73 0%, #e0258c 100%);
+  background-image: -webkit-linear-gradient(-38deg, #4b2d73 0%, #e0258c 100%);
+  background-image: -ms-linear-gradient(-38deg, #4b2d73 0%, #e0258c 100%); }
+
+.gradient-blue {
+  background-image: -moz-linear-gradient(-38deg, #2e3a82 0%, #2871ab 100%);
+  background-image: -webkit-linear-gradient(-38deg, #2e3a82 0%, #2871ab 100%);
+  background-image: -ms-linear-gradient(-38deg, #2e3a82 0%, #2871ab 100%); }
+
+.adcPage {
+  min-height: 1000px;
+  background-image: url(../../../assets/img/air-drop-page-bg.png);
+  -webkit-background-size: cover;
+  background-size: cover; }
+  .adcPage .needBoostSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 85px;
+    margin-bottom: 70px; }
+    @media screen and (max-width: 1200px) {
+      .adcPage .needBoostSection {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; } }
+    .adcPage .needBoostSection .leftSide {
+      position: relative; }
+      .adcPage .needBoostSection .leftSide img {
+        margin-bottom: -50px;
+        width: 100%;
+        max-width: 479px; }
+        @media screen and (max-width: 1200px) {
+          .adcPage .needBoostSection .leftSide img {
+            margin-bottom: 50px; } }
+    .adcPage .needBoostSection .rightSide {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 603px; }
+      .adcPage .needBoostSection .rightSide .medalWrapper {
+        margin-left: -75px;
+        margin-bottom: -15px; }
+        @media screen and (max-width: 1200px) {
+          .adcPage .needBoostSection .rightSide .medalWrapper {
+            margin-left: 0;
+            margin-bottom: 0px; } }
+      .adcPage .needBoostSection .rightSide p {
+        color: #a6b2c6; }
+      .adcPage .needBoostSection .rightSide .graphic {
+        width: 100%;
+        max-width: 603px; }
+  .adcPage .promoteSection {
+    margin-bottom: 100px; }
+    .adcPage .promoteSection .cardWrapper {
+      margin-top: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end; }
+      @media screen and (max-width: 998px) {
+        .adcPage .promoteSection .cardWrapper {
+          flex-direction: column;
+          justify-content: center;
+          align-items: center; } }
+
+/*# sourceMappingURL=AdcPage.module.css.map */
