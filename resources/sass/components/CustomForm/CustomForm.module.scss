@@ -1,10 +1,34 @@
 @import "../../variables";
 
 .customForm {
-    .title {
+    width: 100%;
+    background-color: $color-two;
+    min-height: 500px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 5px 5px 5px 5px #000000;
+    box-shadow: 5px 5px 5px 5px #000000;
+    margin-bottom: 20px;
 
+    p {
+        font-size: 16px;
     }
-    .body{
 
+    .title {
+        background-color: #1d2147;
+        border-bottom: 1px solid #131632;
+        min-height: 80px;
+        padding: 35px;
+
+        p {
+            color: $color-one;
+            margin-bottom: 0;
+        }
+    }
+
+    .body {
+        border-top: 1px solid #272c5d;
+        padding: 40px;
     }
 }

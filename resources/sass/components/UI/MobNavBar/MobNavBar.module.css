@@ -125,4 +125,10 @@ td {
     flex-direction: column;
     margin-top: 70px; }
 
+.socialWrapper {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-top: 50px; }
+
 /*# sourceMappingURL=MobNavBar.module.css.map */

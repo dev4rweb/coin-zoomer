@@ -21,6 +21,7 @@ const BlueSocialBlock = () => {
                 socials.map((item, index) =>
                     <OverlayTrigger
                         placement="top"
+                        key={index}
                         overlay={
                             <Popover
                                 id="button-tooltip-2"

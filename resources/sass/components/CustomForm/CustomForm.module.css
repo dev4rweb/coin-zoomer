@@ -76,4 +76,28 @@ td {
   background-image: -webkit-linear-gradient(-38deg, #2e3a82 0%, #2871ab 100%);
   background-image: -ms-linear-gradient(-38deg, #2e3a82 0%, #2871ab 100%); }
 
+.customForm {
+  width: 100%;
+  background-color: #1f244c;
+  min-height: 500px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 5px 5px 5px 5px #000000;
+  box-shadow: 5px 5px 5px 5px #000000;
+  margin-bottom: 20px; }
+  .customForm p {
+    font-size: 16px; }
+  .customForm .title {
+    background-color: #1d2147;
+    border-bottom: 1px solid #131632;
+    min-height: 80px;
+    padding: 35px; }
+    .customForm .title p {
+      color: #a6b2c6;
+      margin-bottom: 0; }
+  .customForm .body {
+    border-top: 1px solid #272c5d;
+    padding: 40px; }
+
 /*# sourceMappingURL=CustomForm.module.css.map */

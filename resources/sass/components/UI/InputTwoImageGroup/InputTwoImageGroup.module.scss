@@ -1,0 +1,39 @@
+@import "../../../variables";
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 46px;
+    width: 100%;
+    padding: 5px 5px 5px 15px;
+    border: 1px solid #2b2f56;
+    background-color: $color-two;
+
+    .input{
+        font-size: 16px;
+        color: white;
+        margin-bottom: 0;
+        border: none;
+        background: none;
+        outline: none;
+
+        &:focus-visible, &:focus {
+            border: none;
+            outline: none;
+        }
+    }
+
+    .button{
+        border: none;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px;
+        background: #373d6b;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

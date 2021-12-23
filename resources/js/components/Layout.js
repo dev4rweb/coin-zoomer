@@ -23,7 +23,9 @@ const Layout = ({children}) => {
             <main>
                 {children}
             </main>
-            <Footer />
+            <div className={s.toggleFooter}>
+                <Footer />
+            </div>
             <Messages/>
         </div>
     );

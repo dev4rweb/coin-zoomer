@@ -113,5 +113,30 @@ td {
         margin-top: 30px; }
       .contactsPage .aboutUs .contentBlock .socialWrapper {
         margin-top: 30px; }
+  .contactsPage .formWrapper {
+    margin-bottom: 65px; }
+    .contactsPage .formWrapper .contactForm {
+      display: flex;
+      justify-content: space-between; }
+      @media screen and (max-width: 998px) {
+        .contactsPage .formWrapper .contactForm {
+          flex-direction: column;
+          justify-content: center;
+          align-items: center; } }
+      .contactsPage .formWrapper .contactForm .leftSide {
+        width: 100%;
+        max-width: 300px; }
+        @media screen and (max-width: 998px) {
+          .contactsPage .formWrapper .contactForm .leftSide {
+            margin-bottom: 30px; } }
+      .contactsPage .formWrapper .contactForm .rightSide {
+        width: 100%;
+        max-width: 606px; }
+        @media screen and (max-width: 1200px) {
+          .contactsPage .formWrapper .contactForm .rightSide {
+            max-width: 500px; } }
+        .contactsPage .formWrapper .contactForm .rightSide .btnWrapper {
+          display: flex;
+          justify-content: flex-end; }
 
 /*# sourceMappingURL=ContactsPage.module.css.map */

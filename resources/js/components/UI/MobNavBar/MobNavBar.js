@@ -14,6 +14,7 @@ import {setErrorsAction} from "../../../reducers/errorsReducer";
 import {setCurrentUserAction} from "../../../reducers/currentUserReducer";
 import {Inertia} from "@inertiajs/inertia";
 import OutlineBtn from "../OutlineBtn/OutlineBtn";
+import SocialBlock from "../../SocialBlock";
 
 const MobNavBar = () => {
     const [show, setShow] = useState(false);
@@ -152,6 +153,9 @@ const MobNavBar = () => {
 
 
                     </Nav>
+                    <div className={s.socialWrapper}>
+                        <SocialBlock />
+                    </div>
                 </Offcanvas.Body>
             </Offcanvas>
         </>

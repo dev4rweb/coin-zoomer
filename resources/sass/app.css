@@ -8922,4 +8922,107 @@ footer .nav-link {
     border: none;
     color: #a6b2c6; }
 
+.input-text {
+  background: #1d2147;
+  border: 1px solid #2b2f56;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  height: 46px; }
+  .input-text:hover, .input-text:active, .input-text:focus {
+    background: #1d2147;
+    border: 1px solid #2b2f56;
+    color: #a6b2c6; }
+
+.form-select {
+  background-color: #1d2147;
+  height: 46px;
+  background-image: url(../assets/img/ic-arrow-down.png);
+  background-size: 12px 8px;
+  border: 1px solid #2b2f56;
+  color: #a6b2c6;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px; }
+  .form-select option {
+    height: 46px; }
+
+#dropdown-custom {
+  width: 100%;
+  background-color: #1d2147;
+  height: 46px;
+  border: 1px solid #2b2f56;
+  color: #a6b2c6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  #dropdown-custom::after {
+    border: none;
+    content: url(../assets/img/ic-arrow-down.png); }
+
+.dropdown-menu.show {
+  width: 100%;
+  background-color: #1d2147;
+  border: 3px solid #2b2f56; }
+
+.dropdown-item {
+  color: white;
+  height: 40px; }
+  .dropdown-item:hover {
+    background-color: #2b2f56;
+    color: white; }
+
+.form-floating {
+  width: 100%;
+  color: #a6b2c6; }
+  .form-floating .form-control {
+    background-color: #1d2147;
+    border: 1px solid #2b2f56;
+    color: #a6b2c6; }
+
+.simple-btn-outline {
+  border: none;
+  outline: none;
+  background: none;
+  height: 40px;
+  color: #a6b2c6;
+  -webkit-transition: all .2s;
+  -moz-transition: all .2s;
+  -ms-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s;
+  font-size: 16px; }
+  .simple-btn-outline:hover {
+    color: white;
+    -webkit-transform: scale(1.2, 1.2);
+    -moz-transform: scale(1.2, 1.2);
+    -ms-transform: scale(1.2, 1.2);
+    -o-transform: scale(1.2, 1.2);
+    transform: scale(1.2, 1.2); }
+
+.simple-btn-filled {
+  outline: none;
+  border: 1px solid #0dcaf0;
+  width: 100%;
+  max-width: 145px;
+  height: 40px;
+  color: white;
+  background: linear-gradient(45deg, #2968a4, #2d4389);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  font-size: 16px;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s; }
+  .simple-btn-filled:hover {
+    color: white;
+    -webkit-transform: scale(1.2, 1.2);
+    -moz-transform: scale(1.2, 1.2);
+    -ms-transform: scale(1.2, 1.2);
+    -o-transform: scale(1.2, 1.2);
+    transform: scale(1.2, 1.2); }
+
 /*# sourceMappingURL=app.css.map */
