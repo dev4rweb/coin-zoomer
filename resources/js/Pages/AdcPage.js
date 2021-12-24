@@ -12,6 +12,7 @@ import BannerBlock from "../components/BannerBlock/BannerBlock";
 import Medal from "../components/Medal/Medal";
 import SectionSeparator from "../components/UI/SectionSeparator/SectionSeparator";
 import TariffCard from "../components/TariffCard/TariffCard";
+import OutlineBtn from "../components/UI/OutlineBtn/OutlineBtn";
 
 const AdcPage = ({currentUser, errors}) => {
     const tariffCards = [
@@ -89,9 +90,59 @@ const AdcPage = ({currentUser, errors}) => {
                         <div className={s.cardWrapper}>
                             {
                                 tariffCards.map(item =>
-                                    <TariffCard key={item.id} data={item} />
+                                    <TariffCard key={item.id} data={item}/>
                                 )
                             }
+                        </div>
+                    </section>
+
+                    <section className={s.discountSection}>
+                        <div className={s.discountPart}>
+                            <Medal>
+                                <h3>Need to boost your marketing efforts?</h3>
+                            </Medal>
+                            <div className={s.discountCard}>
+                                <div className={s.point}>
+                                    <span className={s.pointNum}>1</span>
+                                    <div className={s.pointBLock}>
+                                        <h4 className={s.pointTitle}>Get 25% off instantly by paying partly in
+                                            $MOONER</h4>
+                                        <p className={s.pointContent}>Pay 40% of total price in BNB, and 35% in $MOONER
+                                            equivalent, and get 25% discount.</p>
+                                    </div>
+                                </div>
+                                <div className={s.point}>
+                                    <span className={s.pointNum}>2</span>
+                                    <div className={s.pointBLock}>
+                                        <h4 className={s.pointTitle}>Holders of 100,000+ $MOONER get 10% discount on all
+                                            ads!</h4>
+                                        <p className={s.pointContent}>Holding for a week gets you an 5% increase for
+                                            discount, up to 60%!</p>
+                                        <p className={s.pointContent}>Hold for at least 1 week - get 15% discount! <br/>
+                                            Hold for at least 2 weeks - get 20% discount!</p>
+                                        <p className={s.pointContent}>Hold for at least 10 weeks - get 60% discount!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className={s.discountPart}>
+                            <Medal>
+                                <h3>Need to boost your marketing efforts?</h3>
+                            </Medal>
+                            <div className={s.discountCard}>
+                                <div className={s.point}>
+                                    <span className={s.pointNum}>1</span>
+                                    <div className={s.pointBLock}>
+                                        <h4 className={s.pointTitle}>Put a backlink to CoinMooner on your project
+                                            website and
+                                            receive a 10% discount for any ad package!</h4>
+                                        <p className={s.pointContent}>Pay 40% of total price in BNB, and 35% in $MOONER equivalent, and get 25% discount.</p>
+                                    </div>
+                                </div>
+                                <div className={s.btnWrapper}>
+                                    <OutlineBtn maxWith={'225px'}>FeedBack</OutlineBtn>
+                                </div>
+                            </div>
                         </div>
                     </section>
                 </Container>

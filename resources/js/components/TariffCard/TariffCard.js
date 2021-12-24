@@ -7,7 +7,7 @@ const TariffCard = ({data}) => {
         <Card className={s.tariffCard}>
             <Card.Body>
                 <h2 className={s.title}>
-                    {data.title} Small Changes
+                    {data.title}
                 </h2>
                 <p className={s.content}>
                     {data.content}

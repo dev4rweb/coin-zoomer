@@ -131,5 +131,65 @@ td {
           flex-direction: column;
           justify-content: center;
           align-items: center; } }
+  .adcPage .discountSection {
+    display: flex;
+    justify-content: space-between; }
+    @media screen and (max-width: 1200px) {
+      .adcPage .discountSection {
+        flex-direction: column;
+        align-items: center; } }
+    .adcPage .discountSection .discountPart {
+      width: 100%;
+      max-width: 540px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center; }
+    .adcPage .discountSection .discountCard {
+      width: 100%;
+      max-width: 540px;
+      margin-bottom: 50px;
+      margin-top: 30px;
+      height: 362px;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+      border: 1px solid #181c3f;
+      background-color: #1f244c;
+      padding: 50px 50px 30px 40px;
+      -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+      -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+      box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between; }
+      @media screen and (max-width: 768px) {
+        .adcPage .discountSection .discountCard {
+          height: auto; } }
+    .adcPage .discountSection .point {
+      width: 100%;
+      max-width: 465px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start; }
+      @media screen and (max-width: 768px) {
+        .adcPage .discountSection .point {
+          flex-direction: column; } }
+      .adcPage .discountSection .point .pointNum {
+        font-weight: bold;
+        font-size: 36px;
+        color: white;
+        display: block; }
+      .adcPage .discountSection .point .pointBLock {
+        width: 100%;
+        max-width: 410px;
+        padding-top: 20px; }
+        .adcPage .discountSection .point .pointBLock .pointTitle {
+          margin-bottom: 22px; }
+        .adcPage .discountSection .point .pointBLock .pointContent {
+          color: #a6b2c6; }
+    .adcPage .discountSection .btnWrapper {
+      display: flex;
+      justify-content: center; }
 
 /*# sourceMappingURL=AdcPage.module.css.map */
