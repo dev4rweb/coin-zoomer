@@ -9025,4 +9025,44 @@ footer .nav-link {
     -o-transform: scale(1.2, 1.2);
     transform: scale(1.2, 1.2); }
 
+.accordion-item {
+  margin-bottom: 10px;
+  background: none;
+  color: white; }
+
+.accordion-button {
+  background-color: #1f244c;
+  color: #a6b2c6;
+  font-weight: bold;
+  border: 1px solid #2b2f56;
+  margin-bottom: 5px; }
+
+.accordion-button::before {
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 20px;
+  content: "";
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23a6b2c6'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-size: 1.25rem;
+  transition: transform 0.2s ease-in-out; }
+
+.accordion-button:not(.collapsed)::before {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  transform: rotate(-180deg); }
+
+.accordion-button::after, .accordion-button:not(.collapsed)::after {
+  background: none; }
+
+.accordion-button:not(.collapsed) {
+  color: white;
+  background-color: #1f244c;
+  border: 1px solid #5f6495;
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.125); }
+
+.accordion-body {
+  background-color: #1f244c;
+  border: 1px solid #5f6495; }
+
 /*# sourceMappingURL=app.css.map */
