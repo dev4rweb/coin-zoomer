@@ -25,6 +25,8 @@ import Searching from "../components/UI/Filters/Searching/Searching";
 import LeadersCard from "../components/LeadersCard/LeadersCard";
 import SubscribeBlock from "../components/SubscribeBlock/SubscribeBlock";
 import LeadersSubscribeBlock from "../components/LeadersSubscribeBlock/LeadersSubscribeBlock";
+import {Inertia} from "@inertiajs/inertia";
+import {PATH_ADD_COIN_PAGE} from "../utils/routesPath";
 
 const HomePage = ({currentUser, errors}) => {
     const dispatch = useDispatch();
@@ -41,6 +43,11 @@ const HomePage = ({currentUser, errors}) => {
         // dispatch(setErrorsAction(errors))
     }, []);
 
+    const addCoinHandler = e => {
+        console.log('addCoinHandler')
+        // Inertia.visit(PATH_ADD_COIN_PAGE)
+    };
+
     return (
         <Layout>
             <div className={s.homePage}>
@@ -55,6 +62,7 @@ const HomePage = ({currentUser, errors}) => {
                             <Button
                                 variant="info"
                                 style={{width: '160px'}}
+                                onClick={addCoinHandler}
                             >
                                 Add coin
                             </Button>

@@ -386,3 +386,12 @@ footer {
     background-color: $color-two;
     border: 1px solid #5f6495;
 }
+
+.input-label {
+    width: 100%;
+    color: $color-one;
+
+    span{
+        color: red;
+    }
+}

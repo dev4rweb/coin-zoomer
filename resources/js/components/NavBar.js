@@ -3,7 +3,7 @@ import s from '../../sass/components/NavBar/NavBar.module.scss'
 import {Container, Nav, Navbar} from "react-bootstrap";
 import {InertiaLink} from "@inertiajs/inertia-react";
 import {
-    PATH_ADC_PAGE, PATH_ADMIN_PAGE,
+    PATH_ADC_PAGE, PATH_ADD_COIN_PAGE, PATH_ADMIN_PAGE,
     PATH_AIR_DROP_PAGE,
     PATH_CONTACTS_PAGE,
     PATH_HOME_PAGE, PATH_LOGIN_PAGE, PATH_LOGOUT, PATH_REGISTER_PAGE, PATH_USER_PAGE,
@@ -44,6 +44,11 @@ const NavBar = () => {
             });
     };
 
+    const addCoinHandler = e => {
+        console.log('addCoinHandler')
+        // Inertia.visit(PATH_ADD_COIN_PAGE)
+    };
+
     return (
         <Navbar
             // bg="primary"
@@ -82,7 +87,11 @@ const NavBar = () => {
                     {
                         currentUser ?
                             <div className={s.authWrapper}>
-                                <OutlineBtn>Add Coin</OutlineBtn>
+                                <OutlineBtn
+                                    clickHandler={addCoinHandler}
+                                >
+                                    Add Coin
+                                </OutlineBtn>
                                 {
                                     currentUser.is_admin ?
                                         <InertiaLink
@@ -110,7 +119,11 @@ const NavBar = () => {
                             </div>
                             :
                             <div className={s.authWrapper}>
-                                <OutlineBtn>Add Coin</OutlineBtn>
+                                <OutlineBtn
+                                    clickHandler={addCoinHandler}
+                                >
+                                    Add Coin
+                                </OutlineBtn>
                                 <InertiaLink
                                     className={'nav-link'}
                                     href={PATH_LOGIN_PAGE}

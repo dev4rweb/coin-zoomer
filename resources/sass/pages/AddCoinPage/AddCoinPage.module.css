@@ -76,38 +76,52 @@ td {
   background-image: -webkit-linear-gradient(-38deg, #2e3a82 0%, #2871ab 100%);
   background-image: -ms-linear-gradient(-38deg, #2e3a82 0%, #2871ab 100%); }
 
-.container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 46px;
-  width: 100%;
-  padding: 5px 5px 5px 15px;
-  border: 1px solid #2b2f56;
-  background-color: #1f244c;
-  -webkit-border-radius: .25rem;
-  -moz-border-radius: .25rem;
-  border-radius: .25rem; }
-  .container .input {
-    font-size: 16px;
-    color: white;
-    margin-bottom: 0;
-    border: none;
-    background: none;
-    outline: none; }
-    .container .input:focus-visible, .container .input:focus {
-      border: none;
-      outline: none; }
-  .container .button {
-    border: none;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    border-radius: 2px;
-    background: #373d6b;
-    width: 32px;
-    height: 32px;
+.addCoinPage {
+  min-height: 1000px;
+  background-image: url(../../../assets/img/air-drop-page-bg.png);
+  -webkit-background-size: cover;
+  background-size: cover; }
+  .addCoinPage .faqSection {
     display: flex;
-    justify-content: center;
-    align-items: center; }
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 40px; }
+    @media screen and (max-width: 480px) {
+      .addCoinPage .faqSection {
+        flex-direction: column;
+        height: 140px; } }
+    .addCoinPage .faqSection .medalText {
+      color: #a6b2c6;
+      font-weight: 500;
+      font-size: 12px; }
+    .addCoinPage .faqSection .faqSide {
+      width: 100%;
+      max-width: 320px;
+      display: flex;
+      justify-content: space-between; }
+      .addCoinPage .faqSection .faqSide .question {
+        color: white;
+        text-align: right;
+        width: 100%;
+        max-width: 165px; }
+  .addCoinPage .formWrapper {
+    margin-bottom: 70px; }
+    .addCoinPage .formWrapper .addCoinForm .titleBlock {
+      margin-bottom: 25px; }
+    .addCoinPage .formWrapper .addCoinForm .formBlock {
+      display: flex;
+      justify-content: space-between;
+      align-items: center; }
+      @media screen and (max-width: 768px) {
+        .addCoinPage .formWrapper .addCoinForm .formBlock {
+          flex-direction: column; } }
+      .addCoinPage .formWrapper .addCoinForm .formBlock .side {
+        width: 100%;
+        max-width: 510px; }
+    .addCoinPage .formWrapper .btnWrapper {
+      margin-top: 100px;
+      display: flex;
+      justify-content: center; }
 
-/*# sourceMappingURL=InputTwoImageGroup.module.css.map */
+/*# sourceMappingURL=AddCoinPage.module.css.map */

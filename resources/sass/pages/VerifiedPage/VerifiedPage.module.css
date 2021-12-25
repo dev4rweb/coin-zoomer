@@ -111,5 +111,30 @@ td {
       .verifiedPage .kycSection .contentBlock .faqTitle {
         font-weight: bold;
         margin-top: 30px; }
+  .verifiedPage .formWrapper {
+    margin-bottom: 65px; }
+    .verifiedPage .formWrapper .contactForm {
+      display: flex;
+      justify-content: space-between; }
+      @media screen and (max-width: 998px) {
+        .verifiedPage .formWrapper .contactForm {
+          flex-direction: column;
+          justify-content: center;
+          align-items: center; } }
+      .verifiedPage .formWrapper .contactForm .leftSide {
+        width: 100%;
+        max-width: 300px; }
+        @media screen and (max-width: 998px) {
+          .verifiedPage .formWrapper .contactForm .leftSide {
+            margin-bottom: 30px; } }
+      .verifiedPage .formWrapper .contactForm .rightSide {
+        width: 100%;
+        max-width: 606px; }
+        @media screen and (max-width: 1200px) {
+          .verifiedPage .formWrapper .contactForm .rightSide {
+            max-width: 500px; } }
+        .verifiedPage .formWrapper .contactForm .rightSide .btnWrapper {
+          display: flex;
+          justify-content: flex-end; }
 
 /*# sourceMappingURL=VerifiedPage.module.css.map */

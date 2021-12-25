@@ -4,12 +4,20 @@ import Layout from "../components/Layout";
 import {useDispatch} from "react-redux";
 import {setCurrentUserAction} from "../reducers/currentUserReducer";
 import {setErrorsAction} from "../reducers/errorsReducer";
-import {Container} from "react-bootstrap";
+import {Container, DropdownButton, FloatingLabel, FormControl, InputGroup} from "react-bootstrap";
 import CustomAlert from "../components/UI/CustomAlert/CustomAlert";
 import BannerBlock from "../components/BannerBlock/BannerBlock";
 import kycImg from '../../assets/img/kyc-tap.png'
 import Medal from "../components/Medal/Medal";
 import CustomAccordion from "../components/CustomAccordion/CustomAccordion";
+import CustomForm from "../components/CustomForm/CustomForm";
+import InputTwoImageGroup from "../components/UI/InputTwoImageGroup/InputTwoImageGroup";
+import telegram from "../../assets/img/ic-telegram.png";
+import mail from "../../assets/img/ic_email.png";
+import DropdownItem from "react-bootstrap/DropdownItem";
+import Form from "react-bootstrap/Form";
+import SectionSeparator from "../components/UI/SectionSeparator/SectionSeparator";
+import LeadersSubscribeBlock from "../components/LeadersSubscribeBlock/LeadersSubscribeBlock";
 
 const VerifiedPage = ({currentUser, errors}) => {
     const dispatch = useDispatch();
@@ -46,7 +54,75 @@ const VerifiedPage = ({currentUser, errors}) => {
                             <CustomAccordion />
                         </div>
                     </section>
+
+                    <section className={s.formWrapper}>
+                        <SectionSeparator sectionName={`How to apply:`} />
+                        <CustomForm title={
+                            <p>
+                                The field marked with <span style={{color: '#f14b4e'}}>*</span> must be filled in!
+                            </p>
+                        }>
+                            <div className={s.contactForm}>
+                                <div className={s.leftSide}>
+                                    <p>
+                                        Send us direct message on Telegram:
+                                    </p>
+                                    <InputTwoImageGroup imgLink={telegram} content={'@TelegramSupportKYC'}/>
+                                    <p style={{marginTop: '40px'}}>Or e-mail us at:</p>
+                                    <InputTwoImageGroup imgLink={mail} content={'support@sitename.com'}/>
+                                </div>
+                                <div className={s.rightSide}>
+                                    <p>Feedback from the site</p>
+                                    <InputGroup className="mb-3">
+                                        <FormControl
+                                            placeholder="Your email"
+                                            className="input-text"
+                                            type="email"
+                                        />
+                                    </InputGroup>
+
+                                    <InputGroup className="mb-3">
+                                        <FormControl
+                                            placeholder="Your name"
+                                            className="input-text"
+                                            type="text"
+                                        />
+                                    </InputGroup>
+
+                                    <InputGroup className="mb-3">
+                                        <FormControl
+                                            placeholder="Your telegram / email"
+                                            className="input-text"
+                                        />
+                                    </InputGroup>
+                                    <InputGroup className="mb-3">
+                                        <FloatingLabel label="Message">
+                                            <Form.Control
+                                                as="textarea"
+                                                placeholder="Message"
+                                                style={{ height: '150px', resize: 'none' }}
+                                            />
+                                        </FloatingLabel>
+                                    </InputGroup>
+                                    <div className={s.btnWrapper}>
+                                        <button
+                                            className="simple-btn-outline"
+                                            style={{marginRight: '20px'}}
+                                        >
+                                            Cancel
+                                        </button>
+                                        <button
+                                            className="simple-btn-filled"
+                                        >
+                                            Submit
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </CustomForm>
+                    </section>
                 </Container>
+                <LeadersSubscribeBlock />
             </div>
         </Layout>
     );

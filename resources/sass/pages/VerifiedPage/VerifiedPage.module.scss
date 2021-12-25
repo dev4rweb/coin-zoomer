@@ -48,4 +48,39 @@
             }
         }
     }
+
+    .formWrapper {
+        margin-bottom: 65px;
+
+        .contactForm {
+            display: flex;
+            justify-content: space-between;
+            @media screen and (max-width: 998px){
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .leftSide {
+                width: 100%;
+                max-width: 300px;
+                @media screen and (max-width: 998px){
+                    margin-bottom: 30px;
+                }
+            }
+
+            .rightSide {
+                width: 100%;
+                max-width: 606px;
+                @media screen and (max-width: 1200px) {
+                    max-width: 500px;
+                }
+
+                .btnWrapper{
+                    display: flex;
+                    justify-content: flex-end;
+                }
+            }
+        }
+    }
 }

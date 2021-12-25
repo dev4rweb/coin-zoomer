@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdcPageController;
+use App\Http\Controllers\AddCoinPageController;
 use App\Http\Controllers\AdminPageController;
 use App\Http\Controllers\AirDropPageController;
 use App\Http\Controllers\ContactsPageController;
@@ -36,6 +37,7 @@ Route::get('/air-drop', [AirDropPageController::class, 'index']);
 Route::get('/contacts', [ContactsPageController::class, 'index']);
 Route::get('/user-panel', [UserPageController::class, 'index'])->name('userPanel.index');
 Route::get('/verified', [VerifiedPageController::class, 'index']);
+Route::get('/add-coin', [AddCoinPageController::class, 'index']);
 
 // Error Page
 Route::fallback([ErrorPageController::class, 'index']);
