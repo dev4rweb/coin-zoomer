@@ -1,0 +1,53 @@
+@import "../../variables";
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 46px;
+    width: 100%;
+    padding: 5px 5px 5px 15px;
+    border: 1px solid #2b2f56;
+    background-color: #1d2147;
+    -webkit-border-radius: .25rem;
+    -moz-border-radius: .25rem;
+    border-radius: .25rem;
+
+    .input{
+        font-size: 16px;
+        margin-left: 15px;
+        width: 80%;
+        color: white;
+        margin-bottom: 0;
+        border: none;
+        background: none;
+        outline: none;
+
+        &:focus-visible, &:focus {
+            border: none;
+            outline: none;
+        }
+    }
+
+    .checkBox{
+        border: 1px solid $color-one;
+        background: none;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        margin-right: 15px;
+        margin-left: 10px;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+    }
+
+    .square{
+        width: 11px;
+        height: 11px;
+        background-color: $color-one;
+    }
+}

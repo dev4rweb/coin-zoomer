@@ -1,0 +1,122 @@
+/*@font-face {
+    font-family: NekstRegular;
+    src: url(../assets/fonts/Nekst-Regular.ttf);
+}*/
+* {
+  font-family: "Nekst", sans-serif; }
+
+body {
+  background-color: #10112d; }
+
+main {
+  overflow-x: hidden; }
+
+h1 {
+  color: white;
+  font-size: 48px; }
+
+h2 {
+  color: white;
+  font-size: 24px;
+  font-weight: bold; }
+
+h3 {
+  color: white;
+  font-size: 16px; }
+
+h4 {
+  color: white;
+  font-size: 14px; }
+
+h5 {
+  color: white;
+  font-size: 12px;
+  font-weight: bold; }
+
+p {
+  font-size: 12px;
+  color: white;
+  font-family: "Nekst", sans-serif; }
+
+.table > :not(:first-child) {
+  border-top: none; }
+
+.table > thead {
+  height: 40px;
+  color: #a6b2c6;
+  font-weight: bold;
+  font-size: 12px;
+  text-align: center; }
+
+td {
+  font-size: 12px; }
+  td > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60px; }
+
+.gradient-purple {
+  background-image: -moz-linear-gradient(-90deg, #2a3072 0%, #565fb0 100%);
+  background-image: -webkit-linear-gradient(-90deg, #2a3072 0%, #565fb0 100%);
+  background-image: -ms-linear-gradient(-90deg, #2a3072 0%, #565fb0 100%); }
+
+.gradient-green {
+  background-image: -moz-linear-gradient(-38deg, #1c5163 0%, #2ef098 100%);
+  background-image: -webkit-linear-gradient(-38deg, #1c5163 0%, #2ef098 100%);
+  background-image: -ms-linear-gradient(-38deg, #1c5163 0%, #2ef098 100%); }
+
+.gradient-red {
+  background-image: -moz-linear-gradient(-38deg, #4b2d73 0%, #e0258c 100%);
+  background-image: -webkit-linear-gradient(-38deg, #4b2d73 0%, #e0258c 100%);
+  background-image: -ms-linear-gradient(-38deg, #4b2d73 0%, #e0258c 100%); }
+
+.gradient-blue {
+  background-image: -moz-linear-gradient(-38deg, #2e3a82 0%, #2871ab 100%);
+  background-image: -webkit-linear-gradient(-38deg, #2e3a82 0%, #2871ab 100%);
+  background-image: -ms-linear-gradient(-38deg, #2e3a82 0%, #2871ab 100%); }
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 46px;
+  width: 100%;
+  padding: 5px 5px 5px 15px;
+  border: 1px solid #2b2f56;
+  background-color: #1d2147;
+  -webkit-border-radius: .25rem;
+  -moz-border-radius: .25rem;
+  border-radius: .25rem; }
+  .container .input {
+    font-size: 16px;
+    margin-left: 15px;
+    width: 80%;
+    color: white;
+    margin-bottom: 0;
+    border: none;
+    background: none;
+    outline: none; }
+    .container .input:focus-visible, .container .input:focus {
+      border: none;
+      outline: none; }
+  .container .checkBox {
+    border: 1px solid #a6b2c6;
+    background: none;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    margin-right: 15px;
+    margin-left: 10px;
+    justify-content: center;
+    align-items: center;
+    padding: 0; }
+  .container .square {
+    width: 11px;
+    height: 11px;
+    background-color: #a6b2c6; }
+
+/*# sourceMappingURL=InputCheckBoxBtn.module.css.map */

@@ -33,7 +33,7 @@ const AddCoinPage = ({currentUser, errors}) => {
     return (
         <Layout>
             <div className={s.addCoinPage}>
-                <Container>
+                <Container style={{marginTop: '30px'}}>
                     <CustomAlert/>
                     <BannerBlock/>
                     <section className={s.faqSection}>

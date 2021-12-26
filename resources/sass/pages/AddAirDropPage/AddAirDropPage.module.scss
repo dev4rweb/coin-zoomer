@@ -1,0 +1,72 @@
+@import "../../variables";
+
+.addAirDropPage {
+    min-height: 1000px;
+    background-image: url(../../../assets/img/air-drop-page-bg.png);
+    -webkit-background-size: cover;
+    background-size: cover;
+
+    .faqSection{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 40px;
+        margin-bottom: 40px;
+
+        @media screen and (max-width: 480px){
+            flex-direction: column;
+            height: 140px;
+        }
+
+        .medalText{
+            color: $color-one;
+            font-weight: 500;
+            font-size: 12px;
+        }
+
+        .faqSide{
+            width: 100%;
+            max-width: 320px;
+            display: flex;
+            justify-content: space-between;
+
+            .question{
+                color: white;
+                text-align: right;
+                width: 100%;
+                max-width: 165px;
+            }
+        }
+    }
+
+    .formWrapper{
+        margin-bottom: 70px;
+
+        .addCoinForm{
+
+            .titleBlock{
+                margin-bottom: 25px;
+            }
+
+            .formBlock{
+                display: flex;
+                justify-content: space-between;
+
+                @media screen and (max-width: 768px){
+                    flex-direction: column;
+                }
+
+                .side {
+                    width: 100%;
+                    max-width: 510px;
+                }
+            }
+        }
+
+        .btnWrapper {
+            margin-top: 100px;
+            display: flex;
+            justify-content: center;
+        }
+    }
+}

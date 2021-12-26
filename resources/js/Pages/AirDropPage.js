@@ -11,6 +11,8 @@ import BannerBlock from "../components/BannerBlock/BannerBlock";
 import Medal from "../components/Medal/Medal";
 import OutlineBtn from "../components/UI/OutlineBtn/OutlineBtn";
 import StatusTable from "../components/UI/Tables/StatusTable/StatusTable";
+import {Inertia} from "@inertiajs/inertia";
+import {PATH_ADD_AIR_DROP_PAGE} from "../utils/routesPath";
 
 const AirDropPage = ({currentUser, errors}) => {
     const dispatch = useDispatch();
@@ -19,6 +21,11 @@ const AirDropPage = ({currentUser, errors}) => {
         dispatch(setCurrentUserAction(currentUser))
         // dispatch(setErrorsAction(errors))
     }, []);
+
+    const addAirDropHandler = e => {
+        console.log('addAirDropHandler')
+        Inertia.visit(PATH_ADD_AIR_DROP_PAGE)
+    };
 
     return (
         <Layout>
@@ -31,7 +38,11 @@ const AirDropPage = ({currentUser, errors}) => {
                             <Medal>
                                 <p className={s.medalText}>Ongoing Airdrops</p>
                             </Medal>
-                            <OutlineBtn>Add AirDrop</OutlineBtn>
+                            <OutlineBtn
+                                clickHandler={addAirDropHandler}
+                            >
+                                Add AirDrop
+                            </OutlineBtn>
                         </div>
                         <div className={s.tableWrapper}>
                             <StatusTable />

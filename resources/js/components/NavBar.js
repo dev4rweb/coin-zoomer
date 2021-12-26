@@ -26,7 +26,7 @@ const NavBar = () => {
         {name: 'Contacts', url: PATH_CONTACTS_PAGE},
     ]
 
-    console.log('NavBar location', window.location.href.includes(PATH_AIR_DROP_PAGE))
+    // console.log('NavBar location', window.location.href.includes(PATH_AIR_DROP_PAGE))
 
     const logoutHandler = e => {
         // console.log('NavBar currentUser', currentUser)
@@ -46,7 +46,7 @@ const NavBar = () => {
 
     const addCoinHandler = e => {
         console.log('addCoinHandler')
-        // Inertia.visit(PATH_ADD_COIN_PAGE)
+        Inertia.visit(PATH_ADD_COIN_PAGE)
     };
 
     return (

@@ -31,7 +31,7 @@ const MobNavBar = () => {
         {name: 'Contntacts', url: PATH_CONTACTS_PAGE},
     ]
 
-    console.log('NavBar location', window.location.href.includes(PATH_AIR_DROP_PAGE))
+    // console.log('NavBar location', window.location.href.includes(PATH_AIR_DROP_PAGE))
 
     const logoutHandler = e => {
         // console.log('NavBar currentUser', currentUser)

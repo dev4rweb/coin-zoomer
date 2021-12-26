@@ -45,7 +45,7 @@ const HomePage = ({currentUser, errors}) => {
 
     const addCoinHandler = e => {
         console.log('addCoinHandler')
-        // Inertia.visit(PATH_ADD_COIN_PAGE)
+        Inertia.visit(PATH_ADD_COIN_PAGE)
     };
 
     return (
