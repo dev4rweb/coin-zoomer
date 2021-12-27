@@ -3,6 +3,7 @@ import s from '../../../../../sass/components/UI/Tables/SimpleTable/Item/SimpleT
 import coinLogo from '../../../../../assets/img/coin-logo.png'
 import iconUp from '../../../../../assets/img/icon-up.png'
 import OutlineBtn from "../../OutlineBtn/OutlineBtn";
+import {Button} from "react-bootstrap";
 
 const SimpleTableItem = ({data, index}) => {
     return (
@@ -44,7 +45,14 @@ const SimpleTableItem = ({data, index}) => {
                 </div>
             </td>
             <td>
-                <div style={{paddingRight: '15px'}}>
+                <div style={{paddingRight: '15px', position: 'relative'}}>
+                    <Button
+                        variant="info"
+                        className="fill-btn"
+                        style={{maxHeight: '32px', marginRight: '-5px'}}
+                    >
+                        Vote
+                    </Button>
                     <OutlineBtn>
                         <span>{data.upVotes}</span>
                     </OutlineBtn>
