@@ -3,12 +3,19 @@ import s from "../../../../../sass/components/UI/Tables/SimpleTable/Item/SimpleT
 import OutlineBtn from "../../OutlineBtn/OutlineBtn";
 import GraphicIncrease from "../../GraphicIncrease/GraphicIncrease";
 import {Button} from "react-bootstrap";
+import {Inertia} from "@inertiajs/inertia";
+import {PATH_COIN_OPEN_PAGE} from "../../../../utils/routesPath";
 
 const CoinsRateTableRow = ({data}) => {
 
+    const handleClick = e => {
+        console.log('StatusTableRow click', data)
+        Inertia.visit(`${PATH_COIN_OPEN_PAGE}/${data.id}`)
+    };
+
     return (
         <tr className={s.tableItem}>
-            <td className={s.coinsCol}>
+            <td className={s.coinsCol} onClick={handleClick}>
                 <div className={s.coinsLong} >
                     <img src={data.logo} alt="coin"/>
                     <p>{data.name}</p>

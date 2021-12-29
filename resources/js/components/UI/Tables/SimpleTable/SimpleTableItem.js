@@ -4,11 +4,19 @@ import coinLogo from '../../../../../assets/img/coin-logo.png'
 import iconUp from '../../../../../assets/img/icon-up.png'
 import OutlineBtn from "../../OutlineBtn/OutlineBtn";
 import {Button} from "react-bootstrap";
+import {Inertia} from "@inertiajs/inertia";
+import {PATH_COIN_OPEN_PAGE} from "../../../../utils/routesPath";
 
 const SimpleTableItem = ({data, index}) => {
+
+    const handleClick = e => {
+        console.log('StatusTableRow click', data)
+        Inertia.visit(`${PATH_COIN_OPEN_PAGE}/${data.id}`)
+    };
+
     return (
         <tr className={s.tableItem}>
-            <td className={s.coinsCol}>
+            <td className={s.coinsCol} onClick={handleClick}>
                 <div className={s.coins}>
                     <img src={coinLogo} alt="coin"/>
                     <p>{data.name}</p>

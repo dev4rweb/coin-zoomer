@@ -1,0 +1,12 @@
+@import "../../variables";
+
+.airDropOpenPage {
+    min-height: 1000px;
+    background-image: url(../../../assets/img/air-drop-page-bg.png);
+    -webkit-background-size: cover;
+    background-size: cover;
+
+    .wrapper {
+        margin-top: 30px;
+    }
+}

@@ -4,7 +4,9 @@ use App\Http\Controllers\AdcPageController;
 use App\Http\Controllers\AddAirDropPageController;
 use App\Http\Controllers\AddCoinPageController;
 use App\Http\Controllers\AdminPageController;
+use App\Http\Controllers\AirDropOpenPageController;
 use App\Http\Controllers\AirDropPageController;
+use App\Http\Controllers\CoinOpenPageController;
 use App\Http\Controllers\ContactsPageController;
 use App\Http\Controllers\ErrorPageController;
 use App\Http\Controllers\HomePageController;
@@ -40,6 +42,8 @@ Route::get('/user-panel', [UserPageController::class, 'index'])->name('userPanel
 Route::get('/verified', [VerifiedPageController::class, 'index']);
 Route::get('/add-coin', [AddCoinPageController::class, 'index']);
 Route::get('/add-air-drop', [AddAirDropPageController::class, 'index']);
+Route::get('/air-drop-open/{id}', [AirDropOpenPageController::class, 'index']);
+Route::get('/coin-open/{id}', [CoinOpenPageController::class, 'index']);
 
 // Error Page
 Route::fallback([ErrorPageController::class, 'index']);

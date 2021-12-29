@@ -9071,4 +9071,20 @@ footer .nav-link {
   .input-label span {
     color: red; }
 
+.bth-lg, .btn-big {
+  height: 66px;
+  width: 256px; }
+
+.btn-violet {
+  background: url("../assets/img/btn-violet-bg.png") no-repeat center center;
+  -webkit-background-size: cover;
+  background-size: cover;
+  border-color: #684bdd; }
+
+.btn-orange {
+  background: url("../assets/img/btn-orange-bg.png") no-repeat center center;
+  -webkit-background-size: cover;
+  background-size: cover;
+  border-color: #ff7b39; }
+
 /*# sourceMappingURL=app.css.map */

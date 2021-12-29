@@ -1,0 +1,212 @@
+/*@font-face {
+    font-family: NekstRegular;
+    src: url(../assets/fonts/Nekst-Regular.ttf);
+}*/
+* {
+  font-family: "Nekst", sans-serif; }
+
+body {
+  background-color: #10112d; }
+
+main {
+  overflow-x: hidden; }
+
+h1 {
+  color: white;
+  font-size: 48px; }
+
+h2 {
+  color: white;
+  font-size: 24px;
+  font-weight: bold; }
+
+h3 {
+  color: white;
+  font-size: 16px; }
+
+h4 {
+  color: white;
+  font-size: 14px; }
+
+h5 {
+  color: white;
+  font-size: 12px;
+  font-weight: bold; }
+
+p {
+  font-size: 12px;
+  color: white;
+  font-family: "Nekst", sans-serif; }
+
+.table > :not(:first-child) {
+  border-top: none; }
+
+.table > thead {
+  height: 40px;
+  color: #a6b2c6;
+  font-weight: bold;
+  font-size: 12px;
+  text-align: center; }
+
+td {
+  font-size: 12px; }
+  td > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60px; }
+
+.gradient-purple {
+  background-image: -moz-linear-gradient(-90deg, #2a3072 0%, #565fb0 100%);
+  background-image: -webkit-linear-gradient(-90deg, #2a3072 0%, #565fb0 100%);
+  background-image: -ms-linear-gradient(-90deg, #2a3072 0%, #565fb0 100%); }
+
+.gradient-green {
+  background-image: -moz-linear-gradient(-38deg, #1c5163 0%, #2ef098 100%);
+  background-image: -webkit-linear-gradient(-38deg, #1c5163 0%, #2ef098 100%);
+  background-image: -ms-linear-gradient(-38deg, #1c5163 0%, #2ef098 100%); }
+
+.gradient-red {
+  background-image: -moz-linear-gradient(-38deg, #4b2d73 0%, #e0258c 100%);
+  background-image: -webkit-linear-gradient(-38deg, #4b2d73 0%, #e0258c 100%);
+  background-image: -ms-linear-gradient(-38deg, #4b2d73 0%, #e0258c 100%); }
+
+.gradient-blue {
+  background-image: -moz-linear-gradient(-38deg, #2e3a82 0%, #2871ab 100%);
+  background-image: -webkit-linear-gradient(-38deg, #2e3a82 0%, #2871ab 100%);
+  background-image: -ms-linear-gradient(-38deg, #2e3a82 0%, #2871ab 100%); }
+
+.coinOpenPage {
+  min-height: 1000px;
+  background-image: url(../../../assets/img/air-drop-page-bg.png);
+  -webkit-background-size: cover;
+  background-size: cover; }
+  .coinOpenPage .wrapper {
+    margin-top: 30px; }
+    .coinOpenPage .wrapper .tokenSection {
+      position: relative;
+      margin-top: 60px; }
+      .coinOpenPage .wrapper .tokenSection .tokenHeader {
+        width: 100%;
+        max-width: 1030px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center; }
+        @media screen and (max-width: 768px) {
+          .coinOpenPage .wrapper .tokenSection .tokenHeader {
+            flex-direction: column;
+            align-items: flex-start; } }
+        .coinOpenPage .wrapper .tokenSection .tokenHeader .name h1 {
+          font-weight: bold;
+          font-size: 32px; }
+        .coinOpenPage .wrapper .tokenSection .tokenHeader .name h3 {
+          font-weight: bold;
+          color: #ffa138; }
+        .coinOpenPage .wrapper .tokenSection .tokenHeader .tokenInput {
+          max-width: 408px; }
+      .coinOpenPage .wrapper .tokenSection .tokenBody {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-top: -100px; }
+        @media screen and (max-width: 1200px) {
+          .coinOpenPage .wrapper .tokenSection .tokenBody {
+            margin-top: 0; } }
+        .coinOpenPage .wrapper .tokenSection .tokenBody .logo {
+          width: 100%;
+          max-width: 218px;
+          height: auto;
+          margin-bottom: -109px;
+          z-index: 1; }
+          @media screen and (max-width: 1200px) {
+            .coinOpenPage .wrapper .tokenSection .tokenBody .logo {
+              margin-bottom: -20px; } }
+        .coinOpenPage .wrapper .tokenSection .tokenBody .tokenForm {
+          background: url("../../../assets/img/form-token-bg.png") no-repeat center center;
+          -webkit-background-size: cover;
+          background-size: cover;
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-end;
+          min-height: 322px;
+          -webkit-border-radius: 59px;
+          -moz-border-radius: 59px;
+          border-radius: 59px;
+          padding: 30px 45px 45px 50px;
+          box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px; }
+          @media screen and (max-width: 1200px) {
+            .coinOpenPage .wrapper .tokenSection .tokenBody .tokenForm {
+              flex-direction: column;
+              align-items: center; } }
+          .coinOpenPage .wrapper .tokenSection .tokenBody .tokenForm .leftSide {
+            width: 100%;
+            max-width: 355px;
+            height: 100%; }
+            .coinOpenPage .wrapper .tokenSection .tokenBody .tokenForm .leftSide input {
+              background-color: #181c3f;
+              color: white;
+              font-size: 16px;
+              font-weight: bold; }
+          .coinOpenPage .wrapper .tokenSection .tokenBody .tokenForm .rightSide {
+            width: 100%;
+            max-width: 610px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between; }
+            .coinOpenPage .wrapper .tokenSection .tokenBody .tokenForm .rightSide .statisticBlock {
+              width: 100%;
+              max-width: 285px;
+              display: grid;
+              grid-template-columns: auto auto;
+              justify-content: space-between;
+              grid-row-gap: 5px;
+              align-self: flex-end;
+              margin-right: 50px; }
+              @media screen and (max-width: 768px) {
+                .coinOpenPage .wrapper .tokenSection .tokenBody .tokenForm .rightSide .statisticBlock {
+                  margin-right: 0;
+                  align-self: center; } }
+              .coinOpenPage .wrapper .tokenSection .tokenBody .tokenForm .rightSide .statisticBlock .btnWrapper {
+                position: relative; }
+                .coinOpenPage .wrapper .tokenSection .tokenBody .tokenForm .rightSide .statisticBlock .btnWrapper button {
+                  font-weight: 100;
+                  width: 50%;
+                  text-transform: capitalize; }
+            .coinOpenPage .wrapper .tokenSection .tokenBody .tokenForm .rightSide .coinContent {
+              width: 100%; }
+              @media screen and (max-width: 1200px) {
+                .coinOpenPage .wrapper .tokenSection .tokenBody .tokenForm .rightSide .coinContent {
+                  margin-top: 20px; } }
+              .coinOpenPage .wrapper .tokenSection .tokenBody .tokenForm .rightSide .coinContent h3 {
+                font-weight: bold;
+                margin-bottom: 25px; }
+              .coinOpenPage .wrapper .tokenSection .tokenBody .tokenForm .rightSide .coinContent p:nth-of-type(1) {
+                margin-bottom: 20px; }
+    .coinOpenPage .wrapper .buttonSection {
+      margin-top: 30px;
+      margin-bottom: 100px;
+      display: grid;
+      grid-template-columns: auto auto auto auto;
+      justify-content: space-between; }
+      @media screen and (max-width: 1200px) {
+        .coinOpenPage .wrapper .buttonSection {
+          grid-template-columns: auto auto;
+          grid-row-gap: 1rem;
+          justify-content: space-around;
+          margin-bottom: 50px; } }
+      @media screen and (max-width: 768px) {
+        .coinOpenPage .wrapper .buttonSection {
+          grid-template-columns: auto; } }
+    .coinOpenPage .wrapper .coinsRateSection {
+      margin-bottom: 50px; }
+      .coinOpenPage .wrapper .coinsRateSection .coinsTableWrapper {
+        margin-top: 20px;
+        margin-bottom: 80px; }
+
+/*# sourceMappingURL=CoinOpenPage.module.css.map */
