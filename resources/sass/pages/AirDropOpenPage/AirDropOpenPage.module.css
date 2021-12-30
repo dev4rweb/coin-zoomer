@@ -77,11 +77,126 @@ td {
   background-image: -ms-linear-gradient(-38deg, #2e3a82 0%, #2871ab 100%); }
 
 .airDropOpenPage {
-  min-height: 1000px;
   background-image: url(../../../assets/img/air-drop-page-bg.png);
   -webkit-background-size: cover;
   background-size: cover; }
   .airDropOpenPage .wrapper {
     margin-top: 30px; }
+    .airDropOpenPage .wrapper .tokenSection {
+      position: relative;
+      margin-top: 60px; }
+      .airDropOpenPage .wrapper .tokenSection .tokenHeader {
+        width: 100%;
+        max-width: 1030px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center; }
+        @media screen and (max-width: 768px) {
+          .airDropOpenPage .wrapper .tokenSection .tokenHeader {
+            flex-direction: column;
+            align-items: flex-start; } }
+        .airDropOpenPage .wrapper .tokenSection .tokenHeader .name h1 {
+          font-weight: bold;
+          font-size: 32px; }
+        .airDropOpenPage .wrapper .tokenSection .tokenHeader .name h3 {
+          font-weight: bold;
+          color: #ffa138; }
+        .airDropOpenPage .wrapper .tokenSection .tokenHeader .tokenInput {
+          max-width: 408px; }
+      .airDropOpenPage .wrapper .tokenSection .tokenBody {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-top: -100px; }
+        @media screen and (max-width: 1200px) {
+          .airDropOpenPage .wrapper .tokenSection .tokenBody {
+            margin-top: 0; } }
+        .airDropOpenPage .wrapper .tokenSection .tokenBody .logo {
+          width: 100%;
+          max-width: 218px;
+          height: auto;
+          margin-bottom: -109px;
+          z-index: 1; }
+          @media screen and (max-width: 1200px) {
+            .airDropOpenPage .wrapper .tokenSection .tokenBody .logo {
+              margin-bottom: -20px; } }
+        .airDropOpenPage .wrapper .tokenSection .tokenBody .tokenForm {
+          background: url("../../../assets/img/form-token-bg.png") no-repeat center center;
+          -webkit-background-size: cover;
+          background-size: cover;
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-end;
+          min-height: 322px;
+          -webkit-border-radius: 59px;
+          -moz-border-radius: 59px;
+          border-radius: 59px;
+          padding: 30px 45px 45px 50px;
+          box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px; }
+          @media screen and (max-width: 1200px) {
+            .airDropOpenPage .wrapper .tokenSection .tokenBody .tokenForm {
+              flex-direction: column;
+              align-items: center; } }
+          .airDropOpenPage .wrapper .tokenSection .tokenBody .tokenForm .leftSide {
+            width: 100%;
+            max-width: 355px;
+            height: 100%; }
+            .airDropOpenPage .wrapper .tokenSection .tokenBody .tokenForm .leftSide input {
+              background-color: #181c3f;
+              color: white;
+              font-size: 16px;
+              font-weight: bold; }
+          .airDropOpenPage .wrapper .tokenSection .tokenBody .tokenForm .rightSide {
+            width: 100%;
+            max-width: 610px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between; }
+            .airDropOpenPage .wrapper .tokenSection .tokenBody .tokenForm .rightSide .statisticBlock {
+              width: 100%;
+              max-width: 160px;
+              display: grid;
+              align-self: flex-end; }
+              @media screen and (max-width: 768px) {
+                .airDropOpenPage .wrapper .tokenSection .tokenBody .tokenForm .rightSide .statisticBlock {
+                  margin-right: 0;
+                  align-self: center; } }
+              .airDropOpenPage .wrapper .tokenSection .tokenBody .tokenForm .rightSide .statisticBlock .btnWrapper {
+                position: relative; }
+                .airDropOpenPage .wrapper .tokenSection .tokenBody .tokenForm .rightSide .statisticBlock .btnWrapper button {
+                  font-weight: 100;
+                  width: 50%;
+                  text-transform: capitalize; }
+            .airDropOpenPage .wrapper .tokenSection .tokenBody .tokenForm .rightSide .coinContent {
+              width: 100%; }
+              @media screen and (max-width: 1200px) {
+                .airDropOpenPage .wrapper .tokenSection .tokenBody .tokenForm .rightSide .coinContent {
+                  margin-top: 20px; } }
+              .airDropOpenPage .wrapper .tokenSection .tokenBody .tokenForm .rightSide .coinContent h3 {
+                font-weight: bold;
+                margin-bottom: 25px; }
+              .airDropOpenPage .wrapper .tokenSection .tokenBody .tokenForm .rightSide .coinContent p:nth-of-type(1) {
+                margin-bottom: 20px; }
+    .airDropOpenPage .wrapper .buttonSection {
+      margin-top: 30px;
+      margin-bottom: 60px;
+      display: grid;
+      grid-template-columns: auto auto auto auto;
+      justify-content: space-between; }
+      @media screen and (max-width: 1200px) {
+        .airDropOpenPage .wrapper .buttonSection {
+          grid-template-columns: auto auto;
+          grid-row-gap: 1rem;
+          justify-content: space-around;
+          margin-bottom: 50px; } }
+      @media screen and (max-width: 768px) {
+        .airDropOpenPage .wrapper .buttonSection {
+          grid-template-columns: auto; } }
 
 /*# sourceMappingURL=AirDropOpenPage.module.css.map */
