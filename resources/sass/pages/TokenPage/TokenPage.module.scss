@@ -1,0 +1,258 @@
+@import "../../variables";
+
+.tokenPage {
+    min-height: 1000px;
+    background-image: url(../../../assets/img/air-drop-page-bg.png);
+    -webkit-background-size: cover;
+    background-size: cover;
+
+    .wrapper {
+        margin-top: 30px;
+
+        .aboutSection {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 50px;
+            @media screen and (max-width: 998px) {
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .freeToken {
+                width: 100%;
+                max-width: 435px;
+                //max-width: 500px;
+
+                @media screen and (max-width: 998px) {
+                    margin-bottom: 50px;
+                }
+            }
+
+            .contentBlock {
+                position: relative;
+                width: 100%;
+                max-width: 620px;
+
+                .medalWrapper {
+                    margin-left: -75px;
+
+                    @media screen and (max-width: 998px) {
+                        margin-left: 0;
+                        margin-bottom: 30px;
+                    }
+                }
+            }
+        }
+
+        .infoSection {
+
+            .formWrapper {
+                margin-top: 50px;
+
+                .formHeader {
+                    @media screen and (max-width: 998px) {
+                        flex-wrap: wrap;
+                    }
+                }
+
+                .formBody {
+                    display: flex;
+                    justify-content: center;
+                    @media screen and (max-width: 998px) {
+                        flex-wrap: wrap;
+                    }
+                }
+            }
+        }
+
+        .featuresSection {
+            .cardsWrapper {
+                margin-top: 50px;
+                display: grid;
+                grid-template-columns: auto auto auto auto;
+                justify-content: space-between;
+                @media screen and (max-width: 1400px) {
+                    grid-template-columns: auto auto auto;
+                }
+                @media screen and (max-width: 998px) {
+                    grid-template-columns: auto auto;
+                    justify-content: space-around;
+                }
+                @media screen and (max-width: 768px) {
+                    grid-template-columns: auto;
+                    justify-content: center;
+                }
+            }
+        }
+
+        .historySection {
+            padding-bottom: 100px;
+
+            .formWinner {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                margin-top: 10px;
+                @media screen and (max-width: 1200px) {
+                    margin-top: 0;
+                }
+
+                .trophy {
+                    width: 100%;
+                    max-width: 218px;
+                    height: auto;
+                    margin-bottom: -109px;
+                    z-index: 1;
+                    @media screen and (max-width: 1200px) {
+                        margin-bottom: -20px;
+                    }
+                }
+
+                .bigBall {
+                    position: absolute;
+                    top: 90px;
+                    left: 41%;
+                    z-index: 2;
+                }
+
+                .oneBall {
+                    position: absolute;
+                    top: 100px;
+                    left: 50px;
+                    z-index: 2;
+                }
+
+                .twoBall {
+                    position: absolute;
+                    top: 52%;
+                    left: 44%;
+                    z-index: 2;
+                }
+
+                .threeBall {
+                    position: absolute;
+                    top: 0px;
+                    left: 57%;
+                    z-index: 2;
+                }
+
+                .fourBall {
+                    position: absolute;
+                    top: 100px;
+                    left: 58%;
+                    z-index: 2;
+                }
+
+                .fiveBall {
+                    position: absolute;
+                    top: 260px;
+                    right: -10px;
+                    z-index: 2;
+                }
+
+                .winnerBody {
+                    position: relative;
+                    background: url("../../../assets/img/token-form-bg.png") no-repeat center center;
+                    -webkit-background-size: cover;
+                    background-size: cover;
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: flex-end;
+                    min-height: 322px;
+                    -webkit-border-radius: 59px;
+                    -moz-border-radius: 59px;
+                    border-radius: 59px;
+                    padding: 25px 20px 35px 50px;
+                    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+                    @media screen and (max-width: 1200px) {
+                        flex-direction: column;
+                        align-items: center;
+                    }
+
+                    .contentList {
+                        list-style: none;
+                        padding-left: 0;
+                        height: 100%;
+                        margin-bottom: 0;
+
+                        .contentItem {
+                            width: 380px;
+                            margin-top: 40px;
+                            display: flex;
+                            justify-content: space-between;
+
+                            .numberWrapper {
+                                position: relative;
+                                width: 121px;
+                                height: 47px;
+                                display: flex;
+                                justify-content: center;
+                                background-color: $color-three;
+                                -webkit-border-radius: 10px;
+                                -moz-border-radius: 10px;
+                                border-radius: 10px;
+
+                                h1 {
+                                    font-weight: bold;
+                                    font-size: 55px;
+                                    margin-top: -20px;
+                                    color: white;
+                                }
+                            }
+
+                            p {
+                                margin-bottom: 0;
+                                color: white;
+                                max-width: 240px;
+                            }
+                        }
+                    }
+
+                    .youtubeWrapper {
+                        height: 150px;
+                        display: flex;
+                        justify-content: space-between;
+                        flex-direction: column;
+                        align-items: center;
+                        margin-bottom: 20px;
+
+                        .youtube {
+                            -webkit-transition: all .3s;
+                            -moz-transition: all .3s;
+                            -ms-transition: all .3s;
+                            -o-transition: all .3s;
+                            transition: all .3s;
+
+                            &:hover {
+                                -webkit-transform: scale(1.2, 1.2);
+                                -moz-transform: scale(1.2, 1.2);
+                                -ms-transform: scale(1.2, 1.2);
+                                -o-transform: scale(1.2, 1.2);
+                                transform: scale(1.2, 1.2);
+                            }
+                        }
+
+                        .youtubeText {
+                            max-width: 125px;
+                            text-align: center;
+                            margin-bottom: 0;
+                        }
+                    }
+
+                    .tokenGraphic{
+                        width: 100%;
+                        max-width: 467px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+

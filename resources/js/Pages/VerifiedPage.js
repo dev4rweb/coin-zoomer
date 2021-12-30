@@ -21,6 +21,18 @@ import LeadersSubscribeBlock from "../components/LeadersSubscribeBlock/LeadersSu
 
 const VerifiedPage = ({currentUser, errors}) => {
     const dispatch = useDispatch();
+    const accordionData = [
+        {
+            id: 1,
+            title: 'Price',
+            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+        },
+        {
+            id: 2,
+            title: 'How is verification processed?',
+            content: 'You are required to join a video call which will be recorded, and in case of rug/honeypot schemes the recording would be uploaded to your social groups for the victims of scam. We will mark your project as verified by CoinMooner team, which will improve your trustworthiness for investors and entire crypto community.'
+        },
+    ]
 
     useEffect(() => {
         dispatch(setCurrentUserAction(currentUser))
@@ -51,12 +63,12 @@ const VerifiedPage = ({currentUser, errors}) => {
                                 team members. Let's make crypto space safer!
                             </p>
                             <h3 className={s.faqTitle}>FAQ</h3>
-                            <CustomAccordion />
+                            <CustomAccordion data={accordionData}/>
                         </div>
                     </section>
 
                     <section className={s.formWrapper}>
-                        <SectionSeparator sectionName={`How to apply:`} />
+                        <SectionSeparator sectionName={`How to apply:`}/>
                         <CustomForm title={
                             <p>
                                 The field marked with <span style={{color: '#f14b4e'}}>*</span> must be filled in!
@@ -100,7 +112,7 @@ const VerifiedPage = ({currentUser, errors}) => {
                                             <Form.Control
                                                 as="textarea"
                                                 placeholder="Message"
-                                                style={{ height: '150px', resize: 'none' }}
+                                                style={{height: '150px', resize: 'none'}}
                                             />
                                         </FloatingLabel>
                                     </InputGroup>
@@ -122,7 +134,7 @@ const VerifiedPage = ({currentUser, errors}) => {
                         </CustomForm>
                     </section>
                 </Container>
-                <LeadersSubscribeBlock />
+                <LeadersSubscribeBlock/>
             </div>
         </Layout>
     );

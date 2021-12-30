@@ -6,7 +6,7 @@ import {
     PATH_ADC_PAGE,
     PATH_AIR_DROP_PAGE,
     PATH_CONTACTS_PAGE,
-    PATH_HOME_PAGE,
+    PATH_HOME_PAGE, PATH_TOKEN_PAGE,
     PATH_VERIFIED_PAGE
 } from "../../../utils/routesPath";
 import SocialBlock from "../../SocialBlock";
@@ -16,7 +16,8 @@ const FooterNav = () => {
         {name: 'AirDrop', url: PATH_AIR_DROP_PAGE},
         {name: 'Verified', url: PATH_VERIFIED_PAGE},
         {name: 'Adc', url: PATH_ADC_PAGE},
-        {name: 'Contntacts', url: PATH_CONTACTS_PAGE},
+        {name: 'Contacts', url: PATH_CONTACTS_PAGE},
+        {name: 'Token', url: PATH_TOKEN_PAGE},
     ]
     return (
         <div className={s.footerNav}>

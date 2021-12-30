@@ -1,0 +1,266 @@
+/*@font-face {
+    font-family: NekstRegular;
+    src: url(../assets/fonts/Nekst-Regular.ttf);
+}*/
+* {
+  font-family: "Nekst", sans-serif; }
+
+body {
+  background-color: #10112d; }
+
+main {
+  overflow-x: hidden; }
+
+h1 {
+  color: white;
+  font-size: 48px; }
+
+h2 {
+  color: white;
+  font-size: 24px;
+  font-weight: bold; }
+
+h3 {
+  color: white;
+  font-size: 16px; }
+
+h4 {
+  color: white;
+  font-size: 14px; }
+
+h5 {
+  color: white;
+  font-size: 12px;
+  font-weight: bold; }
+
+p {
+  font-size: 12px;
+  color: white;
+  font-family: "Nekst", sans-serif; }
+
+.table > :not(:first-child) {
+  border-top: none; }
+
+.table > thead {
+  height: 40px;
+  color: #a6b2c6;
+  font-weight: bold;
+  font-size: 12px;
+  text-align: center; }
+
+td {
+  font-size: 12px; }
+  td > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60px; }
+
+.gradient-purple {
+  background-image: -moz-linear-gradient(-90deg, #2a3072 0%, #565fb0 100%);
+  background-image: -webkit-linear-gradient(-90deg, #2a3072 0%, #565fb0 100%);
+  background-image: -ms-linear-gradient(-90deg, #2a3072 0%, #565fb0 100%); }
+
+.gradient-green {
+  background-image: -moz-linear-gradient(-38deg, #1c5163 0%, #2ef098 100%);
+  background-image: -webkit-linear-gradient(-38deg, #1c5163 0%, #2ef098 100%);
+  background-image: -ms-linear-gradient(-38deg, #1c5163 0%, #2ef098 100%); }
+
+.gradient-red {
+  background-image: -moz-linear-gradient(-38deg, #4b2d73 0%, #e0258c 100%);
+  background-image: -webkit-linear-gradient(-38deg, #4b2d73 0%, #e0258c 100%);
+  background-image: -ms-linear-gradient(-38deg, #4b2d73 0%, #e0258c 100%); }
+
+.gradient-blue {
+  background-image: -moz-linear-gradient(-38deg, #2e3a82 0%, #2871ab 100%);
+  background-image: -webkit-linear-gradient(-38deg, #2e3a82 0%, #2871ab 100%);
+  background-image: -ms-linear-gradient(-38deg, #2e3a82 0%, #2871ab 100%); }
+
+.tokenPage {
+  min-height: 1000px;
+  background-image: url(../../../assets/img/air-drop-page-bg.png);
+  -webkit-background-size: cover;
+  background-size: cover; }
+  .tokenPage .wrapper {
+    margin-top: 30px; }
+    .tokenPage .wrapper .aboutSection {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 50px; }
+      @media screen and (max-width: 998px) {
+        .tokenPage .wrapper .aboutSection {
+          flex-direction: column;
+          justify-content: center;
+          align-items: center; } }
+      .tokenPage .wrapper .aboutSection .freeToken {
+        width: 100%;
+        max-width: 435px; }
+        @media screen and (max-width: 998px) {
+          .tokenPage .wrapper .aboutSection .freeToken {
+            margin-bottom: 50px; } }
+      .tokenPage .wrapper .aboutSection .contentBlock {
+        position: relative;
+        width: 100%;
+        max-width: 620px; }
+        .tokenPage .wrapper .aboutSection .contentBlock .medalWrapper {
+          margin-left: -75px; }
+          @media screen and (max-width: 998px) {
+            .tokenPage .wrapper .aboutSection .contentBlock .medalWrapper {
+              margin-left: 0;
+              margin-bottom: 30px; } }
+    .tokenPage .wrapper .infoSection .formWrapper {
+      margin-top: 50px; }
+      @media screen and (max-width: 998px) {
+        .tokenPage .wrapper .infoSection .formWrapper .formHeader {
+          flex-wrap: wrap; } }
+      .tokenPage .wrapper .infoSection .formWrapper .formBody {
+        display: flex;
+        justify-content: center; }
+        @media screen and (max-width: 998px) {
+          .tokenPage .wrapper .infoSection .formWrapper .formBody {
+            flex-wrap: wrap; } }
+    .tokenPage .wrapper .featuresSection .cardsWrapper {
+      margin-top: 50px;
+      display: grid;
+      grid-template-columns: auto auto auto auto;
+      justify-content: space-between; }
+      @media screen and (max-width: 1400px) {
+        .tokenPage .wrapper .featuresSection .cardsWrapper {
+          grid-template-columns: auto auto auto; } }
+      @media screen and (max-width: 998px) {
+        .tokenPage .wrapper .featuresSection .cardsWrapper {
+          grid-template-columns: auto auto;
+          justify-content: space-around; } }
+      @media screen and (max-width: 768px) {
+        .tokenPage .wrapper .featuresSection .cardsWrapper {
+          grid-template-columns: auto;
+          justify-content: center; } }
+    .tokenPage .wrapper .historySection {
+      padding-bottom: 100px; }
+      .tokenPage .wrapper .historySection .formWinner {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 10px; }
+        @media screen and (max-width: 1200px) {
+          .tokenPage .wrapper .historySection .formWinner {
+            margin-top: 0; } }
+        .tokenPage .wrapper .historySection .formWinner .trophy {
+          width: 100%;
+          max-width: 218px;
+          height: auto;
+          margin-bottom: -109px;
+          z-index: 1; }
+          @media screen and (max-width: 1200px) {
+            .tokenPage .wrapper .historySection .formWinner .trophy {
+              margin-bottom: -20px; } }
+        .tokenPage .wrapper .historySection .formWinner .bigBall {
+          position: absolute;
+          top: 90px;
+          left: 41%;
+          z-index: 2; }
+        .tokenPage .wrapper .historySection .formWinner .oneBall {
+          position: absolute;
+          top: 100px;
+          left: 50px;
+          z-index: 2; }
+        .tokenPage .wrapper .historySection .formWinner .twoBall {
+          position: absolute;
+          top: 52%;
+          left: 44%;
+          z-index: 2; }
+        .tokenPage .wrapper .historySection .formWinner .threeBall {
+          position: absolute;
+          top: 0px;
+          left: 57%;
+          z-index: 2; }
+        .tokenPage .wrapper .historySection .formWinner .fourBall {
+          position: absolute;
+          top: 100px;
+          left: 58%;
+          z-index: 2; }
+        .tokenPage .wrapper .historySection .formWinner .fiveBall {
+          position: absolute;
+          top: 260px;
+          right: -10px;
+          z-index: 2; }
+        .tokenPage .wrapper .historySection .formWinner .winnerBody {
+          position: relative;
+          background: url("../../../assets/img/token-form-bg.png") no-repeat center center;
+          -webkit-background-size: cover;
+          background-size: cover;
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-end;
+          min-height: 322px;
+          -webkit-border-radius: 59px;
+          -moz-border-radius: 59px;
+          border-radius: 59px;
+          padding: 25px 20px 35px 50px;
+          box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px; }
+          @media screen and (max-width: 1200px) {
+            .tokenPage .wrapper .historySection .formWinner .winnerBody {
+              flex-direction: column;
+              align-items: center; } }
+          .tokenPage .wrapper .historySection .formWinner .winnerBody .contentList {
+            list-style: none;
+            padding-left: 0;
+            height: 100%;
+            margin-bottom: 0; }
+            .tokenPage .wrapper .historySection .formWinner .winnerBody .contentList .contentItem {
+              width: 380px;
+              margin-top: 40px;
+              display: flex;
+              justify-content: space-between; }
+              .tokenPage .wrapper .historySection .formWinner .winnerBody .contentList .contentItem .numberWrapper {
+                position: relative;
+                width: 121px;
+                height: 47px;
+                display: flex;
+                justify-content: center;
+                background-color: #181c3f;
+                -webkit-border-radius: 10px;
+                -moz-border-radius: 10px;
+                border-radius: 10px; }
+                .tokenPage .wrapper .historySection .formWinner .winnerBody .contentList .contentItem .numberWrapper h1 {
+                  font-weight: bold;
+                  font-size: 55px;
+                  margin-top: -20px;
+                  color: white; }
+              .tokenPage .wrapper .historySection .formWinner .winnerBody .contentList .contentItem p {
+                margin-bottom: 0;
+                color: white;
+                max-width: 240px; }
+          .tokenPage .wrapper .historySection .formWinner .winnerBody .youtubeWrapper {
+            height: 150px;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px; }
+            .tokenPage .wrapper .historySection .formWinner .winnerBody .youtubeWrapper .youtube {
+              -webkit-transition: all .3s;
+              -moz-transition: all .3s;
+              -ms-transition: all .3s;
+              -o-transition: all .3s;
+              transition: all .3s; }
+              .tokenPage .wrapper .historySection .formWinner .winnerBody .youtubeWrapper .youtube:hover {
+                -webkit-transform: scale(1.2, 1.2);
+                -moz-transform: scale(1.2, 1.2);
+                -ms-transform: scale(1.2, 1.2);
+                -o-transform: scale(1.2, 1.2);
+                transform: scale(1.2, 1.2); }
+            .tokenPage .wrapper .historySection .formWinner .winnerBody .youtubeWrapper .youtubeText {
+              max-width: 125px;
+              text-align: center;
+              margin-bottom: 0; }
+          .tokenPage .wrapper .historySection .formWinner .winnerBody .tokenGraphic {
+            width: 100%;
+            max-width: 467px; }
+
+/*# sourceMappingURL=TokenPage.module.css.map */

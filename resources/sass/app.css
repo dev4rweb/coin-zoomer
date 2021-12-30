@@ -9017,6 +9017,8 @@ footer .nav-link {
   -ms-transition: all 0.2s;
   -o-transition: all 0.2s;
   transition: all 0.2s; }
+  .simple-btn-filled img {
+    margin-right: 5px; }
   .simple-btn-filled:hover {
     color: white;
     -webkit-transform: scale(1.2, 1.2);
@@ -9086,5 +9088,77 @@ footer .nav-link {
   -webkit-background-size: cover;
   background-size: cover;
   border-color: #ff7b39; }
+
+.like-input {
+  min-height: 45px;
+  background-color: #181c3f;
+  color: #a6b2c6;
+  border: 1px solid #a6b2c6;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 35px;
+  padding-right: 35px; }
+
+.feature-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  -ms-transition: all .3s;
+  -o-transition: all .3s;
+  transition: all .3s; }
+  .feature-card:hover {
+    /*-webkit-box-shadow: 5px 5px 5px 5px #000000;
+    box-shadow: 5px 5px 5px 5px #000000;*/
+    -webkit-transform: scale(1.1, 1.1);
+    -moz-transform: scale(1.1, 1.1);
+    -ms-transform: scale(1.1, 1.1);
+    -o-transform: scale(1.1, 1.1);
+    transform: scale(1.1, 1.1); }
+  .feature-card h1, .feature-card .h1 {
+    font-size: 72px;
+    margin-bottom: 30px;
+    font-weight: bold; }
+  .feature-card h4, .feature-card .h4 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 35px; }
+  .feature-card p {
+    max-width: 220px;
+    text-align: center; }
+
+.purple-card {
+  border-radius: 4px;
+  color: white;
+  background: url("../assets/img/purple-bg.png") no-repeat center center;
+  width: 302px;
+  height: 300px; }
+
+.orange-card {
+  border-radius: 4px;
+  color: white;
+  background: url("../assets/img/orange-bg.png") no-repeat center center;
+  width: 302px;
+  height: 300px; }
+
+.green-card {
+  border-radius: 4px;
+  color: white;
+  background: url("../assets/img/green-bg.png") no-repeat center center;
+  width: 302px;
+  height: 300px; }
+
+.blue-card {
+  border-radius: 4px;
+  color: white;
+  background: url("../assets/img/blue-bg.png") no-repeat center center;
+  width: 302px;
+  height: 300px; }
 
 /*# sourceMappingURL=app.css.map */
