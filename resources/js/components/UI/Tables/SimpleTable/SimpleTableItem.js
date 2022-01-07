@@ -8,6 +8,13 @@ import {Inertia} from "@inertiajs/inertia";
 import {PATH_COIN_OPEN_PAGE} from "../../../../utils/routesPath";
 
 const SimpleTableItem = ({data, index}) => {
+    const  d = new Date(data.atl_date),
+        dformat = [d.getDate(),
+                d.getMonth()+1,
+                d.getFullYear()].join('-')/*+' '+
+            [d.getHours(),
+                d.getMinutes(),
+                d.getSeconds()].join(':')*/;
 
     const handleClick = e => {
         console.log('StatusTableRow click', data)
@@ -18,8 +25,8 @@ const SimpleTableItem = ({data, index}) => {
         <tr className={s.tableItem}>
             <td className={s.coinsCol} onClick={handleClick}>
                 <div className={s.coins}>
-                    <img src={coinLogo} alt="coin"/>
-                    <p>{data.name}</p>
+                    <img src={data.image} alt="coin"/>
+                    <p>{data.id}</p>
                 </div>
             </td>
             <td className={s.symbol}>
@@ -29,27 +36,27 @@ const SimpleTableItem = ({data, index}) => {
             </td>
             <td>
                 {
-                    data.isUp ?
+                    data.price_change_percentage_1h_in_currency < 0 ?
                         <div className={s.greenCol}>
                             <img src={iconUp} alt="up"/>
-                            {data.dynamicValue}%
+                            {data.price_change_percentage_1h_in_currency.toFixed(3)}%
                         </div> :
-                        <div>{data.dynamicValue}</div>
+                        <div>{data.price_change_percentage_1h_in_currency.toFixed(3)}</div>
                 }
             </td>
             <td>
                 {
-                    data.isUp ?
+                    data.market_cap > 0 ?
                         <div>
                             <span style={{color: '#7dd75c', marginRight: '5px'}}>$</span>
-                            {data.marketCap}
+                            {((data.market_cap)/100000000).toFixed(3)}
                         </div> :
-                        <div><span>$</span> {data.marketCap}</div>
+                        <div><span>$</span> {data.market_cap}</div>
                 }
             </td>
             <td>
                 <div>
-                    {data.launchDate} days ago
+                    {dformat}
                 </div>
             </td>
             <td>
@@ -62,7 +69,7 @@ const SimpleTableItem = ({data, index}) => {
                         Vote
                     </Button>
                     <OutlineBtn>
-                        <span>{data.upVotes}</span>
+                        <span>{data.current_price.toFixed(2)}</span>
                     </OutlineBtn>
                 </div>
             </td>

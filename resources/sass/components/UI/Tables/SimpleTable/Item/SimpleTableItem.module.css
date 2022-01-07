@@ -88,7 +88,9 @@ td {
       display: flex;
       align-items: center; }
       .tableItem .coinsCol .coins img {
-        margin-right: 10px; }
+        margin-right: 10px;
+        height: 46px;
+        width: auto; }
       .tableItem .coinsCol .coins p {
         margin-bottom: 0;
         font-weight: bold;

@@ -27,6 +27,7 @@ import SubscribeBlock from "../components/SubscribeBlock/SubscribeBlock";
 import LeadersSubscribeBlock from "../components/LeadersSubscribeBlock/LeadersSubscribeBlock";
 import {Inertia} from "@inertiajs/inertia";
 import {PATH_ADD_COIN_PAGE} from "../utils/routesPath";
+import {geckoGetPing} from "../asyncAction/coinGecko";
 
 const HomePage = ({currentUser, errors}) => {
     const dispatch = useDispatch();
@@ -40,6 +41,7 @@ const HomePage = ({currentUser, errors}) => {
 
     useEffect(() => {
         dispatch(setCurrentUserAction(currentUser))
+        dispatch(geckoGetPing())
         // dispatch(setErrorsAction(errors))
     }, []);
 

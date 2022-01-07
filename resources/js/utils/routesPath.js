@@ -14,3 +14,8 @@ export const PATH_AIR_DROP_OPEN_PAGE = '/air-drop-open'
 export const PATH_COIN_OPEN_PAGE = '/coin-open'
 export const PATH_TOKEN_PAGE = '/token'
 export const PATH_ERROR_PAGE = '/error'
+
+export const GECKO_ROOT_PATH = 'https://api.coingecko.com/api/v3'
+export const GECKO_PING_PATH = '/ping'
+export const GECKO_COIN_LIST_PATH = '/coins/list'
+export const GECKO_COIN_MARKETS_PATH = '/coins/markets'

@@ -1,2 +1,5 @@
 export const SET_CURRENT_USER = 'SET_CURRENT_USER'
-export const SET_ERORRS = 'SET_ERORRS'
+export const SET_ERRORS = 'SET_ERRORS'
+export const GECKO_PING = 'GECKO_PING'
+export const GECKO_COINS_LIST = 'GECKO_COINS_LIST'
+export const GECKO_COINS_MARKETS = 'GECKO_COINS_MARKETS'

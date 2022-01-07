@@ -1,4 +1,4 @@
-import {SET_ERORRS} from "../utils/reducerConsts";
+import {SET_ERRORS} from "../utils/reducerConsts";
 
 const defaultState = {
     errors: {}
@@ -6,7 +6,7 @@ const defaultState = {
 
 export default function errorsReducer(state = defaultState, action) {
     switch (action.type) {
-        case SET_ERORRS:
+        case SET_ERRORS:
             return {
                 ...state,
                 errors: action.payload
@@ -16,4 +16,4 @@ export default function errorsReducer(state = defaultState, action) {
     }
 };
 
-export const setErrorsAction = errors => ({type: SET_ERORRS, payload: errors})
+export const setErrorsAction = errors => ({type: SET_ERRORS, payload: errors})
