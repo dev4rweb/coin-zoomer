@@ -2,13 +2,18 @@
 
 .tableItem {
     min-height: 65px;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
 
     .coinsCol {
-        -webkit-transition: all .3s;
+        /*-webkit-transition: all .3s;
         -moz-transition: all .3s;
         -ms-transition: all .3s;
         -o-transition: all .3s;
-        transition: all .3s;
+        transition: all .3s;*/
 
         .coins {
             display: flex;
@@ -16,8 +21,10 @@
 
             img {
                 margin-right: 10px;
-                height: 46px;
                 width: auto;
+                height: auto;
+                max-width: 46px;
+                max-height: 46px;
             }
 
             p {
@@ -58,14 +65,16 @@
             }
         }
 
-        &:hover {
-            cursor: pointer;
-            -webkit-transform: scale(1.1, 1.1);
-            -moz-transform: scale(1.1, 1.1);
-            -ms-transform: scale(1.1, 1.1);
-            -o-transform: scale(1.1, 1.1);
-            transform: scale(1.1, 1.1);
-        }
+
+    }
+
+    &:hover {
+        cursor: pointer;
+        /*-webkit-transform: scale(1.1, 1.1);
+        -moz-transform: scale(1.1, 1.1);
+        -ms-transform: scale(1.1, 1.1);
+        -o-transform: scale(1.1, 1.1);
+        transform: scale(1.1, 1.1);*/
     }
 
     .symbol {
@@ -96,6 +105,16 @@
     color: #7dd75c;
 
     img {
+        margin-right: 8px;
+    }
+}
+
+.redCol {
+    display: flex;
+    align-items: center;
+    color: #ef3e3e;
+
+    img, span {
         margin-right: 8px;
     }
 }

@@ -26,7 +26,7 @@ const CoinOpenPage = ({currentUser, errors, pageId}) => {
 
     useEffect(() => {
         dispatch(setCurrentUserAction(currentUser))
-        console.log('AirDropOpenPage pageId', pageId)
+        console.log('CoinOpenPage pageId', pageId)
         // dispatch(setErrorsAction(errors))
     }, []);
 
