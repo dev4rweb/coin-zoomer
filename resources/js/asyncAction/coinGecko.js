@@ -1,6 +1,17 @@
 import axios from "axios";
-import {GECKO_ROOT_PATH, GECKO_PING_PATH, GECKO_COIN_LIST_PATH, GECKO_COIN_MARKETS_PATH} from "../utils/routesPath";
-import {setGeckoCoinsListAction, setGeckoCoinsMarketAction, setGeckoPingAction} from "../reducers/coinGeckoApiReducer";
+import {
+    GECKO_ROOT_PATH,
+    GECKO_PING_PATH,
+    GECKO_COIN_LIST_PATH,
+    GECKO_COIN_MARKETS_PATH,
+    GECKO_CURRENT_COIN_PATH
+} from "../utils/routesPath";
+import {
+    setGeckoCoinsListAction,
+    setGeckoCoinsMarketAction,
+    setGeckoCurrentCoinAction,
+    setGeckoPingAction
+} from "../reducers/coinGeckoApiReducer";
 
 export const geckoGetPing = () => {
     return function (dispatch) {
@@ -20,8 +31,6 @@ export const geckoGetPing = () => {
 };
 
 export const geckoGetCoinsList = () => {
-
-
     return function (dispatch) {
         axios.get(`${GECKO_ROOT_PATH}${GECKO_COIN_LIST_PATH}`)
             .then(res => {
@@ -53,6 +62,20 @@ export const geckoGetCoinsMarket = () => {
             })
             .catch(err => {
                 console.log('geckoGetCoinsMarket err', err)
+            });
+    };
+};
+
+export const geckoGetCurrentCoin = id => {
+
+    return function (dispatch) {
+        axios.get(`${GECKO_ROOT_PATH}${GECKO_CURRENT_COIN_PATH}${id}`)
+            .then(res => {
+                console.log('geckoGetCurrentCoin', res)
+                dispatch(setGeckoCurrentCoinAction(res.data))
+            })
+            .catch(err => {
+                console.log('geckoGetCurrentCoin err', err)
             });
     };
 };
