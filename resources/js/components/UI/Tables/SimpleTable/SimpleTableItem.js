@@ -57,6 +57,11 @@ const SimpleTableItem = ({data, index}) => {
                 }
             </td>
             <td>
+                <div>
+                    $ {data.current_price.toFixed(2)}
+                </div>
+            </td>
+            <td>
                 {
                     data.market_cap > 0 ?
                         <div>

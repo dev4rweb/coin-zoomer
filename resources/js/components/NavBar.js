@@ -24,7 +24,7 @@ const NavBar = () => {
         {name: 'Verified', url: PATH_VERIFIED_PAGE},
         {name: 'Adc', url: PATH_ADC_PAGE},
         {name: 'Contacts', url: PATH_CONTACTS_PAGE},
-        {name: 'Molaris', url: PATH_MOLARIS_PAGE},
+        // {name: 'Molaris', url: PATH_MOLARIS_PAGE},
     ]
 
     // console.log('NavBar location', window.location.href.includes(PATH_AIR_DROP_PAGE))

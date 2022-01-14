@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import s from '../../sass/pages/AddCoinPage/AddCoinPage.module.scss'
 import Layout from "../components/Layout";
 import LeadersSubscribeBlock from "../components/LeadersSubscribeBlock/LeadersSubscribeBlock";
@@ -23,12 +23,20 @@ import InputImage from "../components/InputImage/InputImage";
 import InputFile from "../components/InputFile/InputFile";
 
 const AddCoinPage = ({currentUser, errors}) => {
+    const [chain, setChain] = useState('Select')
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(setCurrentUserAction(currentUser))
         // dispatch(setErrorsAction(errors))
     }, []);
+
+    const chainHandler = e => {
+        e.preventDefault()
+        const value = e.target.getAttribute('title')
+        console.log('chainHandler', value)
+        setChain(value)
+    };
 
     return (
         <Layout>
@@ -147,30 +155,48 @@ const AddCoinPage = ({currentUser, errors}) => {
                                                 <DropdownButton
                                                     id="dropdown-custom"
                                                     className='dropdown-custom'
-                                                    title="Select">
+                                                    title={chain}>
                                                     <DropdownItem
-                                                        onClick={event => event.preventDefault()}
+                                                        onClick={chainHandler}
                                                         as="button"
+                                                        title={'eth'}
                                                     >
-                                                        One Chain
+                                                        eth
                                                     </DropdownItem>
                                                     <DropdownItem
-                                                        onClick={event => event.preventDefault()}
+                                                        onClick={chainHandler}
                                                         as="button"
+                                                        title={'bsc'}
                                                     >
-                                                        Two Chain
+                                                        bsc
                                                     </DropdownItem>
                                                     <DropdownItem
-                                                        onClick={event => event.preventDefault()}
+                                                        onClick={chainHandler}
                                                         as="button"
+                                                        title={'fantom'}
                                                     >
-                                                        Three Chain
+                                                        fantom
                                                     </DropdownItem>
                                                     <DropdownItem
-                                                        onClick={event => event.preventDefault()}
+                                                        onClick={chainHandler}
                                                         as="button"
+                                                        title={'mumbai'}
                                                     >
-                                                        Four Chain
+                                                        mumbai
+                                                    </DropdownItem>
+                                                    <DropdownItem
+                                                        onClick={chainHandler}
+                                                        as="button"
+                                                        title={'polygon'}
+                                                    >
+                                                        polygon
+                                                    </DropdownItem>
+                                                    <DropdownItem
+                                                        onClick={chainHandler}
+                                                        as="button"
+                                                        title={'avalanche'}
+                                                    >
+                                                        avalanche
                                                     </DropdownItem>
                                                 </DropdownButton>
                                             </InputGroup>

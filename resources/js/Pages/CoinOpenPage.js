@@ -63,13 +63,36 @@ const CoinOpenPage = ({currentUser, errors, pageId}) => {
                                         <div className={s.leftSide}>
                                             <InputGroup className="mb-3">
                                                 <label className="input-label">
+                                                    Chain
+                                                    {
+                                                        currentCoin.symbol ?
+                                                            <FormControl
+                                                                placeholder="Market cap"
+                                                                className="input-text"
+                                                                value={`${currentCoin.symbol}`}
+                                                                type="text"
+                                                                disabled
+                                                            />
+                                                            :
+                                                            <FormControl
+                                                                placeholder="Market cap"
+                                                                className="input-text"
+                                                                value={'unknown'}
+                                                                type="text"
+                                                                disabled
+                                                            />
+                                                    }
+                                                </label>
+                                            </InputGroup>
+                                            <InputGroup className="mb-3">
+                                                <label className="input-label">
                                                     Market cap
                                                     {
                                                         currentCoin.market_data.market_cap.usd ?
                                                             <FormControl
                                                                 placeholder="Market cap"
                                                                 className="input-text"
-                                                                value={currentCoin.market_data.market_cap.usd}
+                                                                value={`$ ${currentCoin.market_data.market_cap.usd}`}
                                                                 type="text"
                                                                 disabled
                                                             />
@@ -92,7 +115,7 @@ const CoinOpenPage = ({currentUser, errors, pageId}) => {
                                                             <FormControl
                                                                 placeholder="Price"
                                                                 className="input-text"
-                                                                value={currentCoin.market_data.current_price.usd}
+                                                                value={`$ ${currentCoin.market_data.current_price.usd}`}
                                                                 type="text"
                                                                 disabled
                                                             />
@@ -157,7 +180,7 @@ const CoinOpenPage = ({currentUser, errors, pageId}) => {
 
                                             <div className={s.coinContent}>
                                                 <h3>About coin</h3>
-                                                <p dangerouslySetInnerHTML={{__html: currentCoin.description.en}}/>
+                                                <p dangerouslySetInnerHTML={{__html: currentCoin.description.en.slice(0, 600)}}/>
                                             </div>
                                         </div>
                                     </div>

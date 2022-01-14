@@ -35,6 +35,11 @@ const CoinsRateTableRow = ({data}) => {
                         <div>{data.dynamicValue}</div>
                 }
             </td>
+            <td className={s.symbol}>
+                <div>
+                    {`$ ${data.price}`}
+                </div>
+            </td>
             <td>
                 {
                     data.isUp ?

@@ -12,11 +12,11 @@ import CoinsRateTableRow from "./CoinsRateTableRow";
 
 const CoinsRateTable = () => {
     const tableData = [
-        {id: 1, logo: coinLogo, name: 'Coins name long name', symbol: 'NameSymbol', isUp: true, dynamicValue: 12.993, marketCap: 897.755, launchDate: 14, upVotes: 87946},
-        {id: 2, logo: coinLogoTwo, name: 'Coins name long name', symbol: 'NameSymbol', isUp: true, dynamicValue: 12.993, marketCap: 897.755, launchDate: 14, upVotes: 87946},
-        {id: 3, logo: coinLogoThree, name: 'Coins name long name', symbol: 'NameSymbol', isUp: true, dynamicValue: 12.993, marketCap: 897.755, launchDate: 14, upVotes: 87946},
-        {id: 4, logo: coinLogoFour, name: 'Coins name long name', symbol: 'NameSymbol', isUp: true, dynamicValue: 12.993, marketCap: 897.755, launchDate: 14, upVotes: 87946},
-        {id: 5, logo: coinLogoFive, name: 'Coins name long name', symbol: 'NameSymbol', isUp: true, dynamicValue: 12.993, marketCap: 897.755, launchDate: 14, upVotes: 87946},
+        {id: 1, logo: coinLogo, name: 'Coins name long name', symbol: 'NameSymbol', isUp: true, dynamicValue: 12.993, marketCap: 897.755, price: 177.88, launchDate: 14, upVotes: 87946},
+        {id: 2, logo: coinLogoTwo, name: 'Coins name long name', symbol: 'NameSymbol', isUp: true, dynamicValue: 12.993, marketCap: 897.755, price: 177.88, launchDate: 14, upVotes: 87946},
+        {id: 3, logo: coinLogoThree, name: 'Coins name long name', symbol: 'NameSymbol', isUp: true, dynamicValue: 12.993, marketCap: 897.755, price: 177.88, launchDate: 14, upVotes: 87946},
+        {id: 4, logo: coinLogoFour, name: 'Coins name long name', symbol: 'NameSymbol', isUp: true, dynamicValue: 12.993, marketCap: 897.755, price: 177.88, launchDate: 14, upVotes: 87946},
+        {id: 5, logo: coinLogoFive, name: 'Coins name long name', symbol: 'NameSymbol', isUp: true, dynamicValue: 12.993, marketCap: 897.755, price: 177.88, launchDate: 14, upVotes: 87946},
     ]
     return (
         <Table className={s.simpleTable} striped hover responsive variant="dark">
@@ -25,6 +25,7 @@ const CoinsRateTable = () => {
                 <th className={s.coinsColLong}>Coins</th>
                 <th>Symbol</th>
                 <th>1h</th>
+                <th>Price</th>
                 <th>Market Cap</th>
                 <th>Launch</th>
                 <th>Upvotes</th>
