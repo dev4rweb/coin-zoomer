@@ -10,6 +10,7 @@ use App\Http\Controllers\CoinOpenPageController;
 use App\Http\Controllers\ContactsPageController;
 use App\Http\Controllers\ErrorPageController;
 use App\Http\Controllers\HomePageController;
+use App\Http\Controllers\MolarisPageController;
 use App\Http\Controllers\TokenPageController;
 use App\Http\Controllers\UserPageController;
 use App\Http\Controllers\VerifiedPageController;
@@ -46,6 +47,7 @@ Route::get('/add-air-drop', [AddAirDropPageController::class, 'index']);
 Route::get('/air-drop-open/{id}', [AirDropOpenPageController::class, 'index']);
 Route::get('/coin-open/{id}', [CoinOpenPageController::class, 'index']);
 Route::get('/token', [TokenPageController::class, 'index']);
+Route::get('/molaris', [MolarisPageController::class, 'index']);
 
 // Error Page
 Route::fallback([ErrorPageController::class, 'index']);

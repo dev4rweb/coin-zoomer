@@ -6,7 +6,7 @@ import {
     PATH_ADC_PAGE, PATH_ADD_COIN_PAGE, PATH_ADMIN_PAGE,
     PATH_AIR_DROP_PAGE,
     PATH_CONTACTS_PAGE,
-    PATH_HOME_PAGE, PATH_LOGIN_PAGE, PATH_LOGOUT, PATH_REGISTER_PAGE, PATH_USER_PAGE,
+    PATH_HOME_PAGE, PATH_LOGIN_PAGE, PATH_LOGOUT, PATH_MOLARIS_PAGE, PATH_REGISTER_PAGE, PATH_USER_PAGE,
     PATH_VERIFIED_PAGE
 } from "../utils/routesPath";
 import {useDispatch, useSelector} from "react-redux";
@@ -24,6 +24,7 @@ const NavBar = () => {
         {name: 'Verified', url: PATH_VERIFIED_PAGE},
         {name: 'Adc', url: PATH_ADC_PAGE},
         {name: 'Contacts', url: PATH_CONTACTS_PAGE},
+        {name: 'Molaris', url: PATH_MOLARIS_PAGE},
     ]
 
     // console.log('NavBar location', window.location.href.includes(PATH_AIR_DROP_PAGE))
