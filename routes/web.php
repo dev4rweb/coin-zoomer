@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdcPageController;
 use App\Http\Controllers\AddAirDropPageController;
 use App\Http\Controllers\AddCoinPageController;
+use App\Http\Controllers\AdminCoinsPageController;
 use App\Http\Controllers\AdminPageController;
 use App\Http\Controllers\AirDropOpenPageController;
 use App\Http\Controllers\AirDropPageController;
@@ -48,6 +49,7 @@ Route::get('/air-drop-open/{id}', [AirDropOpenPageController::class, 'index']);
 Route::get('/coin-open/{id}', [CoinOpenPageController::class, 'index']);
 Route::get('/token', [TokenPageController::class, 'index']);
 Route::get('/molaris', [MolarisPageController::class, 'index']);
+Route::get('/admin-coins', [AdminCoinsPageController::class, 'index']);
 
 // Error Page
 Route::fallback([ErrorPageController::class, 'index']);

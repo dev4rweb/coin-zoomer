@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -17,8 +18,10 @@ class AdminPageController extends Controller
         } else if (!$user->is_admin) {
             return Redirect::route('userPanel.index');
         } else {
+            $users = User::where('is_admin', 0)->get();
             return Inertia::render('AdminPage', [
                 'currentUser' => $user,
+                'users' => $users
             ]);
         }
     }

@@ -88,11 +88,16 @@ const NavBar = () => {
                     {
                         currentUser ?
                             <div className={s.authWrapper}>
-                                <OutlineBtn
-                                    clickHandler={addCoinHandler}
-                                >
-                                    Add Coin
-                                </OutlineBtn>
+                                {
+                                    currentUser.is_admin ?
+                                        <OutlineBtn
+                                            clickHandler={addCoinHandler}
+                                        >
+                                            Add Coin
+                                        </OutlineBtn>
+                                        :
+                                        <span/>
+                                }
                                 {
                                     currentUser.is_admin ?
                                         <InertiaLink
@@ -119,12 +124,10 @@ const NavBar = () => {
                                 </InertiaLink>
                             </div>
                             :
-                            <div className={s.authWrapper}>
-                                <OutlineBtn
-                                    clickHandler={addCoinHandler}
-                                >
-                                    Add Coin
-                                </OutlineBtn>
+                            <div
+                                className={s.authWrapper}
+                                style={{maxWidth: '160px'}}
+                            >
                                 <InertiaLink
                                     className={'nav-link'}
                                     href={PATH_LOGIN_PAGE}

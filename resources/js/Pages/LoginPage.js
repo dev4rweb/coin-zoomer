@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Button, FloatingLabel, Form} from "react-bootstrap";
+import {Button, Card, Container, FloatingLabel, Form} from "react-bootstrap";
 import {Inertia} from "@inertiajs/inertia";
 import Layout from "../components/Layout";
 import {useDispatch} from "react-redux";
@@ -47,72 +47,74 @@ const LoginPage = () => {
 
     return (
         <Layout>
-            <h1>Login Page</h1>
-            <div className="container">
-                <div className="row justify-content-center">
-                    <div className="card p-5">
-                        <Form
-                            noValidate
-                            validated={validated}
-                            onSubmit={submitHandler}
-                        >
-                            <FloatingLabel
-                                label="Enter email"
-                                className="mb-3"
-                                controlId="formBasicEmail"
+            <Container>
+                <h1 className="mt-5 mb-5 text-center">Login Page</h1>
+                <div className="mt-5">
+                    <Card className="row justify-content-center">
+                        <div className="card p-5">
+                            <Form
+                                noValidate
+                                validated={validated}
+                                onSubmit={submitHandler}
                             >
-                                <Form.Control
-                                    required
-                                    type="email"
-                                    name="email"
-                                    value={email}
-                                    placeholder="Enter email"
-                                    onChange={event => setEmail(event.target.value)}
-                                />
-                                <Form.Control.Feedback>
-                                    Looks good!
-                                </Form.Control.Feedback>
-                                <Form.Control.Feedback type="invalid">
-                                    Please write Email.
-                                </Form.Control.Feedback>
-                            </FloatingLabel>
+                                <FloatingLabel
+                                    label="Enter email"
+                                    className="mb-3"
+                                    controlId="formBasicEmail"
+                                >
+                                    <Form.Control
+                                        required
+                                        type="email"
+                                        name="email"
+                                        value={email}
+                                        placeholder="Enter email"
+                                        onChange={event => setEmail(event.target.value)}
+                                    />
+                                    <Form.Control.Feedback>
+                                        Looks good!
+                                    </Form.Control.Feedback>
+                                    <Form.Control.Feedback type="invalid">
+                                        Please write Email.
+                                    </Form.Control.Feedback>
+                                </FloatingLabel>
 
-                            <FloatingLabel
-                                className="mb-3"
-                                controlId="formBasicPassword"
-                                label="Password"
-                            >
-                                <Form.Control
-                                    required
-                                    name="password"
-                                    type="password"
-                                    value={password}
-                                    placeholder="Password"
-                                    onChange={event => setPassword(event.target.value)}
-                                />
-                                <Form.Control.Feedback>
-                                    Looks good!
-                                </Form.Control.Feedback>
-                                <Form.Control.Feedback type="invalid">
-                                    Please write password.
-                                </Form.Control.Feedback>
-                            </FloatingLabel>
-                            <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                                <Form.Check
-                                    type="checkbox"
-                                    label="Remember password"
-                                    name="remember"
-                                    checked={isRemember}
-                                    onChange={event => setIsRemember(event.target.checked)}
-                                />
-                            </Form.Group>
-                            <Button variant="primary" type="submit">
-                                Submit
-                            </Button>
-                        </Form>
-                    </div>
+                                <FloatingLabel
+                                    className="mb-3"
+                                    controlId="formBasicPassword"
+                                    label="Password"
+                                >
+                                    <Form.Control
+                                        required
+                                        name="password"
+                                        type="password"
+                                        value={password}
+                                        placeholder="Password"
+                                        onChange={event => setPassword(event.target.value)}
+                                    />
+                                    <Form.Control.Feedback>
+                                        Looks good!
+                                    </Form.Control.Feedback>
+                                    <Form.Control.Feedback type="invalid">
+                                        Please write password.
+                                    </Form.Control.Feedback>
+                                </FloatingLabel>
+                                <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                                    <Form.Check
+                                        type="checkbox"
+                                        label="Remember password"
+                                        name="remember"
+                                        checked={isRemember}
+                                        onChange={event => setIsRemember(event.target.checked)}
+                                    />
+                                </Form.Group>
+                                <Button variant="primary" type="submit">
+                                    Submit
+                                </Button>
+                            </Form>
+                        </div>
+                    </Card>
                 </div>
-            </div>
+            </Container>
         </Layout>
     );
 };

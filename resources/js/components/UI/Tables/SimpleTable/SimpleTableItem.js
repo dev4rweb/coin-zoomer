@@ -58,7 +58,7 @@ const SimpleTableItem = ({data, index}) => {
             </td>
             <td>
                 <div>
-                    $ {data.current_price.toFixed(2)}
+                    {`$ ${data.current_price.toFixed(2)}`}
                 </div>
             </td>
             <td>

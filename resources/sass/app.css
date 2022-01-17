@@ -8689,7 +8689,8 @@ body {
   background-color: #10112d; }
 
 main {
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  min-height: calc(100vh - 120px); }
 
 h1, .h1 {
   color: white;

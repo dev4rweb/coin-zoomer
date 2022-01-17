@@ -4,12 +4,14 @@ import {composeWithDevTools} from "redux-devtools-extension";
 import thunk from "redux-thunk";
 import errorsReducer from "./errorsReducer";
 import coinGeckoApiReducer from "./coinGeckoApiReducer";
+import allUsersReducer from "./allUsersReducer";
 
 
 const rootReducer = combineReducers({
     currentUser: currentUserReducer,
     errors: errorsReducer,
-    coinGecko: coinGeckoApiReducer
+    coinGecko: coinGeckoApiReducer,
+    allUsers: allUsersReducer
 })
 
 export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))

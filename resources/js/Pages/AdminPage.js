@@ -1,21 +1,38 @@
 import React, {useEffect} from 'react';
 import Layout from "../components/Layout";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {setCurrentUserAction} from "../reducers/currentUserReducer";
-import {setErrorsAction} from "../reducers/errorsReducer";
-import bg from "../../assets/design/index.png";
+import s from '../../sass/pages/AdminPage/AdminPage.module.scss'
+import {Container} from "react-bootstrap";
+import {fetchAllUsersAction} from "../reducers/allUsersReducer";
+import UsersTable from "../components/UI/Tables/UsersTable/UsersTable";
+import AdminSidebar from "../components/UI/AdminSidebar/AdminSidebar";
 
-const AdminPage = ({currentUser, errors}) => {
+const AdminPage = ({currentUser, users, errors}) => {
     const dispatch = useDispatch();
+    const allUsers = useSelector(state => state.allUsers.users)
 
     useEffect(() => {
         dispatch(setCurrentUserAction(currentUser))
+        dispatch(fetchAllUsersAction(users))
         // dispatch(setErrorsAction(errors))
     }, []);
 
     return (
         <Layout>
-            <h1>Admin Panel</h1>
+            <Container className={s.adminPage}>
+                <div className="mt-3">
+                    <AdminSidebar />
+                </div>
+                <div className="mt-3">
+                    {
+                        allUsers ?
+                            <UsersTable/>
+                            :
+                            <h2>No users</h2>
+                    }
+                </div>
+            </Container>
         </Layout>
     );
 };
