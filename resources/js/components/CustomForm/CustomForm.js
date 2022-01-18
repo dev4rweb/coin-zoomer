@@ -4,10 +4,10 @@ import {Form} from "react-bootstrap";
 
 const CustomForm = ({title, children}) => {
     return (
-        <Form className={s.customForm}>
+        <div className={s.customForm}>
             <div className={s.title}>{title}</div>
             <div className={s.body}>{children}</div>
-        </Form>
+        </div>
     );
 };
 

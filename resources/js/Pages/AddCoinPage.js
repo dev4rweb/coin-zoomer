@@ -3,7 +3,7 @@ import s from '../../sass/pages/AddCoinPage/AddCoinPage.module.scss'
 import Layout from "../components/Layout";
 import LeadersSubscribeBlock from "../components/LeadersSubscribeBlock/LeadersSubscribeBlock";
 import {Button, Container, DropdownButton, FloatingLabel, FormControl, InputGroup} from "react-bootstrap";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {setCurrentUserAction} from "../reducers/currentUserReducer";
 import CustomAlert from "../components/UI/CustomAlert/CustomAlert";
 import BannerBlock from "../components/BannerBlock/BannerBlock";
@@ -21,8 +21,13 @@ import Form from "react-bootstrap/Form";
 import FormBlockDivider from "../components/UI/FormBlockDivider/FormBlockDivider";
 import InputImage from "../components/InputImage/InputImage";
 import InputFile from "../components/InputFile/InputFile";
+import {addCoinAction} from "../reducers/coinReducer";
+import {setErrorsAction} from "../reducers/errorsReducer";
+import {Inertia} from "@inertiajs/inertia";
+import {PATH_HOME_PAGE} from "../utils/routesPath";
 
 const AddCoinPage = ({currentUser, errors}) => {
+    const coin = useSelector(state => state.coin.addCoin)
     const [chain, setChain] = useState('Select')
     const dispatch = useDispatch();
 
@@ -36,6 +41,83 @@ const AddCoinPage = ({currentUser, errors}) => {
         const value = e.target.getAttribute('title')
         console.log('chainHandler', value)
         setChain(value)
+        setCoin({
+            ...coin,
+            ['chain']: value
+        })
+    };
+
+    const contractTelegramHandler = value => {
+        console.log('contractTelegramHandler', value)
+        setCoin({
+            ...coin,
+            ['contractTelegram']: value
+        })
+    };
+
+    const contractTwitterHandler = value => {
+        console.log('contractTwitterHandler', value)
+        setCoin({
+            ...coin,
+            ['contractTwitter']: value
+        })
+    };
+
+    const contractRedditHandler = value => {
+        console.log('contractRedditHandler', value)
+        setCoin({
+            ...coin,
+            ['contractReddit']: value
+        })
+    };
+
+    const contractDiscordHandler = value => {
+        console.log('contractDiscordHandler', value)
+        setCoin({
+            ...coin,
+            ['contractDiscord']: value
+        })
+    };
+
+    const inputFileHandler = filepath => {
+        console.log('inputFileHandler', filepath)
+        setCoin({
+            ...coin,
+            ['logotype']: filepath
+        })
+    };
+
+    const telegramHandler = value => {
+        console.log('telegramHandler', value)
+        setCoin({
+            ...coin,
+            ['telegram']: value
+        })
+    };
+
+    const setCoin = coin => {
+        dispatch(addCoinAction(coin))
+    };
+
+    const submitHandler = e => {
+        e.preventDefault()
+        console.log('submitHandler coin', coin)
+        axios.post('/add-coin-create', coin)
+            .then(res => {
+                console.log(res)
+                if (res.data.success) {
+                    setErrorsAction({message: res.data.message});
+                    setTimeout(() => {
+                        Inertia.visit(PATH_HOME_PAGE)
+                    }, 2000);
+                } else {
+                    setErrorsAction({message: 'Something wrong! Try again later'});
+                }
+            })
+            .catch(err => {
+                console.log(err)
+                setErrorsAction({message: 'Something wrong!'});
+            });
     };
 
     return (
@@ -66,7 +148,10 @@ const AddCoinPage = ({currentUser, errors}) => {
                                 The field marked with <span style={{color: '#f14b4e'}}>*</span> must be filled in!
                             </p>
                         }>
-                            <div className={s.addCoinForm}>
+                            <form
+                                onSubmit={submitHandler}
+                                className={s.addCoinForm}
+                            >
                                 <h2 className={s.titleBlock}>Coin info</h2>
                                 <div className={s.formBlock}>
 
@@ -79,6 +164,13 @@ const AddCoinPage = ({currentUser, errors}) => {
                                                     placeholder="Example: Tripcoin"
                                                     className="input-text"
                                                     type="text"
+                                                    name='name'
+                                                    value={coin.name}
+                                                    onChange={e => setCoin({
+                                                        ...coin,
+                                                        ['name']: e.target.value
+                                                    })}
+                                                    required
                                                 />
                                             </label>
                                         </InputGroup>
@@ -90,6 +182,12 @@ const AddCoinPage = ({currentUser, errors}) => {
                                                     placeholder="Example: Bitcoin is a decentralized digital currency"
                                                     className="input-text"
                                                     type="text"
+                                                    value={coin.description}
+                                                    onChange={e => setCoin({
+                                                        ...coin,
+                                                        ['description']: e.target.value
+                                                    })}
+                                                    required
                                                 />
                                             </label>
                                         </InputGroup>
@@ -100,7 +198,13 @@ const AddCoinPage = ({currentUser, errors}) => {
                                                 <FormControl
                                                     placeholder="Example: 0.05656"
                                                     className="input-text"
-                                                    type="text"
+                                                    type="number"
+                                                    value={coin.price}
+                                                    onChange={e => setCoin({
+                                                        ...coin,
+                                                        ['price']: e.target.value
+                                                    })}
+                                                    required
                                                 />
                                             </label>
                                         </InputGroup>
@@ -116,6 +220,12 @@ const AddCoinPage = ({currentUser, errors}) => {
                                                     placeholder="Example: BTC"
                                                     className="input-text"
                                                     type="text"
+                                                    value={coin.symbol}
+                                                    onChange={e => setCoin({
+                                                        ...coin,
+                                                        ['symbol']: e.target.value
+                                                    })}
+                                                    required
                                                 />
                                             </label>
                                         </InputGroup>
@@ -126,7 +236,13 @@ const AddCoinPage = ({currentUser, errors}) => {
                                                 <FormControl
                                                     placeholder="Example: 15955000"
                                                     className="input-text"
-                                                    type="text"
+                                                    type="number"
+                                                    value={coin.market_cap}
+                                                    onChange={e => setCoin({
+                                                        ...coin,
+                                                        ['market_cap']: e.target.value
+                                                    })}
+                                                    required
                                                 />
                                             </label>
                                         </InputGroup>
@@ -138,6 +254,12 @@ const AddCoinPage = ({currentUser, errors}) => {
                                                     placeholder="Example: 15.05.2021"
                                                     className="input-text"
                                                     type="date"
+                                                    value={coin.launch_date}
+                                                    onChange={e => setCoin({
+                                                        ...coin,
+                                                        ['launch_date']: e.target.value
+                                                    })}
+                                                    required
                                                 />
                                             </label>
                                         </InputGroup>
@@ -155,7 +277,9 @@ const AddCoinPage = ({currentUser, errors}) => {
                                                 <DropdownButton
                                                     id="dropdown-custom"
                                                     className='dropdown-custom'
-                                                    title={chain}>
+                                                    title={chain}
+                                                    required
+                                                >
                                                     <DropdownItem
                                                         onClick={chainHandler}
                                                         as="button"
@@ -198,6 +322,13 @@ const AddCoinPage = ({currentUser, errors}) => {
                                                     >
                                                         avalanche
                                                     </DropdownItem>
+                                                    <DropdownItem
+                                                        onClick={chainHandler}
+                                                        as="button"
+                                                        title={'miannet'}
+                                                    >
+                                                        miannet
+                                                    </DropdownItem>
                                                 </DropdownButton>
                                             </InputGroup>
                                         </label>
@@ -211,6 +342,12 @@ const AddCoinPage = ({currentUser, errors}) => {
                                                     placeholder="Example: BTC"
                                                     className="input-text"
                                                     type="text"
+                                                    value={coin.address}
+                                                    onChange={e => setCoin({
+                                                        ...coin,
+                                                        ['address']: e.target.value
+                                                    })}
+                                                    required
                                                 />
                                             </label>
                                         </InputGroup>
@@ -226,21 +363,31 @@ const AddCoinPage = ({currentUser, errors}) => {
                                         <InputGroup className="mb-3">
                                             <label className="input-label">
                                                 <span>*</span> Telegram
-                                                <InputImage imgLink={telegram}/>
+                                                <InputImage
+                                                    imgLink={telegram}
+                                                    inputHandler={contractTelegramHandler}
+                                                    required={true}
+                                                />
                                             </label>
                                         </InputGroup>
 
                                         <InputGroup className="mb-3">
                                             <label className="input-label">
                                                 Twitter
-                                                <InputImage imgLink={twitter}/>
+                                                <InputImage
+                                                    imgLink={twitter}
+                                                    inputHandler={contractTwitterHandler}
+                                                />
                                             </label>
                                         </InputGroup>
 
                                         <InputGroup className="mb-3">
                                             <label className="input-label">
                                                 Reddit
-                                                <InputImage imgLink={reddit}/>
+                                                <InputImage
+                                                    imgLink={reddit}
+                                                    inputHandler={contractRedditHandler}
+                                                />
                                             </label>
                                         </InputGroup>
 
@@ -255,6 +402,12 @@ const AddCoinPage = ({currentUser, errors}) => {
                                                     placeholder="Http://"
                                                     className="input-text"
                                                     type="url"
+                                                    pattern="https://.*" size="30"
+                                                    value={coin.contractWeb}
+                                                    onChange={e => setCoin({
+                                                        ...coin,
+                                                        ['contractWeb']: e.target.value
+                                                    })}
                                                 />
                                             </label>
                                         </InputGroup>
@@ -262,14 +415,20 @@ const AddCoinPage = ({currentUser, errors}) => {
                                         <InputGroup className="mb-3">
                                             <label className="input-label">
                                                 Discord
-                                                <InputImage imgLink={discord}/>
+                                                <InputImage
+                                                    imgLink={discord}
+                                                    inputHandler={contractDiscordHandler}
+                                                />
                                             </label>
                                         </InputGroup>
 
                                         <InputGroup className="mb-3">
                                             <label className="input-label">
                                                 Logotype
-                                                <InputFile placeholder={'Png/jpg/gif/tif/WebM  / links'} />
+                                                <InputFile
+                                                    placeholder={'Png/jpg/gif/tif/WebM/links'}
+                                                    inputHandler={inputFileHandler}
+                                                />
                                             </label>
                                         </InputGroup>
 
@@ -281,6 +440,11 @@ const AddCoinPage = ({currentUser, errors}) => {
                                         <FloatingLabel label="">
                                             <Form.Control
                                                 as="textarea"
+                                                value={coin.contractAdditional}
+                                                onChange={e => setCoin({
+                                                    ...coin,
+                                                    ['contractAdditional']: e.target.value
+                                                })}
                                                 style={{height: '60px'}}
                                             />
                                         </FloatingLabel>
@@ -299,6 +463,12 @@ const AddCoinPage = ({currentUser, errors}) => {
                                                     placeholder="@"
                                                     className="input-text"
                                                     type="email"
+                                                    value={coin.email}
+                                                    onChange={e => setCoin({
+                                                        ...coin,
+                                                        'email': e.target.value
+                                                    })}
+                                                    required
                                                 />
                                             </label>
                                         </InputGroup>
@@ -308,7 +478,10 @@ const AddCoinPage = ({currentUser, errors}) => {
                                         <InputGroup className="mb-3">
                                             <label className="input-label">
                                                 Contact Telegram
-                                                <InputImage imgLink={telegram}/>
+                                                <InputImage
+                                                    imgLink={telegram}
+                                                    inputHandler={telegramHandler}
+                                                />
                                             </label>
                                         </InputGroup>
                                     </div>
@@ -319,12 +492,13 @@ const AddCoinPage = ({currentUser, errors}) => {
                                         variant="info"
                                         className={`fill-btn`}
                                         style={{width: '165px'}}
+                                        type="submit"
                                     >
                                         Submit
                                     </Button>
 
                                 </div>
-                            </div>
+                            </form>
                         </CustomForm>
                     </section>
                 </Container>

@@ -2,43 +2,49 @@ import React, {createRef, useState} from 'react';
 import s from "../../../sass/components/InputFile/InputFile.module.scss";
 import link from "../../../assets/img/ic-link.png";
 import {useDispatch} from "react-redux";
+import {setErrorsAction} from "../../reducers/errorsReducer";
 
-const InputFile = ({placeholder}) => {
+const InputFile = ({placeholder, inputHandler = null}) => {
     const dispatch = useDispatch()
     let btn = createRef();
     const [value, setValue] = useState(placeholder)
 
-    const changeHandlerInput = e => {
-        console.log('changeHandlerInput', e.target.value)
-        /*setGame({
-            ...game,
-            [inputName]: e.target.value
-        })*/
+    const filePathHandler = e => {
+        setValue(e.target.value)
+        if (inputHandler) {
+            inputHandler(e.target.value)
+        }
     };
 
     const changeHandler = e => {
         console.log('changeHandler', e.target.value)
         setValue(e.target.value)
 
-        const fd = new FormData();
-        fd.set('image', e.target.files[0])
+        if (e.target.files[0].type.includes('image')) {
+            const fd = new FormData();
+            fd.set('image', e.target.files[0]);
 
-        /*axios.post('/file-upload', fd)
-            .then(res => {
-                // console.log(res)
-                if (res.data.success) {
-                    let filePath = res.data.filepath
-                    setGame({
-                        ...game,
-                        [inputName]: filePath
-                    })
-                } else {
-                    dispatch(setError(res.data.message))
-                }
-            })
-            .catch(err => {
-                dispatch(setError(err.response.message))
-            });*/
+            axios.post('/upload-file', fd)
+                .then(res => {
+                    console.log(res)
+                    if (res.data.success) {
+                        dispatch(setErrorsAction({message: 'File Uploaded'}))
+                        setValue(res.data.filepath)
+                        if (inputHandler) {
+                            inputHandler(res.data.filepath)
+                        }
+                    } else {
+                        dispatch(setErrorsAction(res.data.message))
+                    }
+                })
+                .catch(err => {
+                    console.log(err)
+                    dispatch(setErrorsAction(err.response.message))
+                });
+        } else {
+            setValue('')
+            dispatch(setErrorsAction({message: 'incorrect file format'}))
+        }
     };
 
     const uploadFile = e => {
@@ -59,7 +65,7 @@ const InputFile = ({placeholder}) => {
                 className={s.input}
                 value={value}
                 placeholder={placeholder}
-                onChange={event => setValue(event.target.value)}
+                onChange={filePathHandler}
             />
             <button
                 type="button"

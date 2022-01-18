@@ -17,7 +17,7 @@ const Messages = () => {
     }
 
     return (
-        <ToastContainer className="p-3" position={`bottom-end`}>
+        <ToastContainer style={{position: 'fixed', bottom: '50px', right: '50px'}}>
             {
                 errors && errors.message &&
                 <SingleMessage msg={errors.message}/>

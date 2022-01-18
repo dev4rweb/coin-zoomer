@@ -6,8 +6,9 @@ import AdminSidebar from "../components/UI/AdminSidebar/AdminSidebar";
 import {useDispatch} from "react-redux";
 import {setCurrentUserAction} from "../reducers/currentUserReducer";
 import {fetchAllUsersAction} from "../reducers/allUsersReducer";
+import AdminCoinTable from "../components/UI/Tables/AdminCoinTable/AdminCoinTable";
 
-const AdminCoinsPage = ({currentUser, errors}) => {
+const AdminCoinsPage = ({currentUser, coins, errors}) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -22,7 +23,11 @@ const AdminCoinsPage = ({currentUser, errors}) => {
                     <AdminSidebar/>
                 </div>
                 <div className="mt-3">
-                    <h1>CoinTable</h1>
+                    {
+                        coins && coins.length > 0 ?
+                            <AdminCoinTable coins={coins} />:
+                            <h1>No one coins</h1>
+                    }
                 </div>
             </Container>
         </Layout>

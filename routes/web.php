@@ -13,6 +13,7 @@ use App\Http\Controllers\ErrorPageController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\MolarisPageController;
 use App\Http\Controllers\TokenPageController;
+use App\Http\Controllers\UploadFileController;
 use App\Http\Controllers\UserPageController;
 use App\Http\Controllers\VerifiedPageController;
 use Illuminate\Support\Facades\Route;
@@ -44,12 +45,15 @@ Route::get('/contacts', [ContactsPageController::class, 'index']);
 Route::get('/user-panel', [UserPageController::class, 'index'])->name('userPanel.index');
 Route::get('/verified', [VerifiedPageController::class, 'index']);
 Route::get('/add-coin', [AddCoinPageController::class, 'index']);
+Route::post('/add-coin-create', [AddCoinPageController::class, 'addCoin']);
 Route::get('/add-air-drop', [AddAirDropPageController::class, 'index']);
 Route::get('/air-drop-open/{id}', [AirDropOpenPageController::class, 'index']);
 Route::get('/coin-open/{id}', [CoinOpenPageController::class, 'index']);
 Route::get('/token', [TokenPageController::class, 'index']);
 Route::get('/molaris', [MolarisPageController::class, 'index']);
 Route::get('/admin-coins', [AdminCoinsPageController::class, 'index']);
+
+Route::post('/upload-file', [UploadFileController::class, 'uploadFile']);
 
 // Error Page
 Route::fallback([ErrorPageController::class, 'index']);
