@@ -17,14 +17,17 @@ class CreateCoinsTable extends Migration
             $table->id();
             $table->boolean('is_approved')->default(false);
             $table->boolean('is_promoted')->default(false);
+            $table->boolean('is_coin_gecko')->default(false);
+            $table->boolean('is_presale')->default(false);
             $table->string('name');
             $table->text('description');
             $table->float('price');
             $table->string('symbol');
             $table->integer('market_cap');
             $table->date('launch_date');
+            $table->string('coin_gecko_link')->nullable();
             $table->string('chain');
-            $table->string('address');
+            $table->string('address')->nullable();
             $table->string('contractTelegram');
             $table->string('contractTwitter')->nullable();
             $table->string('contractReddit')->nullable();

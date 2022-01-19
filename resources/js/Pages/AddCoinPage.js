@@ -95,6 +95,19 @@ const AddCoinPage = ({currentUser, errors}) => {
         })
     };
 
+    const limitTextHandler = e => {
+        let words = e.target.value.split(' ').filter(Boolean)
+        console.log('limitTextHandler', words)
+        if (words.length < 300) {
+            setCoin({
+                ...coin,
+                ['contractAdditional']: e.target.value
+            });
+        } else {
+            e.target.style.color = 'red'
+        }
+    };
+
     const setCoin = coin => {
         dispatch(addCoinAction(coin))
     };
@@ -107,9 +120,9 @@ const AddCoinPage = ({currentUser, errors}) => {
                 console.log(res)
                 if (res.data.success) {
                     setErrorsAction({message: res.data.message});
-                    setTimeout(() => {
+                    // setTimeout(() => {
                         Inertia.visit(PATH_HOME_PAGE)
-                    }, 2000);
+                    // }, 2000);
                 } else {
                     setErrorsAction({message: 'Something wrong! Try again later'});
                 }
@@ -337,7 +350,7 @@ const AddCoinPage = ({currentUser, errors}) => {
                                     <div className={s.side}>
                                         <InputGroup className="mb-3">
                                             <label className="input-label">
-                                                <span>*</span> Address
+                                                <span>*</span>Contract address
                                                 <FormControl
                                                     placeholder="Example: BTC"
                                                     className="input-text"
@@ -355,7 +368,51 @@ const AddCoinPage = ({currentUser, errors}) => {
                                 </div>
                                 <FormBlockDivider/>
 
-                                <h2 className={s.titleBlock}>Contract addresses</h2>
+                                <div className={s.formBlock}>
+                                    <div className={s.side}>
+                                        <Form.Group className="mb-3">
+                                            <Form.Check
+                                                type="checkbox"
+                                                checked={coin.is_coin_gecko}
+                                                onChange={e => setCoin({
+                                                    ...coin,
+                                                    ['is_coin_gecko']: e.target.checked
+                                                })}
+                                                label="Is coin listed on CoinGecko?"
+                                            />
+                                        </Form.Group>
+                                        <InputGroup className="mb-3">
+                                            <label className="input-label">
+                                                <span>*</span> Coingecko link
+                                                <FormControl
+                                                    placeholder="Example: BTC"
+                                                    className="input-text"
+                                                    type="text"
+                                                    value={coin.coin_gecko_link}
+                                                    onChange={e => setCoin({
+                                                        ...coin,
+                                                        ['coin_gecko_link']: e.target.value
+                                                    })}
+                                                />
+                                            </label>
+                                        </InputGroup>
+                                        <Form.Group className="mb-3">
+                                            <Form.Check
+                                                type="checkbox"
+                                                checked={coin.is_presale}
+                                                onChange={e => setCoin({
+                                                    ...coin,
+                                                    ['is_presale']: e.target.checked
+                                                })}
+                                                label="Is it presale? (Presale listing is not free)"
+                                            />
+                                        </Form.Group>
+                                    </div>
+                                </div>
+
+                                <FormBlockDivider/>
+
+                                <h2 className={s.titleBlock}>Coin social media</h2>
                                 <div className={s.formBlock}>
 
                                     <div className={s.side}>
@@ -366,7 +423,6 @@ const AddCoinPage = ({currentUser, errors}) => {
                                                 <InputImage
                                                     imgLink={telegram}
                                                     inputHandler={contractTelegramHandler}
-                                                    required={true}
                                                 />
                                             </label>
                                         </InputGroup>
@@ -426,7 +482,7 @@ const AddCoinPage = ({currentUser, errors}) => {
                                             <label className="input-label">
                                                 Logotype
                                                 <InputFile
-                                                    placeholder={'Png/jpg/gif/tif/WebM/links'}
+                                                    placeholder={'Png/jpg 128 x 128'}
                                                     inputHandler={inputFileHandler}
                                                 />
                                             </label>
@@ -435,16 +491,13 @@ const AddCoinPage = ({currentUser, errors}) => {
                                     </div>
                                 </div>
                                 <label className="input-label">
-                                    Additional information, other links and addresses
+                                    Additional information, other links and addresses (300 words limit)
                                     <InputGroup className="mb-3">
                                         <FloatingLabel label="">
                                             <Form.Control
                                                 as="textarea"
                                                 value={coin.contractAdditional}
-                                                onChange={e => setCoin({
-                                                    ...coin,
-                                                    ['contractAdditional']: e.target.value
-                                                })}
+                                                onChange={limitTextHandler}
                                                 style={{height: '60px'}}
                                             />
                                         </FloatingLabel>

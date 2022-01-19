@@ -7,27 +7,37 @@ const AdminCoinTableItem = ({data, index}) => {
         <tr className={s.tableItem}>
             <td>
                 <div>
-                    <p>{index}</p>
+                    {index}
                 </div>
             </td>
             <td>
                 <div>
-                    <p>{data.id}</p>
+                    {data.id}
                 </div>
             </td>
             <td>
                 <div>
-                    <p>{data.name}</p>
+                    {data.name}
                 </div>
             </td>
             <td>
                 <div>
-                    <p>{data.is_approved}</p>
+                    {
+                        data.is_approved ?
+                            <span style={{color: 'green'}}>yes</span>
+                            :
+                            <span style={{color: 'red'}}>no</span>
+                    }
                 </div>
             </td>
             <td>
                 <div>
-                    <p>{data.is_promoted}</p>
+                    {
+                        data.is_promoted ?
+                            <span style={{color: 'green'}}>yes</span>
+                            :
+                            <span style={{color: 'red'}}>no</span>
+                    }
                 </div>
             </td>
             <td>

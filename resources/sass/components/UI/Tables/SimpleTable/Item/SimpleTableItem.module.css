@@ -92,7 +92,8 @@ td {
     transition: all .3s;*/ }
     .tableItem .coinsCol .coins {
       display: flex;
-      align-items: center; }
+      align-items: center;
+      justify-content: flex-start; }
       .tableItem .coinsCol .coins img {
         margin-right: 10px;
         width: auto;

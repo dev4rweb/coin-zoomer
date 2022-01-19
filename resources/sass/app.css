@@ -9068,10 +9068,10 @@ footer .nav-link {
   background-color: #1f244c;
   border: 1px solid #5f6495; }
 
-.input-label {
+.input-label, .form-check-label {
   width: 100%;
   color: #a6b2c6; }
-  .input-label span {
+  .input-label span, .form-check-label span {
     color: red; }
 
 .bth-lg, .btn-big {

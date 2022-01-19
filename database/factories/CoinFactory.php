@@ -13,8 +13,30 @@ class CoinFactory extends Factory
      */
     public function definition()
     {
+        $chain = ['eth', 'bsc', 'fantom', 'mumbai', 'polygon', 'avalanche', 'meannet'];
         return [
-            //
+            'is_approved' => $this->faker->boolean,
+            'is_promoted' => $this->faker->boolean,
+            'is_coin_gecko' => $this->faker->boolean,
+            'is_presale' => $this->faker->boolean,
+            'name' => $this->faker->word,
+            'description' => $this->faker->text(200),
+            'price' => $this->faker->numberBetween(100, 10000),
+            'symbol' => $this->faker->countryCode,
+            'market_cap' => $this->faker->numberBetween(10000, 1000000000),
+            'launch_date' => $this->faker->dateTimeBetween('-2years', '2years'),
+            'chain' => $chain[$this->faker->numberBetween(0, 6)],
+            'address' => $this->faker->address,
+            'coin_gecko_link' => $this->faker->url,
+            'contractTelegram' => $this->faker->streetName,
+            'contractTwitter' => $this->faker->streetName,
+            'contractReddit' => $this->faker->streetName,
+            'contractWeb' => $this->faker->url,
+            'contractDiscord' => $this->faker->streetName,
+            'logotype' => $this->faker->imageUrl,
+            'contractAdditional' => $this->faker->text(500),
+            'email' => $this->faker->email,
+            'telegram' => $this->faker->lastName,
         ];
     }
 }

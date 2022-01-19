@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Coin;
 use Illuminate\Database\Seeder;
 
 class CoinSeeder extends Seeder
@@ -13,6 +14,6 @@ class CoinSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Coin::factory(20)->create();
     }
 }

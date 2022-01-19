@@ -26,5 +26,6 @@ class DatabaseSeeder extends Seeder
             'password' => \bcrypt('password')
         ]);
          User::factory(30)->create();
+         $this->call(CoinSeeder::class);
     }
 }
