@@ -121,7 +121,7 @@ const AddCoinPage = ({currentUser, errors}) => {
                 if (res.data.success) {
                     setErrorsAction({message: res.data.message});
                     // setTimeout(() => {
-                        Inertia.visit(PATH_HOME_PAGE)
+                    Inertia.visit(PATH_HOME_PAGE)
                     // }, 2000);
                 } else {
                     setErrorsAction({message: 'Something wrong! Try again later'});
@@ -207,18 +207,38 @@ const AddCoinPage = ({currentUser, errors}) => {
 
                                         <InputGroup className="mb-3">
                                             <label className="input-label">
-                                                <span>*</span> Price in USD
-                                                <FormControl
-                                                    placeholder="Example: 0.05656"
-                                                    className="input-text"
-                                                    type="number"
-                                                    value={coin.price}
-                                                    onChange={e => setCoin({
-                                                        ...coin,
-                                                        ['price']: e.target.value
-                                                    })}
-                                                    required
-                                                />
+                                                {
+                                                    coin.is_presale ?
+                                                        <span>*</span> :
+                                                        ''
+                                                }
+                                                Price in USD
+                                                {
+                                                    coin.is_presale ?
+                                                        <FormControl
+                                                            placeholder="Example: 0.05656"
+                                                            className="input-text"
+                                                            type="number"
+                                                            value={coin.price}
+                                                            onChange={e => setCoin({
+                                                                ...coin,
+                                                                ['price']: e.target.value
+                                                            })}
+                                                            required
+                                                        />
+                                                        :
+                                                        <FormControl
+                                                            placeholder="Example: 0.05656"
+                                                            className="input-text"
+                                                            type="number"
+                                                            value={coin.price}
+                                                            onChange={e => setCoin({
+                                                                ...coin,
+                                                                ['price']: e.target.value
+                                                            })}
+                                                        />
+                                                }
+
                                             </label>
                                         </InputGroup>
 
@@ -350,18 +370,39 @@ const AddCoinPage = ({currentUser, errors}) => {
                                     <div className={s.side}>
                                         <InputGroup className="mb-3">
                                             <label className="input-label">
-                                                <span>*</span>Contract address
-                                                <FormControl
-                                                    placeholder="Example: BTC"
-                                                    className="input-text"
-                                                    type="text"
-                                                    value={coin.address}
-                                                    onChange={e => setCoin({
-                                                        ...coin,
-                                                        ['address']: e.target.value
-                                                    })}
-                                                    required
-                                                />
+                                                {
+                                                    coin.chain !== 'miannet' ?
+                                                        <span>*</span>
+                                                        :
+                                                        ''
+                                                }
+                                                Contract address
+                                                {
+                                                    coin.chain !== 'miannet' ?
+                                                        <FormControl
+                                                            placeholder="Example: BTC"
+                                                            className="input-text"
+                                                            type="text"
+                                                            value={coin.address}
+                                                            onChange={e => setCoin({
+                                                                ...coin,
+                                                                ['address']: e.target.value
+                                                            })}
+                                                            required
+                                                        />
+                                                        :
+                                                        <FormControl
+                                                            placeholder="Example: BTC"
+                                                            className="input-text"
+                                                            type="text"
+                                                            value={coin.address}
+                                                            onChange={e => setCoin({
+                                                                ...coin,
+                                                                ['address']: e.target.value
+                                                            })}
+                                                        />
+                                                }
+
                                             </label>
                                         </InputGroup>
                                     </div>
@@ -383,17 +424,38 @@ const AddCoinPage = ({currentUser, errors}) => {
                                         </Form.Group>
                                         <InputGroup className="mb-3">
                                             <label className="input-label">
-                                                <span>*</span> Coingecko link
-                                                <FormControl
-                                                    placeholder="Example: BTC"
-                                                    className="input-text"
-                                                    type="text"
-                                                    value={coin.coin_gecko_link}
-                                                    onChange={e => setCoin({
-                                                        ...coin,
-                                                        ['coin_gecko_link']: e.target.value
-                                                    })}
-                                                />
+                                                {
+                                                    coin.is_coin_gecko ?
+                                                        <span>*</span> :
+                                                        ''
+                                                }
+                                                Coingecko link
+                                                {
+                                                    coin.is_coin_gecko ?
+                                                        <FormControl
+                                                            placeholder="Example: BTC"
+                                                            className="input-text"
+                                                            type="text"
+                                                            value={coin.coin_gecko_link}
+                                                            onChange={e => setCoin({
+                                                                ...coin,
+                                                                ['coin_gecko_link']: e.target.value
+                                                            })}
+                                                            required
+                                                        />
+                                                        :
+                                                        <FormControl
+                                                            placeholder="Example: BTC"
+                                                            className="input-text"
+                                                            type="text"
+                                                            value={coin.coin_gecko_link}
+                                                            onChange={e => setCoin({
+                                                                ...coin,
+                                                                ['coin_gecko_link']: e.target.value
+                                                            })}
+                                                        />
+                                                }
+
                                             </label>
                                         </InputGroup>
                                         <Form.Group className="mb-3">
@@ -419,7 +481,7 @@ const AddCoinPage = ({currentUser, errors}) => {
 
                                         <InputGroup className="mb-3">
                                             <label className="input-label">
-                                                <span>*</span> Telegram
+                                                Telegram
                                                 <InputImage
                                                     imgLink={telegram}
                                                     inputHandler={contractTelegramHandler}
@@ -453,7 +515,7 @@ const AddCoinPage = ({currentUser, errors}) => {
 
                                         <InputGroup className="mb-3">
                                             <label className="input-label">
-                                                Web Address
+                                                <span>*</span> Web Address
                                                 <FormControl
                                                     placeholder="Http://"
                                                     className="input-text"
@@ -464,6 +526,7 @@ const AddCoinPage = ({currentUser, errors}) => {
                                                         ...coin,
                                                         ['contractWeb']: e.target.value
                                                     })}
+                                                    required
                                                 />
                                             </label>
                                         </InputGroup>
@@ -480,10 +543,11 @@ const AddCoinPage = ({currentUser, errors}) => {
 
                                         <InputGroup className="mb-3">
                                             <label className="input-label">
-                                                Logotype
+                                                <span>*</span> Logotype
                                                 <InputFile
                                                     placeholder={'Png/jpg 128 x 128'}
                                                     inputHandler={inputFileHandler}
+                                                    isRequired={true}
                                                 />
                                             </label>
                                         </InputGroup>

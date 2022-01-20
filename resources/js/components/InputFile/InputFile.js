@@ -4,7 +4,7 @@ import link from "../../../assets/img/ic-link.png";
 import {useDispatch} from "react-redux";
 import {setErrorsAction} from "../../reducers/errorsReducer";
 
-const InputFile = ({placeholder, inputHandler = null}) => {
+const InputFile = ({placeholder, inputHandler = null, isRequired = false}) => {
     const dispatch = useDispatch()
     let btn = createRef();
     const [value, setValue] = useState(placeholder)
@@ -21,26 +21,47 @@ const InputFile = ({placeholder, inputHandler = null}) => {
         setValue(e.target.value)
 
         if (e.target.files[0].type.includes('image')) {
-            const fd = new FormData();
-            fd.set('image', e.target.files[0]);
+            let width = 0
+            let height = 0
+            const file = e.target.files[0]
+            const img = new Image();
+            img.onload = function () {
+                // console.log('image width', this.width)
+                width = this.width
+                height = this.height
+                if (width > 128) {
+                    dispatch(setErrorsAction({message: `too big width of image ${width}`}))
+                    return
+                }
 
-            axios.post('/upload-file', fd)
-                .then(res => {
-                    console.log(res)
-                    if (res.data.success) {
-                        dispatch(setErrorsAction({message: 'File Uploaded'}))
-                        setValue(res.data.filepath)
-                        if (inputHandler) {
-                            inputHandler(res.data.filepath)
+                if (height > 128) {
+                    dispatch(setErrorsAction({message: `too big height of image ${height}`}))
+                    return
+                }
+
+                const fd = new FormData();
+                fd.set('image', file);
+
+                axios.post('/upload-file', fd)
+                    .then(res => {
+                        console.log(res)
+                        if (res.data.success) {
+                            dispatch(setErrorsAction({message: 'File Uploaded'}))
+                            setValue(res.data.filepath)
+                            if (inputHandler) {
+                                inputHandler(res.data.filepath)
+                            }
+                        } else {
+                            dispatch(setErrorsAction(res.data.message))
                         }
-                    } else {
-                        dispatch(setErrorsAction(res.data.message))
-                    }
-                })
-                .catch(err => {
-                    console.log(err)
-                    dispatch(setErrorsAction(err.response.message))
-                });
+                    })
+                    .catch(err => {
+                        console.log(err)
+                        dispatch(setErrorsAction(err.response.message))
+                    });
+            };
+            img.src = URL.createObjectURL(file)
+
         } else {
             setValue('')
             dispatch(setErrorsAction({message: 'incorrect file format'}))
@@ -60,13 +81,25 @@ const InputFile = ({placeholder, inputHandler = null}) => {
                 onChange={changeHandler}
                 style={{display: 'none'}}
             />
-            <input
-                type="text"
-                className={s.input}
-                value={value}
-                placeholder={placeholder}
-                onChange={filePathHandler}
-            />
+            {
+                isRequired ?
+                    <input
+                        type="text"
+                        className={s.input}
+                        value={value}
+                        placeholder={placeholder}
+                        onChange={filePathHandler}
+                        required
+                    />
+                    :
+                    <input
+                        type="text"
+                        className={s.input}
+                        value={value}
+                        placeholder={placeholder}
+                        onChange={filePathHandler}
+                    />
+            }
             <button
                 type="button"
                 className={s.button}

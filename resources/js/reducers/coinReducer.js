@@ -8,7 +8,7 @@ const defaultState = {
         symbol: '',
         market_cap: '',
         launch_date: '',
-        is_coin_gecko: false,
+        is_coin_gecko: true,
         is_presale: false,
         coin_gecko_link: '',
         chain: '',
