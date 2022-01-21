@@ -3,6 +3,8 @@
 use App\Http\Controllers\AdcPageController;
 use App\Http\Controllers\AddAirDropPageController;
 use App\Http\Controllers\AddCoinPageController;
+use App\Http\Controllers\AdminAirDropPageController;
+use App\Http\Controllers\AdminBannerPageController;
 use App\Http\Controllers\AdminCoinsPageController;
 use App\Http\Controllers\AdminPageController;
 use App\Http\Controllers\AirDropOpenPageController;
@@ -52,6 +54,8 @@ Route::get('/coin-open/{id}', [CoinOpenPageController::class, 'index']);
 Route::get('/token', [TokenPageController::class, 'index']);
 Route::get('/molaris', [MolarisPageController::class, 'index']);
 Route::get('/admin-coins', [AdminCoinsPageController::class, 'index']);
+Route::get('/admin-air-drop', [AdminAirDropPageController::class, 'index']);
+Route::get('/admin-banner', [AdminBannerPageController::class, 'index']);
 
 Route::post('/upload-file', [UploadFileController::class, 'uploadFile']);
 

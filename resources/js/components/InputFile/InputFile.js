@@ -31,11 +31,13 @@ const InputFile = ({placeholder, inputHandler = null, isRequired = false}) => {
                 height = this.height
                 if (width > 128) {
                     dispatch(setErrorsAction({message: `too big width of image ${width}`}))
+                    setValue('')
                     return
                 }
 
                 if (height > 128) {
                     dispatch(setErrorsAction({message: `too big height of image ${height}`}))
+                    setValue('')
                     return
                 }
 

@@ -117,14 +117,35 @@ td {
           .coinOpenPage .wrapper .tokenSection .tokenBody {
             margin-top: 0; } }
         .coinOpenPage .wrapper .tokenSection .tokenBody .logo {
-          width: 100%;
-          max-width: 218px;
-          height: auto;
+          width: 218px;
+          height: 218px;
           margin-bottom: -109px;
-          z-index: 1; }
+          background-image: url(../../../assets/img/token-logo-coin.png);
+          z-index: 1;
+          -webkit-border-radius: 50%;
+          -moz-border-radius: 50%;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center; }
           @media screen and (max-width: 1200px) {
             .coinOpenPage .wrapper .tokenSection .tokenBody .logo {
               margin-bottom: -20px; } }
+          .coinOpenPage .wrapper .tokenSection .tokenBody .logo .logoWrapper {
+            width: 125px;
+            height: 125px;
+            background-color: #181c3f;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center; }
+            .coinOpenPage .wrapper .tokenSection .tokenBody .logo .logoWrapper img {
+              width: 100%;
+              max-width: 120px;
+              height: auto;
+              max-height: 120px; }
         .coinOpenPage .wrapper .tokenSection .tokenBody .tokenForm {
           background: url("../../../assets/img/form-token-bg.png") no-repeat center center;
           -webkit-background-size: cover;

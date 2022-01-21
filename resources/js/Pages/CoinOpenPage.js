@@ -58,7 +58,12 @@ const CoinOpenPage = ({currentUser, errors, pageId}) => {
                                     </InputGroup>
                                 </div>
                                 <div className={s.tokenBody}>
-                                    <img src={currentCoin.image.large} className={s.logo} alt="logo"/>
+                                    <div className={s.logo}>
+                                        <div className={s.logoWrapper}>
+                                            <img src={currentCoin.image.large} alt="logo"/>
+                                        </div>
+                                    </div>
+
                                     <div className={s.tokenForm}>
                                         <div className={s.leftSide}>
                                             <InputGroup className="mb-3">

@@ -98,10 +98,10 @@ const AddCoinPage = ({currentUser, errors}) => {
     const limitTextHandler = e => {
         let words = e.target.value.split(' ').filter(Boolean)
         console.log('limitTextHandler', words)
-        if (words.length < 300) {
+        if (words.length < 150) {
             setCoin({
                 ...coin,
-                ['contractAdditional']: e.target.value
+                ['description']: e.target.value
             });
         } else {
             e.target.style.color = 'red'
@@ -188,7 +188,7 @@ const AddCoinPage = ({currentUser, errors}) => {
                                             </label>
                                         </InputGroup>
 
-                                        <InputGroup className="mb-3">
+                                       {/* <InputGroup className="mb-3">
                                             <label className="input-label">
                                                 <span>*</span> Description
                                                 <FormControl
@@ -203,7 +203,7 @@ const AddCoinPage = ({currentUser, errors}) => {
                                                     required
                                                 />
                                             </label>
-                                        </InputGroup>
+                                        </InputGroup>*/}
 
                                         <InputGroup className="mb-3">
                                             <label className="input-label">
@@ -466,10 +466,29 @@ const AddCoinPage = ({currentUser, errors}) => {
                                                     ...coin,
                                                     ['is_presale']: e.target.checked
                                                 })}
-                                                label="Is it presale? (Presale listing is not free)"
+                                                label="Presale listing is paid 0.1 BNB"
                                             />
                                         </Form.Group>
                                     </div>
+
+
+                                </div>
+                                <div>
+
+                                    <label className="input-label">
+                                        <span>*</span> Coin description, other links and addresses (150 words limit)
+                                        <InputGroup className="mb-3">
+                                            <FloatingLabel label="">
+                                                <Form.Control
+                                                    as="textarea"
+                                                    value={coin.description}
+                                                    onChange={limitTextHandler}
+                                                    style={{height: '60px'}}
+                                                    required
+                                                />
+                                            </FloatingLabel>
+                                        </InputGroup>
+                                    </label>
                                 </div>
 
                                 <FormBlockDivider/>
@@ -554,19 +573,7 @@ const AddCoinPage = ({currentUser, errors}) => {
 
                                     </div>
                                 </div>
-                                <label className="input-label">
-                                    Additional information, other links and addresses (300 words limit)
-                                    <InputGroup className="mb-3">
-                                        <FloatingLabel label="">
-                                            <Form.Control
-                                                as="textarea"
-                                                value={coin.contractAdditional}
-                                                onChange={limitTextHandler}
-                                                style={{height: '60px'}}
-                                            />
-                                        </FloatingLabel>
-                                    </InputGroup>
-                                </label>
+
                                 <FormBlockDivider/>
 
                                 <h2 className={s.titleBlock}>Contact info</h2>

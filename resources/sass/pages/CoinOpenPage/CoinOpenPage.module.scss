@@ -53,13 +53,37 @@
                 }
 
                 .logo{
-                    width: 100%;
-                    max-width: 218px;
-                    height: auto;
+                    width: 218px;
+                    height: 218px;
                     margin-bottom: -109px;
+                    background-image: url(../../../assets/img/token-logo-coin.png);
                     z-index: 1;
+                    -webkit-border-radius: 50%;
+                    -moz-border-radius: 50%;
+                    border-radius: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
                     @media screen and (max-width: 1200px){
                         margin-bottom: -20px;
+                    }
+                    .logoWrapper{
+                        width: 125px;
+                        height: 125px;
+                        background-color: $color-three;
+                        -webkit-border-radius: 50%;
+                        -moz-border-radius: 50%;
+                        border-radius: 50%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        img{
+                            width: 100%;
+                            max-width: 120px;
+                            height: auto;
+                            max-height: 120px;
+                        }
                     }
                 }
 

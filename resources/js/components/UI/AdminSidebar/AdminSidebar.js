@@ -1,6 +1,7 @@
 import React from 'react';
 import {Nav} from "react-bootstrap";
 import {
+    PATH_ADMIN_AIR_DROP_PAGE, PATH_ADMIN_BANNER_PAGE,
     PATH_ADMIN_COINS_PAGE,
     PATH_ADMIN_PAGE,
 } from "../../../utils/routesPath";
@@ -10,6 +11,8 @@ const AdminSidebar = () => {
     const routes = [
         {name: 'USERS', url: PATH_ADMIN_PAGE},
         {name: 'COINS', url: PATH_ADMIN_COINS_PAGE},
+        {name: 'AIRDROP', url: PATH_ADMIN_AIR_DROP_PAGE},
+        {name: 'BANNER', url: PATH_ADMIN_BANNER_PAGE},
     ]
     return (
         <Nav defaultActiveKey="/home" className="flex-column">
