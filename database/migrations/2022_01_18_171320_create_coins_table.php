@@ -21,12 +21,12 @@ class CreateCoinsTable extends Migration
             $table->boolean('is_presale')->default(false);
             $table->string('name');
             $table->text('description');
-            $table->float('price');
+            $table->float('price')->nullable();
             $table->string('symbol');
-            $table->integer('market_cap');
+            $table->integer('market_cap')->nullable();
             $table->date('launch_date');
             $table->string('coin_gecko_link')->nullable();
-            $table->string('chain');
+            $table->string('chain')->nullable();
             $table->string('address')->nullable();
             $table->string('contractTelegram');
             $table->string('contractTwitter')->nullable();
