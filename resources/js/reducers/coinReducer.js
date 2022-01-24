@@ -1,4 +1,4 @@
-import {ADD_COIN, ADD_COIN_NAME} from "../utils/reducerConsts";
+import {ADD_COIN} from "../utils/reducerConsts";
 
 const defaultState = {
     addCoin: {
@@ -12,6 +12,7 @@ const defaultState = {
         is_presale: false,
         coin_gecko_link: '',
         chain: '',
+        chains: ['etg', 'bsc'],
         address: '',
         contractTelegram: '',
         contractTwitter: '',

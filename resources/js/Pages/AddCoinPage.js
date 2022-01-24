@@ -25,10 +25,14 @@ import {addCoinAction} from "../reducers/coinReducer";
 import {setErrorsAction} from "../reducers/errorsReducer";
 import {Inertia} from "@inertiajs/inertia";
 import {PATH_HOME_PAGE} from "../utils/routesPath";
+import CustomBadge from "../components/UI/CustomBadge/CustomBadge";
+import ChainItem from "../components/ChainItem/ChainItem";
 
 const AddCoinPage = ({currentUser, errors}) => {
     const coin = useSelector(state => state.coin.addCoin)
+    const chains = useSelector(state => state.chains.chains)
     const [chain, setChain] = useState('Select')
+
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -46,6 +50,7 @@ const AddCoinPage = ({currentUser, errors}) => {
             ['chain']: value
         })
     };
+
 
     const contractTelegramHandler = value => {
         console.log('contractTelegramHandler', value)
@@ -188,7 +193,7 @@ const AddCoinPage = ({currentUser, errors}) => {
                                             </label>
                                         </InputGroup>
 
-                                       {/* <InputGroup className="mb-3">
+                                        {/* <InputGroup className="mb-3">
                                             <label className="input-label">
                                                 <span>*</span> Description
                                                 <FormControl
@@ -241,176 +246,6 @@ const AddCoinPage = ({currentUser, errors}) => {
 
                                             </label>
                                         </InputGroup>
-
-                                    </div>
-
-                                    <div className={s.side}>
-
-                                        <InputGroup className="mb-3">
-                                            <label className="input-label">
-                                                <span>*</span> Symbol
-                                                <FormControl
-                                                    placeholder="Example: BTC"
-                                                    className="input-text"
-                                                    type="text"
-                                                    value={coin.symbol}
-                                                    onChange={e => setCoin({
-                                                        ...coin,
-                                                        ['symbol']: e.target.value
-                                                    })}
-                                                    required
-                                                />
-                                            </label>
-                                        </InputGroup>
-
-                                        <InputGroup className="mb-3">
-                                            <label className="input-label">
-                                                <span>*</span> Market Cap in USD
-                                                <FormControl
-                                                    placeholder="Example: 15955000"
-                                                    className="input-text"
-                                                    type="number"
-                                                    value={coin.market_cap}
-                                                    onChange={e => setCoin({
-                                                        ...coin,
-                                                        ['market_cap']: e.target.value
-                                                    })}
-                                                    required
-                                                />
-                                            </label>
-                                        </InputGroup>
-
-                                        <InputGroup className="mb-3">
-                                            <label className="input-label">
-                                                <span>*</span> Launch date (DD.MM.YYYY)
-                                                <FormControl
-                                                    placeholder="Example: 15.05.2021"
-                                                    className="input-text"
-                                                    type="date"
-                                                    value={coin.launch_date}
-                                                    onChange={e => setCoin({
-                                                        ...coin,
-                                                        ['launch_date']: e.target.value
-                                                    })}
-                                                    required
-                                                />
-                                            </label>
-                                        </InputGroup>
-
-                                    </div>
-                                </div>
-                                <FormBlockDivider/>
-
-                                <h2 className={s.titleBlock}>Contract addresses</h2>
-                                <div className={s.formBlock}>
-                                    <div className={s.side}>
-                                        <label className="input-label">
-                                            <span>*</span> Chain
-                                            <InputGroup className="mb-3">
-                                                <DropdownButton
-                                                    id="dropdown-custom"
-                                                    className='dropdown-custom'
-                                                    title={chain}
-                                                    required
-                                                >
-                                                    <DropdownItem
-                                                        onClick={chainHandler}
-                                                        as="button"
-                                                        title={'eth'}
-                                                    >
-                                                        eth
-                                                    </DropdownItem>
-                                                    <DropdownItem
-                                                        onClick={chainHandler}
-                                                        as="button"
-                                                        title={'bsc'}
-                                                    >
-                                                        bsc
-                                                    </DropdownItem>
-                                                    <DropdownItem
-                                                        onClick={chainHandler}
-                                                        as="button"
-                                                        title={'fantom'}
-                                                    >
-                                                        fantom
-                                                    </DropdownItem>
-                                                    <DropdownItem
-                                                        onClick={chainHandler}
-                                                        as="button"
-                                                        title={'mumbai'}
-                                                    >
-                                                        mumbai
-                                                    </DropdownItem>
-                                                    <DropdownItem
-                                                        onClick={chainHandler}
-                                                        as="button"
-                                                        title={'polygon'}
-                                                    >
-                                                        polygon
-                                                    </DropdownItem>
-                                                    <DropdownItem
-                                                        onClick={chainHandler}
-                                                        as="button"
-                                                        title={'avalanche'}
-                                                    >
-                                                        avalanche
-                                                    </DropdownItem>
-                                                    <DropdownItem
-                                                        onClick={chainHandler}
-                                                        as="button"
-                                                        title={'miannet'}
-                                                    >
-                                                        miannet
-                                                    </DropdownItem>
-                                                </DropdownButton>
-                                            </InputGroup>
-                                        </label>
-                                    </div>
-
-                                    <div className={s.side}>
-                                        <InputGroup className="mb-3">
-                                            <label className="input-label">
-                                                {
-                                                    coin.chain !== 'miannet' ?
-                                                        <span>*</span>
-                                                        :
-                                                        ''
-                                                }
-                                                Contract address
-                                                {
-                                                    coin.chain !== 'miannet' ?
-                                                        <FormControl
-                                                            placeholder="Example: BTC"
-                                                            className="input-text"
-                                                            type="text"
-                                                            value={coin.address}
-                                                            onChange={e => setCoin({
-                                                                ...coin,
-                                                                ['address']: e.target.value
-                                                            })}
-                                                            required
-                                                        />
-                                                        :
-                                                        <FormControl
-                                                            placeholder="Example: BTC"
-                                                            className="input-text"
-                                                            type="text"
-                                                            value={coin.address}
-                                                            onChange={e => setCoin({
-                                                                ...coin,
-                                                                ['address']: e.target.value
-                                                            })}
-                                                        />
-                                                }
-
-                                            </label>
-                                        </InputGroup>
-                                    </div>
-                                </div>
-                                <FormBlockDivider/>
-
-                                <div className={s.formBlock}>
-                                    <div className={s.side}>
                                         <Form.Group className="mb-3">
                                             <Form.Check
                                                 type="checkbox"
@@ -471,8 +306,62 @@ const AddCoinPage = ({currentUser, errors}) => {
                                         </Form.Group>
                                     </div>
 
+                                    <div className={s.side}>
 
+                                        <InputGroup className="mb-3">
+                                            <label className="input-label">
+                                                <span>*</span> Symbol
+                                                <FormControl
+                                                    placeholder="Example: BTC"
+                                                    className="input-text"
+                                                    type="text"
+                                                    value={coin.symbol}
+                                                    onChange={e => setCoin({
+                                                        ...coin,
+                                                        ['symbol']: e.target.value
+                                                    })}
+                                                    required
+                                                />
+                                            </label>
+                                        </InputGroup>
+
+                                        <InputGroup className="mb-3">
+                                            <label className="input-label">
+                                                <span>*</span> Market Cap in USD
+                                                <FormControl
+                                                    placeholder="Example: 15955000"
+                                                    className="input-text"
+                                                    type="number"
+                                                    value={coin.market_cap}
+                                                    onChange={e => setCoin({
+                                                        ...coin,
+                                                        ['market_cap']: e.target.value
+                                                    })}
+                                                    required
+                                                />
+                                            </label>
+                                        </InputGroup>
+
+                                        <InputGroup className="mb-3">
+                                            <label className="input-label">
+                                                <span>*</span> Launch date (DD.MM.YYYY)
+                                                <FormControl
+                                                    placeholder="Example: 15.05.2021"
+                                                    className="input-text"
+                                                    type="date"
+                                                    value={coin.launch_date}
+                                                    onChange={e => setCoin({
+                                                        ...coin,
+                                                        ['launch_date']: e.target.value
+                                                    })}
+                                                    required
+                                                />
+                                            </label>
+                                        </InputGroup>
+
+                                    </div>
                                 </div>
+
                                 <div>
 
                                     <label className="input-label">
@@ -490,7 +379,123 @@ const AddCoinPage = ({currentUser, errors}) => {
                                         </InputGroup>
                                     </label>
                                 </div>
+                                <FormBlockDivider/>
 
+                                <h2 className={s.titleBlock}>Contract addresses</h2>
+                                <div>
+                                    <ChainItem />
+                                    <div className="d-flex justify-content-between w-100">
+                                        <label
+                                            className="input-label me-5"
+                                        >
+                                            <span>*</span> Chain
+                                            <InputGroup className="mb-3">
+                                                <DropdownButton
+                                                    id="dropdown-custom"
+                                                    className='dropdown-custom'
+                                                    title={chain}
+                                                    required
+                                                >
+                                                    <DropdownItem
+                                                        onClick={chainHandler}
+                                                        as="button"
+                                                        title={'eth'}
+                                                    >
+                                                        eth
+                                                    </DropdownItem>
+                                                    <DropdownItem
+                                                        onClick={chainHandler}
+                                                        as="button"
+                                                        title={'bsc'}
+                                                    >
+                                                        bsc
+                                                    </DropdownItem>
+                                                    <DropdownItem
+                                                        onClick={chainHandler}
+                                                        as="button"
+                                                        title={'fantom'}
+                                                    >
+                                                        fantom
+                                                    </DropdownItem>
+                                                    <DropdownItem
+                                                        onClick={chainHandler}
+                                                        as="button"
+                                                        title={'mumbai'}
+                                                    >
+                                                        mumbai
+                                                    </DropdownItem>
+                                                    <DropdownItem
+                                                        onClick={chainHandler}
+                                                        as="button"
+                                                        title={'polygon'}
+                                                    >
+                                                        polygon
+                                                    </DropdownItem>
+                                                    <DropdownItem
+                                                        onClick={chainHandler}
+                                                        as="button"
+                                                        title={'avalanche'}
+                                                    >
+                                                        avalanche
+                                                    </DropdownItem>
+                                                    <DropdownItem
+                                                        onClick={chainHandler}
+                                                        as="button"
+                                                        title={'miannet'}
+                                                    >
+                                                        miannet
+                                                    </DropdownItem>
+                                                </DropdownButton>
+                                            </InputGroup>
+                                        </label>
+
+                                        <InputGroup className="mb-3 me-5">
+                                            <label className="input-label">
+                                                {
+                                                    coin.chain !== 'miannet' ?
+                                                        <span>*</span>
+                                                        :
+                                                        ''
+                                                }
+                                                Contract address
+                                                {
+                                                    coin.chain !== 'miannet' ?
+                                                        <FormControl
+                                                            placeholder="Example: BTC"
+                                                            className="input-text"
+                                                            type="text"
+                                                            value={coin.address}
+                                                            onChange={e => setCoin({
+                                                                ...coin,
+                                                                ['address']: e.target.value
+                                                            })}
+                                                            required
+                                                        />
+                                                        :
+                                                        <FormControl
+                                                            placeholder="Example: BTC"
+                                                            className="input-text"
+                                                            type="text"
+                                                            value={coin.address}
+                                                            onChange={e => setCoin({
+                                                                ...coin,
+                                                                ['address']: e.target.value
+                                                            })}
+                                                        />
+                                                }
+
+                                            </label>
+                                        </InputGroup>
+                                        <Button
+                                            variant="info"
+                                            className={`fill-btn`}
+                                            style={{width: '165px', marginTop: '30px'}}
+                                            type="button"
+                                        >
+                                            Add
+                                        </Button>
+                                    </div>
+                                </div>
                                 <FormBlockDivider/>
 
                                 <h2 className={s.titleBlock}>Coin social media</h2>

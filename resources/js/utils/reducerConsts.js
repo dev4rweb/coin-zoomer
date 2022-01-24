@@ -7,4 +7,4 @@ export const GECKO_COINS_CURRENT = 'GECKO_COINS_CURRENT'
 export const FETCH_ALL_USERS = 'FETCH_ALL_USERS'
 
 export const ADD_COIN = 'ADD_COIN'
-export const ADD_COIN_NAME = 'ADD_COIN_NAME'
+export const ADD_CHAINS = 'ADD_CHAINS'

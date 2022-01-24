@@ -10260,12 +10260,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sass_pages_AddCoinPage_AddCoinPage_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../sass/pages/AddCoinPage/AddCoinPage.module.scss */ "./resources/sass/pages/AddCoinPage/AddCoinPage.module.scss");
 /* harmony import */ var _components_Layout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Layout */ "./resources/js/components/Layout.js");
 /* harmony import */ var _components_LeadersSubscribeBlock_LeadersSubscribeBlock__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/LeadersSubscribeBlock/LeadersSubscribeBlock */ "./resources/js/components/LeadersSubscribeBlock/LeadersSubscribeBlock.js");
-/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/Container.js");
-/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/InputGroup.js");
-/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/FormControl.js");
-/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/DropdownButton.js");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/Container.js");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/InputGroup.js");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/FormControl.js");
 /* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/FloatingLabel.js");
-/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/Button.js");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/DropdownButton.js");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/Button.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _reducers_currentUserReducer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../reducers/currentUserReducer */ "./resources/js/reducers/currentUserReducer.js");
 /* harmony import */ var _components_UI_CustomAlert_CustomAlert__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/UI/CustomAlert/CustomAlert */ "./resources/js/components/UI/CustomAlert/CustomAlert.js");
@@ -10279,7 +10279,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _assets_img_ic_reddit_png__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../assets/img/ic-reddit.png */ "./resources/assets/img/ic-reddit.png");
 /* harmony import */ var _assets_img_ic_discord_png__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../assets/img/ic-discord.png */ "./resources/assets/img/ic-discord.png");
 /* harmony import */ var _assets_img_ic_email_png__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../assets/img/ic_email.png */ "./resources/assets/img/ic_email.png");
-/* harmony import */ var react_bootstrap_DropdownItem__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! react-bootstrap/DropdownItem */ "./node_modules/react-bootstrap/esm/DropdownItem.js");
+/* harmony import */ var react_bootstrap_DropdownItem__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! react-bootstrap/DropdownItem */ "./node_modules/react-bootstrap/esm/DropdownItem.js");
 /* harmony import */ var react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! react-bootstrap/Form */ "./node_modules/react-bootstrap/esm/Form.js");
 /* harmony import */ var _components_UI_FormBlockDivider_FormBlockDivider__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../components/UI/FormBlockDivider/FormBlockDivider */ "./resources/js/components/UI/FormBlockDivider/FormBlockDivider.js");
 /* harmony import */ var _components_InputImage_InputImage__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../components/InputImage/InputImage */ "./resources/js/components/InputImage/InputImage.js");
@@ -10288,7 +10288,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _reducers_errorsReducer__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../reducers/errorsReducer */ "./resources/js/reducers/errorsReducer.js");
 /* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
 /* harmony import */ var _utils_routesPath__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../utils/routesPath */ "./resources/js/utils/routesPath.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _components_UI_CustomBadge_CustomBadge__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ../components/UI/CustomBadge/CustomBadge */ "./resources/js/components/UI/CustomBadge/CustomBadge.js");
+/* harmony import */ var _components_ChainItem_ChainItem__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../components/ChainItem/ChainItem */ "./resources/js/components/ChainItem/ChainItem.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -10337,11 +10339,16 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
+
 var AddCoinPage = function AddCoinPage(_ref) {
   var currentUser = _ref.currentUser,
       errors = _ref.errors;
   var coin = (0,react_redux__WEBPACK_IMPORTED_MODULE_4__.useSelector)(function (state) {
     return state.coin.addCoin;
+  });
+  var chains = (0,react_redux__WEBPACK_IMPORTED_MODULE_4__.useSelector)(function (state) {
+    return state.chains.chains;
   });
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('Select'),
@@ -10432,58 +10439,58 @@ var AddCoinPage = function AddCoinPage(_ref) {
     });
   };
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(_components_Layout__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(_components_Layout__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsxs)("div", {
       className: _sass_pages_AddCoinPage_AddCoinPage_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].addCoinPage,
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_25__["default"], {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_27__["default"], {
         style: {
           marginTop: '30px'
         },
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(_components_UI_CustomAlert_CustomAlert__WEBPACK_IMPORTED_MODULE_6__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(_components_BannerBlock_BannerBlock__WEBPACK_IMPORTED_MODULE_7__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsxs)("section", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(_components_UI_CustomAlert_CustomAlert__WEBPACK_IMPORTED_MODULE_6__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(_components_BannerBlock_BannerBlock__WEBPACK_IMPORTED_MODULE_7__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsxs)("section", {
           className: _sass_pages_AddCoinPage_AddCoinPage_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].faqSection,
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(_components_Medal_Medal__WEBPACK_IMPORTED_MODULE_8__["default"], {
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)("p", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(_components_Medal_Medal__WEBPACK_IMPORTED_MODULE_8__["default"], {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)("p", {
               className: _sass_pages_AddCoinPage_AddCoinPage_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].medalText,
               children: "Ongoing Airdrops"
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsxs)("div", {
             className: _sass_pages_AddCoinPage_AddCoinPage_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].faqSide,
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsxs)("p", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsxs)("p", {
               className: _sass_pages_AddCoinPage_AddCoinPage_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].question,
-              children: ["Do you have any questions? ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)("br", {}), "Visit the FAQ page"]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(_components_UI_OutlineBtn_OutlineBtn__WEBPACK_IMPORTED_MODULE_9__["default"], {
+              children: ["Do you have any questions? ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)("br", {}), "Visit the FAQ page"]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(_components_UI_OutlineBtn_OutlineBtn__WEBPACK_IMPORTED_MODULE_9__["default"], {
               maxWith: '140px',
               children: "FAQ"
             })]
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)("section", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)("section", {
           className: _sass_pages_AddCoinPage_AddCoinPage_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].formWrapper,
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(_components_CustomForm_CustomForm__WEBPACK_IMPORTED_MODULE_10__["default"], {
-            title: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsxs)("p", {
-              children: ["The field marked with ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)("span", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(_components_CustomForm_CustomForm__WEBPACK_IMPORTED_MODULE_10__["default"], {
+            title: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsxs)("p", {
+              children: ["The field marked with ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)("span", {
                 style: {
                   color: '#f14b4e'
                 },
                 children: "*"
               }), " must be filled in!"]
             }),
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsxs)("form", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsxs)("form", {
               onSubmit: submitHandler,
               className: _sass_pages_AddCoinPage_AddCoinPage_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].addCoinForm,
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)("h2", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)("h2", {
                 className: _sass_pages_AddCoinPage_AddCoinPage_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].titleBlock,
                 children: "Coin info"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsxs)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsxs)("div", {
                 className: _sass_pages_AddCoinPage_AddCoinPage_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].formBlock,
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsxs)("div", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsxs)("div", {
                   className: _sass_pages_AddCoinPage_AddCoinPage_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].side,
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_26__["default"], {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_28__["default"], {
                     className: "mb-3",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsxs)("label", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsxs)("label", {
                       className: "input-label",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)("span", {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)("span", {
                         children: "*"
-                      }), " Name", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_27__["default"], {
+                      }), " Name", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_29__["default"], {
                         placeholder: "Example: Tripcoin",
                         className: "input-text",
                         type: "text",
@@ -10495,13 +10502,13 @@ var AddCoinPage = function AddCoinPage(_ref) {
                         required: true
                       })]
                     })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_26__["default"], {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_28__["default"], {
                     className: "mb-3",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsxs)("label", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsxs)("label", {
                       className: "input-label",
-                      children: [coin.is_presale ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)("span", {
+                      children: [coin.is_presale ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)("span", {
                         children: "*"
-                      }) : '', "Price in USD", coin.is_presale ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_27__["default"], {
+                      }) : '', "Price in USD", coin.is_presale ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_29__["default"], {
                         placeholder: "Example: 0.05656",
                         className: "input-text",
                         type: "number",
@@ -10510,7 +10517,7 @@ var AddCoinPage = function AddCoinPage(_ref) {
                           return setCoin(_objectSpread(_objectSpread({}, coin), {}, _defineProperty({}, 'price', e.target.value)));
                         },
                         required: true
-                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_27__["default"], {
+                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_29__["default"], {
                         placeholder: "Example: 0.05656",
                         className: "input-text",
                         type: "number",
@@ -10520,16 +10527,61 @@ var AddCoinPage = function AddCoinPage(_ref) {
                         }
                       })]
                     })
-                  })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsxs)("div", {
-                  className: _sass_pages_AddCoinPage_AddCoinPage_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].side,
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_26__["default"], {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_30__["default"].Group, {
                     className: "mb-3",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsxs)("label", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_30__["default"].Check, {
+                      type: "checkbox",
+                      checked: coin.is_coin_gecko,
+                      onChange: function onChange(e) {
+                        return setCoin(_objectSpread(_objectSpread({}, coin), {}, _defineProperty({}, 'is_coin_gecko', e.target.checked)));
+                      },
+                      label: "Is coin listed on CoinGecko?"
+                    })
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_28__["default"], {
+                    className: "mb-3",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsxs)("label", {
                       className: "input-label",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)("span", {
+                      children: [coin.is_coin_gecko ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)("span", {
                         children: "*"
-                      }), " Symbol", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_27__["default"], {
+                      }) : '', "Coingecko link", coin.is_coin_gecko ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_29__["default"], {
+                        placeholder: "Example: BTC",
+                        className: "input-text",
+                        type: "text",
+                        value: coin.coin_gecko_link,
+                        onChange: function onChange(e) {
+                          return setCoin(_objectSpread(_objectSpread({}, coin), {}, _defineProperty({}, 'coin_gecko_link', e.target.value)));
+                        },
+                        required: true
+                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_29__["default"], {
+                        placeholder: "Example: BTC",
+                        className: "input-text",
+                        type: "text",
+                        value: coin.coin_gecko_link,
+                        onChange: function onChange(e) {
+                          return setCoin(_objectSpread(_objectSpread({}, coin), {}, _defineProperty({}, 'coin_gecko_link', e.target.value)));
+                        }
+                      })]
+                    })
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_30__["default"].Group, {
+                    className: "mb-3",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_30__["default"].Check, {
+                      type: "checkbox",
+                      checked: coin.is_presale,
+                      onChange: function onChange(e) {
+                        return setCoin(_objectSpread(_objectSpread({}, coin), {}, _defineProperty({}, 'is_presale', e.target.checked)));
+                      },
+                      label: "Presale listing is paid 0.1 BNB"
+                    })
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsxs)("div", {
+                  className: _sass_pages_AddCoinPage_AddCoinPage_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].side,
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_28__["default"], {
+                    className: "mb-3",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsxs)("label", {
+                      className: "input-label",
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)("span", {
+                        children: "*"
+                      }), " Symbol", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_29__["default"], {
                         placeholder: "Example: BTC",
                         className: "input-text",
                         type: "text",
@@ -10540,13 +10592,13 @@ var AddCoinPage = function AddCoinPage(_ref) {
                         required: true
                       })]
                     })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_26__["default"], {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_28__["default"], {
                     className: "mb-3",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsxs)("label", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsxs)("label", {
                       className: "input-label",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)("span", {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)("span", {
                         children: "*"
-                      }), " Market Cap in USD", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_27__["default"], {
+                      }), " Market Cap in USD", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_29__["default"], {
                         placeholder: "Example: 15955000",
                         className: "input-text",
                         type: "number",
@@ -10557,13 +10609,13 @@ var AddCoinPage = function AddCoinPage(_ref) {
                         required: true
                       })]
                     })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_26__["default"], {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_28__["default"], {
                     className: "mb-3",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsxs)("label", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsxs)("label", {
                       className: "input-label",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)("span", {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)("span", {
                         children: "*"
-                      }), " Launch date (DD.MM.YYYY)", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_27__["default"], {
+                      }), " Launch date (DD.MM.YYYY)", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_29__["default"], {
                         placeholder: "Example: 15.05.2021",
                         className: "input-text",
                         type: "date",
@@ -10576,153 +10628,16 @@ var AddCoinPage = function AddCoinPage(_ref) {
                     })
                   })]
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(_components_UI_FormBlockDivider_FormBlockDivider__WEBPACK_IMPORTED_MODULE_17__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)("h2", {
-                className: _sass_pages_AddCoinPage_AddCoinPage_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].titleBlock,
-                children: "Contract addresses"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsxs)("div", {
-                className: _sass_pages_AddCoinPage_AddCoinPage_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].formBlock,
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)("div", {
-                  className: _sass_pages_AddCoinPage_AddCoinPage_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].side,
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsxs)("label", {
-                    className: "input-label",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)("span", {
-                      children: "*"
-                    }), " Chain", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_26__["default"], {
-                      className: "mb-3",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_28__["default"], {
-                        id: "dropdown-custom",
-                        className: "dropdown-custom",
-                        title: chain,
-                        required: true,
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(react_bootstrap_DropdownItem__WEBPACK_IMPORTED_MODULE_29__["default"], {
-                          onClick: chainHandler,
-                          as: "button",
-                          title: 'eth',
-                          children: "eth"
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(react_bootstrap_DropdownItem__WEBPACK_IMPORTED_MODULE_29__["default"], {
-                          onClick: chainHandler,
-                          as: "button",
-                          title: 'bsc',
-                          children: "bsc"
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(react_bootstrap_DropdownItem__WEBPACK_IMPORTED_MODULE_29__["default"], {
-                          onClick: chainHandler,
-                          as: "button",
-                          title: 'fantom',
-                          children: "fantom"
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(react_bootstrap_DropdownItem__WEBPACK_IMPORTED_MODULE_29__["default"], {
-                          onClick: chainHandler,
-                          as: "button",
-                          title: 'mumbai',
-                          children: "mumbai"
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(react_bootstrap_DropdownItem__WEBPACK_IMPORTED_MODULE_29__["default"], {
-                          onClick: chainHandler,
-                          as: "button",
-                          title: 'polygon',
-                          children: "polygon"
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(react_bootstrap_DropdownItem__WEBPACK_IMPORTED_MODULE_29__["default"], {
-                          onClick: chainHandler,
-                          as: "button",
-                          title: 'avalanche',
-                          children: "avalanche"
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(react_bootstrap_DropdownItem__WEBPACK_IMPORTED_MODULE_29__["default"], {
-                          onClick: chainHandler,
-                          as: "button",
-                          title: 'miannet',
-                          children: "miannet"
-                        })]
-                      })
-                    })]
-                  })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)("div", {
-                  className: _sass_pages_AddCoinPage_AddCoinPage_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].side,
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_26__["default"], {
-                    className: "mb-3",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsxs)("label", {
-                      className: "input-label",
-                      children: [coin.chain !== 'miannet' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)("span", {
-                        children: "*"
-                      }) : '', "Contract address", coin.chain !== 'miannet' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_27__["default"], {
-                        placeholder: "Example: BTC",
-                        className: "input-text",
-                        type: "text",
-                        value: coin.address,
-                        onChange: function onChange(e) {
-                          return setCoin(_objectSpread(_objectSpread({}, coin), {}, _defineProperty({}, 'address', e.target.value)));
-                        },
-                        required: true
-                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_27__["default"], {
-                        placeholder: "Example: BTC",
-                        className: "input-text",
-                        type: "text",
-                        value: coin.address,
-                        onChange: function onChange(e) {
-                          return setCoin(_objectSpread(_objectSpread({}, coin), {}, _defineProperty({}, 'address', e.target.value)));
-                        }
-                      })]
-                    })
-                  })
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(_components_UI_FormBlockDivider_FormBlockDivider__WEBPACK_IMPORTED_MODULE_17__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)("div", {
-                className: _sass_pages_AddCoinPage_AddCoinPage_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].formBlock,
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsxs)("div", {
-                  className: _sass_pages_AddCoinPage_AddCoinPage_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].side,
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_30__["default"].Group, {
-                    className: "mb-3",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_30__["default"].Check, {
-                      type: "checkbox",
-                      checked: coin.is_coin_gecko,
-                      onChange: function onChange(e) {
-                        return setCoin(_objectSpread(_objectSpread({}, coin), {}, _defineProperty({}, 'is_coin_gecko', e.target.checked)));
-                      },
-                      label: "Is coin listed on CoinGecko?"
-                    })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_26__["default"], {
-                    className: "mb-3",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsxs)("label", {
-                      className: "input-label",
-                      children: [coin.is_coin_gecko ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)("span", {
-                        children: "*"
-                      }) : '', "Coingecko link", coin.is_coin_gecko ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_27__["default"], {
-                        placeholder: "Example: BTC",
-                        className: "input-text",
-                        type: "text",
-                        value: coin.coin_gecko_link,
-                        onChange: function onChange(e) {
-                          return setCoin(_objectSpread(_objectSpread({}, coin), {}, _defineProperty({}, 'coin_gecko_link', e.target.value)));
-                        },
-                        required: true
-                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_27__["default"], {
-                        placeholder: "Example: BTC",
-                        className: "input-text",
-                        type: "text",
-                        value: coin.coin_gecko_link,
-                        onChange: function onChange(e) {
-                          return setCoin(_objectSpread(_objectSpread({}, coin), {}, _defineProperty({}, 'coin_gecko_link', e.target.value)));
-                        }
-                      })]
-                    })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_30__["default"].Group, {
-                    className: "mb-3",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_30__["default"].Check, {
-                      type: "checkbox",
-                      checked: coin.is_presale,
-                      onChange: function onChange(e) {
-                        return setCoin(_objectSpread(_objectSpread({}, coin), {}, _defineProperty({}, 'is_presale', e.target.checked)));
-                      },
-                      label: "Presale listing is paid 0.1 BNB"
-                    })
-                  })]
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)("div", {
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsxs)("label", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)("div", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsxs)("label", {
                   className: "input-label",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)("span", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)("span", {
                     children: "*"
-                  }), " Coin description, other links and addresses (150 words limit)", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_26__["default"], {
+                  }), " Coin description, other links and addresses (150 words limit)", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_28__["default"], {
                     className: "mb-3",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_31__["default"], {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_31__["default"], {
                       label: "",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_30__["default"].Control, {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_30__["default"].Control, {
                         as: "textarea",
                         value: coin.description,
                         onChange: limitTextHandler,
@@ -10734,50 +10649,141 @@ var AddCoinPage = function AddCoinPage(_ref) {
                     })
                   })]
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(_components_UI_FormBlockDivider_FormBlockDivider__WEBPACK_IMPORTED_MODULE_17__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)("h2", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(_components_UI_FormBlockDivider_FormBlockDivider__WEBPACK_IMPORTED_MODULE_17__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)("h2", {
+                className: _sass_pages_AddCoinPage_AddCoinPage_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].titleBlock,
+                children: "Contract addresses"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsxs)("div", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(_components_ChainItem_ChainItem__WEBPACK_IMPORTED_MODULE_25__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsxs)("div", {
+                  className: "d-flex justify-content-between w-100",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsxs)("label", {
+                    className: "input-label me-5",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)("span", {
+                      children: "*"
+                    }), " Chain", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_28__["default"], {
+                      className: "mb-3",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_32__["default"], {
+                        id: "dropdown-custom",
+                        className: "dropdown-custom",
+                        title: chain,
+                        required: true,
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(react_bootstrap_DropdownItem__WEBPACK_IMPORTED_MODULE_33__["default"], {
+                          onClick: chainHandler,
+                          as: "button",
+                          title: 'eth',
+                          children: "eth"
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(react_bootstrap_DropdownItem__WEBPACK_IMPORTED_MODULE_33__["default"], {
+                          onClick: chainHandler,
+                          as: "button",
+                          title: 'bsc',
+                          children: "bsc"
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(react_bootstrap_DropdownItem__WEBPACK_IMPORTED_MODULE_33__["default"], {
+                          onClick: chainHandler,
+                          as: "button",
+                          title: 'fantom',
+                          children: "fantom"
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(react_bootstrap_DropdownItem__WEBPACK_IMPORTED_MODULE_33__["default"], {
+                          onClick: chainHandler,
+                          as: "button",
+                          title: 'mumbai',
+                          children: "mumbai"
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(react_bootstrap_DropdownItem__WEBPACK_IMPORTED_MODULE_33__["default"], {
+                          onClick: chainHandler,
+                          as: "button",
+                          title: 'polygon',
+                          children: "polygon"
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(react_bootstrap_DropdownItem__WEBPACK_IMPORTED_MODULE_33__["default"], {
+                          onClick: chainHandler,
+                          as: "button",
+                          title: 'avalanche',
+                          children: "avalanche"
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(react_bootstrap_DropdownItem__WEBPACK_IMPORTED_MODULE_33__["default"], {
+                          onClick: chainHandler,
+                          as: "button",
+                          title: 'miannet',
+                          children: "miannet"
+                        })]
+                      })
+                    })]
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_28__["default"], {
+                    className: "mb-3 me-5",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsxs)("label", {
+                      className: "input-label",
+                      children: [coin.chain !== 'miannet' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)("span", {
+                        children: "*"
+                      }) : '', "Contract address", coin.chain !== 'miannet' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_29__["default"], {
+                        placeholder: "Example: BTC",
+                        className: "input-text",
+                        type: "text",
+                        value: coin.address,
+                        onChange: function onChange(e) {
+                          return setCoin(_objectSpread(_objectSpread({}, coin), {}, _defineProperty({}, 'address', e.target.value)));
+                        },
+                        required: true
+                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_29__["default"], {
+                        placeholder: "Example: BTC",
+                        className: "input-text",
+                        type: "text",
+                        value: coin.address,
+                        onChange: function onChange(e) {
+                          return setCoin(_objectSpread(_objectSpread({}, coin), {}, _defineProperty({}, 'address', e.target.value)));
+                        }
+                      })]
+                    })
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_34__["default"], {
+                    variant: "info",
+                    className: "fill-btn",
+                    style: {
+                      width: '165px',
+                      marginTop: '30px'
+                    },
+                    type: "button",
+                    children: "Add"
+                  })]
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(_components_UI_FormBlockDivider_FormBlockDivider__WEBPACK_IMPORTED_MODULE_17__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)("h2", {
                 className: _sass_pages_AddCoinPage_AddCoinPage_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].titleBlock,
                 children: "Coin social media"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsxs)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsxs)("div", {
                 className: _sass_pages_AddCoinPage_AddCoinPage_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].formBlock,
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsxs)("div", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsxs)("div", {
                   className: _sass_pages_AddCoinPage_AddCoinPage_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].side,
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_26__["default"], {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_28__["default"], {
                     className: "mb-3",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsxs)("label", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsxs)("label", {
                       className: "input-label",
-                      children: ["Telegram", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(_components_InputImage_InputImage__WEBPACK_IMPORTED_MODULE_18__["default"], {
+                      children: ["Telegram", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(_components_InputImage_InputImage__WEBPACK_IMPORTED_MODULE_18__["default"], {
                         imgLink: _assets_img_ic_telegram_png__WEBPACK_IMPORTED_MODULE_12__["default"],
                         inputHandler: contractTelegramHandler
                       })]
                     })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_26__["default"], {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_28__["default"], {
                     className: "mb-3",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsxs)("label", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsxs)("label", {
                       className: "input-label",
-                      children: ["Twitter", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(_components_InputImage_InputImage__WEBPACK_IMPORTED_MODULE_18__["default"], {
+                      children: ["Twitter", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(_components_InputImage_InputImage__WEBPACK_IMPORTED_MODULE_18__["default"], {
                         imgLink: _assets_img_ic_twitter_png__WEBPACK_IMPORTED_MODULE_13__["default"],
                         inputHandler: contractTwitterHandler
                       })]
                     })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_26__["default"], {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_28__["default"], {
                     className: "mb-3",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsxs)("label", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsxs)("label", {
                       className: "input-label",
-                      children: ["Reddit", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(_components_InputImage_InputImage__WEBPACK_IMPORTED_MODULE_18__["default"], {
+                      children: ["Reddit", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(_components_InputImage_InputImage__WEBPACK_IMPORTED_MODULE_18__["default"], {
                         imgLink: _assets_img_ic_reddit_png__WEBPACK_IMPORTED_MODULE_14__["default"],
                         inputHandler: contractRedditHandler
                       })]
                     })
                   })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsxs)("div", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsxs)("div", {
                   className: _sass_pages_AddCoinPage_AddCoinPage_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].side,
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_26__["default"], {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_28__["default"], {
                     className: "mb-3",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsxs)("label", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsxs)("label", {
                       className: "input-label",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)("span", {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)("span", {
                         children: "*"
-                      }), " Web Address", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_27__["default"], {
+                      }), " Web Address", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_29__["default"], {
                         placeholder: "Http://",
                         className: "input-text",
                         type: "url",
@@ -10790,22 +10796,22 @@ var AddCoinPage = function AddCoinPage(_ref) {
                         required: true
                       })]
                     })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_26__["default"], {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_28__["default"], {
                     className: "mb-3",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsxs)("label", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsxs)("label", {
                       className: "input-label",
-                      children: ["Discord", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(_components_InputImage_InputImage__WEBPACK_IMPORTED_MODULE_18__["default"], {
+                      children: ["Discord", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(_components_InputImage_InputImage__WEBPACK_IMPORTED_MODULE_18__["default"], {
                         imgLink: _assets_img_ic_discord_png__WEBPACK_IMPORTED_MODULE_15__["default"],
                         inputHandler: contractDiscordHandler
                       })]
                     })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_26__["default"], {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_28__["default"], {
                     className: "mb-3",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsxs)("label", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsxs)("label", {
                       className: "input-label",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)("span", {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)("span", {
                         children: "*"
-                      }), " Logotype", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(_components_InputFile_InputFile__WEBPACK_IMPORTED_MODULE_19__["default"], {
+                      }), " Logotype", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(_components_InputFile_InputFile__WEBPACK_IMPORTED_MODULE_19__["default"], {
                         placeholder: 'Png/jpg 128 x 128',
                         inputHandler: inputFileHandler,
                         isRequired: true
@@ -10813,20 +10819,20 @@ var AddCoinPage = function AddCoinPage(_ref) {
                     })
                   })]
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(_components_UI_FormBlockDivider_FormBlockDivider__WEBPACK_IMPORTED_MODULE_17__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)("h2", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(_components_UI_FormBlockDivider_FormBlockDivider__WEBPACK_IMPORTED_MODULE_17__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)("h2", {
                 className: _sass_pages_AddCoinPage_AddCoinPage_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].titleBlock,
                 children: "Contact info"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsxs)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsxs)("div", {
                 className: _sass_pages_AddCoinPage_AddCoinPage_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].formBlock,
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)("div", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)("div", {
                   className: _sass_pages_AddCoinPage_AddCoinPage_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].side,
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_26__["default"], {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_28__["default"], {
                     className: "mb-3",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsxs)("label", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsxs)("label", {
                       className: "input-label",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)("span", {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)("span", {
                         children: "*"
-                      }), " Contact Email", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_27__["default"], {
+                      }), " Contact Email", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_29__["default"], {
                         placeholder: "@",
                         className: "input-text",
                         type: "email",
@@ -10840,22 +10846,22 @@ var AddCoinPage = function AddCoinPage(_ref) {
                       })]
                     })
                   })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)("div", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)("div", {
                   className: _sass_pages_AddCoinPage_AddCoinPage_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].side,
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_26__["default"], {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_28__["default"], {
                     className: "mb-3",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsxs)("label", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsxs)("label", {
                       className: "input-label",
-                      children: ["Contact Telegram", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(_components_InputImage_InputImage__WEBPACK_IMPORTED_MODULE_18__["default"], {
+                      children: ["Contact Telegram", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(_components_InputImage_InputImage__WEBPACK_IMPORTED_MODULE_18__["default"], {
                         imgLink: _assets_img_ic_telegram_png__WEBPACK_IMPORTED_MODULE_12__["default"],
                         inputHandler: telegramHandler
                       })]
                     })
                   })
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)("div", {
                 className: _sass_pages_AddCoinPage_AddCoinPage_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].btnWrapper,
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_32__["default"], {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_34__["default"], {
                   variant: "info",
                   className: "fill-btn",
                   style: {
@@ -10868,7 +10874,7 @@ var AddCoinPage = function AddCoinPage(_ref) {
             })
           })
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(_components_LeadersSubscribeBlock_LeadersSubscribeBlock__WEBPACK_IMPORTED_MODULE_3__["default"], {})]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(_components_LeadersSubscribeBlock_LeadersSubscribeBlock__WEBPACK_IMPORTED_MODULE_3__["default"], {})]
     })
   });
 };
@@ -13736,6 +13742,54 @@ var BlueSocialBlock = function BlueSocialBlock() {
 
 /***/ }),
 
+/***/ "./resources/js/components/ChainItem/ChainItem.js":
+/*!********************************************************!*\
+  !*** ./resources/js/components/ChainItem/ChainItem.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+var ChainItem = function ChainItem() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+    className: "d-flex align-items-center",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+      style: {
+        color: 'white'
+      },
+      className: "me-2",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("b", {
+        children: "Chain"
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+      style: {
+        color: 'white'
+      },
+      className: "mb-0 me-2",
+      children: "Contract address"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+      style: {
+        color: 'red',
+        fontSize: '30px'
+      },
+      children: "\xD7"
+    })]
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ChainItem);
+
+/***/ }),
+
 /***/ "./resources/js/components/CustomAccordion/CustomAccordion.js":
 /*!********************************************************************!*\
   !*** ./resources/js/components/CustomAccordion/CustomAccordion.js ***!
@@ -15060,6 +15114,60 @@ var CustomAlert = function CustomAlert() {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CustomAlert);
+
+/***/ }),
+
+/***/ "./resources/js/components/UI/CustomBadge/CustomBadge.js":
+/*!***************************************************************!*\
+  !*** ./resources/js/components/UI/CustomBadge/CustomBadge.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _sass_components_UI_CustomBadge_CustomBadge_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../sass/components/UI/CustomBadge/CustomBadge.module.scss */ "./resources/sass/components/UI/CustomBadge/CustomBadge.module.scss");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/Badge.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+
+var CustomBadge = function CustomBadge(_ref) {
+  var data = _ref.data,
+      _ref$removeHandler = _ref.removeHandler,
+      removeHandler = _ref$removeHandler === void 0 ? null : _ref$removeHandler;
+
+  var handleRemove = function handleRemove(e) {
+    // console.log('handleRemove', data)
+    if (removeHandler) {
+      removeHandler(data);
+    }
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    className: _sass_components_UI_CustomBadge_CustomBadge_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].customBadge,
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      className: _sass_components_UI_CustomBadge_CustomBadge_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].badge,
+      pill: true,
+      bg: "info",
+      children: data
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+      onClick: handleRemove,
+      className: _sass_components_UI_CustomBadge_CustomBadge_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].close,
+      children: "\xD7"
+    })]
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CustomBadge);
 
 /***/ }),
 
@@ -17150,6 +17258,53 @@ var fetchAllUsersAction = function fetchAllUsersAction(users) {
 
 /***/ }),
 
+/***/ "./resources/js/reducers/chainReducer.js":
+/*!***********************************************!*\
+  !*** ./resources/js/reducers/chainReducer.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ chainReducer),
+/* harmony export */   "addChainsAction": () => (/* binding */ addChainsAction)
+/* harmony export */ });
+/* harmony import */ var _utils_reducerConsts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/reducerConsts */ "./resources/js/utils/reducerConsts.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+var defaultState = {
+  chains: []
+};
+function chainReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : defaultState;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case _utils_reducerConsts__WEBPACK_IMPORTED_MODULE_0__.ADD_CHAINS:
+      return _objectSpread(_objectSpread({}, state), {}, {
+        chains: action.payload
+      });
+
+    default:
+      return state;
+  }
+}
+;
+var addChainsAction = function addChainsAction(chains) {
+  return {
+    type: _utils_reducerConsts__WEBPACK_IMPORTED_MODULE_0__.ADD_CHAINS,
+    payload: chains
+  };
+};
+
+/***/ }),
+
 /***/ "./resources/js/reducers/coinGeckoApiReducer.js":
 /*!******************************************************!*\
   !*** ./resources/js/reducers/coinGeckoApiReducer.js ***!
@@ -17268,6 +17423,7 @@ var defaultState = {
     is_presale: false,
     coin_gecko_link: '',
     chain: '',
+    chains: ['etg', 'bsc'],
     address: '',
     contractTelegram: '',
     contractTwitter: '',
@@ -17408,14 +17564,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "store": () => (/* binding */ store)
 /* harmony export */ });
-/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _currentUserReducer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./currentUserReducer */ "./resources/js/reducers/currentUserReducer.js");
 /* harmony import */ var redux_devtools_extension__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux-devtools-extension */ "./node_modules/redux-devtools-extension/index.js");
-/* harmony import */ var redux_thunk__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! redux-thunk */ "./node_modules/redux-thunk/es/index.js");
+/* harmony import */ var redux_thunk__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! redux-thunk */ "./node_modules/redux-thunk/es/index.js");
 /* harmony import */ var _errorsReducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./errorsReducer */ "./resources/js/reducers/errorsReducer.js");
 /* harmony import */ var _coinGeckoApiReducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./coinGeckoApiReducer */ "./resources/js/reducers/coinGeckoApiReducer.js");
 /* harmony import */ var _allUsersReducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./allUsersReducer */ "./resources/js/reducers/allUsersReducer.js");
 /* harmony import */ var _coinReducer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./coinReducer */ "./resources/js/reducers/coinReducer.js");
+/* harmony import */ var _chainReducer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./chainReducer */ "./resources/js/reducers/chainReducer.js");
 
 
 
@@ -17424,14 +17581,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var rootReducer = (0,redux__WEBPACK_IMPORTED_MODULE_6__.combineReducers)({
+
+var rootReducer = (0,redux__WEBPACK_IMPORTED_MODULE_7__.combineReducers)({
   currentUser: _currentUserReducer__WEBPACK_IMPORTED_MODULE_0__["default"],
   errors: _errorsReducer__WEBPACK_IMPORTED_MODULE_2__["default"],
   coinGecko: _coinGeckoApiReducer__WEBPACK_IMPORTED_MODULE_3__["default"],
   allUsers: _allUsersReducer__WEBPACK_IMPORTED_MODULE_4__["default"],
-  coin: _coinReducer__WEBPACK_IMPORTED_MODULE_5__["default"]
+  coin: _coinReducer__WEBPACK_IMPORTED_MODULE_5__["default"],
+  chains: _chainReducer__WEBPACK_IMPORTED_MODULE_6__["default"]
 });
-var store = (0,redux__WEBPACK_IMPORTED_MODULE_6__.createStore)(rootReducer, (0,redux_devtools_extension__WEBPACK_IMPORTED_MODULE_1__.composeWithDevTools)((0,redux__WEBPACK_IMPORTED_MODULE_6__.applyMiddleware)(redux_thunk__WEBPACK_IMPORTED_MODULE_7__["default"])));
+var store = (0,redux__WEBPACK_IMPORTED_MODULE_7__.createStore)(rootReducer, (0,redux_devtools_extension__WEBPACK_IMPORTED_MODULE_1__.composeWithDevTools)((0,redux__WEBPACK_IMPORTED_MODULE_7__.applyMiddleware)(redux_thunk__WEBPACK_IMPORTED_MODULE_8__["default"])));
 
 /***/ }),
 
@@ -17452,7 +17611,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "GECKO_COINS_CURRENT": () => (/* binding */ GECKO_COINS_CURRENT),
 /* harmony export */   "FETCH_ALL_USERS": () => (/* binding */ FETCH_ALL_USERS),
 /* harmony export */   "ADD_COIN": () => (/* binding */ ADD_COIN),
-/* harmony export */   "ADD_COIN_NAME": () => (/* binding */ ADD_COIN_NAME)
+/* harmony export */   "ADD_CHAINS": () => (/* binding */ ADD_CHAINS)
 /* harmony export */ });
 var SET_CURRENT_USER = 'SET_CURRENT_USER';
 var SET_ERRORS = 'SET_ERRORS';
@@ -17462,7 +17621,7 @@ var GECKO_COINS_MARKETS = 'GECKO_COINS_MARKETS';
 var GECKO_COINS_CURRENT = 'GECKO_COINS_CURRENT';
 var FETCH_ALL_USERS = 'FETCH_ALL_USERS';
 var ADD_COIN = 'ADD_COIN';
-var ADD_COIN_NAME = 'ADD_COIN_NAME';
+var ADD_CHAINS = 'ADD_CHAINS';
 
 /***/ }),
 
@@ -23442,6 +23601,40 @@ ___CSS_LOADER_EXPORT___.locals = {
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/UI/CustomBadge/CustomBadge.module.scss":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/UI/CustomBadge/CustomBadge.module.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "/*@font-face {\n    font-family: NekstRegular;\n    src: url(../assets/fonts/Nekst-Regular.ttf);\n}*/\n* {\n  font-family: \"Nekst\", sans-serif;\n}\n\nbody {\n  background-color: #10112d;\n}\n\nmain {\n  overflow-x: hidden;\n  min-height: calc(100vh - 120px);\n}\n\nh1 {\n  color: white;\n  font-size: 48px;\n}\n\nh2 {\n  color: white;\n  font-size: 24px;\n  font-weight: bold;\n}\n\nh3 {\n  color: white;\n  font-size: 16px;\n}\n\nh4 {\n  color: white;\n  font-size: 14px;\n}\n\nh5 {\n  color: white;\n  font-size: 12px;\n  font-weight: bold;\n}\n\np {\n  font-size: 12px;\n  color: white;\n  font-family: \"Nekst\", sans-serif;\n}\n\n.PEaRZ0pTtCajyfQWnuyUzg\\=\\= > :not(:first-child) {\n  border-top: none;\n}\n\n.PEaRZ0pTtCajyfQWnuyUzg\\=\\= > thead {\n  height: 40px;\n  color: #a6b2c6;\n  font-weight: bold;\n  font-size: 12px;\n  text-align: center;\n}\n\ntd {\n  font-size: 12px;\n}\ntd > div {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  min-height: 60px;\n}\n\n.zJSLGvH0sHSM8usgtT5Iww\\=\\= {\n  background-image: -ms-linear-gradient(-90deg, #2a3072 0%, #565fb0 100%);\n}\n\n.zpFIIfCcImgxkWi2OjcFQQ\\=\\= {\n  background-image: -ms-linear-gradient(-38deg, #1c5163 0%, #2ef098 100%);\n}\n\n.BqFYFRC89JnhoEYzpm4byg\\=\\= {\n  background-image: -ms-linear-gradient(-38deg, #4b2d73 0%, #e0258c 100%);\n}\n\n.uPlzQKp6lQPAw1YU2R0jSA\\=\\= {\n  background-image: -ms-linear-gradient(-38deg, #2e3a82 0%, #2871ab 100%);\n}\n\n.v6mDoVe9X8WfX13j\\+J0\\+HQ\\=\\= {\n  display: flex;\n  position: relative;\n  margin-right: 1rem;\n}\n.v6mDoVe9X8WfX13j\\+J0\\+HQ\\=\\= .bP1fYAupUKzcKRy9B6TKgg\\=\\= {\n  text-transform: uppercase;\n  font-size: 15px;\n}\n.v6mDoVe9X8WfX13j\\+J0\\+HQ\\=\\= .T7XjKR5aN7POA2Ia7Tl3zg\\=\\= {\n  font-size: 23px;\n  color: red;\n  position: absolute;\n  right: -5px;\n  top: -15px;\n  font-weight: 900;\n  transition: all 0.2s;\n}\n.v6mDoVe9X8WfX13j\\+J0\\+HQ\\=\\= .T7XjKR5aN7POA2Ia7Tl3zg\\=\\=:hover {\n  cursor: pointer;\n  transform: scale(1.2, 1.2);\n}", ""]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	"table": "PEaRZ0pTtCajyfQWnuyUzg==",
+	"gradient-purple": "zJSLGvH0sHSM8usgtT5Iww==",
+	"gradient-green": "zpFIIfCcImgxkWi2OjcFQQ==",
+	"gradient-red": "BqFYFRC89JnhoEYzpm4byg==",
+	"gradient-blue": "uPlzQKp6lQPAw1YU2R0jSA==",
+	"customBadge": "v6mDoVe9X8WfX13j+J0+HQ==",
+	"badge": "bP1fYAupUKzcKRy9B6TKgg==",
+	"close": "T7XjKR5aN7POA2Ia7Tl3zg=="
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/UI/Filters/CategoryFilter/CategoryFilter.module.scss":
 /*!******************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/UI/Filters/CategoryFilter/CategoryFilter.module.scss ***!
@@ -24105,7 +24298,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_assets_img_air_drop_page_bg_png__WEBPACK_IMPORTED_MODULE_2__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/*@font-face {\n    font-family: NekstRegular;\n    src: url(../assets/fonts/Nekst-Regular.ttf);\n}*/\n* {\n  font-family: \"Nekst\", sans-serif;\n}\n\nbody {\n  background-color: #10112d;\n}\n\nmain {\n  overflow-x: hidden;\n  min-height: calc(100vh - 120px);\n}\n\nh1 {\n  color: white;\n  font-size: 48px;\n}\n\nh2 {\n  color: white;\n  font-size: 24px;\n  font-weight: bold;\n}\n\nh3 {\n  color: white;\n  font-size: 16px;\n}\n\nh4 {\n  color: white;\n  font-size: 14px;\n}\n\nh5 {\n  color: white;\n  font-size: 12px;\n  font-weight: bold;\n}\n\np {\n  font-size: 12px;\n  color: white;\n  font-family: \"Nekst\", sans-serif;\n}\n\n.s2O6OZz\\+Z7s-lDX1jaM-Qg\\=\\= > :not(:first-child) {\n  border-top: none;\n}\n\n.s2O6OZz\\+Z7s-lDX1jaM-Qg\\=\\= > thead {\n  height: 40px;\n  color: #a6b2c6;\n  font-weight: bold;\n  font-size: 12px;\n  text-align: center;\n}\n\ntd {\n  font-size: 12px;\n}\ntd > div {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  min-height: 60px;\n}\n\n.qCzptEH6gL873-YPChjczA\\=\\= {\n  background-image: -ms-linear-gradient(-90deg, #2a3072 0%, #565fb0 100%);\n}\n\n.wL1s6DUp4bgZPM1C4WnnjQ\\=\\= {\n  background-image: -ms-linear-gradient(-38deg, #1c5163 0%, #2ef098 100%);\n}\n\n._08MXAfiVXLmQJZqlghOy6Q\\=\\= {\n  background-image: -ms-linear-gradient(-38deg, #4b2d73 0%, #e0258c 100%);\n}\n\n.TKZLs25xA9VnNbPqyAzVKg\\=\\= {\n  background-image: -ms-linear-gradient(-38deg, #2e3a82 0%, #2871ab 100%);\n}\n\n.CT8vX4lUudDsTJRi-P6xmw\\=\\= {\n  min-height: 1000px;\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n  background-size: cover;\n}\n.CT8vX4lUudDsTJRi-P6xmw\\=\\= .qxSYOVb\\+9wdmGclc0WhKEw\\=\\= {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-top: 40px;\n  margin-bottom: 40px;\n}\n@media screen and (max-width: 480px) {\n  .CT8vX4lUudDsTJRi-P6xmw\\=\\= .qxSYOVb\\+9wdmGclc0WhKEw\\=\\= {\n    flex-direction: column;\n    height: 140px;\n  }\n}\n.CT8vX4lUudDsTJRi-P6xmw\\=\\= .qxSYOVb\\+9wdmGclc0WhKEw\\=\\= .ztZxvj6z2RSp5uJ3ew3\\+MA\\=\\= {\n  color: #a6b2c6;\n  font-weight: 500;\n  font-size: 12px;\n}\n.CT8vX4lUudDsTJRi-P6xmw\\=\\= .qxSYOVb\\+9wdmGclc0WhKEw\\=\\= .pMbhxD\\+GSoc6BgIPjhsWVA\\=\\= {\n  width: 100%;\n  max-width: 320px;\n  display: flex;\n  justify-content: space-between;\n}\n.CT8vX4lUudDsTJRi-P6xmw\\=\\= .qxSYOVb\\+9wdmGclc0WhKEw\\=\\= .pMbhxD\\+GSoc6BgIPjhsWVA\\=\\= .RtuE\\+l9pLvbKZlLenh6rUg\\=\\= {\n  color: white;\n  text-align: right;\n  width: 100%;\n  max-width: 165px;\n}\n.CT8vX4lUudDsTJRi-P6xmw\\=\\= .uA5aXjAf4leBnwRMest7Iw\\=\\= {\n  margin-bottom: 70px;\n}\n.CT8vX4lUudDsTJRi-P6xmw\\=\\= .uA5aXjAf4leBnwRMest7Iw\\=\\= .\\+ZP6YvVm377hXAVg-qn74g\\=\\= ._7DQji4eN6KeMBVHGHlhAmQ\\=\\= {\n  margin-bottom: 25px;\n}\n.CT8vX4lUudDsTJRi-P6xmw\\=\\= .uA5aXjAf4leBnwRMest7Iw\\=\\= .\\+ZP6YvVm377hXAVg-qn74g\\=\\= ._3-uVBczyY6Ir4ILXEKDqSg\\=\\= {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n@media screen and (max-width: 768px) {\n  .CT8vX4lUudDsTJRi-P6xmw\\=\\= .uA5aXjAf4leBnwRMest7Iw\\=\\= .\\+ZP6YvVm377hXAVg-qn74g\\=\\= ._3-uVBczyY6Ir4ILXEKDqSg\\=\\= {\n    flex-direction: column;\n  }\n}\n.CT8vX4lUudDsTJRi-P6xmw\\=\\= .uA5aXjAf4leBnwRMest7Iw\\=\\= .\\+ZP6YvVm377hXAVg-qn74g\\=\\= ._3-uVBczyY6Ir4ILXEKDqSg\\=\\= .nvouxYewlGsWRYPHEwbQ1w\\=\\= {\n  width: 100%;\n  max-width: 510px;\n}\n.CT8vX4lUudDsTJRi-P6xmw\\=\\= .uA5aXjAf4leBnwRMest7Iw\\=\\= .CKVLZgVz4pvrXqVhDhTn7g\\=\\= {\n  margin-top: 100px;\n  display: flex;\n  justify-content: center;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "/*@font-face {\n    font-family: NekstRegular;\n    src: url(../assets/fonts/Nekst-Regular.ttf);\n}*/\n* {\n  font-family: \"Nekst\", sans-serif;\n}\n\nbody {\n  background-color: #10112d;\n}\n\nmain {\n  overflow-x: hidden;\n  min-height: calc(100vh - 120px);\n}\n\nh1 {\n  color: white;\n  font-size: 48px;\n}\n\nh2 {\n  color: white;\n  font-size: 24px;\n  font-weight: bold;\n}\n\nh3 {\n  color: white;\n  font-size: 16px;\n}\n\nh4 {\n  color: white;\n  font-size: 14px;\n}\n\nh5 {\n  color: white;\n  font-size: 12px;\n  font-weight: bold;\n}\n\np {\n  font-size: 12px;\n  color: white;\n  font-family: \"Nekst\", sans-serif;\n}\n\n.s2O6OZz\\+Z7s-lDX1jaM-Qg\\=\\= > :not(:first-child) {\n  border-top: none;\n}\n\n.s2O6OZz\\+Z7s-lDX1jaM-Qg\\=\\= > thead {\n  height: 40px;\n  color: #a6b2c6;\n  font-weight: bold;\n  font-size: 12px;\n  text-align: center;\n}\n\ntd {\n  font-size: 12px;\n}\ntd > div {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  min-height: 60px;\n}\n\n.qCzptEH6gL873-YPChjczA\\=\\= {\n  background-image: -ms-linear-gradient(-90deg, #2a3072 0%, #565fb0 100%);\n}\n\n.wL1s6DUp4bgZPM1C4WnnjQ\\=\\= {\n  background-image: -ms-linear-gradient(-38deg, #1c5163 0%, #2ef098 100%);\n}\n\n._08MXAfiVXLmQJZqlghOy6Q\\=\\= {\n  background-image: -ms-linear-gradient(-38deg, #4b2d73 0%, #e0258c 100%);\n}\n\n.TKZLs25xA9VnNbPqyAzVKg\\=\\= {\n  background-image: -ms-linear-gradient(-38deg, #2e3a82 0%, #2871ab 100%);\n}\n\n.CT8vX4lUudDsTJRi-P6xmw\\=\\= {\n  min-height: 1000px;\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n  background-size: cover;\n}\n.CT8vX4lUudDsTJRi-P6xmw\\=\\= .qxSYOVb\\+9wdmGclc0WhKEw\\=\\= {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-top: 40px;\n  margin-bottom: 40px;\n}\n@media screen and (max-width: 480px) {\n  .CT8vX4lUudDsTJRi-P6xmw\\=\\= .qxSYOVb\\+9wdmGclc0WhKEw\\=\\= {\n    flex-direction: column;\n    height: 140px;\n  }\n}\n.CT8vX4lUudDsTJRi-P6xmw\\=\\= .qxSYOVb\\+9wdmGclc0WhKEw\\=\\= .ztZxvj6z2RSp5uJ3ew3\\+MA\\=\\= {\n  color: #a6b2c6;\n  font-weight: 500;\n  font-size: 12px;\n}\n.CT8vX4lUudDsTJRi-P6xmw\\=\\= .qxSYOVb\\+9wdmGclc0WhKEw\\=\\= .pMbhxD\\+GSoc6BgIPjhsWVA\\=\\= {\n  width: 100%;\n  max-width: 320px;\n  display: flex;\n  justify-content: space-between;\n}\n.CT8vX4lUudDsTJRi-P6xmw\\=\\= .qxSYOVb\\+9wdmGclc0WhKEw\\=\\= .pMbhxD\\+GSoc6BgIPjhsWVA\\=\\= .RtuE\\+l9pLvbKZlLenh6rUg\\=\\= {\n  color: white;\n  text-align: right;\n  width: 100%;\n  max-width: 165px;\n}\n.CT8vX4lUudDsTJRi-P6xmw\\=\\= .uA5aXjAf4leBnwRMest7Iw\\=\\= {\n  margin-bottom: 70px;\n}\n.CT8vX4lUudDsTJRi-P6xmw\\=\\= .uA5aXjAf4leBnwRMest7Iw\\=\\= .\\+ZP6YvVm377hXAVg-qn74g\\=\\= ._7DQji4eN6KeMBVHGHlhAmQ\\=\\= {\n  margin-bottom: 25px;\n}\n.CT8vX4lUudDsTJRi-P6xmw\\=\\= .uA5aXjAf4leBnwRMest7Iw\\=\\= .\\+ZP6YvVm377hXAVg-qn74g\\=\\= ._3-uVBczyY6Ir4ILXEKDqSg\\=\\= {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n@media screen and (max-width: 768px) {\n  .CT8vX4lUudDsTJRi-P6xmw\\=\\= .uA5aXjAf4leBnwRMest7Iw\\=\\= .\\+ZP6YvVm377hXAVg-qn74g\\=\\= ._3-uVBczyY6Ir4ILXEKDqSg\\=\\= {\n    flex-direction: column;\n  }\n}\n.CT8vX4lUudDsTJRi-P6xmw\\=\\= .uA5aXjAf4leBnwRMest7Iw\\=\\= .\\+ZP6YvVm377hXAVg-qn74g\\=\\= ._3-uVBczyY6Ir4ILXEKDqSg\\=\\= .nvouxYewlGsWRYPHEwbQ1w\\=\\= {\n  width: 100%;\n  max-width: 510px;\n}\n.CT8vX4lUudDsTJRi-P6xmw\\=\\= .uA5aXjAf4leBnwRMest7Iw\\=\\= .CKVLZgVz4pvrXqVhDhTn7g\\=\\= {\n  margin-top: 100px;\n  display: flex;\n  justify-content: center;\n}\n.CT8vX4lUudDsTJRi-P6xmw\\=\\= .EgkUuqnAAABs1IZmV3ZIgA\\=\\= {\n  display: flex;\n  width: 100%;\n}", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"table": "s2O6OZz+Z7s-lDX1jaM-Qg==",
@@ -24123,7 +24316,8 @@ ___CSS_LOADER_EXPORT___.locals = {
 	"titleBlock": "_7DQji4eN6KeMBVHGHlhAmQ==",
 	"formBlock": "_3-uVBczyY6Ir4ILXEKDqSg==",
 	"side": "nvouxYewlGsWRYPHEwbQ1w==",
-	"btnWrapper": "CKVLZgVz4pvrXqVhDhTn7g=="
+	"btnWrapper": "CKVLZgVz4pvrXqVhDhTn7g==",
+	"chainsWrapper": "EgkUuqnAAABs1IZmV3ZIgA=="
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -48960,6 +49154,52 @@ Alert.defaultProps = defaultProps;
   Link: AlertLink,
   Heading: AlertHeading
 }));
+
+/***/ }),
+
+/***/ "./node_modules/react-bootstrap/esm/Badge.js":
+/*!***************************************************!*\
+  !*** ./node_modules/react-bootstrap/esm/Badge.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _ThemeProvider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ThemeProvider */ "./node_modules/react-bootstrap/esm/ThemeProvider.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+const defaultProps = {
+  bg: 'primary',
+  pill: false
+};
+const Badge = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.forwardRef(({
+  bsPrefix,
+  bg,
+  pill,
+  text,
+  className,
+  as: Component = 'span',
+  ...props
+}, ref) => {
+  const prefix = (0,_ThemeProvider__WEBPACK_IMPORTED_MODULE_3__.useBootstrapPrefix)(bsPrefix, 'badge');
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Component, {
+    ref: ref,
+    ...props,
+    className: classnames__WEBPACK_IMPORTED_MODULE_0___default()(className, prefix, pill && `rounded-pill`, text && `text-${text}`, bg && `bg-${bg}`)
+  });
+});
+Badge.displayName = 'Badge';
+Badge.defaultProps = defaultProps;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Badge);
 
 /***/ }),
 
@@ -89774,6 +90014,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_CustomAlert_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./resources/sass/components/UI/CustomBadge/CustomBadge.module.scss":
+/*!**************************************************************************!*\
+  !*** ./resources/sass/components/UI/CustomBadge/CustomBadge.module.scss ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_CustomBadge_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!../../../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!../../../../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./CustomBadge.module.scss */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/UI/CustomBadge/CustomBadge.module.scss");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_CustomBadge_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_CustomBadge_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
