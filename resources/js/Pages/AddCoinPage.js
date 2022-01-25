@@ -27,11 +27,13 @@ import {Inertia} from "@inertiajs/inertia";
 import {PATH_HOME_PAGE} from "../utils/routesPath";
 import CustomBadge from "../components/UI/CustomBadge/CustomBadge";
 import ChainItem from "../components/ChainItem/ChainItem";
+import {addNewChainAction} from "../reducers/chainReducer";
 
 const AddCoinPage = ({currentUser, errors}) => {
     const coin = useSelector(state => state.coin.addCoin)
     const chains = useSelector(state => state.chains.chains)
     const [chain, setChain] = useState('Select')
+    const [contractAddress, setContactAddress] = useState('')
 
     const dispatch = useDispatch();
 
@@ -51,6 +53,25 @@ const AddCoinPage = ({currentUser, errors}) => {
         })
     };
 
+    const addNewChainHandler = e => {
+        if (chain.includes('Select')) {
+            dispatch(setErrorsAction({message: 'Choose chain'}));
+            return
+        }
+        if (!chain.includes('miannet') && !contractAddress.length) {
+            dispatch(setErrorsAction({message: 'Fill Contract Address field'}));
+            return
+        }
+        const newChain = {
+            id: Date.now(),
+            chainName: chain,
+            chainValue: contractAddress
+        }
+        console.log('addNewChainHandler', newChain)
+        dispatch(addNewChainAction(newChain))
+        setChain('Select')
+        setContactAddress('')
+    };
 
     const contractTelegramHandler = value => {
         console.log('contractTelegramHandler', value)
@@ -383,7 +404,15 @@ const AddCoinPage = ({currentUser, errors}) => {
 
                                 <h2 className={s.titleBlock}>Contract addresses</h2>
                                 <div>
-                                    <ChainItem />
+                                    {
+                                        chains && chains.map(
+                                            (chain, i) =>
+                                                <ChainItem
+                                                    chain={chain}
+                                                    key={i}
+                                                />
+                                        )
+                                    }
                                     <div className="d-flex justify-content-between w-100">
                                         <label
                                             className="input-label me-5"
@@ -452,23 +481,20 @@ const AddCoinPage = ({currentUser, errors}) => {
                                         <InputGroup className="mb-3 me-5">
                                             <label className="input-label">
                                                 {
-                                                    coin.chain !== 'miannet' ?
+                                                    chain !== 'miannet' ?
                                                         <span>*</span>
                                                         :
                                                         ''
                                                 }
                                                 Contract address
                                                 {
-                                                    coin.chain !== 'miannet' ?
+                                                    chain !== 'miannet' ?
                                                         <FormControl
                                                             placeholder="Example: BTC"
                                                             className="input-text"
                                                             type="text"
-                                                            value={coin.address}
-                                                            onChange={e => setCoin({
-                                                                ...coin,
-                                                                ['address']: e.target.value
-                                                            })}
+                                                            value={contractAddress}
+                                                            onChange={e => setContactAddress(e.target.value)}
                                                             required
                                                         />
                                                         :
@@ -476,11 +502,8 @@ const AddCoinPage = ({currentUser, errors}) => {
                                                             placeholder="Example: BTC"
                                                             className="input-text"
                                                             type="text"
-                                                            value={coin.address}
-                                                            onChange={e => setCoin({
-                                                                ...coin,
-                                                                ['address']: e.target.value
-                                                            })}
+                                                            value={contractAddress}
+                                                            onChange={e => setContactAddress(e.target.value)}
                                                         />
                                                 }
 
@@ -491,6 +514,7 @@ const AddCoinPage = ({currentUser, errors}) => {
                                             className={`fill-btn`}
                                             style={{width: '165px', marginTop: '30px'}}
                                             type="button"
+                                            onClick={addNewChainHandler}
                                         >
                                             Add
                                         </Button>

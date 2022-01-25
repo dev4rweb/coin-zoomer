@@ -8,3 +8,5 @@ export const FETCH_ALL_USERS = 'FETCH_ALL_USERS'
 
 export const ADD_COIN = 'ADD_COIN'
 export const ADD_CHAINS = 'ADD_CHAINS'
+export const REMOVE_CHAIN = 'REMOVE_CHAIN'
+export const ADD_NEW_CHAIN = 'ADD_NEW_CHAIN'
