@@ -145,7 +145,10 @@ td {
               width: 100%;
               max-width: 120px;
               height: auto;
-              max-height: 120px; }
+              max-height: 120px;
+              -webkit-border-radius: 50%;
+              -moz-border-radius: 50%;
+              border-radius: 50%; }
         .coinOpenPage .wrapper .tokenSection .tokenBody .tokenForm {
           background: url("../../../assets/img/form-token-bg.png") no-repeat center center;
           -webkit-background-size: cover;

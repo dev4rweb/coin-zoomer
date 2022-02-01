@@ -8,15 +8,71 @@ import coinLogoFive from '../../../../../assets/img/coin-logo-five.png'
 import s from '../../../../../sass/components/UI/Tables/SimpleTable/SimpleTable.module.scss'
 import SimpleTableItem from "../SimpleTable/SimpleTableItem";
 import CoinsRateTableRow from "./CoinsRateTableRow";
+import CoinsTableRowInner from "./CoinsTableRowInner";
 
 
-const CoinsRateTable = () => {
+const CoinsRateTable = ({coins}) => {
     const tableData = [
-        {id: 1, logo: coinLogo, name: 'Coins name long name', symbol: 'NameSymbol', isUp: true, dynamicValue: 12.993, marketCap: 897.755, price: 177.88, launchDate: 14, upVotes: 87946},
-        {id: 2, logo: coinLogoTwo, name: 'Coins name long name', symbol: 'NameSymbol', isUp: true, dynamicValue: 12.993, marketCap: 897.755, price: 177.88, launchDate: 14, upVotes: 87946},
-        {id: 3, logo: coinLogoThree, name: 'Coins name long name', symbol: 'NameSymbol', isUp: true, dynamicValue: 12.993, marketCap: 897.755, price: 177.88, launchDate: 14, upVotes: 87946},
-        {id: 4, logo: coinLogoFour, name: 'Coins name long name', symbol: 'NameSymbol', isUp: true, dynamicValue: 12.993, marketCap: 897.755, price: 177.88, launchDate: 14, upVotes: 87946},
-        {id: 5, logo: coinLogoFive, name: 'Coins name long name', symbol: 'NameSymbol', isUp: true, dynamicValue: 12.993, marketCap: 897.755, price: 177.88, launchDate: 14, upVotes: 87946},
+        {
+            id: 1,
+            logo: coinLogo,
+            name: 'Coins name long name',
+            symbol: 'NameSymbol',
+            isUp: true,
+            dynamicValue: 12.993,
+            marketCap: 897.755,
+            price: 177.88,
+            launchDate: 14,
+            upVotes: 87946
+        },
+        {
+            id: 2,
+            logo: coinLogoTwo,
+            name: 'Coins name long name',
+            symbol: 'NameSymbol',
+            isUp: true,
+            dynamicValue: 12.993,
+            marketCap: 897.755,
+            price: 177.88,
+            launchDate: 14,
+            upVotes: 87946
+        },
+        {
+            id: 3,
+            logo: coinLogoThree,
+            name: 'Coins name long name',
+            symbol: 'NameSymbol',
+            isUp: true,
+            dynamicValue: 12.993,
+            marketCap: 897.755,
+            price: 177.88,
+            launchDate: 14,
+            upVotes: 87946
+        },
+        {
+            id: 4,
+            logo: coinLogoFour,
+            name: 'Coins name long name',
+            symbol: 'NameSymbol',
+            isUp: true,
+            dynamicValue: 12.993,
+            marketCap: 897.755,
+            price: 177.88,
+            launchDate: 14,
+            upVotes: 87946
+        },
+        {
+            id: 5,
+            logo: coinLogoFive,
+            name: 'Coins name long name',
+            symbol: 'NameSymbol',
+            isUp: true,
+            dynamicValue: 12.993,
+            marketCap: 897.755,
+            price: 177.88,
+            launchDate: 14,
+            upVotes: 87946
+        },
     ]
     return (
         <Table className={s.simpleTable} striped hover responsive variant="dark">
@@ -33,9 +89,14 @@ const CoinsRateTable = () => {
             </thead>
             <tbody>
             {
-                tableData.map((i, index) =>
-                    <CoinsRateTableRow key={i.id} data={i} index={index}/>
-                )
+                coins && coins.length ?
+                    coins.map((i, index) =>
+                        <CoinsTableRowInner key={i.id} data={i} index={index} />
+                    )
+                    :
+                    tableData.map((i, index) =>
+                        <CoinsRateTableRow key={i.id} data={i} index={index}/>
+                    )
             }
             </tbody>
         </Table>

@@ -28,8 +28,9 @@ import LeadersSubscribeBlock from "../components/LeadersSubscribeBlock/LeadersSu
 import {Inertia} from "@inertiajs/inertia";
 import {PATH_ADD_COIN_PAGE} from "../utils/routesPath";
 import {geckoGetPing} from "../asyncAction/coinGecko";
+import {fetchCoinAction} from "../reducers/coinReducer";
 
-const HomePage = ({currentUser, errors}) => {
+const HomePage = ({currentUser, errors, coins}) => {
     const dispatch = useDispatch();
     const topCoinsData = [
         {id: 1, logo: oneImg, name: 'CoinName', isIncrease: true, val: `12.993%`, price: '$ 475.45', isFav: true},
@@ -42,6 +43,7 @@ const HomePage = ({currentUser, errors}) => {
     useEffect(() => {
         dispatch(setCurrentUserAction(currentUser))
         dispatch(geckoGetPing())
+        dispatch(fetchCoinAction(coins))
         // dispatch(setErrorsAction(errors))
     }, []);
 
@@ -112,7 +114,7 @@ const HomePage = ({currentUser, errors}) => {
                     <section className={s.coinsRateSection}>
                         <SectionSeparator sectionName={`Coins rate`} />
                         <div className={s.coinsTableWrapper}>
-                            <CoinsRateTable />
+                            <CoinsRateTable coins={coins} />
                         </div>
                         <div className={s.filterTableWrapper}>
                             <div className={s.filterWrapper}>

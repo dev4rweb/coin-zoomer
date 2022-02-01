@@ -106,9 +106,14 @@ td {
         font-size: 12px; }
     .tableItem .coinsCol .coinsLong {
       display: flex;
-      align-items: center; }
+      align-items: center;
+      justify-content: flex-start; }
       .tableItem .coinsCol .coinsLong img {
-        margin-right: 10px; }
+        margin-right: 10px;
+        max-height: 46px;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%; }
       .tableItem .coinsCol .coinsLong p {
         margin-bottom: 0;
         color: #a6b2c6;

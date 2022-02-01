@@ -38,9 +38,14 @@
         .coinsLong {
             display: flex;
             align-items: center;
+            justify-content: flex-start;
 
             img {
                 margin-right: 10px;
+                max-height: 46px;
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+                border-radius: 50%;
             }
 
             p {
