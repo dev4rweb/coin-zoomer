@@ -14,8 +14,11 @@ class UploadFileController extends Controller
             $extension = $file->getClientOriginalExtension();
             $picture = time() . '.' . $extension;
             $file->move(public_path('img'), $picture);
-            $filepath = '/img/' . $picture;
-            $response['filepath'] = $filepath;
+            if (strpos($_SERVER['SERVER_NAME'], '127.0.0.1') !== false) {
+                $response['filepath'] = '/img/' . $picture;
+            } else {
+                $response['filepath'] = '/lsapp/public/img/' . $picture;
+            }
             $response['success'] = true;
         } else {
             $response['success'] = false;
