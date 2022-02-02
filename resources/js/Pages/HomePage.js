@@ -113,16 +113,16 @@ const HomePage = ({currentUser, errors, coins}) => {
 
                     <section className={s.coinsRateSection}>
                         <SectionSeparator sectionName={`Coins rate`} />
-                        <div className={s.coinsTableWrapper}>
+                        {/*<div className={s.coinsTableWrapper}>
                             <CoinsRateTable coins={coins} />
-                        </div>
+                        </div>*/}
                         <div className={s.filterTableWrapper}>
                             <div className={s.filterWrapper}>
                                 <TimeFilter />
                                 <CategoryFilter/>
                                 <Searching />
                             </div>
-                            <CoinsRateTable />
+                            <CoinsRateTable coins={coins} />
                         </div>
                     </section>
 

@@ -26,8 +26,6 @@ class CreateCoinsTable extends Migration
             $table->integer('market_cap')->nullable();
             $table->date('launch_date');
             $table->string('coin_gecko_link')->nullable();
-            $table->string('chain')->nullable();
-            $table->string('address')->nullable();
             $table->string('contractTelegram')->nullable();
             $table->string('contractTwitter')->nullable();
             $table->string('contractReddit')->nullable();

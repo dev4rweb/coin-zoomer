@@ -18,8 +18,6 @@ class Coin extends Model
         'symbol',
         'market_cap',
         'launch_date',
-        'chain',
-        'address',
         'contractTelegram',
         'contractTwitter',
         'contractReddit',

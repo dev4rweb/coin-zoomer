@@ -13,7 +13,6 @@ class CoinFactory extends Factory
      */
     public function definition()
     {
-        $chain = ['eth', 'bsc', 'fantom', 'mumbai', 'polygon', 'avalanche', 'meannet'];
         return [
             'is_approved' => $this->faker->boolean,
             'is_promoted' => $this->faker->boolean,
@@ -25,8 +24,6 @@ class CoinFactory extends Factory
             'symbol' => $this->faker->countryCode,
             'market_cap' => $this->faker->numberBetween(10000, 1000000000),
             'launch_date' => $this->faker->dateTimeBetween('-2years', '2years'),
-            'chain' => $chain[$this->faker->numberBetween(0, 6)],
-            'address' => $this->faker->address,
             'coin_gecko_link' => $this->faker->url,
             'contractTelegram' => $this->faker->streetName,
             'contractTwitter' => $this->faker->streetName,

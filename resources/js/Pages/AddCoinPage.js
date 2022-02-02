@@ -25,7 +25,6 @@ import {addCoinAction} from "../reducers/coinReducer";
 import {setErrorsAction} from "../reducers/errorsReducer";
 import {Inertia} from "@inertiajs/inertia";
 import {PATH_HOME_PAGE} from "../utils/routesPath";
-import CustomBadge from "../components/UI/CustomBadge/CustomBadge";
 import ChainItem from "../components/ChainItem/ChainItem";
 import {addNewChainAction} from "../reducers/chainReducer";
 
@@ -140,8 +139,15 @@ const AddCoinPage = ({currentUser, errors}) => {
 
     const submitHandler = e => {
         e.preventDefault()
-        console.log('submitHandler coin', coin)
-        axios.post('/add-coin-create', coin)
+        if (chains.length === 0) {
+            dispatch(setErrorsAction({message: 'Add chain'}));
+            return
+        }
+        console.log('submitHandler coin', coin);
+        axios.post('/add-coin-create', {
+            coin: coin,
+            chains: chains
+        })
             .then(res => {
                 console.log(res)
                 if (res.data.success) {
@@ -495,7 +501,6 @@ const AddCoinPage = ({currentUser, errors}) => {
                                                             type="text"
                                                             value={contractAddress}
                                                             onChange={e => setContactAddress(e.target.value)}
-                                                            required
                                                         />
                                                         :
                                                         <FormControl
