@@ -7,7 +7,7 @@ import {setErrorsAction} from "../../reducers/errorsReducer";
 const InputFile = ({placeholder, inputHandler = null, isRequired = false}) => {
     const dispatch = useDispatch()
     let btn = createRef();
-    const [value, setValue] = useState(placeholder)
+    const [value, setValue] = useState('')
 
     const filePathHandler = e => {
         setValue(e.target.value)

@@ -3,7 +3,7 @@ import s from '../../sass/pages/CoinOpenPage/CoinOpenPage.module.scss'
 import {useDispatch, useSelector} from "react-redux";
 import {setCurrentUserAction} from "../reducers/currentUserReducer";
 import Layout from "../components/Layout";
-import {Button, Container, FormControl, InputGroup} from "react-bootstrap";
+import {Button, Container, DropdownButton, FormControl, InputGroup} from "react-bootstrap";
 import CustomAlert from "../components/UI/CustomAlert/CustomAlert";
 import BannerBlock from "../components/BannerBlock/BannerBlock";
 import SectionSeparator from "../components/UI/SectionSeparator/SectionSeparator";
@@ -12,6 +12,7 @@ import logo from '../../assets/img/token-logo-coin.png'
 import OutlineBtn from "../components/UI/OutlineBtn/OutlineBtn";
 import {geckoGetCurrentCoin} from "../asyncAction/coinGecko";
 import {setCurrentInnerCoinAction} from "../reducers/coinReducer";
+import DropdownItem from "react-bootstrap/DropdownItem";
 
 const CoinOpenPage = ({currentUser, errors, pageId, innerCoin}) => {
     const dispatch = useDispatch();
@@ -21,6 +22,7 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin}) => {
     const [marketCup, setMarketCup] = useState('$789.466')
     const [price, setPrice] = useState('$0.00000000324476')
     const [launch, setLaunch] = useState('22.12.2012  10:55:40')
+    const [chain, setChain] = useState('')
     const statistic = [
         {name: 'Votes', val: 87046},
         {name: 'Today', val: 87046},
@@ -37,8 +39,16 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin}) => {
         } else {
             dispatch(setCurrentInnerCoinAction(innerCoin))
             console.log('Internal coin', innerCoin)
+            if (innerCurrentCoin && innerCurrentCoin.coin_chains.length)
+                setChain(innerCurrentCoin.coin_chains[0].contract_address)
         }
-    }, []);
+    }, [innerCurrentCoin]);
+
+    const chainHandler = (e, contractAddress) => {
+        e.preventDefault()
+        setChain(contractAddress)
+        // console.log('chainHandler')
+    };
 
     return (
         <Layout>
@@ -207,13 +217,30 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin}) => {
                                             <h3>{innerCurrentCoin.symbol}</h3>
                                         </div>
                                         <InputGroup className={s.tokenInput}>
-                                            <FormControl
-                                                placeholder="Your token"
-                                                className="input-text"
-                                                type="text"
-                                                onChange={e => setToken(e.target.value)}
-                                                value={token}
-                                            />
+                                            {
+                                                innerCurrentCoin.coin_chains.length &&
+                                                <DropdownButton
+                                                    id="dropdown-custom"
+                                                    className='dropdown-custom'
+                                                    title={chain}
+                                                >
+                                                    {
+                                                        innerCurrentCoin.coin_chains.length &&
+                                                        innerCurrentCoin.coin_chains.map(i =>
+                                                            <DropdownItem
+                                                                onClick={event => chainHandler(event, i.contract_address)}
+                                                                as="button"
+                                                                title={i.chain}
+                                                                key={i.id}
+                                                            >
+                                                                {i.contract_address}
+                                                            </DropdownItem>
+                                                        )
+                                                    }
+
+                                                </DropdownButton>
+                                            }
+
                                         </InputGroup>
                                     </div>
                                     <div className={s.tokenBody}>

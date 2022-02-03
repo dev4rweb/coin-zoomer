@@ -28,4 +28,9 @@ class Coin extends Model
         'email',
         'telegram',
     ];
+
+    public function coinChains()
+    {
+        return $this->hasMany(CoinChain::class);
+    }
 }

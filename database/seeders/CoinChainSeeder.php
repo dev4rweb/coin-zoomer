@@ -15,9 +15,6 @@ class CoinChainSeeder extends Seeder
      */
     public function run()
     {
-        $coins = Coin::all();
-        CoinChain::factory()->count(200)->create([
-            'coin_id' => $coins->random()->id
-        ]);
+        CoinChain::factory()->count(80)->create();
     }
 }

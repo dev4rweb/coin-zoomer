@@ -14,7 +14,9 @@ class CoinOpenPageController extends Controller
         $user = Auth::user();
 
         if (strlen($id) < 3) {
-            $coin = Coin::where('id', $id)->first();
+            $coin = Coin::where('id', $id)
+                ->with('coinChains')
+                ->first();
         } else {
             $coin = $id;
         }

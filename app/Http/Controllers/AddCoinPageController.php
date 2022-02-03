@@ -26,9 +26,9 @@ class AddCoinPageController extends Controller
             $chains = $request['chains'];
             foreach ($chains as $chain) {
                 CoinChain::create([
-                    'coin_id'=>$coin['id'],
-                    'chain' =>$chain['chainName'],
-                    'contract_address'=>$chain['chainValue']
+                    'coin_id'=> $coin['id'],
+                    'chain' => $chain['chainName'],
+                    'contract_address' => $chain['chainValue']
                 ]);
             }
             $response['success'] = true;
