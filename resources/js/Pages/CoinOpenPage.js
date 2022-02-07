@@ -13,6 +13,7 @@ import OutlineBtn from "../components/UI/OutlineBtn/OutlineBtn";
 import {geckoGetCurrentCoin} from "../asyncAction/coinGecko";
 import {setCurrentInnerCoinAction} from "../reducers/coinReducer";
 import DropdownItem from "react-bootstrap/DropdownItem";
+import {setErrorsAction} from "../reducers/errorsReducer";
 
 const CoinOpenPage = ({currentUser, errors, pageId, innerCoin}) => {
     const dispatch = useDispatch();
@@ -47,6 +48,12 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin}) => {
     const chainHandler = (e, contractAddress) => {
         e.preventDefault()
         setChain(contractAddress)
+        if (navigator && navigator.clipboard && navigator.clipboard.writeText) {
+            dispatch(setErrorsAction({message: 'Copied!'}));
+            return navigator.clipboard.writeText(contractAddress);
+        }
+
+        return Promise.reject('The Clipboard API is not available.');
         // console.log('chainHandler')
     };
 
@@ -233,7 +240,7 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin}) => {
                                                                 title={i.chain}
                                                                 key={i.id}
                                                             >
-                                                                {i.contract_address}
+                                                                {i.chain} - {i.contract_address}
                                                             </DropdownItem>
                                                         )
                                                     }
