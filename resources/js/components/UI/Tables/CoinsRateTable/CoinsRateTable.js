@@ -9,9 +9,11 @@ import s from '../../../../../sass/components/UI/Tables/SimpleTable/SimpleTable.
 import SimpleTableItem from "../SimpleTable/SimpleTableItem";
 import CoinsRateTableRow from "./CoinsRateTableRow";
 import CoinsTableRowInner from "./CoinsTableRowInner";
+import {useSelector} from "react-redux";
 
 
-const CoinsRateTable = ({coins}) => {
+const CoinsRateTable = () => {
+    const coins = useSelector(state => state.coin.coins)
     const tableData = [
         {
             id: 1,
