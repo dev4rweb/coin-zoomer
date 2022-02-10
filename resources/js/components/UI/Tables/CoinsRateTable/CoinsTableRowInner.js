@@ -50,7 +50,7 @@ const CoinsTableRowInner = ({data}) => {
             </td>
             <td>
                 <div>
-                    {data.launch_date} days ago
+                    {data.launch_date}
                 </div>
             </td>
             <td>

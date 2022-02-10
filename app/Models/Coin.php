@@ -40,4 +40,5 @@ class Coin extends Model
     {
         return $filter->apply($builder);
     }
+
 }

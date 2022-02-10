@@ -15,6 +15,6 @@ class CoinChainSeeder extends Seeder
      */
     public function run()
     {
-        CoinChain::factory()->count(80)->create();
+        CoinChain::factory()->count(100)->create();
     }
 }

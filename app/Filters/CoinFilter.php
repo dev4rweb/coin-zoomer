@@ -20,14 +20,46 @@ class CoinFilter extends QueryFilter
 
     public function byMarketCap($isExpensive = 1)
     {
-        if ($isExpensive) {
+        if ($isExpensive  == 1) {
+            return $this->builder->orderBy('market_cap');
+        } else {
             return $this->builder->orderBy('market_cap', 'desc');
         }
     }
 
     public function byPrice($isExpensive = 1)
     {
+        if ($isExpensive == 1){
+            return $this->builder->orderBy('price');
+        } else {
+            return $this->builder->orderBy('price', 'desc');
+        }
+    }
 
+    public function byName($isDesc = 1)
+    {
+        if ($isDesc == 1){
+            return $this->builder->orderBy('name');
+        } else {
+            return $this->builder->orderBy('name', 'desc');
+        }
+    }
+    public function bySymbol($isDesc = 1)
+    {
+        if ($isDesc == 1){
+            return $this->builder->orderBy('symbol');
+        } else {
+            return $this->builder->orderBy('symbol', 'desc');
+        }
+    }
+
+    public function byLaunchDate($isDesc = 1)
+    {
+        if ($isDesc == 1){
+            return $this->builder->orderBy('launch_date');
+        } else {
+            return $this->builder->orderBy('launch_date', 'desc');
+        }
     }
 
     public function search_name($search = '')

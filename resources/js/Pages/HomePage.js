@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import s from '../../sass/pages/HomePage/HomePage.module.scss'
 import Layout from "../components/Layout";
 import bg from "../../assets/design/index.png"
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {setCurrentUserAction} from "../reducers/currentUserReducer";
 import {setErrorsAction} from "../reducers/errorsReducer";
 import CustomAlert from "../components/UI/CustomAlert/CustomAlert";
@@ -28,10 +28,12 @@ import LeadersSubscribeBlock from "../components/LeadersSubscribeBlock/LeadersSu
 import {Inertia} from "@inertiajs/inertia";
 import {PATH_ADD_COIN_PAGE} from "../utils/routesPath";
 import {geckoGetPing} from "../asyncAction/coinGecko";
-import {fetchCoinAction} from "../reducers/coinReducer";
+import {fetchCoinAction, setTableRateLimitAction} from "../reducers/coinReducer";
+import {fetchCoinByQuery} from "../asyncAction/coinInner";
 
 const HomePage = ({currentUser, errors, coins}) => {
     const dispatch = useDispatch();
+    const limit = useSelector(state => state.coin.tableRateLimit)
     const topCoinsData = [
         {id: 1, logo: oneImg, name: 'CoinName', isIncrease: true, val: `12.993%`, price: '$ 475.45', isFav: true},
         {id: 2, logo: twoImg, name: 'CoinName', isIncrease: true, val: `12.993%`, price: '$ 475.45', isFav: true},
@@ -41,11 +43,17 @@ const HomePage = ({currentUser, errors, coins}) => {
     ]
 
     useEffect(() => {
+        console.log( 'HomePage',coins)
         dispatch(setCurrentUserAction(currentUser))
         dispatch(geckoGetPing())
-        dispatch(fetchCoinAction(coins))
+        dispatch(fetchCoinAction(coins.data))
         // dispatch(setErrorsAction(errors))
     }, []);
+
+    const changeLimit = (e, lim) => {
+        dispatch(setTableRateLimitAction(lim))
+        dispatch(fetchCoinByQuery(null, '', lim))
+    };
 
     const addCoinHandler = e => {
         console.log('addCoinHandler')
@@ -123,6 +131,24 @@ const HomePage = ({currentUser, errors, coins}) => {
                                 <Searching />
                             </div>
                             <CoinsRateTable coins={coins} />
+                            <div className="d-flex justify-content-center mt-3">
+                                {
+                                    limit === 10 ?
+                                        <Button
+                                            variant="info"
+                                            onClick={e => changeLimit(e, 100)}
+                                        >
+                                            Show more
+                                        </Button>
+                                        :
+                                        <Button
+                                            variant="info"
+                                            onClick={e => changeLimit(e, 10)}
+                                        >
+                                            Show less
+                                        </Button>
+                                }
+                            </div>
                         </div>
                     </section>
 

@@ -1,4 +1,4 @@
-import {ADD_COIN, FETCH_COINS, SET_CURRENT_INNER_COIN} from "../utils/reducerConsts";
+import {ADD_COIN, FETCH_COINS, SET_CURRENT_INNER_COIN, SET_TABLE_RATE_LIMIT} from "../utils/reducerConsts";
 
 const defaultState = {
     addCoin: {
@@ -23,6 +23,7 @@ const defaultState = {
     },
     coins: [],
     currentInnerCoin: null,
+    tableRateLimit: 10
 }
 
 export default function coinReducer(state = defaultState, action) {
@@ -42,6 +43,11 @@ export default function coinReducer(state = defaultState, action) {
                 ...state,
                 currentInnerCoin: action.payload
             }
+        case SET_TABLE_RATE_LIMIT:
+            return {
+                ...state,
+                tableRateLimit: action.payload
+            }
         default:
             return state
     }
@@ -50,3 +56,4 @@ export default function coinReducer(state = defaultState, action) {
 export const addCoinAction = addCoin => ({type: ADD_COIN, payload: addCoin})
 export const fetchCoinAction = coins => ({type: FETCH_COINS, payload: coins})
 export const setCurrentInnerCoinAction = coin => ({type: SET_CURRENT_INNER_COIN, payload: coin})
+export const setTableRateLimitAction = limit => ({type: SET_TABLE_RATE_LIMIT, payload: limit})

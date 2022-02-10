@@ -14,6 +14,6 @@ class CoinSeeder extends Seeder
      */
     public function run()
     {
-        Coin::factory(20)->create();
+        Coin::factory(30)->create();
     }
 }

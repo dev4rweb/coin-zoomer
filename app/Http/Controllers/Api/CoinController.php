@@ -16,11 +16,14 @@ class CoinController extends Controller
      */
     public function index(CoinFilter $filter)
     {
+
         try {
-            $coins = Coin::filter($filter)->take(5)->get();
+//            $coins = Coin::filter($filter)->take($filter->request['limit'])->get();
+            $coins = Coin::filter($filter)->paginate($filter->request['limit']);
             $response['success'] = true;
             $response['message'] = 'Filter and Search';
             $response['models'] = $coins;
+            $response['filter'] = $filter->request['limit'];
         } catch (\Exception $exception) {
             $response['success'] = false;
             $response['message'] = $exception->getMessage();
