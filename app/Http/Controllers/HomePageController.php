@@ -13,7 +13,9 @@ class HomePageController extends Controller
     {
         $user = Auth::user();
 //        $coins = Coin::orderBy('id', 'desc')->take(10)->get();
-        $coins = Coin::orderBy('id', 'desc')->paginate(10);
+        $coins = Coin::orderBy('id', 'desc')
+            ->with('votes')
+            ->paginate(10);
 
         return Inertia::render('HomePage', [
             'currentUser' => $user,

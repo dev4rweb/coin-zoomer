@@ -2,36 +2,20 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Filters\CoinFilter;
 use App\Http\Controllers\Controller;
-use App\Models\Coin;
+use App\Models\Vote;
 use Illuminate\Http\Request;
 
-class CoinController extends Controller
+class VoteController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(CoinFilter $filter)
+    public function index()
     {
-
-        try {
-//            $coins = Coin::filter($filter)->take($filter->request['limit'])->get();
-            $coins = Coin::filter($filter)
-                ->with('votes')
-                ->paginate($filter->request['limit']);
-            $response['success'] = true;
-            $response['message'] = 'Filter and Search';
-            $response['models'] = $coins;
-            $response['filter'] = $filter->request['limit'];
-        } catch (\Exception $exception) {
-            $response['success'] = false;
-            $response['message'] = $exception->getMessage();
-        }
-
-        return response()->json($response);
+        //
     }
 
     /**
@@ -42,7 +26,17 @@ class CoinController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $vote = Vote::create($request->all());
+            $response['success'] = true;
+            $response['message'] = 'vote created';
+            $response['model'] = $vote;
+        } catch (\Exception $exception) {
+            $response['success'] = false;
+            $response['message'] = $exception->getMessage();
+        }
+
+        return response()->json($response);
     }
 
     /**

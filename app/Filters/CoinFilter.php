@@ -13,8 +13,10 @@ class CoinFilter extends QueryFilter
 
     public function new_coin($isNew = 1)
     {
-        if ($isNew) {
+        if ($isNew == 1) {
             return $this->builder->orderBy('id', 'desc');
+        } else {
+            return $this->builder->orderBy('id');
         }
     }
 

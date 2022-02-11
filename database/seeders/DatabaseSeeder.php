@@ -28,5 +28,6 @@ class DatabaseSeeder extends Seeder
          User::factory(30)->create();
          $this->call(CoinSeeder::class);
          $this->call(CoinChainSeeder::class);
+         $this->call(VoteSeeder::class);
     }
 }

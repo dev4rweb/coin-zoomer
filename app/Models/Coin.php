@@ -36,6 +36,11 @@ class Coin extends Model
         return $this->hasMany(CoinChain::class);
     }
 
+    public function votes()
+    {
+        return $this->hasMany(Vote::class);
+    }
+
     public function scopeFilter(Builder $builder, QueryFilter $filter)
     {
         return $filter->apply($builder);

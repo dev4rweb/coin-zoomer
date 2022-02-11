@@ -84,32 +84,37 @@ const CoinsRateTable = () => {
                 <th className={s.coinsColLong}>
                     <div className="d-flex justify-content-around align-items-center">
                         <span>Coins</span>
-                        <ToggleSortCoins sortBy={'byName'} />
+                        <ToggleSortCoins sortBy={'byName'}/>
                     </div>
                 </th>
                 <th>
                     <div className="d-flex justify-content-around align-items-center">
                         <span>Symbol</span>
-                        <ToggleSortCoins sortBy={'bySymbol'} />
+                        <ToggleSortCoins sortBy={'bySymbol'}/>
                     </div>
                 </th>
-                <th>1h</th>
+                <th>
+                    <div className="d-flex justify-content-around align-items-center">
+                        <span>1h</span>
+                        <ToggleSortCoins sortBy={'new_coin'}/>
+                    </div>
+                </th>
                 <th>
                     <div className="d-flex justify-content-around align-items-center">
                         <span>Price</span>
-                        <ToggleSortCoins sortBy={'byPrice'} />
+                        <ToggleSortCoins sortBy={'byPrice'}/>
                     </div>
                 </th>
                 <th>
                     <div className="d-flex justify-content-around align-items-center">
                         <span>Market Cap</span>
-                        <ToggleSortCoins sortBy={'byMarketCap'} />
+                        <ToggleSortCoins sortBy={'byMarketCap'}/>
                     </div>
                 </th>
                 <th>
                     <div className="d-flex justify-content-around align-items-center">
                         <span>Launch</span>
-                        <ToggleSortCoins sortBy={'byLaunchDate'} />
+                        <ToggleSortCoins sortBy={'byLaunchDate'}/>
                     </div>
                 </th>
                 <th>Upvotes</th>
@@ -119,7 +124,7 @@ const CoinsRateTable = () => {
             {
                 coins && coins.length ?
                     coins.map((i, index) =>
-                        <CoinsTableRowInner key={i.id} data={i} index={index} />
+                        <CoinsTableRowInner key={i.id} data={i} index={index}/>
                     )
                     :
                     tableData.map((i, index) =>

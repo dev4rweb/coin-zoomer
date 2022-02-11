@@ -1,15 +1,17 @@
 import React from 'react';
 import {Inertia} from "@inertiajs/inertia";
-import {PATH_COIN_OPEN_PAGE} from "../../../../utils/routesPath";
+import {PATH_COIN_OPEN_PAGE, PATH_LOGIN_PAGE} from "../../../../utils/routesPath";
 import s from "../../../../../sass/components/UI/Tables/SimpleTable/Item/SimpleTableItem.module.scss";
 import GraphicIncrease from "../../GraphicIncrease/GraphicIncrease";
 import {Button} from "react-bootstrap";
 import OutlineBtn from "../../OutlineBtn/OutlineBtn";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {setCurrentInnerCoinAction} from "../../../../reducers/coinReducer";
+import {addVote} from "../../../../asyncAction/votes";
 
 const CoinsTableRowInner = ({data}) => {
     const dispatch = useDispatch()
+    const curUser = useSelector(state => state.currentUser.user)
 
     const handleClick = e => {
         console.log('StatusTableRow click', data)
@@ -19,14 +21,21 @@ const CoinsTableRowInner = ({data}) => {
 
     const voteHandler = e => {
         if (e.target.tagName === 'BUTTON') {
-            alert('What do we need to do?')
+            if (curUser) {
+                dispatch(addVote({
+                    user_id: curUser.id,
+                    coin_id: data.id
+                }))
+            } else {
+                Inertia.visit(`${PATH_LOGIN_PAGE}`)
+            }
         }
         // console.log('voteHandler ', e.currentTarget.tagName === 'BUTTON');
     };
 
     return (
         <tr className={s.tableItem} onClick={handleClick}>
-            <td className={s.coinsCol} >
+            <td className={s.coinsCol}>
                 <div className={s.coinsLong}>
                     <img src={data.logotype} alt="coin"/>
                     <p>{data.name}</p>
@@ -64,7 +73,7 @@ const CoinsTableRowInner = ({data}) => {
                         Vote
                     </Button>
                     <OutlineBtn>
-                        <span>87954</span>
+                        <span>{data.votes.length}</span>
                     </OutlineBtn>
                 </div>
             </td>
