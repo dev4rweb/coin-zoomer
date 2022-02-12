@@ -49,9 +49,13 @@ export default function coinReducer(state = defaultState, action) {
                 tableRateLimit: action.payload
             }
         case ADD_VOTE:
-            const coin = state.coins.find(i => i.id === action.payload.coin_id)
+            const coins = state.coins
+            const coin = coins.find(i => i.id === action.payload.coin_id)
             coin.votes.push(action.payload)
-            return state
+            return {
+                ...state,
+                coins: coins
+            }
         default:
             return state
     }

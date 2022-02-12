@@ -14,11 +14,16 @@ import {geckoGetCurrentCoin} from "../asyncAction/coinGecko";
 import {setCurrentInnerCoinAction} from "../reducers/coinReducer";
 import DropdownItem from "react-bootstrap/DropdownItem";
 import {setErrorsAction} from "../reducers/errorsReducer";
+import {addVote} from "../asyncAction/votes";
+import {Inertia} from "@inertiajs/inertia";
+import {PATH_LOGIN_PAGE} from "../utils/routesPath";
 
 const CoinOpenPage = ({currentUser, errors, pageId, innerCoin}) => {
     const dispatch = useDispatch();
     const currentCoin = useSelector(state => state.coinGecko.currentCoin)
     const innerCurrentCoin = useSelector(state => state.coin.currentInnerCoin)
+    const [count, setCount] = useState(0)
+    const curUser = useSelector(state => state.currentUser.user)
     const [token, setToken] = useState('17TiF7KBBFahSgdW6gW9AEMY2hFCuDk6nj')
     const [marketCup, setMarketCup] = useState('$789.466')
     const [price, setPrice] = useState('$0.00000000324476')
@@ -40,8 +45,11 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin}) => {
         } else {
             dispatch(setCurrentInnerCoinAction(innerCoin))
             console.log('Internal coin', innerCoin)
-            if (innerCurrentCoin && innerCurrentCoin.coin_chains.length)
-                setChain(innerCurrentCoin.coin_chains[0].contract_address)
+            if (innerCurrentCoin && innerCurrentCoin.coin_chains.length) {
+                setChain(innerCurrentCoin.coin_chains[0].contract_address);
+                setCount(innerCurrentCoin.votes.length)
+            }
+
         }
     }, [innerCurrentCoin]);
 
@@ -55,6 +63,21 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin}) => {
 
         return Promise.reject('The Clipboard API is not available.');
         // console.log('chainHandler')
+    };
+
+    const voteHandler = e => {
+        if (e.target.tagName === 'BUTTON') {
+            if (curUser) {
+                dispatch(addVote({
+                    user_id: curUser.id,
+                    coin_id: innerCurrentCoin.id
+                }))
+                setCount(count + 1)
+            } else {
+                Inertia.visit(`${PATH_LOGIN_PAGE}`)
+            }
+        }
+        // console.log('voteHandler ', e.currentTarget.tagName === 'BUTTON');
     };
 
     return (
@@ -188,6 +211,7 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin}) => {
                                         <div className={s.rightSide}>
                                             <div className={s.statisticBlock}>
                                                 {
+
                                                     statistic.map((item, index) => {
                                                         return (
                                                             <div key={index} className={s.btnWrapper}>
@@ -298,22 +322,40 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin}) => {
                                             <div className={s.rightSide}>
                                                 <div className={s.statisticBlock}>
                                                     {
-                                                        statistic.map((item, index) => {
-                                                            return (
-                                                                <div key={index} className={s.btnWrapper}>
-                                                                    <Button
-                                                                        variant="info"
-                                                                        className="fill-btn"
-                                                                        style={{maxHeight: '32px', marginRight: '-5px'}}
-                                                                    >
-                                                                        {item.name}
-                                                                    </Button>
-                                                                    <OutlineBtn>
-                                                                        <span>{item.val}</span>
-                                                                    </OutlineBtn>
-                                                                </div>
-                                                            )
-                                                        })
+                                                        innerCurrentCoin.votes && innerCurrentCoin.votes.length ?
+                                                            <div className={s.btnWrapper}>
+                                                                <Button
+                                                                    variant="info"
+                                                                    className="fill-btn"
+                                                                    style={{maxHeight: '32px', marginRight: '-5px', minWidth: '70px'}}
+                                                                    onClick={voteHandler}
+                                                                >
+                                                                    Votes
+                                                                </Button>
+                                                                <OutlineBtn>
+                                                                    <span>{count}</span>
+                                                                </OutlineBtn>
+                                                            </div>
+                                                            :
+                                                            statistic.map((item, index) => {
+                                                                return (
+                                                                    <div key={index} className={s.btnWrapper}>
+                                                                        <Button
+                                                                            variant="info"
+                                                                            className="fill-btn"
+                                                                            style={{
+                                                                                maxHeight: '32px',
+                                                                                marginRight: '-5px'
+                                                                            }}
+                                                                        >
+                                                                            {item.name}
+                                                                        </Button>
+                                                                        <OutlineBtn>
+                                                                            <span>{item.val}</span>
+                                                                        </OutlineBtn>
+                                                                    </div>
+                                                                )
+                                                            })
                                                     }
                                                 </div>
 

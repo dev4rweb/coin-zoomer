@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Table} from "react-bootstrap";
 import coinLogo from '../../../../../assets/img/coin-logo.png'
 import coinLogoTwo from '../../../../../assets/img/coin-logo-two.png'
@@ -77,6 +77,7 @@ const CoinsRateTable = () => {
                   upVotes: 87946
               },*/
     ]
+
     return (
         <Table className={s.simpleTable} striped hover responsive variant="dark">
             <thead>

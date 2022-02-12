@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Inertia} from "@inertiajs/inertia";
 import {PATH_COIN_OPEN_PAGE, PATH_LOGIN_PAGE} from "../../../../utils/routesPath";
 import s from "../../../../../sass/components/UI/Tables/SimpleTable/Item/SimpleTableItem.module.scss";
@@ -12,6 +12,7 @@ import {addVote} from "../../../../asyncAction/votes";
 const CoinsTableRowInner = ({data}) => {
     const dispatch = useDispatch()
     const curUser = useSelector(state => state.currentUser.user)
+    const [count, setCount] = useState(data.votes.length)
 
     const handleClick = e => {
         console.log('StatusTableRow click', data)
@@ -26,6 +27,7 @@ const CoinsTableRowInner = ({data}) => {
                     user_id: curUser.id,
                     coin_id: data.id
                 }))
+                setCount(count + 1)
             } else {
                 Inertia.visit(`${PATH_LOGIN_PAGE}`)
             }
@@ -73,7 +75,7 @@ const CoinsTableRowInner = ({data}) => {
                         Vote
                     </Button>
                     <OutlineBtn>
-                        <span>{data.votes.length}</span>
+                        <span>{count}</span>
                     </OutlineBtn>
                 </div>
             </td>
