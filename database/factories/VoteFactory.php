@@ -18,6 +18,7 @@ class VoteFactory extends Factory
         return [
             'coin_id' => Coin::all()->random()->id,
             'user_id' => User::all()->random()->id,
+            'created_at' => $this->faker->dateTimeBetween('-5 days')
         ];
     }
 }

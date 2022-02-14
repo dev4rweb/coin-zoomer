@@ -8,6 +8,9 @@ import OutlineBtn from "../../OutlineBtn/OutlineBtn";
 import {useDispatch, useSelector} from "react-redux";
 import {setCurrentInnerCoinAction} from "../../../../reducers/coinReducer";
 import {addVote} from "../../../../asyncAction/votes";
+import {setErrorsAction} from "../../../../reducers/errorsReducer";
+import {getTodayVotes} from "../../../../asyncAction/voteTimer";
+import {fillUserVoteLimit} from "../../../../asyncAction/user";
 
 const CoinsTableRowInner = ({data}) => {
     const dispatch = useDispatch()
@@ -23,11 +26,26 @@ const CoinsTableRowInner = ({data}) => {
     const voteHandler = e => {
         if (e.target.tagName === 'BUTTON') {
             if (curUser) {
-                dispatch(addVote({
-                    user_id: curUser.id,
-                    coin_id: data.id
-                }))
-                setCount(count + 1)
+                const todayVotes = getTodayVotes(curUser.votes)
+                console.log('todayVotes', getTodayVotes(curUser.votes))
+                console.log('todayVotes user', curUser)
+                if (curUser.vote_limit > 0 && todayVotes.length < 5) {
+                    dispatch(addVote({
+                        user_id: curUser.id,
+                        coin_id: data.id
+                    }));
+                    setCount(count + 1);
+                    dispatch(setErrorsAction({message: `left vote limits ${curUser.vote_limit - 1} of 5`}))
+                } else {
+
+                    if (todayVotes.length > 4) {
+                        dispatch(setErrorsAction({message: 'vote limit exceeded'}));
+                    } else {
+                        dispatch(fillUserVoteLimit(curUser.id, (5 - todayVotes.length)))
+                        dispatch(setErrorsAction({message: `left vote limits ${5 - todayVotes.length} of 5`}))
+                        setCount(count + 1)
+                    }
+                }
             } else {
                 Inertia.visit(`${PATH_LOGIN_PAGE}`)
             }
