@@ -30,8 +30,9 @@ import {PATH_ADD_COIN_PAGE} from "../utils/routesPath";
 import {geckoGetPing} from "../asyncAction/coinGecko";
 import {fetchCoinAction, setTableRateLimitAction} from "../reducers/coinReducer";
 import {fetchCoinByQuery} from "../asyncAction/coinInner";
+import {fetchVotesAction} from "../reducers/voteReducer";
 
-const HomePage = ({currentUser, errors, coins}) => {
+const HomePage = ({currentUser, errors, coins, votes}) => {
     const dispatch = useDispatch();
     const limit = useSelector(state => state.coin.tableRateLimit)
     const topCoinsData = [
@@ -47,6 +48,7 @@ const HomePage = ({currentUser, errors, coins}) => {
         dispatch(setCurrentUserAction(currentUser))
         dispatch(geckoGetPing())
         dispatch(fetchCoinAction(coins.data))
+        dispatch(fetchVotesAction(votes))
         // dispatch(setErrorsAction(errors))
     }, []);
 

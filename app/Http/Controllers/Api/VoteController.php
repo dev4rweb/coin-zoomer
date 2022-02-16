@@ -30,8 +30,6 @@ class VoteController extends Controller
         try {
             $user = User::findOrFail($request['user_id']);
             if ($user) {
-                $user['vote_limit'] = $user['vote_limit'] - 1;
-                $user->save();
                 $user = User::find($user->id)->with('votes')->first();
                 $vote = Vote::create($request->all());
                 $response['success'] = true;

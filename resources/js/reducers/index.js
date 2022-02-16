@@ -7,6 +7,7 @@ import coinGeckoApiReducer from "./coinGeckoApiReducer";
 import allUsersReducer from "./allUsersReducer";
 import coinReducer from "./coinReducer";
 import chainReducer from "./chainReducer";
+import voteReducer from "./voteReducer";
 
 const rootReducer = combineReducers({
     currentUser: currentUserReducer,
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
     coinGecko: coinGeckoApiReducer,
     allUsers: allUsersReducer,
     coin: coinReducer,
-    chains: chainReducer
+    chains: chainReducer,
+    vote: voteReducer
 })
 
 export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))

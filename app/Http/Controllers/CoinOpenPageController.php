@@ -13,9 +13,12 @@ class CoinOpenPageController extends Controller
     public function index($id): \Inertia\Response
     {
         $user = Auth::user();
-        $user = User::find($user['id'])
-            ->with('votes')
-            ->first();
+        if ($user) {
+            $user = User::find($user['id'])
+                ->with('votes')
+                ->first();
+        }
+
 
         if (strlen($id) < 3) {
             $coin = Coin::where('id', $id)

@@ -15,7 +15,15 @@ import {fillUserVoteLimit} from "../../../../asyncAction/user";
 const CoinsTableRowInner = ({data}) => {
     const dispatch = useDispatch()
     const curUser = useSelector(state => state.currentUser.user)
+    const votes = useSelector(state => state.vote.votes)
+    let currentVotes = votes.filter(i => i.coin_id === data.id) || []
     const [count, setCount] = useState(data.votes.length)
+
+/*    useEffect(() => {
+        // console.log(data)
+        currentVotes = votes.filter(i => i.coin_id === data.id)
+        // console.log(currentVotes)
+    }, votes);*/
 
     const handleClick = e => {
         console.log('StatusTableRow click', data)
@@ -26,25 +34,18 @@ const CoinsTableRowInner = ({data}) => {
     const voteHandler = e => {
         if (e.target.tagName === 'BUTTON') {
             if (curUser) {
-                const todayVotes = getTodayVotes(curUser.votes)
-                console.log('todayVotes', getTodayVotes(curUser.votes))
+                const todayVotes = getTodayVotes(votes.filter(i => i.user_id === curUser.id))
+                console.log('todayVotes', todayVotes)
                 console.log('todayVotes user', curUser)
-                if (curUser.vote_limit > 0 && todayVotes.length < 5) {
+                if (todayVotes.length < 5) {
                     dispatch(addVote({
                         user_id: curUser.id,
                         coin_id: data.id
                     }));
-                    setCount(count + 1);
-                    dispatch(setErrorsAction({message: `left vote limits ${curUser.vote_limit - 1} of 5`}))
-                } else {
+                    dispatch(setErrorsAction({message: `left vote limits ${5 - todayVotes.length} of 5`}))
 
-                    if (todayVotes.length > 4) {
-                        dispatch(setErrorsAction({message: 'vote limit exceeded'}));
-                    } else {
-                        dispatch(fillUserVoteLimit(curUser.id, (5 - todayVotes.length)))
-                        dispatch(setErrorsAction({message: `left vote limits ${5 - todayVotes.length} of 5`}))
-                        setCount(count + 1)
-                    }
+                } else {
+                    dispatch(setErrorsAction({message: 'vote limit exceeded'}));
                 }
             } else {
                 Inertia.visit(`${PATH_LOGIN_PAGE}`)
@@ -92,9 +93,12 @@ const CoinsTableRowInner = ({data}) => {
                     >
                         Vote
                     </Button>
-                    <OutlineBtn>
-                        <span>{count}</span>
-                    </OutlineBtn>
+                    {
+                        currentVotes.length &&
+                        <OutlineBtn>
+                            <span>{currentVotes.length}</span>
+                        </OutlineBtn>
+                    }
                 </div>
             </td>
         </tr>

@@ -9,7 +9,10 @@ export const FETCH_ALL_USERS = 'FETCH_ALL_USERS'
 export const FETCH_COINS = 'FETCH_COINS'
 export const SET_CURRENT_INNER_COIN = 'SET_CURRENT_INNER_COIN'
 export const SET_TABLE_RATE_LIMIT = 'SET_TABLE_RATE_LIMIT'
+
 export const ADD_VOTE = 'ADD_VOTE'
+export const CREATE_VOTE = 'CREATE_VOTE'
+export const FETCH_VOTES = 'FETCH_VOTES'
 
 export const ADD_COIN = 'ADD_COIN'
 export const ADD_CHAINS = 'ADD_CHAINS'
