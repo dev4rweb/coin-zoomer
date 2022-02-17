@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Coin;
 use App\Models\User;
+use App\Models\Vote;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
@@ -29,10 +30,15 @@ class CoinOpenPageController extends Controller
             $coin = $id;
         }
 
+        $curVotes = Vote::where('coin_id', $id)->get();
+        $votes = Vote::all();
+
         return Inertia::render('CoinOpenPage', [
             'currentUser' => $user,
             'pageId' => $id,
-            'innerCoin' => $coin
+            'innerCoin' => $coin,
+            'votes' => $votes,
+            'curVotes' => $curVotes
         ]);
     }
 }

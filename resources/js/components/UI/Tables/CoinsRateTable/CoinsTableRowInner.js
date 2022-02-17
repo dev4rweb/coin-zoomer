@@ -9,7 +9,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {setCurrentInnerCoinAction} from "../../../../reducers/coinReducer";
 import {addVote} from "../../../../asyncAction/votes";
 import {setErrorsAction} from "../../../../reducers/errorsReducer";
-import {getTodayVotes} from "../../../../asyncAction/voteTimer";
+import {getTimeToNight, getTodayVotes} from "../../../../asyncAction/voteTimer";
 import {fillUserVoteLimit} from "../../../../asyncAction/user";
 
 const CoinsTableRowInner = ({data}) => {
@@ -36,16 +36,17 @@ const CoinsTableRowInner = ({data}) => {
             if (curUser) {
                 const todayVotes = getTodayVotes(votes.filter(i => i.user_id === curUser.id))
                 console.log('todayVotes', todayVotes)
-                console.log('todayVotes user', curUser)
+                // console.log('todayVotes user', curUser)
                 if (todayVotes.length < 5) {
                     dispatch(addVote({
                         user_id: curUser.id,
                         coin_id: data.id
                     }));
-                    dispatch(setErrorsAction({message: `left vote limits ${5 - todayVotes.length} of 5`}))
+                    dispatch(setErrorsAction({message: `left vote limits ${4 - todayVotes.length} of 5`}))
 
                 } else {
-                    dispatch(setErrorsAction({message: 'vote limit exceeded'}));
+
+                    dispatch(setErrorsAction({message: `vote limit exceeded. left - ${getTimeToNight()}`}));
                 }
             } else {
                 Inertia.visit(`${PATH_LOGIN_PAGE}`)

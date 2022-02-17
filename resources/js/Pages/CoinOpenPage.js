@@ -17,12 +17,15 @@ import {setErrorsAction} from "../reducers/errorsReducer";
 import {addVote} from "../asyncAction/votes";
 import {Inertia} from "@inertiajs/inertia";
 import {PATH_LOGIN_PAGE} from "../utils/routesPath";
+import {fetchCurrentVotesAction, fetchVotesAction} from "../reducers/voteReducer";
+import {getTimeToNight, getTodayVotes} from "../asyncAction/voteTimer";
 
-const CoinOpenPage = ({currentUser, errors, pageId, innerCoin}) => {
+const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes}) => {
     const dispatch = useDispatch();
     const currentCoin = useSelector(state => state.coinGecko.currentCoin)
     const innerCurrentCoin = useSelector(state => state.coin.currentInnerCoin)
-    const [count, setCount] = useState(0)
+    const currentVotes = useSelector(state => state.vote.curVotes)
+    const allVotes = useSelector(state => state.vote.votes)
     const curUser = useSelector(state => state.currentUser.user)
     const [token, setToken] = useState('17TiF7KBBFahSgdW6gW9AEMY2hFCuDk6nj')
     const [marketCup, setMarketCup] = useState('$789.466')
@@ -44,10 +47,11 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin}) => {
             dispatch(geckoGetCurrentCoin(pageId));
         } else {
             dispatch(setCurrentInnerCoinAction(innerCoin))
+            dispatch(fetchCurrentVotesAction(curVotes))
+            dispatch(fetchVotesAction(votes))
             console.log('Internal coin', innerCoin)
             if (innerCurrentCoin && innerCurrentCoin.coin_chains.length) {
                 setChain(innerCurrentCoin.coin_chains[0].contract_address);
-                setCount(innerCurrentCoin.votes.length)
             }
 
         }
@@ -68,11 +72,21 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin}) => {
     const voteHandler = e => {
         if (e.target.tagName === 'BUTTON') {
             if (curUser) {
-                dispatch(addVote({
-                    user_id: curUser.id,
-                    coin_id: innerCurrentCoin.id
-                }))
-                setCount(count + 1)
+                const todayVotes = getTodayVotes(allVotes.filter(i => i.user_id === curUser.id))
+                console.log('todayVotes', todayVotes)
+                console.log('todayVotes user', curUser)
+                if (todayVotes.length < 5) {
+                    dispatch(addVote({
+                        user_id: curUser.id,
+                        coin_id: innerCurrentCoin.id
+                    }, true));
+
+                    dispatch(setErrorsAction({message: `left vote limits ${4 - todayVotes.length} of 5`}))
+
+                } else {
+                    dispatch(setErrorsAction({message: `vote limit exceeded. Left - ${getTimeToNight()}`}));
+                }
+
             } else {
                 Inertia.visit(`${PATH_LOGIN_PAGE}`)
             }
@@ -322,18 +336,18 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin}) => {
                                             <div className={s.rightSide}>
                                                 <div className={s.statisticBlock}>
                                                     {
-                                                        innerCurrentCoin.votes && innerCurrentCoin.votes.length ?
-                                                            <div className={s.btnWrapper}>
+                                                        currentVotes ?
+                                                            <div className={s.btnWrapper} style={{width: '200px'}}>
                                                                 <Button
                                                                     variant="info"
                                                                     className="fill-btn"
                                                                     style={{maxHeight: '32px', marginRight: '-5px', minWidth: '70px'}}
                                                                     onClick={voteHandler}
                                                                 >
-                                                                    Votes
+                                                                    Vote
                                                                 </Button>
                                                                 <OutlineBtn>
-                                                                    <span>{count}</span>
+                                                                    <span>{currentVotes.length}</span>
                                                                 </OutlineBtn>
                                                             </div>
                                                             :

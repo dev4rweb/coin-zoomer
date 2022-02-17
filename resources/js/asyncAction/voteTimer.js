@@ -17,6 +17,16 @@ export const waitTime = votes => {
     };
 };
 
+export const getTimeToNight = () => {
+    const endDay = new Date().setHours(23, 59, 59, 0)
+    const dif = endDay - Date.now()
+    const leftTime = new Date(dif)
+    // console.log('getTimeToNight', leftTime.getHours(), leftTime.getMinutes())
+    const minutes = leftTime.getMinutes() > 10 ? leftTime.getMinutes() : `0${leftTime.getMinutes()}`
+    const seconds = leftTime.getSeconds() > 10 ? leftTime.getSeconds() : `0${leftTime.getSeconds()}`
+    return `${leftTime.getHours()}:${minutes}:${seconds}`
+};
+
 export const getTodayVotes = votes => {
     if (votes && votes.length) {
         const startDay = new Date().setHours(0, 0, 0, 0);
