@@ -31,6 +31,7 @@ import {geckoGetPing} from "../asyncAction/coinGecko";
 import {fetchCoinAction, setTableRateLimitAction} from "../reducers/coinReducer";
 import {fetchCoinByQuery} from "../asyncAction/coinInner";
 import {fetchVotesAction} from "../reducers/voteReducer";
+import Paginate from "../components/UI/Pagination/Paginate";
 
 const HomePage = ({currentUser, errors, coins, votes}) => {
     const dispatch = useDispatch();
@@ -44,17 +45,17 @@ const HomePage = ({currentUser, errors, coins, votes}) => {
     ]
 
     useEffect(() => {
-        console.log( 'HomePage',coins)
+        console.log('HomePage', coins)
         dispatch(setCurrentUserAction(currentUser))
         dispatch(geckoGetPing())
-        dispatch(fetchCoinAction(coins.data))
+        dispatch(fetchCoinAction(coins))
         dispatch(fetchVotesAction(votes))
         // dispatch(setErrorsAction(errors))
     }, []);
 
     const changeLimit = (e, lim) => {
         dispatch(setTableRateLimitAction(lim))
-        dispatch(fetchCoinByQuery(null, '', lim))
+        dispatch(fetchCoinByQuery(null, 1, '', lim))
     };
 
     const addCoinHandler = e => {
@@ -68,7 +69,7 @@ const HomePage = ({currentUser, errors, coins, votes}) => {
                 <Container>
                     <section className={s.mainSection}>
                         <div className={s.alertWrapper}>
-                            <CustomAlert />
+                            <CustomAlert/>
                         </div>
                         <div className={s.titleWrapper}>
                             <h1 className="title-gradient">Maybe your coin will be the best? </h1>
@@ -90,18 +91,18 @@ const HomePage = ({currentUser, errors, coins, votes}) => {
                             </Medal>
                         </div>
                         <div className={s.tableBlock}>
-                            <SimpleTable />
+                            <SimpleTable/>
                             <div className={s.rightSide}>
                                 <img className={s.dogWin} src={dogWin} alt="dog"/>
                                 <h2>Coin Name</h2>
                                 <div className={s.graphWrapper}>
-                                    <GraphicIncrease />
+                                    <GraphicIncrease/>
                                 </div>
                             </div>
                         </div>
                     </section>
                     <section className={s.topCoinsSection}>
-                        <SectionSeparator sectionName={`Tap coins`} />
+                        <SectionSeparator sectionName={`Tap coins`}/>
 
                         <div className={s.cardWrapper}>
                             <TopCoins
@@ -122,17 +123,18 @@ const HomePage = ({currentUser, errors, coins, votes}) => {
                     </section>
 
                     <section className={s.coinsRateSection}>
-                        <SectionSeparator sectionName={`Coins rate`} />
+                        <SectionSeparator sectionName={`Coins rate`}/>
                         {/*<div className={s.coinsTableWrapper}>
                             <CoinsRateTable coins={coins} />
                         </div>*/}
                         <div className={s.filterTableWrapper}>
                             <div className={s.filterWrapper}>
-                                <TimeFilter />
+                                <TimeFilter/>
                                 <CategoryFilter/>
-                                <Searching />
+                                <Searching/>
                             </div>
-                            <CoinsRateTable coins={coins} />
+                            <CoinsRateTable coins={coins}/>
+                            <Paginate/>
                             <div className="d-flex justify-content-center mt-3">
                                 {
                                     limit === 10 ?
@@ -156,7 +158,7 @@ const HomePage = ({currentUser, errors, coins, votes}) => {
 
 
                 </Container>
-                <LeadersSubscribeBlock />
+                <LeadersSubscribeBlock/>
             </div>
         </Layout>
     );

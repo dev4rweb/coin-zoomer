@@ -11,7 +11,7 @@ const Searching = () => {
 
     const submitHandler = e => {
         e.preventDefault()
-        dispatch(fetchCoinByQuery({name: '', value: ''}, text))
+        dispatch(fetchCoinByQuery(null,1,text))
     };
 
     return (

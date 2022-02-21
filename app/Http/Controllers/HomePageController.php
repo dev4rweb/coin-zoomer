@@ -15,7 +15,7 @@ class HomePageController extends Controller
     {
         $user = Auth::user();
         if ($user) {
-            $user = User::find($user['id'])
+            $user = User::where('id', $user['id'])
                 ->with('votes')
                 ->first();
         }

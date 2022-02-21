@@ -11,7 +11,7 @@ const ToggleSortCoins = ({sortBy}) => {
     const handleClick = (e, index) => {
         setSort(index)
         const sort = {name: sortBy, value: index}
-        dispatch(fetchCoinByQuery(sort, '', limit))
+        dispatch(fetchCoinByQuery(sort, 1,'', limit))
     };
 
     if (sort === 1) {

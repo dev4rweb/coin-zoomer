@@ -123,8 +123,8 @@ const CoinsRateTable = () => {
             </thead>
             <tbody>
             {
-                coins && coins.length ?
-                    coins.map((i, index) =>
+                coins && coins.data && coins.data.length ?
+                    coins.data.map((i, index) =>
                         <CoinsTableRowInner key={i.id} data={i} index={index}/>
                     )
                     :

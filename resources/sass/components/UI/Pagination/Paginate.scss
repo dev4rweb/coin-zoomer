@@ -1,0 +1,19 @@
+@import "../../../variables";
+
+.pagination {
+    .page-item {
+        .page-link {
+            color: $color-four;
+            border: 1px solid $color-four;
+            background: none;
+        }
+
+        &.active {
+            .page-link{
+                color: white;
+                font-weight: bold;
+                background-color: $color-four;
+            }
+        }
+    }
+}

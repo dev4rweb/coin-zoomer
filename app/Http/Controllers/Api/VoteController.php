@@ -30,7 +30,7 @@ class VoteController extends Controller
         try {
             $user = User::findOrFail($request['user_id']);
             if ($user) {
-                $user = User::find($user->id)->with('votes')->first();
+                $user = User::where('id', $user->id)->with('votes')->first();
                 $vote = Vote::create($request->all());
                 $response['success'] = true;
                 $response['message'] = 'vote created';
