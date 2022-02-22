@@ -1,17 +1,21 @@
 import React, {useState} from 'react';
 import s from '../../../../sass/components/UI/ToggleSort/ToggleSort.module.scss'
 import {useDispatch, useSelector} from "react-redux";
-import {fetchCoinByQuery} from "../../../asyncAction/coinInner";
+import {fetchCoinByQuery, fetchCoinByQueryObj} from "../../../asyncAction/coinInner";
+import {setSortingNameObjAction} from "../../../reducers/coinReducer";
 
 const ToggleSortCoins = ({sortBy}) => {
     const [sort, setSort] = useState(0)
     const limit = useSelector(state => state.coin.tableRateLimit)
     const dispatch = useDispatch()
+    const sortObj = useSelector(state => state.coin.sortObj)
 
     const handleClick = (e, index) => {
         setSort(index)
         const sort = {name: sortBy, value: index}
-        dispatch(fetchCoinByQuery(sort, 1,'', limit))
+        dispatch(setSortingNameObjAction(sort))
+        sortObj.sort = sort
+        dispatch(fetchCoinByQueryObj(sortObj))
     };
 
     if (sort === 1) {

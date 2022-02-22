@@ -2,11 +2,13 @@ import React from 'react';
 import {Pagination} from "react-bootstrap";
 import '../../../../sass/components/UI/Pagination/Paginate.scss'
 import {useDispatch, useSelector} from "react-redux";
-import {fetchCoinByQuery} from "../../../asyncAction/coinInner";
+import {fetchCoinByQuery, fetchCoinByQueryObj} from "../../../asyncAction/coinInner";
+import {setCurrentPageAction} from "../../../reducers/coinReducer";
 
 const Paginate = () => {
     const coins = useSelector(state => state.coin.coins)
     const dispatch = useDispatch()
+    const sortObj = useSelector(state => state.coin.sortObj)
     const currentPage = coins.current_page
 
     const handleClick = link => {
@@ -23,7 +25,9 @@ const Paginate = () => {
                 console.log('navigate');
                 showPage = link.label
             }
-            dispatch(fetchCoinByQuery(null, showPage))
+            dispatch(setCurrentPageAction(showPage))
+            sortObj.page = showPage
+            dispatch(fetchCoinByQueryObj(sortObj))
         }
     };
 

@@ -2,16 +2,20 @@ import React, {useState} from 'react';
 import s from '../../../../../sass/components/UI/Filters/Searching/Searching.module.scss'
 import loopImg from '../../../../../assets/icons/loupe.svg'
 import {Button, ButtonGroup, Form, FormControl} from "react-bootstrap";
-import {useDispatch} from "react-redux";
-import {fetchCoinByQuery} from "../../../../asyncAction/coinInner";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchCoinByQuery, fetchCoinByQueryObj} from "../../../../asyncAction/coinInner";
+import {setSearchingWordAction} from "../../../../reducers/coinReducer";
 
 const Searching = () => {
     const dispatch = useDispatch()
     const [text, setText] = useState('')
+    const sortObj = useSelector(state => state.coin.sortObj)
 
     const submitHandler = e => {
         e.preventDefault()
-        dispatch(fetchCoinByQuery(null,1,text))
+        dispatch(setSearchingWordAction(text))
+        sortObj.search = text
+        dispatch(fetchCoinByQueryObj(sortObj))
     };
 
     return (

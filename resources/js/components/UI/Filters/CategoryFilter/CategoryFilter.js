@@ -9,18 +9,19 @@ import trophyImg from '../../../../../assets/icons/trophy-gray.svg'
 import trophyGrayImg from '../../../../../assets/icons/trophy.svg'
 import discountImg from '../../../../../assets/icons/discount.svg'
 import discountGrayImg from '../../../../../assets/icons/discount-gray.png'
-import {useDispatch} from "react-redux";
-import {fetchCoinByQuery} from "../../../../asyncAction/coinInner";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchCoinByQuery, fetchCoinByQueryObj} from "../../../../asyncAction/coinInner";
+import {setSortingNameObjAction} from "../../../../reducers/coinReducer";
 
 const CategoryFilter = () => {
     const dispatch = useDispatch()
-    const [checked, setChecked] = useState(false);
     const [value, setValue] = useState('10');
+    const sortObj = useSelector(state => state.coin.sortObj)
 
     const radios = [
-        {id: 10, name: "Today's Hot", value: 'byPrice', img: notificationGrayImg, active: notificationImg, cl: s.hots},
+        {id: 10, name: "Today's Hot", value: 'today_hot', img: notificationGrayImg, active: notificationImg, cl: s.hots},
         {id: 11, name: 'New', value: 'new_coin', img: newGrayImg, active: newImg, cl: s.news},
-        {id: 12, name: 'All time best', value: 'byMarketCap', img: trophyImg, active: trophyGrayImg, cl: s.best},
+        {id: 12, name: 'All time best', value: 'all_time_best', img: trophyImg, active: trophyGrayImg, cl: s.best},
         {id: 13, name: 'Presale', value: 'is_presale', img: discountGrayImg, active: discountImg, cl: s.presale},
     ];
 
@@ -31,19 +32,27 @@ const CategoryFilter = () => {
         switch (e.currentTarget.value) {
             case 'is_presale':
                 sort = {name: 'is_presale', value: 1}
-                dispatch(fetchCoinByQuery(sort))
+                dispatch(setSortingNameObjAction(sort))
+                sortObj.sort = sort
+                dispatch(fetchCoinByQueryObj(sortObj))
                 return
             case 'new_coin':
                 sort = {name: 'new_coin', value: 1}
-                dispatch(fetchCoinByQuery(sort))
+                dispatch(setSortingNameObjAction(sort))
+                sortObj.sort = sort
+                dispatch(fetchCoinByQueryObj(sortObj))
                 return;
-            case 'byMarketCap':
-                sort = {name: 'byMarketCap', value: 1}
-                dispatch(fetchCoinByQuery(sort))
+            case 'all_time_best':
+                sort = {name: 'all_time_best', value: 1}
+                dispatch(setSortingNameObjAction(sort))
+                sortObj.sort = sort
+                dispatch(fetchCoinByQueryObj(sortObj))
                 return;
-            case 'byPrice':
-                sort = {name: 'byPrice', value: 1}
-                dispatch(fetchCoinByQuery(sort))
+            case 'today_hot':
+                sort = {name: 'today_hot', value: 1}
+                dispatch(setSortingNameObjAction(sort))
+                sortObj.sort = sort
+                dispatch(fetchCoinByQueryObj(sortObj))
                 return;
         }
     };

@@ -28,3 +28,18 @@ export const fetchCoinByQuery = (sort = null, page = 1, search = '', limit = 10)
         }
     };
 };
+
+export const fetchCoinByQueryObj = (sortObj) => {
+    return function (dispatch) {
+        axios.get(`api/coins?${sortObj.sort.name}=${sortObj.sort.value}&page=${sortObj.page}&search_name=${sortObj.search}&limit=${sortObj.limit}`)
+            .then(res => {
+                console.log('fetchCoinByQueryObj', res)
+                if (res.data.success) {
+                    dispatch(fetchCoinAction(res.data.models))
+                }
+            })
+            .catch(err => {
+                console.log('fetchCoinByQueryObj err', err.response.message)
+            });
+    };
+};

@@ -28,14 +28,14 @@ import LeadersSubscribeBlock from "../components/LeadersSubscribeBlock/LeadersSu
 import {Inertia} from "@inertiajs/inertia";
 import {PATH_ADD_COIN_PAGE} from "../utils/routesPath";
 import {geckoGetPing} from "../asyncAction/coinGecko";
-import {fetchCoinAction, setTableRateLimitAction} from "../reducers/coinReducer";
-import {fetchCoinByQuery} from "../asyncAction/coinInner";
+import {fetchCoinAction, setCoinPageLimitAction, setTableRateLimitAction} from "../reducers/coinReducer";
+import {fetchCoinByQuery, fetchCoinByQueryObj} from "../asyncAction/coinInner";
 import {fetchVotesAction} from "../reducers/voteReducer";
 import Paginate from "../components/UI/Pagination/Paginate";
 
 const HomePage = ({currentUser, errors, coins, votes}) => {
     const dispatch = useDispatch();
-    const limit = useSelector(state => state.coin.tableRateLimit)
+    const sortObj = useSelector(state => state.coin.sortObj)
     const topCoinsData = [
         {id: 1, logo: oneImg, name: 'CoinName', isIncrease: true, val: `12.993%`, price: '$ 475.45', isFav: true},
         {id: 2, logo: twoImg, name: 'CoinName', isIncrease: true, val: `12.993%`, price: '$ 475.45', isFav: true},
@@ -47,15 +47,16 @@ const HomePage = ({currentUser, errors, coins, votes}) => {
     useEffect(() => {
         console.log('HomePage', coins)
         dispatch(setCurrentUserAction(currentUser))
-        dispatch(geckoGetPing())
+        dispatch(geckoGetPing(sortObj))
         dispatch(fetchCoinAction(coins))
         dispatch(fetchVotesAction(votes))
         // dispatch(setErrorsAction(errors))
     }, []);
 
-    const changeLimit = (e, lim) => {
-        dispatch(setTableRateLimitAction(lim))
-        dispatch(fetchCoinByQuery(null, 1, '', lim))
+    const changeLimit = async (e, lim) => {
+        dispatch(setCoinPageLimitAction(lim))
+        sortObj.limit = lim
+        dispatch(fetchCoinByQueryObj(sortObj))
     };
 
     const addCoinHandler = e => {
@@ -137,7 +138,7 @@ const HomePage = ({currentUser, errors, coins, votes}) => {
                             <Paginate/>
                             <div className="d-flex justify-content-center mt-3">
                                 {
-                                    limit === 10 ?
+                                    sortObj.limit === 10 ?
                                         <Button
                                             variant="info"
                                             onClick={e => changeLimit(e, 100)}
