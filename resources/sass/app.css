@@ -9162,4 +9162,21 @@ footer .nav-link {
   width: 302px;
   height: 300px; }
 
+.btnBack {
+  color: white;
+  font-size: 35px;
+  font-weight: 900;
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  -ms-transition: all .3s;
+  -o-transition: all .3s;
+  transition: all .3s; }
+  .btnBack:hover {
+    color: white;
+    -webkit-transform: scale(1.2, 1.2);
+    -moz-transform: scale(1.2, 1.2);
+    -ms-transform: scale(1.2, 1.2);
+    -o-transform: scale(1.2, 1.2);
+    transform: scale(1.2, 1.2); }
+
 /*# sourceMappingURL=app.css.map */

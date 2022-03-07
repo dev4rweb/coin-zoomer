@@ -1,23 +1,29 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import s from '../../../../../sass/components/UI/Filters/TimeFilter/TimeFilter.module.scss'
 import medalImg from '../../../../../assets/img/medal.png'
 import {ButtonGroup, ToggleButton} from "react-bootstrap";
 import {useDispatch, useSelector} from "react-redux";
-import {setSortingNameObjAction} from "../../../../reducers/coinReducer";
+import {setIsTimerFilterAction, setSortingNameObjAction} from "../../../../reducers/coinReducer";
 import {fetchCoinByQueryObj} from "../../../../asyncAction/coinInner";
 
 const TimeFilter = () => {
     const dispatch = useDispatch();
     const sortObj = useSelector(state => state.coin.sortObj)
-    const [radioValue, setRadioValue] = useState('1');
+    const isTimerFilterActive = useSelector(state => state.coin.isTimerFilter)
+    const [radioValue, setRadioValue] = useState('0');
     const radios = [
         {name: '1w', sort: 'week_hot', value: '1', cl: s.radioBtnFirst},
         {name: '24h', sort: 'today_hot', value: '2', cl: s.radioBtnSecond},
         {name: '1h', sort: 'hour_hot', value: '3', cl: s.radioBtnThird},
     ];
 
+    useEffect(() => {
+        if (!isTimerFilterActive) setRadioValue('0')
+    }, [isTimerFilterActive]);
+
     const changeHandler = (e, radio) => {
         console.log('changeHandler', radio)
+        dispatch(setIsTimerFilterAction(true))
         setRadioValue(e.currentTarget.value)
         const sortNameObj = {
             name: radio.sort,

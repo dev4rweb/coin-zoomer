@@ -1,7 +1,7 @@
 import {
     ADD_COIN,
     FETCH_COINS,
-    SET_CURRENT_INNER_COIN, SET_CURRENT_PAGE,
+    SET_CURRENT_INNER_COIN, SET_CURRENT_PAGE, SET_IS_TIMER_FILTER,
     SET_PAGE_LIMIT, SET_SEARCHING_WORD, SET_SORTING_NAME,
     SET_TABLE_RATE_LIMIT
 } from "../utils/reducerConsts";
@@ -38,11 +38,17 @@ const defaultState = {
         page: 1,
         search: '',
         limit: 10
-    }
+    },
+    isTimerFilter: false
 }
 
 export default function coinReducer(state = defaultState, action) {
     switch (action.type) {
+        case SET_IS_TIMER_FILTER:
+            return {
+                ...state,
+                isTimerFilter: action.payload
+            }
         case SET_CURRENT_PAGE:
             return {
                 ...state,
@@ -100,6 +106,7 @@ export default function coinReducer(state = defaultState, action) {
     }
 };
 
+export const setIsTimerFilterAction =  isActive => ({type: SET_IS_TIMER_FILTER, payload: isActive })
 export const setCurrentPageAction =  curPage => ({type: SET_CURRENT_PAGE, payload: curPage })
 export const setSearchingWordAction = searchWord => ({type: SET_SEARCHING_WORD, payload: searchWord})
 export const setSortingNameObjAction = sortNameObj => ({type: SET_SORTING_NAME, payload: sortNameObj})

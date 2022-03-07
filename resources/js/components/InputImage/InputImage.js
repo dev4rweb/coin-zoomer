@@ -1,7 +1,10 @@
 import React, {useState} from 'react';
 import s from "../../../sass/components/UI/InputImage/InputImage.module.scss";
 
-const InputImage = ({imgLink, content = '', inputHandler = null, required = false}) => {
+const InputImage = ({
+                        imgLink, content = '', inputHandler = null,
+                        required = false, name = ''
+                    }) => {
     const [value, setValue] = useState(content)
 
     const inpHandler = e => {
@@ -18,6 +21,7 @@ const InputImage = ({imgLink, content = '', inputHandler = null, required = fals
                 type="text"
                 className={s.input}
                 value={value}
+                name={name}
                 placeholder={content}
                 onChange={inpHandler}
                 required={required}

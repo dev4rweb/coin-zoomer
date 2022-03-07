@@ -390,7 +390,6 @@ const AddCoinPage = ({currentUser, errors}) => {
                                 </div>
 
                                 <div>
-
                                     <label className="input-label">
                                         <span>*</span> Coin description, other links and addresses (150 words limit)
                                         <InputGroup className="mb-3">

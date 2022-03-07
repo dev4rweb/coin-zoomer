@@ -17,6 +17,7 @@ class Coin extends Model
         'name',
         'description',
         'price',
+        'coin_gecko_link',
         'symbol',
         'market_cap',
         'launch_date',

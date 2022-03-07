@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import s from '../../../../../sass/components/UI/Filters/CategoryFilter/CategoryFilter.module.scss'
 import {ToggleButton} from "react-bootstrap";
 import notificationImg from '../../../../../assets/icons/hot-notification.svg'
@@ -11,12 +11,13 @@ import discountImg from '../../../../../assets/icons/discount.svg'
 import discountGrayImg from '../../../../../assets/icons/discount-gray.png'
 import {useDispatch, useSelector} from "react-redux";
 import {fetchCoinByQuery, fetchCoinByQueryObj} from "../../../../asyncAction/coinInner";
-import {setSortingNameObjAction} from "../../../../reducers/coinReducer";
+import {setIsTimerFilterAction, setSortingNameObjAction} from "../../../../reducers/coinReducer";
 
 const CategoryFilter = () => {
     const dispatch = useDispatch()
-    const [value, setValue] = useState('10');
+    const [value, setValue] = useState('new_coin');
     const sortObj = useSelector(state => state.coin.sortObj)
+    const isTimerFilterActive = useSelector(state => state.coin.isTimerFilter)
 
     const radios = [
         {id: 10, name: "Today's Hot", value: 'today_hot', img: notificationGrayImg, active: notificationImg, cl: s.hots},
@@ -25,8 +26,13 @@ const CategoryFilter = () => {
         {id: 13, name: 'Presale', value: 'is_presale', img: discountGrayImg, active: discountImg, cl: s.presale},
     ];
 
+    useEffect(() => {
+        if (isTimerFilterActive) setValue('10')
+    }, [isTimerFilterActive]);
+
     const sortHandler = e => {
         console.log('sortHandler - ', e.currentTarget.value)
+        dispatch(setIsTimerFilterAction(false))
         setValue(e.currentTarget.value)
         let sort = null
         switch (e.currentTarget.value) {

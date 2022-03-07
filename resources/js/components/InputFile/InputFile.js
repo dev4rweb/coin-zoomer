@@ -4,10 +4,11 @@ import link from "../../../assets/img/ic-link.png";
 import {useDispatch} from "react-redux";
 import {setErrorsAction} from "../../reducers/errorsReducer";
 
-const InputFile = ({placeholder, inputHandler = null, isRequired = false}) => {
+const InputFile = ({placeholder, inputHandler = null, isRequired = false,
+                   name='', content = ''}) => {
     const dispatch = useDispatch()
     let btn = createRef();
-    const [value, setValue] = useState('')
+    const [value, setValue] = useState(content)
 
     const filePathHandler = e => {
         setValue(e.target.value)
@@ -89,6 +90,7 @@ const InputFile = ({placeholder, inputHandler = null, isRequired = false}) => {
                         type="text"
                         className={s.input}
                         value={value}
+                        name={name}
                         placeholder={placeholder}
                         onChange={filePathHandler}
                         required
@@ -98,6 +100,7 @@ const InputFile = ({placeholder, inputHandler = null, isRequired = false}) => {
                         type="text"
                         className={s.input}
                         value={value}
+                        name={name}
                         placeholder={placeholder}
                         onChange={filePathHandler}
                     />

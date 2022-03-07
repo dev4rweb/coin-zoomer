@@ -65,7 +65,18 @@ class CoinController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            $coin = Coin::findOrFail($id);
+            $coin->update($request->all());
+            $response['success'] = true;
+            $response['message'] = 'Coin updated';
+            $response['model'] = $coin;
+        } catch (\Exception $exception) {
+            $response['success'] = false;
+            $response['message'] = $exception->getMessage();
+        }
+
+        return response()->json($response);
     }
 
     /**
