@@ -38,6 +38,7 @@ const CoinEdit = ({coin}) => {
         email: coin.email || '',
         is_presale: coin.is_presale || false,
         is_coin_gecko: coin.is_coin_gecko || false,
+        is_promoted: coin.is_promoted || false
     })
     console.log('CoinEdit', coin)
 
@@ -47,7 +48,7 @@ const CoinEdit = ({coin}) => {
         if (words.length < 150) {
             setData({
                 ...data,
-                ['description']: e.target.value
+                description: e.target.value
             });
         } else {
             e.target.style.color = 'red'
@@ -105,8 +106,18 @@ const CoinEdit = ({coin}) => {
             symbol: data.symbol,
             market_cap: data.market_cap,
             launch_date: data.launch_date,
+            description: data.description,
+            contractTelegram: data.contractTelegram,
+            contractTwitter: data.contractTwitter,
+            contractReddit: data.contractReddit,
+            contractWeb: data.contractWeb,
+            contractDiscord: data.contractDiscord,
+            logotype: data.logotype,
+            telegram: data.telegram,
+            email: data.email,
             is_presale: data.is_presale,
             is_coin_gecko: data.is_coin_gecko,
+            is_promoted: data.is_promoted
         }).then(res => {
             console.log(res)
             if (res.data.success) {
@@ -130,7 +141,26 @@ const CoinEdit = ({coin}) => {
                 <div className={`mt-5 mb-5 ${c.formWrapper}`}>
                     <CustomForm
                         title={
-                            <h1>{data.name}</h1>
+                            <div className="d-flex justify-content-between align-items-center">
+                                <h1>{data.name}</h1>
+                                <Form.Group className="mb-3">
+                                    <Form.Check
+                                        type="checkbox"
+                                        checked={data.is_promoted}
+                                        onChange={e => setData({
+                                            ...data,
+                                            ['is_promoted']: e.target.checked
+                                        })}
+                                        label={data.is_promoted ? 'PROMOTED' : 'NOT PROMOTED'}
+                                    />
+                                </Form.Group>
+                                <img
+                                    style={{width: '126px', height: 'auto'}}
+                                    src={data.logotype}
+                                    alt="logo"
+                                />
+                            </div>
+
                         }
                     >
                         <form onSubmit={handleSubmit} className={c.addCoinForm}>

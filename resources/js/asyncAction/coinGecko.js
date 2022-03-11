@@ -20,7 +20,7 @@ export const geckoGetPing = () => {
                 console.log('geckoGetPing', res)
                 if (res.status === 200) {
                     dispatch(setGeckoPingAction(true));
-                    // dispatch(geckoGetCoinsList())
+                    dispatch(geckoGetCoinsList())
                     dispatch(geckoGetCoinsMarket())
                 }
             })
@@ -77,5 +77,16 @@ export const geckoGetCurrentCoin = id => {
             .catch(err => {
                 console.log('geckoGetCurrentCoin err', err)
             });
+    };
+};
+
+export const geckoGetLiteDataCurrentCoin = (
+    nameId, tickers = false, market_data = true, community_data = false,
+    developer_data = false, sparkline = false
+) => {
+    const dopData = `tickers=${tickers}&market_data=${market_data}&community_data=${community_data}&developer_data=${developer_data}&sparkline=${sparkline}`
+    return function (dispatch) {
+        axios.get(`${GECKO_ROOT_PATH}/coins/${nameId}?${dopData}`)
+
     };
 };
