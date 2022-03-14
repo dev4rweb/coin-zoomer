@@ -54,6 +54,7 @@ const CoinsTableRowInner = ({data}) => {
         axios.get(`${GECKO_ROOT_PATH}/coins/${nameId}?${dopData}`)
             .then(res => {
                 console.log('getCoinGeckoLiteData', res)
+                difData.price_change_percentage_1h_in_currency = res.data.market_data.price_change_percentage_1h_in_currency.usd
                 if (res.data) {
                     setDifData({
                         ...difData,
@@ -61,9 +62,11 @@ const CoinsTableRowInner = ({data}) => {
                         ['symbol']: res.data.symbol,
                         ['price']: res.data.market_data.current_price.usd,
                         ['market_cap']: res.data.market_data.market_cap.usd,
-                        ['launch_date']: res.data.genesis_date
+                        ['launch_date']: res.data.genesis_date,
+                        ['price_change_percentage_1h_in_currency']: res.data.market_data.price_change_percentage_1h_in_currency.usd
                     })
                 }
+                console.log('getCoinGeckoLiteData difData', difData)
             })
             .catch(err => {
                 console.log('getCoinGeckoLiteData err', err)
@@ -120,7 +123,21 @@ const CoinsTableRowInner = ({data}) => {
                 </div>
             </td>
             <td>
-                <div>12.993%</div>
+                {
+                    difData.price_change_percentage_1h_in_currency ?
+                        difData.price_change_percentage_1h_in_currency > 0 ?
+                            <div className={s.greenCol}>
+                                <span style={{marginRight: '5px'}}>&uarr;</span>
+                                {difData.price_change_percentage_1h_in_currency.toFixed(3)}%
+                            </div>
+                            :
+                            <div className={s.redCol}>
+                                <span style={{marginRight: '5px'}}>&darr;</span>
+                                {difData.price_change_percentage_1h_in_currency.toFixed(3)}
+                            </div>
+                        :
+                        <div>0.0%</div>
+                }
             </td>
             <td className={s.symbol}>
                 <div>

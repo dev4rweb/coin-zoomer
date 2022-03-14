@@ -14,6 +14,8 @@ class Coin extends Model
     protected $fillable = [
         'is_approved',
         'is_promoted',
+        'is_coin_gecko',
+        'is_presale',
         'name',
         'description',
         'price',

@@ -16,9 +16,10 @@ import DropdownItem from "react-bootstrap/DropdownItem";
 import {setErrorsAction} from "../reducers/errorsReducer";
 import {addVote} from "../asyncAction/votes";
 import {Inertia} from "@inertiajs/inertia";
-import {PATH_LOGIN_PAGE} from "../utils/routesPath";
+import {GECKO_ROOT_PATH, PATH_LOGIN_PAGE} from "../utils/routesPath";
 import {fetchCurrentVotesAction, fetchVotesAction} from "../reducers/voteReducer";
 import {getTimeToNight, getTodayVotes} from "../asyncAction/voteTimer";
+import axios from "axios";
 
 const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes}) => {
     const dispatch = useDispatch();
@@ -32,6 +33,7 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes})
     const [price, setPrice] = useState('$0.00000000324476')
     const [launch, setLaunch] = useState('22.12.2012  10:55:40')
     const [chain, setChain] = useState('')
+    const [isGetResponseFromCoinGecko, setIsGetResponseFromCoinGecko] = useState(false)
     const statistic = [
         {name: 'Votes', val: 87046},
         {name: 'Today', val: 87046},
@@ -46,16 +48,46 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes})
         if (pageId.length > 3) {
             dispatch(geckoGetCurrentCoin(pageId));
         } else {
-            dispatch(setCurrentInnerCoinAction(innerCoin))
+            if (!isGetResponseFromCoinGecko)
+                dispatch(setCurrentInnerCoinAction(innerCoin))
             dispatch(fetchCurrentVotesAction(curVotes))
             dispatch(fetchVotesAction(votes))
             console.log('Internal coin', innerCoin)
             if (innerCurrentCoin && innerCurrentCoin.coin_chains.length) {
                 setChain(innerCurrentCoin.coin_chains[0].contract_address);
+                if (innerCurrentCoin.is_coin_gecko && !isGetResponseFromCoinGecko) {
+                    getCoinGeckoLiteData(innerCurrentCoin.name)
+                    setIsGetResponseFromCoinGecko(true)
+                }
             }
 
         }
     }, [innerCurrentCoin]);
+
+    const getCoinGeckoLiteData = (
+        nameId, tickers = false, market_data = true, community_data = false,
+        developer_data = false, sparkline = false
+    ) => {
+        const dopData = `tickers=${tickers}&market_data=${market_data}&community_data=${community_data}&developer_data=${developer_data}&sparkline=${sparkline}`
+
+        axios.get(`${GECKO_ROOT_PATH}/coins/${nameId}?${dopData}`)
+            .then(res => {
+                console.log('getCoinGeckoLiteData', res)
+                if (res.data) {
+                    dispatch(setCurrentInnerCoinAction({
+                        ...innerCurrentCoin,
+                        ['logotype']: res.data.image.small,
+                        ['symbol']: res.data.symbol,
+                        ['price']: res.data.market_data.current_price.usd,
+                        ['market_cap']: res.data.market_data.market_cap.usd,
+                        ['launch_date']: res.data.genesis_date
+                    }))
+                }
+            })
+            .catch(err => {
+                console.log('getCoinGeckoLiteData err', err)
+            });
+    };
 
     const chainHandler = (e, contractAddress) => {
         e.preventDefault()
@@ -263,7 +295,7 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes})
                                         </div>
                                         <InputGroup className={s.tokenInput}>
                                             {
-                                                innerCurrentCoin.coin_chains.length &&
+                                                innerCurrentCoin.coin_chains.length && chain &&
                                                 <DropdownButton
                                                     id="dropdown-custom"
                                                     className='dropdown-custom'
@@ -271,15 +303,20 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes})
                                                 >
                                                     {
                                                         innerCurrentCoin.coin_chains.length &&
-                                                        innerCurrentCoin.coin_chains.map(i =>
-                                                            <DropdownItem
-                                                                onClick={event => chainHandler(event, i.contract_address)}
-                                                                as="button"
-                                                                title={i.chain}
-                                                                key={i.id}
-                                                            >
-                                                                {i.chain} - {i.contract_address}
-                                                            </DropdownItem>
+                                                        innerCurrentCoin.coin_chains.map(i => {
+                                                                if (i.chain && i.contract_address) {
+                                                                    return (
+                                                                        <DropdownItem
+                                                                            onClick={event => chainHandler(event, i.contract_address)}
+                                                                            as="button"
+                                                                            title={i.chain}
+                                                                            key={i.id}
+                                                                        >
+                                                                            {i.chain} - {i.contract_address}
+                                                                        </DropdownItem>
+                                                                    )
+                                                                }
+                                                            }
                                                         )
                                                     }
 
@@ -341,7 +378,11 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes})
                                                                 <Button
                                                                     variant="info"
                                                                     className="fill-btn"
-                                                                    style={{maxHeight: '32px', marginRight: '-5px', minWidth: '70px'}}
+                                                                    style={{
+                                                                        maxHeight: '32px',
+                                                                        marginRight: '-5px',
+                                                                        minWidth: '70px'
+                                                                    }}
                                                                     onClick={voteHandler}
                                                                 >
                                                                     Vote
