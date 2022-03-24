@@ -29,13 +29,17 @@ import {Inertia} from "@inertiajs/inertia";
 import {PATH_ADD_COIN_PAGE} from "../utils/routesPath";
 import {geckoGetPing} from "../asyncAction/coinGecko";
 import {fetchCoinAction, setCoinPageLimitAction, setTableRateLimitAction} from "../reducers/coinReducer";
-import {fetchCoinByQuery, fetchCoinByQueryObj} from "../asyncAction/coinInner";
+import {fetchCoinByQuery, fetchCoinByQueryObj, fetchTopCoins} from "../asyncAction/coinInner";
 import {fetchVotesAction} from "../reducers/voteReducer";
 import Paginate from "../components/UI/Pagination/Paginate";
+import {getSingleRecordMoralis} from "../asyncAction/coinMolaris";
 
 const HomePage = ({currentUser, errors, coins, votes}) => {
     const dispatch = useDispatch();
     const sortObj = useSelector(state => state.coin.sortObj)
+    const topHourCoins = useSelector(state => state.topCoins.topCoinsByHour)
+    const topDayCoins = useSelector(state => state.topCoins.topCoinsByDay)
+    const topWeekCoins = useSelector(state => state.topCoins.topCoinsByWeek)
     const topCoinsData = [
         {id: 1, logo: oneImg, name: 'CoinName', isIncrease: true, val: `12.993%`, price: '$ 475.45', isFav: true},
         {id: 2, logo: twoImg, name: 'CoinName', isIncrease: true, val: `12.993%`, price: '$ 475.45', isFav: true},
@@ -46,10 +50,33 @@ const HomePage = ({currentUser, errors, coins, votes}) => {
 
     useEffect(() => {
         console.log('HomePage', coins)
+        // getSingleRecordMoralis().then(res => console.log('HOME', res.data))
+
         dispatch(setCurrentUserAction(currentUser))
         dispatch(geckoGetPing(sortObj))
         dispatch(fetchCoinAction(coins))
         dispatch(fetchVotesAction(votes))
+        dispatch(fetchTopCoins('hour'))
+        dispatch(fetchTopCoins('day'))
+        dispatch(fetchTopCoins('week'))
+// login user (Metamask, WalletConnect, any wallet)
+//         Moralis.Web3.authenticate()
+
+// get user tokens
+//         Moralis.Web3.getAllERC20();
+
+// get price of token
+//         Moralis.Web3.getTokenPrice(address)
+
+// get TVL
+//         Moralis.Web3.getTVL(address)
+
+// get P&L
+//         Moralis.Web3.getPnL(address)
+
+// get Defi Positions (liquidity, lending, borrowing)
+//         Moralis.Web3.getDefiPosition(address)
+
         // dispatch(setErrorsAction(errors))
     }, []);
 
@@ -106,20 +133,32 @@ const HomePage = ({currentUser, errors, coins, votes}) => {
                         <SectionSeparator sectionName={`Tap coins`}/>
 
                         <div className={s.cardWrapper}>
-                            <TopCoins
-                                title={'coins of the 1h'}
-                                data={topCoinsData}
-                            />
-                            <TopCoins
-                                title={'coins of the 24h'}
-                                classBg={'pink'}
-                                data={topCoinsData}
-                            />
-                            <TopCoins
-                                title={'coins of the week'}
-                                classBg={'blue'}
-                                data={topCoinsData}
-                            />
+                            {
+                                topHourCoins &&
+                                <TopCoins
+                                    title={'coins of the 1h'}
+                                    data={topHourCoins.data}
+                                />
+                            }
+
+                            {
+                                topDayCoins &&
+                                <TopCoins
+                                    title={'coins of the 24h'}
+                                    classBg={'pink'}
+                                    data={topDayCoins.data}
+                                />
+                            }
+
+                            {
+                                topWeekCoins &&
+                                <TopCoins
+                                    title={'coins of the week'}
+                                    classBg={'blue'}
+                                    data={topWeekCoins.data}
+                                />
+                            }
+
                         </div>
                     </section>
 

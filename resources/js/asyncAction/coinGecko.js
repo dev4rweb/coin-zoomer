@@ -56,6 +56,7 @@ export const geckoGetCoinsMarket = () => {
         axios.get(`${GECKO_ROOT_PATH}${GECKO_COIN_MARKETS_PATH}?vs_currency=${currency}&order=${order}&per_page=${per_page}&page=${page}&sparkline=${sparkline}&price_change_percentage=${price_change_percentage}`)
             .then(res => {
                 console.log('geckoGetCoinsMarket', res)
+                const coins = res.data
                 if (res.status === 200) {
                     dispatch(setGeckoCoinsMarketAction(res.data))
                 }

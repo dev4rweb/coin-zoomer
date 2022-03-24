@@ -117,7 +117,8 @@ const CoinEdit = ({coin}) => {
             email: data.email,
             is_presale: data.is_presale,
             is_coin_gecko: data.is_coin_gecko,
-            is_promoted: data.is_promoted
+            is_promoted: data.is_promoted,
+            is_fake: false
         }).then(res => {
             console.log(res)
             if (res.data.success) {

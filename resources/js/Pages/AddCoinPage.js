@@ -352,6 +352,26 @@ const AddCoinPage = ({currentUser, errors}) => {
                                             </label>
                                         </InputGroup>
 
+                                        {
+                                            !coin.is_coin_gecko &&
+                                            <InputGroup className="mb-3">
+                                                <label className="input-label">
+                                                    <span>*</span> Approximately Circulating Supply
+                                                    <FormControl
+                                                        placeholder="Example: 100000000"
+                                                        className="input-text"
+                                                        type="number"
+                                                        value={coin.circulating_supply}
+                                                        onChange={e => setCoin({
+                                                            ...coin,
+                                                            ['circulating_supply']: e.target.value
+                                                        })}
+                                                        required
+                                                    />
+                                                </label>
+                                            </InputGroup>
+                                        }
+
                                         <InputGroup className="mb-3">
                                             <label className="input-label">
                                                 <span>*</span> Market Cap in USD

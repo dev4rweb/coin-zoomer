@@ -22,6 +22,7 @@ class HomePageController extends Controller
 //        $coins = Coin::orderBy('id', 'desc')->take(10)->get();
         $coins = Coin::orderBy('id', 'desc')
             ->with('votes')
+            ->with('coinChains')
             ->paginate(10);
 
         $votes = Vote::all();

@@ -21,6 +21,7 @@ class CoinController extends Controller
 //            $coins = Coin::filter($filter)->take($filter->request['limit'])->get();
             $coins = Coin::filter($filter)
                 ->with('votes')
+                ->with('coinChains')
                 ->paginate($filter->request['limit']);
             $response['success'] = true;
             $response['message'] = 'Filter and Search';

@@ -12,6 +12,8 @@ import {setErrorsAction, setLoadingAction} from "../../../../reducers/errorsRedu
 import {getTimeToNight, getTodayVotes} from "../../../../asyncAction/voteTimer";
 import {fillUserVoteLimit} from "../../../../asyncAction/user";
 import axios from "axios";
+import {priceConverter} from "../../../../utils/priceConverter";
+import {getSingleRecordMoralis} from "../../../../asyncAction/coinMolaris";
 
 const CoinsTableRowInner = ({data}) => {
     const dispatch = useDispatch()
@@ -24,15 +26,38 @@ const CoinsTableRowInner = ({data}) => {
 
 
     useEffect(() => {
+
         // console.log('CoinsTableRowInner', coinsGeckoList, data.name, difData.is_coin_gecko)
-        if (difData.is_coin_gecko && coinsGeckoList.length) {
-            const coinGecko = coinsGeckoList.find(i => i.id === difData.name)
-            if (coinGecko) {
-                console.log('CoinsTableRowInner coinGecko', coinGecko)
-                getCoinGeckoLiteData(coinGecko.id)
+        if (!difData.is_fake) {
+            if (difData.is_coin_gecko && coinsGeckoList.length) {
+                const coinGecko = coinsGeckoList.find(i => i.id === difData.name);
+                if (coinGecko) {
+                    console.log('CoinsTableRowInner coinGecko', coinGecko)
+                    getCoinGeckoLiteData(coinGecko.id)
+                }
             }
         }
     }, [coinsGeckoList]);
+
+    useEffect(() => {
+        if (!difData.is_coin_gecko  && difData.coin_chains.length) {
+            console.log('difData', difData)
+            getSingleRecordMoralis(
+                difData.coin_chains[0].contract_address,
+                difData.coin_chains[0].chain
+            ).then(res => {
+                if (res.status === 200) {
+                    console.log('molarisData', res);
+                    console.log('DIF DATA', difData)
+                    setDifData({
+                        ...difData,
+                        price: res.data.usdPrice,
+                        market_cap: difData.circulating_supply * res.data.usdPrice
+                    })
+                }
+            });
+        }
+    }, []);
 
     const dateFormat = date => {
         const d = new Date(date),
@@ -141,11 +166,12 @@ const CoinsTableRowInner = ({data}) => {
             </td>
             <td className={s.symbol}>
                 <div>
-                    {`$ ${difData.price}`}
+                    {/*{`$ ${difData.price}`}*/}
+                    $ {priceConverter(difData.price)}
                 </div>
             </td>
             <td>
-                <div><span>$</span> {difData.market_cap}</div>
+                <div><span>$</span> {priceConverter(difData.market_cap)}</div>
             </td>
             <td>
                 <div>
@@ -162,12 +188,10 @@ const CoinsTableRowInner = ({data}) => {
                     >
                         Vote
                     </Button>
-                    {
-                        currentVotes.length &&
-                        <OutlineBtn>
-                            <span>{currentVotes.length}</span>
-                        </OutlineBtn>
-                    }
+
+                    <OutlineBtn>
+                        <span>{ currentVotes.length && currentVotes.length}</span>
+                    </OutlineBtn>
                 </div>
             </td>
         </tr>

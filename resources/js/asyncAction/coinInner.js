@@ -1,5 +1,6 @@
 import axios from "axios";
 import {fetchCoinAction} from "../reducers/coinReducer";
+import {setTopCoinsByDayAction, setTopCoinsByHourAction, setTopCoinsByWeekAction} from "../reducers/topCoinsReducer";
 
 export const fetchCoinByQuery = (sort = null, page = 1, search = '', limit = 10) => {
     return function (dispatch) {
@@ -40,6 +41,48 @@ export const fetchCoinByQueryObj = (sortObj) => {
             })
             .catch(err => {
                 console.log('fetchCoinByQueryObj err', err.response.message)
+            });
+    };
+};
+
+export const fetchTopCoins = byWhat => {
+    const sortObj = {
+        sortName: 'week_hot',
+        sortValue: 1,
+        limit: 5
+    }
+    switch (byWhat) {
+        case 'hour':
+            sortObj.sortName = 'hour_hot'
+            break
+        case 'day':
+            sortObj.sortName = 'today_hot'
+            break
+        case 'week':
+            sortObj.sortName = 'week_hot'
+            break
+    }
+
+    return function (dispatch) {
+        axios.get(`api/coins?${sortObj.sortName}=${sortObj.sortValue}&limit=${sortObj.limit}`)
+            .then(res => {
+                console.log('fetchTopCoinsByHour', res)
+                if (res.data.success) {
+                    switch (byWhat) {
+                        case 'hour':
+                            dispatch(setTopCoinsByHourAction(res.data.models))
+                            break
+                        case 'day':
+                            dispatch(setTopCoinsByDayAction(res.data.models))
+                            break
+                        case 'week':
+                            dispatch(setTopCoinsByWeekAction(res.data.models))
+                            break
+                    }
+                }
+            })
+            .catch(err => {
+                console.log('fetchTopCoinsByHour err', err.response.message)
             });
     };
 };

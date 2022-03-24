@@ -19,10 +19,12 @@ class CreateCoinsTable extends Migration
             $table->boolean('is_promoted')->default(false);
             $table->boolean('is_coin_gecko')->default(false);
             $table->boolean('is_presale')->default(false);
+            $table->boolean('is_fake')->default(true);
             $table->string('name');
             $table->text('description');
             $table->float('price')->nullable();
             $table->string('symbol');
+            $table->integer('circulating_supply')->nullable();
             $table->integer('market_cap')->nullable();
             $table->date('launch_date');
             $table->string('coin_gecko_link')->nullable();

@@ -92,6 +92,12 @@ td {
     justify-content: space-between;
     align-items: center;
     width: 100%; }
+    .coinItem .content .logo {
+      width: 46px;
+      height: 46px;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 50%; }
     .coinItem .content .data {
       width: 90px; }
       .coinItem .content .data .name {

@@ -26,3 +26,7 @@ export const ADD_COIN = 'ADD_COIN'
 export const ADD_CHAINS = 'ADD_CHAINS'
 export const REMOVE_CHAIN = 'REMOVE_CHAIN'
 export const ADD_NEW_CHAIN = 'ADD_NEW_CHAIN'
+
+export const SET_TOP_COINS_BY_HOUR = 'SET_TOP_COINS_BY_HOUR'
+export const SET_TOP_COINS_BY_DAY = 'SET_TOP_COINS_BY_DAY'
+export const SET_TOP_COINS_BY_WEEK = 'SET_TOP_COINS_BY_WEEK'

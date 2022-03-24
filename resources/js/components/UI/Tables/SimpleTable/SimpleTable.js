@@ -26,9 +26,9 @@ const SimpleTable = () => {
                 <th className={s.coinsCol}>Coins</th>
                 <th>Symbol</th>
                 <th>1h</th>
-                <th>Price</th>
-                <th>Market Cap</th>
-                <th>Launch</th>
+                <th style={{minWidth: '70px'}}>Price</th>
+                <th style={{minWidth: '130px'}}>Market Cap</th>
+                <th style={{minWidth: '90px'}}>Launch</th>
                 <th>Upvotes</th>
             </tr>
             </thead>

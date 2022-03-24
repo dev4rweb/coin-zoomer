@@ -6,6 +6,7 @@ import OutlineBtn from "../../OutlineBtn/OutlineBtn";
 import {Button} from "react-bootstrap";
 import {Inertia} from "@inertiajs/inertia";
 import {PATH_COIN_OPEN_PAGE} from "../../../../utils/routesPath";
+import {priceConverter} from "../../../../utils/priceConverter";
 
 const SimpleTableItem = ({data, index}) => {
     const d = new Date(data.atl_date),
@@ -48,17 +49,18 @@ const SimpleTableItem = ({data, index}) => {
                         <div className={s.greenCol}>
                             {/*<img src={iconUp} alt="up"/>*/}
                             <span style={{marginRight: '5px'}}>&uarr;</span>
-                            {data.price_change_percentage_1h_in_currency.toFixed(3)}%
+                            {data.price_change_percentage_1h_in_currency.toFixed(2)}%
                         </div> :
                         <div className={s.redCol}>
                             <span style={{marginRight: '5px'}}>&darr;</span>
-                            {data.price_change_percentage_1h_in_currency.toFixed(3)}
+                            {data.price_change_percentage_1h_in_currency.toFixed(2)}%
                         </div>
                 }
             </td>
             <td>
                 <div>
-                    {`$ ${data.current_price.toFixed(2)}`}
+                    {/*{`$ ${data.current_price.toFixed(2)}`}*/}
+                    $ {priceConverter(data.current_price)}
                 </div>
             </td>
             <td>
@@ -66,9 +68,10 @@ const SimpleTableItem = ({data, index}) => {
                     data.market_cap > 0 ?
                         <div>
                             <span style={{color: '#7dd75c', marginRight: '5px'}}>$</span>
-                            {((data.market_cap) / 100000000).toFixed(3)}
+                            {/*{((data.market_cap) / 100000000).toFixed(3)}*/}
+                            {priceConverter(data.market_cap)}
                         </div> :
-                        <div><span>$</span> {data.market_cap}</div>
+                        <div><span>$</span> {priceConverter(data.market_cap)}</div>
                 }
             </td>
             <td>
