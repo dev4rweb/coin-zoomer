@@ -23,9 +23,10 @@ class CreateCoinsTable extends Migration
             $table->string('name');
             $table->text('description');
             $table->float('price')->nullable();
+            $table->float('one_hour')->nullable();
             $table->string('symbol');
             $table->integer('circulating_supply')->nullable();
-            $table->integer('market_cap')->nullable();
+            $table->bigInteger('market_cap')->nullable();
             $table->date('launch_date');
             $table->string('coin_gecko_link')->nullable();
             $table->string('contractTelegram')->nullable();

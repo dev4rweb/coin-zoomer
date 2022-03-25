@@ -20,6 +20,7 @@ class Coin extends Model
         'name',
         'description',
         'price',
+        'one_hour',
         'coin_gecko_link',
         'symbol',
         'circulating_supply',

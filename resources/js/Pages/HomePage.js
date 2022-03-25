@@ -32,14 +32,15 @@ import {fetchCoinAction, setCoinPageLimitAction, setTableRateLimitAction} from "
 import {fetchCoinByQuery, fetchCoinByQueryObj, fetchTopCoins} from "../asyncAction/coinInner";
 import {fetchVotesAction} from "../reducers/voteReducer";
 import Paginate from "../components/UI/Pagination/Paginate";
-import {getSingleRecordMoralis} from "../asyncAction/coinMolaris";
 
 const HomePage = ({currentUser, errors, coins, votes}) => {
     const dispatch = useDispatch();
     const sortObj = useSelector(state => state.coin.sortObj)
+    // const topCoinsGecko = useSelector(state => state.coinGecko.topCoinsGecko)
     const topHourCoins = useSelector(state => state.topCoins.topCoinsByHour)
     const topDayCoins = useSelector(state => state.topCoins.topCoinsByDay)
     const topWeekCoins = useSelector(state => state.topCoins.topCoinsByWeek)
+
     const topCoinsData = [
         {id: 1, logo: oneImg, name: 'CoinName', isIncrease: true, val: `12.993%`, price: '$ 475.45', isFav: true},
         {id: 2, logo: twoImg, name: 'CoinName', isIncrease: true, val: `12.993%`, price: '$ 475.45', isFav: true},
@@ -47,6 +48,15 @@ const HomePage = ({currentUser, errors, coins, votes}) => {
         {id: 4, logo: fourImg, name: 'CoinName', isIncrease: true, val: `12.993%`, price: '$ 475.45', isFav: false},
         {id: 5, logo: fiveImg, name: 'CoinName', isIncrease: true, val: `12.993%`, price: '$ 475.45', isFav: false},
     ]
+
+    // useEffect(() => {
+    //     console.log('TOP_COINS_GECKO', topCoinsGecko)
+    // }, [topCoinsGecko]);
+
+    /*useEffect(() => {
+        const jsonData = require('../../assets/json/coins.json')
+        console.log('creating data', jsonData)
+    }, []);*/
 
     useEffect(() => {
         console.log('HomePage', coins)

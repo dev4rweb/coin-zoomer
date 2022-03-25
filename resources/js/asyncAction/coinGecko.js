@@ -10,7 +10,7 @@ import {
     setGeckoCoinsListAction,
     setGeckoCoinsMarketAction,
     setGeckoCurrentCoinAction,
-    setGeckoPingAction
+    setGeckoPingAction, setTopCoinsGeckoAction
 } from "../reducers/coinGeckoApiReducer";
 
 export const geckoGetPing = () => {
@@ -59,6 +59,9 @@ export const geckoGetCoinsMarket = () => {
                 const coins = res.data
                 if (res.status === 200) {
                     dispatch(setGeckoCoinsMarketAction(res.data))
+                    // res.data.forEach(i => {
+                    //     dispatch(geckoGetCurrentCoin(i.id))
+                    // });
                 }
             })
             .catch(err => {
@@ -74,6 +77,8 @@ export const geckoGetCurrentCoin = id => {
             .then(res => {
                 console.log('geckoGetCurrentCoin', res)
                 dispatch(setGeckoCurrentCoinAction(res.data))
+                // if (res.data && res.data.contract_address)
+                //     dispatch(setTopCoinsGeckoAction(res.data))
             })
             .catch(err => {
                 console.log('geckoGetCurrentCoin err', err)
