@@ -20,7 +20,8 @@ class HomePageController extends Controller
                 ->first();
         }
 //        $coins = Coin::orderBy('id', 'desc')->take(10)->get();
-        $coins = Coin::orderBy('id', 'desc')
+        $coins = Coin::where('is_approved', '==', 1)
+            ->orderBy('id', 'desc')
             ->with('votes')
             ->with('coinChains')
             ->paginate(10);

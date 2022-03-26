@@ -2,8 +2,12 @@ import React from 'react';
 import s from "../../../../../sass/components/UI/Tables/SimpleTable/Item/SimpleTableItem.module.scss";
 import {Button} from "react-bootstrap";
 import {Inertia} from "@inertiajs/inertia";
+import {useDispatch} from "react-redux";
+import {setErrorsAction} from "../../../../reducers/errorsReducer";
+import {PATH_ADMIN_COINS_PAGE} from "../../../../utils/routesPath";
 
 const AdminCoinTableItem = ({data, index}) => {
+    const dispatch = useDispatch()
 
     const coinRowHandler = e => {
         // console.log('coinRowHandler', e.target.tagName)
@@ -16,6 +20,32 @@ const AdminCoinTableItem = ({data, index}) => {
     const coinEditHandler = e => {
         console.log('coinEditHandler', data)
         Inertia.visit(`/innerCoins/${data.id}/edit`)
+    };
+
+    const approveHandler = e => {
+        console.log('approveHandler', data)
+        if (data.is_approved) dispatch(setErrorsAction({message: 'Already APPROVED'}))
+        else changeApproveApi(true)
+    };
+
+    const rejectHandler = e => {
+        console.log('rejectHandler', data)
+        if (data.is_approved) changeApproveApi(false)
+        else dispatch(setErrorsAction({message: 'Already REJECTED!'}))
+    };
+
+    const changeApproveApi = isApproved => {
+        axios.post(`/api/coins/${data.id}`, {
+            _method: 'PUT',
+            is_approved: isApproved
+        }).then(res => {
+            console.log('changeApproveApi', res)
+            setErrorsAction({message: res.data.message});
+            Inertia.visit(PATH_ADMIN_COINS_PAGE);
+        }).catch(err => {
+            console.log(err)
+            setErrorsAction({message: 'Something wrong!'});
+        });
     };
 
     return (
@@ -70,12 +100,22 @@ const AdminCoinTableItem = ({data, index}) => {
             </td>
             <td>
                 <div>
-                    <Button variant="outline-success">Approve</Button>
+                    <Button
+                        variant="outline-success"
+                        onClick={approveHandler}
+                    >
+                        Approve
+                    </Button>
                 </div>
             </td>
             <td>
                 <div>
-                    <Button variant="outline-danger">Reject</Button>
+                    <Button
+                        variant="outline-danger"
+                        onClick={rejectHandler}
+                    >
+                        Reject
+                    </Button>
                 </div>
             </td>
         </tr>

@@ -15,6 +15,7 @@ import ToggleSortCoins from "../../sorting/ToggleSortCoins";
 
 const CoinsRateTable = () => {
     const coins = useSelector(state => state.coin.coins)
+    let isApprovedCoins = null
     const tableData = [
         /*       {
                  id: 1,

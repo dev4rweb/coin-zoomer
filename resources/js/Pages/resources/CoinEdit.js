@@ -38,7 +38,8 @@ const CoinEdit = ({coin}) => {
         email: coin.email || '',
         is_presale: coin.is_presale || false,
         is_coin_gecko: coin.is_coin_gecko || false,
-        is_promoted: coin.is_promoted || false
+        is_promoted: coin.is_promoted || false,
+        is_approved: coin.is_approved || false
     })
     console.log('CoinEdit', coin)
 
@@ -144,17 +145,20 @@ const CoinEdit = ({coin}) => {
                         title={
                             <div className="d-flex justify-content-between align-items-center">
                                 <h1>{data.name}</h1>
-                                <Form.Group className="mb-3">
-                                    <Form.Check
-                                        type="checkbox"
-                                        checked={data.is_promoted}
-                                        onChange={e => setData({
-                                            ...data,
-                                            ['is_promoted']: e.target.checked
-                                        })}
-                                        label={data.is_promoted ? 'PROMOTED' : 'NOT PROMOTED'}
-                                    />
-                                </Form.Group>
+                                {
+                                    data.is_approved &&
+                                    <Form.Group className="mb-3">
+                                        <Form.Check
+                                            type="checkbox"
+                                            checked={data.is_promoted}
+                                            onChange={e => setData({
+                                                ...data,
+                                                ['is_promoted']: e.target.checked
+                                            })}
+                                            label={data.is_promoted ? 'PROMOTED' : 'NOT PROMOTED'}
+                                        />
+                                    </Form.Group>
+                                }
                                 <img
                                     style={{width: '126px', height: 'auto'}}
                                     src={data.logotype}

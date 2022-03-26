@@ -19,7 +19,8 @@ class AdminCoinsPageController extends Controller
         } else if (!$user->is_admin) {
             return Redirect::route('userPanel.index');
         } else {
-            $coins = Coin::all();
+            $coins = Coin::orderBy('is_approved')
+            ->orderBy('id', 'desc')->get();
             return Inertia::render('AdminCoinsPage', [
                 'currentUser' => $user,
                 'coins' => $coins
