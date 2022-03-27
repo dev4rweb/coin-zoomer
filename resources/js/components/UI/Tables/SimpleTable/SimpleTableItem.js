@@ -49,11 +49,11 @@ const SimpleTableItem = ({data, index}) => {
                         <div className={s.greenCol}>
                             {/*<img src={iconUp} alt="up"/>*/}
                             <span style={{marginRight: '5px'}}>&uarr;</span>
-                            {data.price_change_percentage_1h_in_currency.toFixed(2)}%
+                            {data.price_change_percentage_1h_in_currency.toFixed(2) || 0}%
                         </div> :
                         <div className={s.redCol}>
                             <span style={{marginRight: '5px'}}>&darr;</span>
-                            {data.price_change_percentage_1h_in_currency.toFixed(2)}%
+                            {data.price_change_percentage_1h_in_currency.toFixed(2) || 0}%
                         </div>
                 }
             </td>
@@ -90,7 +90,7 @@ const SimpleTableItem = ({data, index}) => {
                         Vote
                     </Button>
                     <OutlineBtn maxWith={`92px`}>
-                        <span>{data.current_price.toFixed(2)}</span>
+                        <span>{data.current_price.toFixed(2) || 0}</span>
                     </OutlineBtn>
                 </div>
             </td>

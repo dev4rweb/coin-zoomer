@@ -20,7 +20,7 @@ class CoinController extends Controller
         try {
 //            $coins = Coin::filter($filter)->take($filter->request['limit'])->get();
             $coins = Coin::filter($filter)
-                ->where('is_approved', '==', 1)
+                ->where('is_approved', 1)
                 ->with('votes')
                 ->with('coinChains')
                 ->paginate($filter->request['limit']);

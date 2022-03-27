@@ -10,7 +10,7 @@ export const waitTime = votes => {
             const dif = (now - vote) / 1000 / 60;
             const currentHours = (now - startDay) / 1000 / 60 / 60
             console.log('getTodayVotes', getTodayVotes(votes))
-            dispatch(setErrorsAction({message: `dif - ${dif.toFixed(0)}, startDay ${currentHours.toFixed(0)}`}));
+            dispatch(setErrorsAction({message: `dif - ${dif.toFixed(0) || 0}, startDay ${currentHours.toFixed(0)}`}));
         } else {
             dispatch(setErrorsAction({message: 'Something wrong'}))
         }
