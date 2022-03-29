@@ -67,6 +67,15 @@ class CoinFilter extends QueryFilter
         }
     }
 
+    public function byHour($desc = 1)
+    {
+        if ($desc == 1) {
+            return $this->builder->orderBy('one_hour');
+        } else {
+            return $this->builder->orderBy('one_hour', 'desc');
+        }
+    }
+
     public function byMarketCap($isExpensive = 1)
     {
         if ($isExpensive  == 1) {

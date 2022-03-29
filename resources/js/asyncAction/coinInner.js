@@ -1,6 +1,9 @@
 import axios from "axios";
 import {fetchCoinAction} from "../reducers/coinReducer";
 import {setTopCoinsByDayAction, setTopCoinsByHourAction, setTopCoinsByWeekAction} from "../reducers/topCoinsReducer";
+import {setErrorsAction} from "../reducers/errorsReducer";
+import {Inertia} from "@inertiajs/inertia";
+import {PATH_ADMIN_COINS_PAGE} from "../utils/routesPath";
 
 export const fetchCoinByQuery = (sort = null, page = 1, search = '', limit = 10) => {
     return function (dispatch) {
@@ -85,4 +88,21 @@ export const fetchTopCoins = byWhat => {
                 console.log('fetchTopCoinsByHour err', err.response.message)
             });
     };
+};
+
+export const removeCoin = id => {
+    return function (dispatch) {
+        axios.post(`api/coins/${id}`, {
+            _method: 'DELETE'
+        }).then(res => {
+            console.log('removeCoin', res)
+            if (res.data.success) {
+                Inertia.visit(PATH_ADMIN_COINS_PAGE)
+            }
+            dispatch(setErrorsAction({message: res.data.message}))
+        }).catch(err => {
+            console.log('removeCoin err', err)
+            dispatch(setErrorsAction({message: 'Something wrong!'}))
+        });
+    }
 };

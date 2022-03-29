@@ -98,7 +98,7 @@ const CoinsRateTable = () => {
                 <th>
                     <div className="d-flex justify-content-around align-items-center">
                         <span>1h</span>
-                        <ToggleSortCoins sortBy={'new_coin'}/>
+                        <ToggleSortCoins sortBy={'byHour'}/>
                     </div>
                 </th>
                 <th>

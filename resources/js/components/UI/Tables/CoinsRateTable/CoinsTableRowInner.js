@@ -149,16 +149,16 @@ const CoinsTableRowInner = ({data}) => {
             </td>
             <td>
                 {
-                    difData.price_change_percentage_1h_in_currency ?
-                        difData.price_change_percentage_1h_in_currency > 0 ?
+                    difData.one_hour ?
+                        difData.one_hour > 0 ?
                             <div className={s.greenCol}>
                                 <span style={{marginRight: '5px'}}>&uarr;</span>
-                                {difData.price_change_percentage_1h_in_currency.toFixed(3) || 0}%
+                                {difData.one_hour.toFixed(2)}%
                             </div>
                             :
                             <div className={s.redCol}>
                                 <span style={{marginRight: '5px'}}>&darr;</span>
-                                {difData.price_change_percentage_1h_in_currency.toFixed(3) || 0}
+                                {difData.one_hour.toFixed(2)}
                             </div>
                         :
                         <div>0.0%</div>

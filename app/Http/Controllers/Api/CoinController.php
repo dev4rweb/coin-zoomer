@@ -89,6 +89,17 @@ class CoinController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $coin = Coin::findOrFail($id);
+            $coin->delete();
+            $response['success'] = true;
+            $response['message'] = 'Coin deleted';
+            $response['id'] = $id;
+        } catch (\Exception $exception) {
+            $response['success'] = false;
+            $response['message'] = $exception->getMessage();
+        }
+
+        return response()->json($response);
     }
 }

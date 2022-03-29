@@ -1,10 +1,11 @@
 import React from 'react';
 import s from "../../../../../sass/components/UI/Tables/SimpleTable/Item/SimpleTableItem.module.scss";
-import {Button} from "react-bootstrap";
+import {Button, CloseButton} from "react-bootstrap";
 import {Inertia} from "@inertiajs/inertia";
 import {useDispatch} from "react-redux";
 import {setErrorsAction} from "../../../../reducers/errorsReducer";
 import {PATH_ADMIN_COINS_PAGE} from "../../../../utils/routesPath";
+import {removeCoin} from "../../../../asyncAction/coinInner";
 
 const AdminCoinTableItem = ({data, index}) => {
     const dispatch = useDispatch()
@@ -46,6 +47,11 @@ const AdminCoinTableItem = ({data, index}) => {
             console.log(err)
             setErrorsAction({message: 'Something wrong!'});
         });
+    };
+
+    const removeCoinHandler = () => {
+        console.log('removeCoinHandler', data)
+        dispatch(removeCoin(data.id))
     };
 
     return (
@@ -115,6 +121,16 @@ const AdminCoinTableItem = ({data, index}) => {
                         onClick={rejectHandler}
                     >
                         Reject
+                    </Button>
+                </div>
+            </td>
+            <td>
+                <div>
+                    <Button
+                        variant={"outline-danger"}
+                        onClick={removeCoinHandler}
+                    >
+                        &times;
                     </Button>
                 </div>
             </td>
