@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Banner;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,10 +19,10 @@ class AdminBannerPageController extends Controller
         } else if (!$user->is_admin) {
             return Redirect::route('userPanel.index');
         } else {
-            $users = User::where('is_admin', 0)->get();
+            $banners = Banner::orderBy('is_show')->get();
             return Inertia::render('AdminBannerPage', [
                 'currentUser' => $user,
-                'users' => $users
+                'banners' => $banners
             ]);
         }
     }

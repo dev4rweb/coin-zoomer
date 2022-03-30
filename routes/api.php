@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\BannerController;
 use App\Http\Controllers\Api\CoinController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\VoteController;
@@ -24,7 +25,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::apiResources([
     'coins' => CoinController::class,
     'votes' => VoteController::class,
-    'users' => UserController::class
+    'users' => UserController::class,
+    'banners' => BannerController::class
 ]);
 
 Route::post('/fill-vote-limit', [UserController::class, 'fillVoteLimit']);

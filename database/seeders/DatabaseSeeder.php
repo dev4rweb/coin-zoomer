@@ -29,5 +29,6 @@ class DatabaseSeeder extends Seeder
          $this->call(CoinSeeder::class);
 //         $this->call(CoinChainSeeder::class);
          $this->call(VoteSeeder::class);
+         $this->call(BannerSeeder::class);
     }
 }

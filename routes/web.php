@@ -9,6 +9,7 @@ use App\Http\Controllers\AdminCoinsPageController;
 use App\Http\Controllers\AdminPageController;
 use App\Http\Controllers\AirDropOpenPageController;
 use App\Http\Controllers\AirDropPageController;
+use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CoinController;
 use App\Http\Controllers\CoinOpenPageController;
 use App\Http\Controllers\ContactsPageController;
@@ -61,7 +62,8 @@ Route::get('/admin-banner', [AdminBannerPageController::class, 'index']);
 Route::post('/upload-file', [UploadFileController::class, 'uploadFile']);
 
 Route::resources([
-    'innerCoins' => CoinController::class
+    'innerCoins' => CoinController::class,
+    'innerBanners' => BannerController::class
 ]);
 
 // Error Page

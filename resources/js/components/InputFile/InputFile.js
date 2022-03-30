@@ -5,7 +5,7 @@ import {useDispatch} from "react-redux";
 import {setErrorsAction} from "../../reducers/errorsReducer";
 
 const InputFile = ({placeholder, inputHandler = null, isRequired = false,
-                   name='', content = ''}) => {
+                   name='', content = '', isNeedSmallImage = true}) => {
     const dispatch = useDispatch()
     let btn = createRef();
     const [value, setValue] = useState(content)
@@ -30,13 +30,13 @@ const InputFile = ({placeholder, inputHandler = null, isRequired = false,
                 // console.log('image width', this.width)
                 width = this.width
                 height = this.height
-                if (width > 128) {
+                if (isNeedSmallImage && width > 128) {
                     dispatch(setErrorsAction({message: `too big width of image ${width}`}))
                     setValue('')
                     return
                 }
 
-                if (height > 128) {
+                if (isNeedSmallImage && height > 128) {
                     dispatch(setErrorsAction({message: `too big height of image ${height}`}))
                     setValue('')
                     return
