@@ -24,8 +24,9 @@ const BannerBlock = () => {
                 banners && banners.map((ban, index) =>
                     <a
                         className={s.banner}
-                         key={ban.id}
+                        key={ban.id}
                         href={ban.link}
+                        target="_blank"
                     >
                         <img src={ban.img_path} alt="promo"/>
                     </a>

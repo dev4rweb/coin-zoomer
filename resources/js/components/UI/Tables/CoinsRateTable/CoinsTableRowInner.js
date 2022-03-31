@@ -19,7 +19,7 @@ const CoinsTableRowInner = ({data}) => {
     const dispatch = useDispatch()
     const curUser = useSelector(state => state.currentUser.user)
     const votes = useSelector(state => state.vote.votes)
-    const coinsGeckoList = useSelector(state => state.coinGecko.coinsList)
+    // const coinsGeckoList = useSelector(state => state.coinGecko.coinsList)
     let currentVotes = votes.filter(i => i.coin_id === data.id) || []
     let datFormat = null
     const [difData, setDifData] = useState(data)
@@ -29,18 +29,26 @@ const CoinsTableRowInner = ({data}) => {
 
         // console.log('CoinsTableRowInner', coinsGeckoList, data.name, difData.is_coin_gecko)
         if (!difData.is_fake) {
-            if (difData.is_coin_gecko && coinsGeckoList.length) {
+            if (difData.is_coin_gecko) {
+                const urlParsed = difData.coin_gecko_link.split('/')
+                // console.log('DIFDATA LIGHT COIN', urlParsed[urlParsed.length - 1])
+                console.log('CoinsTableRowInner coinGecko', urlParsed[urlParsed.length - 1])
+                getCoinGeckoLiteData(urlParsed[urlParsed.length - 1])
+            }
+
+
+            /*if (difData.is_coin_gecko && coinsGeckoList.length) {
                 const coinGecko = coinsGeckoList.find(i => i.id === difData.name);
                 if (coinGecko) {
                     console.log('CoinsTableRowInner coinGecko', coinGecko)
                     getCoinGeckoLiteData(coinGecko.id)
                 }
-            }
+            }*/
         }
-    }, [coinsGeckoList]);
+    }, []);
 
     useEffect(() => {
-        if (!difData.is_coin_gecko  && difData.coin_chains.length) {
+        if (!difData.is_coin_gecko && difData.coin_chains.length) {
             console.log('difData', difData)
             getSingleRecordMoralis(
                 difData.coin_chains[0].contract_address,
@@ -67,7 +75,7 @@ const CoinsTableRowInner = ({data}) => {
             [d.getHours(),
                 d.getMinutes(),
                 d.getSeconds()].join(':')*/;
-                return dateFormat
+        return dateFormat
     };
 
     const getCoinGeckoLiteData = (
@@ -88,7 +96,7 @@ const CoinsTableRowInner = ({data}) => {
                         ['price']: res.data.market_data.current_price.usd,
                         ['market_cap']: res.data.market_data.market_cap.usd,
                         ['launch_date']: res.data.genesis_date,
-                        ['price_change_percentage_1h_in_currency']: res.data.market_data.price_change_percentage_1h_in_currency.usd
+                        ['one_hour']: res.data.market_data.price_change_percentage_1h_in_currency.usd
                     })
                 }
                 console.log('getCoinGeckoLiteData difData', difData)
@@ -190,7 +198,7 @@ const CoinsTableRowInner = ({data}) => {
                     </Button>
 
                     <OutlineBtn>
-                        <span>{ currentVotes.length && currentVotes.length}</span>
+                        <span>{currentVotes.length && currentVotes.length}</span>
                     </OutlineBtn>
                 </div>
             </td>

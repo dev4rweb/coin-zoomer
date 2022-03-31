@@ -20,7 +20,7 @@ export const geckoGetPing = () => {
                 console.log('geckoGetPing', res)
                 if (res.status === 200) {
                     dispatch(setGeckoPingAction(true));
-                    dispatch(geckoGetCoinsList())
+                    // dispatch(geckoGetCoinsList())
                     dispatch(geckoGetCoinsMarket())
                 }
             })
