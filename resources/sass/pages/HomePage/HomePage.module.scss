@@ -3,6 +3,7 @@
 .mainSection {
     margin-bottom: 50px;
 }
+
 .homePage {
     background-image: url('../../../assets/img/polygonal-blue-abstract.png');
     background-repeat: no-repeat;
@@ -10,18 +11,18 @@
     background-position-y: 0px;
     height: 100%;
 
-    .alertWrapper{
+    .alertWrapper {
         margin-top: 50px;
     }
 
-    .titleWrapper{
+    .titleWrapper {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         margin-bottom: 40px;
 
-        p{
+        p {
             font-size: 14px;
         }
     }
@@ -30,86 +31,112 @@
         display: flex;
         justify-content: space-between;
         width: 100%;
-        max-width: 970px;
+        //max-width: 970px;
         margin-bottom: 30px;
     }
 
-    .tableBlock{
+    .tableBlock {
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        align-items: flex-start;
 
-        @media screen and (max-width: 1024px){
+        @media screen and (max-width: 1024px) {
             flex-wrap: wrap;
             justify-content: center;
         }
 
 
-        .rightSide{
+        .rightSide {
             display: flex;
             flex-direction: column;
             position: relative;
             align-items: center;
             justify-content: center;
+            max-width: 300px;
 
-            .dogWin{
+            .winWrapper {
                 width: 100%;
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+
+                .dogWin {
+                    width: 100%;
+                }
+
+                .coinLogo {
+                    position: absolute;
+                    bottom: 100px;
+                    width: 70px;
+                    height: 70px;
+                    -webkit-border-radius: 50%;
+                    -moz-border-radius: 50%;
+                    border-radius: 50%;
+                }
+            }
+
+            .dataWrapper {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                margin-top: -50px;
+                h2 {
+                    font-size: 36px;
+                    width: 100%;
+                    text-align: center;
+                }
+
+                .graphWrapper {
+                    top: 365px;
+                }
             }
 
 
-            h2{
-                font-size: 36px;
-                position: absolute;
-                width: 100%;
-                text-align: center;
-                top: 320px;
-            }
 
-            .graphWrapper{
-                position: absolute;
-                top: 365px;
-            }
         }
     }
 }
 
-.topCoinsSection{
-    @media screen and (max-width: 525px){
+.topCoinsSection {
+    @media screen and (max-width: 525px) {
         overflow-x: hidden;
     }
 
-    .cardWrapper{
+    .cardWrapper {
         height: 650px;
         position: relative;
         margin-top: -50px;
 
-        @media screen and (max-width: 1200px){
+        @media screen and (max-width: 1200px) {
             height: 1100px;
         }
 
-        @media screen and (max-width: 1200px){
+        @media screen and (max-width: 1200px) {
             height: 1700px;
         }
     }
 }
 
-.coinsRateSection{
+.coinsRateSection {
     margin-bottom: 50px;
 
-    .coinsTableWrapper{
+    .coinsTableWrapper {
         margin-top: 20px;
         margin-bottom: 80px;
     }
 
-    .filterTableWrapper{
+    .filterTableWrapper {
 
-        .filterWrapper{
+        .filterWrapper {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 30px;
 
-            @media screen and (max-width: 1200px){
+            @media screen and (max-width: 1200px) {
                 flex-wrap: wrap;
                 justify-content: center;
             }

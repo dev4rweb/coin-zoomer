@@ -19,9 +19,9 @@ const CoinsTableRowInner = ({data}) => {
     const dispatch = useDispatch()
     const curUser = useSelector(state => state.currentUser.user)
     const votes = useSelector(state => state.vote.votes)
+
     // const coinsGeckoList = useSelector(state => state.coinGecko.coinsList)
     let currentVotes = votes.filter(i => i.coin_id === data.id) || []
-    let datFormat = null
     const [difData, setDifData] = useState(data)
 
 
@@ -32,7 +32,7 @@ const CoinsTableRowInner = ({data}) => {
             if (difData.is_coin_gecko) {
                 const urlParsed = difData.coin_gecko_link.split('/')
                 // console.log('DIFDATA LIGHT COIN', urlParsed[urlParsed.length - 1])
-                console.log('CoinsTableRowInner coinGecko', urlParsed[urlParsed.length - 1])
+                // console.log('CoinsTableRowInner coinGecko', urlParsed[urlParsed.length - 1])
                 getCoinGeckoLiteData(urlParsed[urlParsed.length - 1])
             }
 
@@ -49,14 +49,14 @@ const CoinsTableRowInner = ({data}) => {
 
     useEffect(() => {
         if (!difData.is_coin_gecko && difData.coin_chains.length) {
-            console.log('difData', difData)
+            // console.log('difData', difData)
             getSingleRecordMoralis(
                 difData.coin_chains[0].contract_address,
                 difData.coin_chains[0].chain
             ).then(res => {
                 if (res.status === 200) {
-                    console.log('molarisData', res);
-                    console.log('DIF DATA', difData)
+                    // console.log('molarisData', res);
+                    // console.log('DIF DATA', difData)
                     setDifData({
                         ...difData,
                         price: res.data.usdPrice,
@@ -95,14 +95,14 @@ const CoinsTableRowInner = ({data}) => {
                         ['symbol']: res.data.symbol,
                         ['price']: res.data.market_data.current_price.usd,
                         ['market_cap']: res.data.market_data.market_cap.usd,
-                        ['launch_date']: res.data.genesis_date,
+                        ['launch_date']: res.data.genesis_date ?? difData.launch_date,
                         ['one_hour']: res.data.market_data.price_change_percentage_1h_in_currency.usd
                     })
                 }
-                console.log('getCoinGeckoLiteData difData', difData)
+                // console.log('getCoinGeckoLiteData difData', difData)
             })
             .catch(err => {
-                console.log('getCoinGeckoLiteData err', err)
+                // console.log('getCoinGeckoLiteData err', err)
             });
     };
 
@@ -166,7 +166,7 @@ const CoinsTableRowInner = ({data}) => {
                             :
                             <div className={s.redCol}>
                                 <span style={{marginRight: '5px'}}>&darr;</span>
-                                {difData.one_hour.toFixed(2)}
+                                {difData.one_hour.toFixed(2)}%
                             </div>
                         :
                         <div>0.0%</div>
@@ -175,11 +175,16 @@ const CoinsTableRowInner = ({data}) => {
             <td className={s.symbol}>
                 <div>
                     {/*{`$ ${difData.price}`}*/}
+                    <span style={{color: '#7dd75c', marginRight: '5px'}}>$</span>
                     $ {priceConverter(difData.price)}
+                    {/*$ {difData.price}*/}
                 </div>
             </td>
             <td>
-                <div><span>$</span> {priceConverter(difData.market_cap)}</div>
+                <div>
+                    <span style={{color: '#7dd75c', marginRight: '5px'}}>$</span>
+                    {priceConverter(difData.market_cap)}
+                </div>
             </td>
             <td>
                 <div>
@@ -192,7 +197,11 @@ const CoinsTableRowInner = ({data}) => {
                         variant="info"
                         className="fill-btn"
                         onClick={voteHandler}
-                        style={{maxHeight: '32px', marginRight: '-5px'}}
+                        style={{
+                            maxHeight: '32px', marginRight: '-5px',
+                            fontWeight: 'lighter', background: 'linear-gradient(90deg, #009fe6, #00f5f6)',
+                            zIndex: '1'
+                        }}
                     >
                         Vote
                     </Button>

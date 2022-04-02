@@ -3,6 +3,7 @@ import s from '../../../sass/components/LeadersCard/LeadersCard.module.scss'
 import TopCoinsItem from "../TopCoins/TopCoinsItem";
 
 const LeadersCard = ({title, data}) => {
+
     return (
         <div className={s.leadersCard}>
             <div className={s.wrapper}>

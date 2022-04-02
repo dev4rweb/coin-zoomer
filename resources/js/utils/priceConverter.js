@@ -12,5 +12,9 @@ export const priceConverter = price => {
         return `${priceFormat.replace('.', ' . ')} K`;
     }
 
-    return price ? price.toFixed(2) : price
+    if (price && price > 0 && price < 1) {
+        return price.toFixed(9)
+    }
+
+    return price ? price.toFixed(2) : price;
 };

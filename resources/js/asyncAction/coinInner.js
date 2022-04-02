@@ -4,6 +4,11 @@ import {setTopCoinsByDayAction, setTopCoinsByHourAction, setTopCoinsByWeekAction
 import {setErrorsAction} from "../reducers/errorsReducer";
 import {Inertia} from "@inertiajs/inertia";
 import {PATH_ADMIN_COINS_PAGE} from "../utils/routesPath";
+import {
+    setLeadersCoinsByDayAction,
+    setLeadersCoinsByMarketCapAction,
+    setLeadersCoinsByWeekAction, setTheBestLeaderAction
+} from "../reducers/leadersCoinsReducer";
 
 export const fetchCoinByQuery = (sort = null, page = 1, search = '', limit = 10) => {
     return function (dispatch) {
@@ -64,6 +69,18 @@ export const fetchTopCoins = byWhat => {
         case 'week':
             sortObj.sortName = 'week_hot'
             break
+        case 'leader_day':
+            sortObj.sortName = 'today_hot'
+            sortObj.limit = 2
+            break
+        case 'leader_week':
+            sortObj.sortName = 'week_hot'
+            sortObj.limit = 2
+            break
+        case 'leader_market_cap':
+            sortObj.sortName = 'isPromoted'
+            sortObj.limit = 5
+            break
     }
 
     return function (dispatch) {
@@ -77,15 +94,26 @@ export const fetchTopCoins = byWhat => {
                             break
                         case 'day':
                             dispatch(setTopCoinsByDayAction(res.data.models))
+                            if (res.data.models && res.data.models.data.length)
+                                dispatch(setTheBestLeaderAction(res.data.models.data[0]))
                             break
                         case 'week':
                             dispatch(setTopCoinsByWeekAction(res.data.models))
+                            break
+                        case 'leader_day':
+                            dispatch(setLeadersCoinsByDayAction(res.data.models))
+                            break
+                        case 'leader_week':
+                            dispatch(setLeadersCoinsByWeekAction(res.data.models))
+                            break
+                        case 'leader_market_cap':
+                            dispatch(setLeadersCoinsByMarketCapAction(res.data.models))
                             break
                     }
                 }
             })
             .catch(err => {
-                console.log('fetchTopCoinsByHour err', err.response.message)
+                // console.log('fetchTopCoinsByHour err', err.response.message)
             });
     };
 };

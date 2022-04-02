@@ -8683,7 +8683,7 @@ textarea.form-control-lg {
     src: url(../assets/fonts/Nekst-Regular.ttf);
 }*/
 * {
-  font-family: "Nekst", sans-serif; }
+  font-family: "NekstMedium", sans-serif; }
 
 body {
   background-color: #10112d; }
@@ -8717,7 +8717,7 @@ h5, .h5 {
 p {
   font-size: 12px;
   color: white;
-  font-family: "Nekst", sans-serif; }
+  font-family: "NekstMedium", sans-serif; }
 
 .table > :not(:first-child) {
   border-top: none; }
@@ -8830,7 +8830,7 @@ footer .nav-link {
   color: white; }
 
 .alert-heading {
-  font-family: "Nekst", sans-serif;
+  font-family: "NekstMedium", sans-serif;
   font-size: 12px;
   font-weight: lighter;
   margin-bottom: 0;
@@ -8842,7 +8842,7 @@ footer .nav-link {
   font-size: 48px;
   text-transform: uppercase;
   line-height: 1.396;
-  font-family: "Nekst", sans-serif;
+  font-family: "NekstMedium", sans-serif;
   font-weight: bold;
   background: -webkit-linear-gradient(0deg, #009fe6 0%, #00abac 83%, #00f5f6 30%);
   -webkit-background-clip: text;

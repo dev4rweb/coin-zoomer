@@ -18,6 +18,15 @@ class CoinFilter extends QueryFilter
         }
     }
 
+    public function isPromoted($isDesc = 1)
+    {
+        if ($isDesc) {
+            return $this->builder->withCount('votes')
+                ->where('is_promoted', 1)
+                ->orderBy('id', 'desc');
+        }
+    }
+
     public function today_hot($isDesk = 1)
     {
 

@@ -3,7 +3,7 @@
     src: url(../assets/fonts/Nekst-Regular.ttf);
 }*/
 * {
-  font-family: "Nekst", sans-serif; }
+  font-family: "NekstMedium", sans-serif; }
 
 body {
   background-color: #10112d; }
@@ -37,7 +37,7 @@ h5 {
 p {
   font-size: 12px;
   color: white;
-  font-family: "Nekst", sans-serif; }
+  font-family: "NekstMedium", sans-serif; }
 
 .table > :not(:first-child) {
   border-top: none; }
@@ -102,6 +102,20 @@ td {
       width: 90px; }
       .coinItem .content .data .name {
         margin-bottom: 5px; }
+      .coinItem .content .data .greenCol {
+        display: flex;
+        align-items: center;
+        color: #7dd75c;
+        font-size: 12px; }
+        .coinItem .content .data .greenCol img {
+          margin-right: 8px; }
+      .coinItem .content .data .redCol {
+        display: flex;
+        align-items: center;
+        color: #ef3e3e;
+        font-size: 12px; }
+        .coinItem .content .data .redCol img, .coinItem .content .data .redCol span {
+          margin-right: 8px; }
     .coinItem .content .price {
       width: 80px;
       margin-bottom: 0; }

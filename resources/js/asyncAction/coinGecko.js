@@ -25,7 +25,7 @@ export const geckoGetPing = () => {
                 }
             })
             .catch(err => {
-                console.log(err)
+                // console.log(err)
             });
     };
 };
@@ -34,13 +34,13 @@ export const geckoGetCoinsList = () => {
     return function (dispatch) {
         axios.get(`${GECKO_ROOT_PATH}${GECKO_COIN_LIST_PATH}`)
             .then(res => {
-                console.log('geckoGetCoinsList', res)
+                // console.log('geckoGetCoinsList', res)
                 if (res.status === 200) {
                     dispatch(setGeckoCoinsListAction(res.data))
                 }
             })
             .catch(err => {
-                console.log('geckoGetCoinsList err', err)
+                // console.log('geckoGetCoinsList err', err)
             });
     };
 };
@@ -65,7 +65,7 @@ export const geckoGetCoinsMarket = () => {
                 }
             })
             .catch(err => {
-                console.log('geckoGetCoinsMarket err', err)
+                // console.log('geckoGetCoinsMarket err', err)
             });
     };
 };
@@ -81,7 +81,7 @@ export const geckoGetCurrentCoin = id => {
                 //     dispatch(setTopCoinsGeckoAction(res.data))
             })
             .catch(err => {
-                console.log('geckoGetCurrentCoin err', err)
+                // console.log('geckoGetCurrentCoin err', err)
             });
     };
 };

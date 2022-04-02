@@ -18,7 +18,7 @@ class CoinSeeder extends Seeder
         $coins = json_decode(file_get_contents(public_path('images/coins.json'), true));
         foreach ($coins as $coin) {
             $coinGecko = Coin::factory()->create([
-                'is_coin_gecko' => false,
+//                'is_coin_gecko' => false,
                 'is_fake' => false,
                 'name' => $coin->name,
                 'description' => $coin->description->en,
@@ -26,7 +26,8 @@ class CoinSeeder extends Seeder
                 'one_hour' => $coin->market_data->price_change_percentage_1h_in_currency->usd,
                 'symbol' => $coin->symbol,
                 'market_cap' => $coin->market_data->market_cap->usd,
-                'logotype' => $coin->image->thumb,
+                'logotype' => $coin->image->small,
+                'coin_gecko_link' => 'https://www.coingecko.com/en/coins/' . $coin->id,
             ]);
             CoinChain::create([
                 'coin_id' => $coinGecko->id,

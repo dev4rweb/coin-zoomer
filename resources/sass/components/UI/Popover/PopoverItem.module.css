@@ -3,7 +3,7 @@
     src: url(../assets/fonts/Nekst-Regular.ttf);
 }*/
 * {
-  font-family: "Nekst", sans-serif; }
+  font-family: "NekstMedium", sans-serif; }
 
 body {
   background-color: #10112d; }
@@ -37,7 +37,7 @@ h5 {
 p {
   font-size: 12px;
   color: white;
-  font-family: "Nekst", sans-serif; }
+  font-family: "NekstMedium", sans-serif; }
 
 .table > :not(:first-child) {
   border-top: none; }
@@ -94,7 +94,7 @@ td {
       margin-bottom: 2px; }
     .container .content .text {
       font-size: 9px;
-      font-family: "Nekst", sans-serif;
+      font-family: "NekstMedium", sans-serif;
       color: rgba(16, 17, 45, 0.42);
       margin-bottom: 0;
       line-height: 10px; }

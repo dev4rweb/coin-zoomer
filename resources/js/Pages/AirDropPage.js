@@ -23,7 +23,7 @@ const AirDropPage = ({currentUser, errors}) => {
     }, []);
 
     const addAirDropHandler = e => {
-        console.log('addAirDropHandler')
+        // console.log('addAirDropHandler')
         Inertia.visit(PATH_ADD_AIR_DROP_PAGE)
     };
 

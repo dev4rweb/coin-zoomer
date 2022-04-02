@@ -33,6 +33,28 @@
             .name{
                 margin-bottom: 5px;
             }
+
+            .greenCol {
+                display: flex;
+                align-items: center;
+                color: #7dd75c;
+                font-size: 12px;
+
+                img {
+                    margin-right: 8px;
+                }
+            }
+
+            .redCol {
+                display: flex;
+                align-items: center;
+                color: #ef3e3e;
+                font-size: 12px;
+
+                img, span {
+                    margin-right: 8px;
+                }
+            }
         }
 
         .price{

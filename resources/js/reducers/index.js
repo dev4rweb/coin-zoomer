@@ -9,6 +9,7 @@ import coinReducer from "./coinReducer";
 import chainReducer from "./chainReducer";
 import voteReducer from "./voteReducer";
 import topCoinsReducer from "./topCoinsReducer";
+import leadersCoinsReducer from "./leadersCoinsReducer";
 
 const rootReducer = combineReducers({
     currentUser: currentUserReducer,
@@ -18,7 +19,8 @@ const rootReducer = combineReducers({
     coin: coinReducer,
     chains: chainReducer,
     vote: voteReducer,
-    topCoins: topCoinsReducer
+    topCoins: topCoinsReducer,
+    leaderCoins: leadersCoinsReducer
 })
 
 export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))

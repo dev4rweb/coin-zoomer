@@ -41,11 +41,11 @@ const CoinEdit = ({coin}) => {
         is_promoted: coin.is_promoted || false,
         is_approved: coin.is_approved || false
     })
-    console.log('CoinEdit', coin)
+    // console.log('CoinEdit', coin)
 
     const limitTextHandler = e => {
         let words = e.target.value.split(' ').filter(Boolean)
-        console.log('limitTextHandler', words)
+        // console.log('limitTextHandler', words)
         if (words.length < 150) {
             setData({
                 ...data,
@@ -57,7 +57,7 @@ const CoinEdit = ({coin}) => {
     };
 
     const contractTwitterHandler = value => {
-        console.log('contractTwitterHandler', value)
+        // console.log('contractTwitterHandler', value)
         setData({
             ...data,
             ['contractTwitter']: value
@@ -65,7 +65,7 @@ const CoinEdit = ({coin}) => {
     };
 
     const contractRedditHandler = value => {
-        console.log('contractRedditHandler', value)
+        // console.log('contractRedditHandler', value)
         setData({
             ...data,
             ['contractReddit']: value
@@ -73,7 +73,7 @@ const CoinEdit = ({coin}) => {
     };
 
     const contractDiscordHandler = value => {
-        console.log('contractDiscordHandler', value)
+        // console.log('contractDiscordHandler', value)
         setData({
             ...data,
             ['contractDiscord']: value
@@ -81,7 +81,7 @@ const CoinEdit = ({coin}) => {
     };
 
     const inputFileHandler = filepath => {
-        console.log('inputFileHandler', filepath)
+        // console.log('inputFileHandler', filepath)
         setData({
             ...data,
             ['logotype']: filepath
@@ -89,7 +89,7 @@ const CoinEdit = ({coin}) => {
     };
 
     const telegramHandler = value => {
-        console.log('telegramHandler', value)
+        // console.log('telegramHandler', value)
         setData({
             ...data,
             ['telegram']: value
@@ -98,7 +98,7 @@ const CoinEdit = ({coin}) => {
 
     const handleSubmit = e => {
         e.preventDefault()
-        console.log('handleSubmit', data)
+        // console.log('handleSubmit', data)
         axios.post(`/api/coins/${data.id}`, {
             _method: 'PUT',
             name: data.name,
@@ -121,7 +121,7 @@ const CoinEdit = ({coin}) => {
             is_promoted: data.is_promoted,
             is_fake: false
         }).then(res => {
-            console.log(res)
+            // console.log(res)
             if (res.data.success) {
                 setErrorsAction({message: res.data.message});
                 Inertia.visit(PATH_ADMIN_COINS_PAGE);

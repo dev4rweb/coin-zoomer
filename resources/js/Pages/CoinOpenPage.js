@@ -52,7 +52,7 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes})
                 dispatch(setCurrentInnerCoinAction(innerCoin))
             dispatch(fetchCurrentVotesAction(curVotes))
             dispatch(fetchVotesAction(votes))
-            console.log('Internal coin', innerCoin)
+            // console.log('Internal coin', innerCoin)
             if (innerCurrentCoin && innerCurrentCoin.coin_chains.length) {
                 setChain(innerCurrentCoin.coin_chains[0].contract_address);
                 if (innerCurrentCoin.is_coin_gecko && !isGetResponseFromCoinGecko) {
@@ -72,7 +72,7 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes})
 
         axios.get(`${GECKO_ROOT_PATH}/coins/${nameId}?${dopData}`)
             .then(res => {
-                console.log('getCoinGeckoLiteData', res)
+                // console.log('getCoinGeckoLiteData', res)
                 if (res.data) {
                     dispatch(setCurrentInnerCoinAction({
                         ...innerCurrentCoin,
@@ -85,7 +85,7 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes})
                 }
             })
             .catch(err => {
-                console.log('getCoinGeckoLiteData err', err)
+                // console.log('getCoinGeckoLiteData err', err)
             });
     };
 

@@ -52,7 +52,7 @@ Route::get('/add-coin', [AddCoinPageController::class, 'index']);
 Route::post('/add-coin-create', [AddCoinPageController::class, 'addCoin']);
 Route::get('/add-air-drop', [AddAirDropPageController::class, 'index']);
 Route::get('/air-drop-open/{id}', [AirDropOpenPageController::class, 'index']);
-Route::get('/coin-open/{id}', [CoinOpenPageController::class, 'index']);
+Route::get('/coin/{id}', [CoinOpenPageController::class, 'index']);
 Route::get('/token', [TokenPageController::class, 'index']);
 Route::get('/molaris', [MolarisPageController::class, 'index']);
 Route::get('/admin-coins', [AdminCoinsPageController::class, 'index']);

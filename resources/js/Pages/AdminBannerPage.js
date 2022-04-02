@@ -31,11 +31,11 @@ const AdminBannerPage = ({currentUser, banners, errors}) => {
     useEffect(() => {
         dispatch(setCurrentUserAction(currentUser))
         // dispatch(setErrorsAction(errors))
-        console.log('AdminBannerPage banners', banners)
+        // console.log('AdminBannerPage banners', banners)
     }, []);
 
     const inputFileHandler = filepath => {
-        console.log('inputFileHandler', filepath)
+        // console.log('inputFileHandler', filepath)
         setCreateBanner({
             ...createBanner,
             ['img_path']: filepath
@@ -43,7 +43,7 @@ const AdminBannerPage = ({currentUser, banners, errors}) => {
     };
 
     const inputEditFileHandler = filepath => {
-        console.log('inputEditFileHandler', filepath)
+        // console.log('inputEditFileHandler', filepath)
         setEditBanner({
             ...editBanner,
             ['img_path']: filepath
@@ -52,27 +52,27 @@ const AdminBannerPage = ({currentUser, banners, errors}) => {
 
     const createBannerHandler = e => {
         e.preventDefault()
-        console.log('createBannerHandler', createBanner)
+        // console.log('createBannerHandler', createBanner)
         axios.post('/api/banners', createBanner)
             .then(res => {
-                console.log('createBannerHandler res', res)
+                // console.log('createBannerHandler res', res)
                 if (res.data.success)
                     dispatch(setErrorsAction({message: res.data.message}))
             }).catch(err => {
-            console.log('createBannerHandler err', err)
+            // console.log('createBannerHandler err', err)
             dispatch(setErrorsAction({message: "Something wrong"}))
         }).finally(() => Inertia.visit(PATH_ADMIN_BANNER_PAGE));
     };
 
     const showCreateFormHandler = e => {
-        console.log('showCreateFormHandler')
+        // console.log('showCreateFormHandler')
         setShowCreateForm(true)
         setShowList(false)
     };
 
     const editBannerHandler = (e) => {
         e.preventDefault()
-        console.log('editBannerHandler', editBanner)
+        // console.log('editBannerHandler', editBanner)
         axios.post(`/api/banners/${editBanner.id}`, {
             _method: 'PUT',
             title: editBanner.title,
@@ -81,32 +81,32 @@ const AdminBannerPage = ({currentUser, banners, errors}) => {
             is_show: editBanner.is_show,
         })
             .then(res => {
-                console.log('editBannerHandler res', res)
+                // console.log('editBannerHandler res', res)
                 if (res.data.success)
                     dispatch(setErrorsAction({message: res.data.message}))
             }).catch(err => {
-            console.log('editBannerHandler err', err)
+            // console.log('editBannerHandler err', err)
             dispatch(setErrorsAction({message: "Something wrong"}))
         }).finally(() => Inertia.visit(PATH_ADMIN_BANNER_PAGE));
     };
 
     const showEditFormHandler = banner => {
-        console.log('showEditFormHandler', banner)
+        // console.log('showEditFormHandler', banner)
         setEditBanner(banner)
         setShowEditForm(true)
         setShowList(false)
     };
 
     const removeBannerHandler = bannerId => {
-        console.log('removeBannerHandler', bannerId)
+        // console.log('removeBannerHandler', bannerId)
         axios.post(`/api/banners/${bannerId}`, {
             _method: 'DELETE'
         }).then(res => {
-            console.log('removeBannerHandler res', res)
+            // console.log('removeBannerHandler res', res)
             if (res.data.success)
                 dispatch(setErrorsAction({message: res.data.message}))
         }).catch(err => {
-            console.log('removeBannerHandler err', err)
+            // console.log('removeBannerHandler err', err)
             dispatch(setErrorsAction({message: "Something wrong"}))
         }).finally(() => Inertia.visit(PATH_ADMIN_BANNER_PAGE));
     };

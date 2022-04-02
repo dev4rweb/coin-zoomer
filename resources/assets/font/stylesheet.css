@@ -82,3 +82,16 @@
     font-style: normal;
 }
 
+
+@font-face {
+    font-family: 'NekstMedium';
+    src: url('Nekst-Medium.eot');
+    src: local('NekstMedium'), local('NekstMedium'),
+    url('Nekst-Medium.eot?#iefix') format('embedded-opentype'),
+    url('Nekst-Medium.woff2') format('woff2'),
+    url('Nekst-Medium.woff') format('woff'),
+    url('Nekst-Medium.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+

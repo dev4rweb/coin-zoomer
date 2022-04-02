@@ -3,7 +3,7 @@
     src: url(../assets/fonts/Nekst-Regular.ttf);
 }*/
 * {
-  font-family: "Nekst", sans-serif; }
+  font-family: "NekstMedium", sans-serif; }
 
 body {
   background-color: #10112d; }
@@ -37,7 +37,7 @@ h5 {
 p {
   font-size: 12px;
   color: white;
-  font-family: "Nekst", sans-serif; }
+  font-family: "NekstMedium", sans-serif; }
 
 .table > :not(:first-child) {
   border-top: none; }
@@ -100,12 +100,11 @@ td {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    max-width: 970px;
     margin-bottom: 30px; }
   .homePage .tableBlock {
     display: flex;
     justify-content: space-between;
-    align-items: center; }
+    align-items: flex-start; }
     @media screen and (max-width: 1024px) {
       .homePage .tableBlock {
         flex-wrap: wrap;
@@ -115,18 +114,37 @@ td {
       flex-direction: column;
       position: relative;
       align-items: center;
-      justify-content: center; }
-      .homePage .tableBlock .rightSide .dogWin {
-        width: 100%; }
-      .homePage .tableBlock .rightSide h2 {
-        font-size: 36px;
-        position: absolute;
+      justify-content: center;
+      max-width: 300px; }
+      .homePage .tableBlock .rightSide .winWrapper {
         width: 100%;
-        text-align: center;
-        top: 320px; }
-      .homePage .tableBlock .rightSide .graphWrapper {
-        position: absolute;
-        top: 365px; }
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column; }
+        .homePage .tableBlock .rightSide .winWrapper .dogWin {
+          width: 100%; }
+        .homePage .tableBlock .rightSide .winWrapper .coinLogo {
+          position: absolute;
+          bottom: 100px;
+          width: 70px;
+          height: 70px;
+          -webkit-border-radius: 50%;
+          -moz-border-radius: 50%;
+          border-radius: 50%; }
+      .homePage .tableBlock .rightSide .dataWrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-top: -50px; }
+        .homePage .tableBlock .rightSide .dataWrapper h2 {
+          font-size: 36px;
+          width: 100%;
+          text-align: center; }
+        .homePage .tableBlock .rightSide .dataWrapper .graphWrapper {
+          top: 365px; }
 
 @media screen and (max-width: 525px) {
   .topCoinsSection {

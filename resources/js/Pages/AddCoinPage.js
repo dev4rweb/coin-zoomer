@@ -44,7 +44,7 @@ const AddCoinPage = ({currentUser, errors}) => {
     const chainHandler = e => {
         e.preventDefault()
         const value = e.target.getAttribute('title')
-        console.log('chainHandler', value)
+        // console.log('chainHandler', value)
         setChain(value)
         setCoin({
             ...coin,
@@ -66,14 +66,14 @@ const AddCoinPage = ({currentUser, errors}) => {
             chainName: chain,
             chainValue: contractAddress
         }
-        console.log('addNewChainHandler', newChain)
+        // console.log('addNewChainHandler', newChain)
         dispatch(addNewChainAction(newChain))
         setChain('Select')
         setContactAddress('')
     };
 
     const contractTelegramHandler = value => {
-        console.log('contractTelegramHandler', value)
+        // console.log('contractTelegramHandler', value)
         setCoin({
             ...coin,
             ['contractTelegram']: value
@@ -81,7 +81,7 @@ const AddCoinPage = ({currentUser, errors}) => {
     };
 
     const contractTwitterHandler = value => {
-        console.log('contractTwitterHandler', value)
+        // console.log('contractTwitterHandler', value)
         setCoin({
             ...coin,
             ['contractTwitter']: value
@@ -89,7 +89,7 @@ const AddCoinPage = ({currentUser, errors}) => {
     };
 
     const contractRedditHandler = value => {
-        console.log('contractRedditHandler', value)
+        // console.log('contractRedditHandler', value)
         setCoin({
             ...coin,
             ['contractReddit']: value
@@ -97,7 +97,7 @@ const AddCoinPage = ({currentUser, errors}) => {
     };
 
     const contractDiscordHandler = value => {
-        console.log('contractDiscordHandler', value)
+        // console.log('contractDiscordHandler', value)
         setCoin({
             ...coin,
             ['contractDiscord']: value
@@ -105,7 +105,7 @@ const AddCoinPage = ({currentUser, errors}) => {
     };
 
     const inputFileHandler = filepath => {
-        console.log('inputFileHandler', filepath)
+        // console.log('inputFileHandler', filepath)
         setCoin({
             ...coin,
             ['logotype']: filepath
@@ -113,7 +113,7 @@ const AddCoinPage = ({currentUser, errors}) => {
     };
 
     const telegramHandler = value => {
-        console.log('telegramHandler', value)
+        // console.log('telegramHandler', value)
         setCoin({
             ...coin,
             ['telegram']: value

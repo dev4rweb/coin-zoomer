@@ -10,10 +10,10 @@ export const getSingleRecordMoralis = (address = null, chain = 'eth') => {
             'X-API-Key': 'UpQ3vKSY4Lwb4c09DfS4pNMsf43YXLplFTudha98Iitks2giWK4e3Swv3S0f3Ic5'
         }
     }).then(res => {
-        console.log('getSingleRecord res', res)
+        // console.log('getSingleRecord res', res)
         return res
     }).catch(err => {
-        console.log(err)
+        // console.log(err)
     });
 };
 

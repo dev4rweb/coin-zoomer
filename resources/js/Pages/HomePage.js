@@ -40,6 +40,7 @@ const HomePage = ({currentUser, errors, coins, votes}) => {
     const topHourCoins = useSelector(state => state.topCoins.topCoinsByHour)
     const topDayCoins = useSelector(state => state.topCoins.topCoinsByDay)
     const topWeekCoins = useSelector(state => state.topCoins.topCoinsByWeek)
+    const bestCoin = useSelector(state => state.leaderCoins.theBestLeader)
 
     const topCoinsData = [
         {id: 1, logo: oneImg, name: 'CoinName', isIncrease: true, val: `12.993%`, price: '$ 475.45', isFav: true},
@@ -69,26 +70,16 @@ const HomePage = ({currentUser, errors, coins, votes}) => {
         dispatch(fetchTopCoins('hour'))
         dispatch(fetchTopCoins('day'))
         dispatch(fetchTopCoins('week'))
-// login user (Metamask, WalletConnect, any wallet)
-//         Moralis.Web3.authenticate()
-
-// get user tokens
-//         Moralis.Web3.getAllERC20();
-
-// get price of token
-//         Moralis.Web3.getTokenPrice(address)
-
-// get TVL
-//         Moralis.Web3.getTVL(address)
-
-// get P&L
-//         Moralis.Web3.getPnL(address)
-
-// get Defi Positions (liquidity, lending, borrowing)
-//         Moralis.Web3.getDefiPosition(address)
+        dispatch(fetchTopCoins('leader_day'))
+        dispatch(fetchTopCoins('leader_week'))
+        dispatch(fetchTopCoins('leader_market_cap'))
 
         // dispatch(setErrorsAction(errors))
     }, []);
+
+/*    useEffect(() => {
+        console.log('BEST COIN', bestCoin)
+    }, [bestCoin]);*/
 
     const changeLimit = async (e, lim) => {
         dispatch(setCoinPageLimitAction(lim))
@@ -97,7 +88,7 @@ const HomePage = ({currentUser, errors, coins, votes}) => {
     };
 
     const addCoinHandler = e => {
-        console.log('addCoinHandler')
+        // console.log('addCoinHandler')
         Inertia.visit(PATH_ADD_COIN_PAGE)
     };
 
@@ -124,19 +115,34 @@ const HomePage = ({currentUser, errors, coins, votes}) => {
                             <Medal>
                                 <p>Promoted coins</p>
                             </Medal>
-                            <Medal>
+                            <Medal isRight={true}>
                                 <p>Top Daily Winner</p>
                             </Medal>
                         </div>
                         <div className={s.tableBlock}>
                             <SimpleTable/>
-                            <div className={s.rightSide}>
-                                <img className={s.dogWin} src={dogWin} alt="dog"/>
-                                <h2>Coin Name</h2>
-                                <div className={s.graphWrapper}>
-                                    <GraphicIncrease/>
+                            {
+                                bestCoin &&
+                                <div className={s.rightSide}>
+                                    <div className={s.winWrapper}>
+                                        <img className={s.dogWin} src={dogWin} alt="dog"/>
+                                        <img
+                                            className={s.coinLogo}
+                                            src={bestCoin.logotype}
+                                            alt="logo"
+                                        />
+                                    </div>
+
+                                    <div className={s.dataWrapper}>
+                                        <h2>{bestCoin.name}</h2>
+                                        <div className={s.graphWrapper}>
+                                            <GraphicIncrease text={bestCoin.one_hour}/>
+                                        </div>
+                                    </div>
+
+
                                 </div>
-                            </div>
+                            }
                         </div>
                     </section>
                     <section className={s.topCoinsSection}>
