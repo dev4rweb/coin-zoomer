@@ -20,17 +20,32 @@ class CoinOpenPageController extends Controller
                 ->first();
         }
 
+        $name = str_replace('_', ' ', $id);
+        $coin = Coin::where('name', $name)
+            ->with('coinChains')
+            ->with('votes')
+            ->first();
 
-        if (strlen($id) < 3) {
+        $coins = Coin::where('is_approved', 1)
+            ->orderBy('id', 'desc')
+            ->with('votes')
+            ->with('coinChains')
+            ->paginate(10);
+
+        /*if (strlen($id) < 3) {
             $coin = Coin::where('id', $id)
                 ->with('coinChains')
                 ->with('votes')
                 ->first();
         } else {
             $coin = $id;
+        }*/
+        $curVotes = null;
+        if ($coin) {
+            $curVotes = Vote::where('coin_id', $coin->id)->get();
         }
 
-        $curVotes = Vote::where('coin_id', $id)->get();
+
         $votes = Vote::all();
 
         return Inertia::render('CoinOpenPage', [
@@ -38,7 +53,8 @@ class CoinOpenPageController extends Controller
             'pageId' => $id,
             'innerCoin' => $coin,
             'votes' => $votes,
-            'curVotes' => $curVotes
+            'curVotes' => $curVotes,
+            'coins' => $coins
         ]);
     }
 }

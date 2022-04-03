@@ -64,7 +64,7 @@ const HomePage = ({currentUser, errors, coins, votes}) => {
         // getSingleRecordMoralis().then(res => console.log('HOME', res.data))
 
         dispatch(setCurrentUserAction(currentUser))
-        dispatch(geckoGetPing(sortObj))
+        // dispatch(geckoGetPing(sortObj))
         dispatch(fetchCoinAction(coins))
         dispatch(fetchVotesAction(votes))
         dispatch(fetchTopCoins('hour'))
@@ -136,7 +136,7 @@ const HomePage = ({currentUser, errors, coins, votes}) => {
                                     <div className={s.dataWrapper}>
                                         <h2>{bestCoin.name}</h2>
                                         <div className={s.graphWrapper}>
-                                            <GraphicIncrease text={bestCoin.one_hour}/>
+                                            <GraphicIncrease text={bestCoin.one_hour.toFixed(7)}/>
                                         </div>
                                     </div>
 

@@ -85,7 +85,8 @@ const TopCoinsItem = ({data, index}) => {
     const handleClick = e => {
         console.log('TopCoinsItem click', data)
         if (e.target.tagName !== 'BUTTON')
-            Inertia.visit(`${PATH_COIN_OPEN_PAGE}/${data.id}`)
+            // Inertia.visit(`${PATH_COIN_OPEN_PAGE}/${data.id}`)
+            Inertia.visit(`${PATH_COIN_OPEN_PAGE}/${data.name.replaceAll(' ', '_')}`)
     };
 
     return (

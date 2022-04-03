@@ -94,7 +94,8 @@ const SimpleTableItem = ({data, index}) => {
     const handleClick = e => {
         // console.log('StatusTableRow click', e.target.tagName !== 'BUTTON')
         if (e.target.tagName !== 'BUTTON')
-            Inertia.visit(`${PATH_COIN_OPEN_PAGE}/${data.id}`)
+            // Inertia.visit(`${PATH_COIN_OPEN_PAGE}/${data.id}`)
+            Inertia.visit(`${PATH_COIN_OPEN_PAGE}/${data.name.replaceAll(' ', '_')}`)
     };
 
     const voteHandler = e => {

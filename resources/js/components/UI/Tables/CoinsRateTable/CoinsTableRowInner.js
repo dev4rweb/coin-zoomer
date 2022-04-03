@@ -115,7 +115,8 @@ const CoinsTableRowInner = ({data}) => {
     const handleClick = e => {
         console.log('StatusTableRow click', data)
         if (e.target.tagName !== 'BUTTON')
-            Inertia.visit(`${PATH_COIN_OPEN_PAGE}/${data.id}`)
+            // Inertia.visit(`${PATH_COIN_OPEN_PAGE}/${data.id}`)
+            Inertia.visit(`${PATH_COIN_OPEN_PAGE}/${data.name.replaceAll(' ', '_')}`)
     };
 
     const voteHandler = e => {

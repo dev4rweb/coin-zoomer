@@ -10,7 +10,8 @@ const CoinsRateTableRow = ({data}) => {
 
     const handleClick = e => {
         console.log('StatusTableRow click', data)
-        Inertia.visit(`${PATH_COIN_OPEN_PAGE}/${data.id}`)
+        // Inertia.visit(`${PATH_COIN_OPEN_PAGE}/${data.id}`)
+        Inertia.visit(`${PATH_COIN_OPEN_PAGE}/${data.name.replaceAll(' ', '_')}`)
     };
 
     return (

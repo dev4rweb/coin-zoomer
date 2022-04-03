@@ -111,14 +111,14 @@ td {
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        margin-top: -100px; }
+        margin-top: -150px; }
         @media screen and (max-width: 1200px) {
           .coinOpenPage .wrapper .tokenSection .tokenBody {
             margin-top: 0; } }
         .coinOpenPage .wrapper .tokenSection .tokenBody .logo {
           width: 218px;
           height: 218px;
-          margin-bottom: -109px;
+          margin-bottom: -50px;
           background-image: url(../../../assets/img/token-logo-coin.png);
           z-index: 1;
           -webkit-border-radius: 50%;
