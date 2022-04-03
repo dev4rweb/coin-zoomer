@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Filters\CoinFilter;
 use App\Http\Controllers\Controller;
 use App\Models\Coin;
+use App\Models\CoinChain;
 use Illuminate\Http\Request;
 
 class CoinController extends Controller
@@ -39,7 +40,7 @@ class CoinController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -50,7 +51,7 @@ class CoinController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -61,8 +62,8 @@ class CoinController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -70,6 +71,21 @@ class CoinController extends Controller
         try {
             $coin = Coin::findOrFail($id);
             $coin->update($request->all());
+            $oldCoinsChains = CoinChain::where('coin_id', $id)->get();
+            if ($oldCoinsChains) {
+                foreach ($oldCoinsChains as $chain) {
+                    $chain->delete();
+                }
+            }
+            $coinChains = $request['coin_chains'];
+            if ($coinChains) {
+                foreach ($coinChains as $chain)
+                    CoinChain::create([
+                        'coin_id' => $id,
+                        'chain' => $chain['chain'],
+                        'contract_address' => $chain['contract_address']
+                    ]);
+            }
             $response['success'] = true;
             $response['message'] = 'Coin updated';
             $response['model'] = $coin;
@@ -84,7 +100,7 @@ class CoinController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

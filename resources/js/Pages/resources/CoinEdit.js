@@ -1,5 +1,5 @@
-import React from 'react';
-import {Button, Container, FloatingLabel, FormControl, InputGroup} from "react-bootstrap";
+import React, {useState} from 'react';
+import {Button, Container, DropdownButton, FloatingLabel, FormControl, InputGroup} from "react-bootstrap";
 import s from "../../../sass/pages/AdminPage/AdminPage.module.scss";
 import c from '../../../sass/pages/AddCoinPage/AddCoinPage.module.scss'
 import AdminSidebar from "../../components/UI/AdminSidebar/AdminSidebar";
@@ -17,8 +17,12 @@ import twitter from "../../../assets/img/ic-twitter.png";
 import reddit from "../../../assets/img/ic-reddit.png";
 import discord from "../../../assets/img/ic-discord.png";
 import InputFile from "../../components/InputFile/InputFile";
+import Chain from "../../components/ChainItem/Chain";
+import DropdownItem from "react-bootstrap/DropdownItem";
+import {useDispatch} from "react-redux";
 
 const CoinEdit = ({coin}) => {
+    const dispatch = useDispatch()
     const {data, setData, errors, put, processing} = useForm({
         id: coin.id,
         name: coin.name || '',
@@ -39,9 +43,14 @@ const CoinEdit = ({coin}) => {
         is_presale: coin.is_presale || false,
         is_coin_gecko: coin.is_coin_gecko || false,
         is_promoted: coin.is_promoted || false,
-        is_approved: coin.is_approved || false
+        is_approved: coin.is_approved || false,
+        coin_chains: coin.coin_chains || null
     })
-    // console.log('CoinEdit', coin)
+
+    const [titleChain, setTitleChain] = useState('Select')
+    const [contractAddress, setContractAddress] = useState('')
+
+    console.log('CoinEdit', coin)
 
     const limitTextHandler = e => {
         let words = e.target.value.split(' ').filter(Boolean)
@@ -96,9 +105,45 @@ const CoinEdit = ({coin}) => {
         })
     };
 
+    const removeChainHandler = chain => {
+        console.log('removeChainHandler', chain)
+        setData({
+            ...data,
+            ['coin_chains']: data.coin_chains.filter(i => i.id !== chain.id)
+        })
+    };
+
+    const chainTitleHandler = e => {
+        e.preventDefault()
+        setTitleChain(e.target.getAttribute('title'))
+    };
+
+    const addNewChainHandler = e => {
+        if (
+            (titleChain !== 'Select' && contractAddress)
+            ||
+            titleChain === 'miannet'
+        ) {
+            const newChain = {
+                id: Date.now(),
+                chain: titleChain,
+                contract_address: contractAddress
+            };
+            setData({
+                ...data,
+                ['contract_address']: data.coin_chains.push(newChain)
+            });
+            setTitleChain('Select');
+            setContractAddress('');
+        } else {
+            dispatch(setErrorsAction({message: 'You need to fill fields'}))
+        }
+
+    };
+
     const handleSubmit = e => {
         e.preventDefault()
-        // console.log('handleSubmit', data)
+        console.log('handleSubmit', data)
         axios.post(`/api/coins/${data.id}`, {
             _method: 'PUT',
             name: data.name,
@@ -119,9 +164,10 @@ const CoinEdit = ({coin}) => {
             is_presale: data.is_presale,
             is_coin_gecko: data.is_coin_gecko,
             is_promoted: data.is_promoted,
-            is_fake: false
+            is_fake: false,
+            coin_chains: data.coin_chains
         }).then(res => {
-            // console.log(res)
+            console.log(res)
             if (res.data.success) {
                 setErrorsAction({message: res.data.message});
                 Inertia.visit(PATH_ADMIN_COINS_PAGE);
@@ -346,6 +392,126 @@ const CoinEdit = ({coin}) => {
                                         </FloatingLabel>
                                     </InputGroup>
                                 </label>
+                            </div>
+                            <FormBlockDivider/>
+
+                            <h2 className={c.titleBlock}>Contract addresses</h2>
+                            <div>
+                                {
+                                    data.coin_chains && data.coin_chains.map(
+                                        (chain, i) =>
+                                            <Chain
+                                                chain={chain}
+                                                removeChain={removeChainHandler}
+                                                key={i}
+                                            />
+                                    )
+                                }
+                            </div>
+                            <div className="d-flex justify-content-between w-100">
+                                <label
+                                    className="input-label me-5"
+                                >
+                                    <span>*</span> Chain
+                                    <InputGroup className="mb-3">
+                                        <DropdownButton
+                                            id="dropdown-custom"
+                                            className='dropdown-custom'
+                                            title={titleChain}
+                                            required
+                                        >
+                                            <DropdownItem
+                                                onClick={chainTitleHandler}
+                                                as="button"
+                                                title={'eth'}
+                                            >
+                                                eth
+                                            </DropdownItem>
+                                            <DropdownItem
+                                                onClick={chainTitleHandler}
+                                                as="button"
+                                                title={'bsc'}
+                                            >
+                                                bsc
+                                            </DropdownItem>
+                                            <DropdownItem
+                                                onClick={chainTitleHandler}
+                                                as="button"
+                                                title={'fantom'}
+                                            >
+                                                fantom
+                                            </DropdownItem>
+                                            <DropdownItem
+                                                onClick={chainTitleHandler}
+                                                as="button"
+                                                title={'mumbai'}
+                                            >
+                                                mumbai
+                                            </DropdownItem>
+                                            <DropdownItem
+                                                onClick={chainTitleHandler}
+                                                as="button"
+                                                title={'polygon'}
+                                            >
+                                                polygon
+                                            </DropdownItem>
+                                            <DropdownItem
+                                                onClick={chainTitleHandler}
+                                                as="button"
+                                                title={'avalanche'}
+                                            >
+                                                avalanche
+                                            </DropdownItem>
+                                            <DropdownItem
+                                                onClick={chainTitleHandler}
+                                                as="button"
+                                                title={'miannet'}
+                                            >
+                                                miannet
+                                            </DropdownItem>
+                                        </DropdownButton>
+                                    </InputGroup>
+                                </label>
+
+                                <InputGroup className="mb-3 me-5">
+                                    <label className="input-label">
+                                        {
+                                            titleChain !== 'miannet' ?
+                                                <span>*</span>
+                                                :
+                                                ''
+                                        }
+                                        Contract address
+                                        {
+                                            titleChain !== 'miannet' ?
+                                                <FormControl
+                                                    placeholder="Example: BTC"
+                                                    className="input-text"
+                                                    type="text"
+                                                    value={contractAddress}
+                                                    onChange={e => setContractAddress(e.target.value)}
+                                                />
+                                                :
+                                                <FormControl
+                                                    placeholder="Example: BTC"
+                                                    className="input-text"
+                                                    type="text"
+                                                    value={contractAddress}
+                                                    onChange={e => setContractAddress(e.target.value)}
+                                                />
+                                        }
+
+                                    </label>
+                                </InputGroup>
+                                <Button
+                                    variant="info"
+                                    className={`fill-btn`}
+                                    style={{width: '165px', marginTop: '30px'}}
+                                    type="button"
+                                    onClick={addNewChainHandler}
+                                >
+                                    Add
+                                </Button>
                             </div>
                             <FormBlockDivider/>
 

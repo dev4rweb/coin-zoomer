@@ -115,9 +115,13 @@ const HomePage = ({currentUser, errors, coins, votes}) => {
                             <Medal>
                                 <p>Promoted coins</p>
                             </Medal>
-                            <Medal isRight={true}>
-                                <p>Top Daily Winner</p>
-                            </Medal>
+                            {
+                                bestCoin &&
+                                <Medal isRight={true}>
+                                    <p>Top Daily Winner</p>
+                                </Medal>
+                            }
+
                         </div>
                         <div className={s.tableBlock}>
                             <SimpleTable/>

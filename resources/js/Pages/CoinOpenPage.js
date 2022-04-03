@@ -46,7 +46,7 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes, 
                 console.log('send request to coin gecko', geckoId)
                 getCoinGeckoLiteData(geckoId)
             }
-            if(innerCurrentCoin && !innerCurrentCoin.is_coin_gecko){
+            if (innerCurrentCoin && !innerCurrentCoin.is_coin_gecko) {
                 console.log('send molaris')
                 getSingleRecordMoralis(
                     innerCurrentCoin.coin_chains[0].contract_address,
@@ -60,12 +60,12 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes, 
                             price: res.data.usdPrice,
                             market_cap: innerCurrentCoin.circulating_supply * res.data.usdPrice
                         })))
-                        setIsGetResponse(true)
+
                     }
-                });
+                }).finally(() => setIsGetResponse(true));
             }
         }
-    }, [innerCurrentCoin]);
+    }, [innerCurrentCoin, innerCoin]);
 
 
     const getCoinGeckoLiteData = (
@@ -82,11 +82,11 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes, 
                 if (res.data) {
                     dispatch(setCurrentInnerCoinAction({
                         ...innerCurrentCoin,
-                        ['logotype']: res.data.image.large,
+                        ['logotype']: res.data.image.large || innerCoin.logotype,
                         ['symbol']: res.data.symbol,
                         ['price']: res.data.market_data.current_price.usd,
                         ['market_cap']: res.data.market_data.market_cap.usd,
-                        ['launch_date']: res.data.genesis_date
+                        ['launch_date']: res.data.genesis_date || innerCoin.launch_date
                     }))
                 }
             })
@@ -146,37 +146,8 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes, 
                                     <h1>{innerCurrentCoin.name}</h1>
                                     <h3>{innerCurrentCoin.symbol}</h3>
                                 </div>
-                                <InputGroup className={s.tokenInput}>
-                                    {
-                                        innerCurrentCoin.coin_chains && innerCurrentCoin.coin_chains.length &&
-                                        <DropdownButton
-                                            id="dropdown-custom"
-                                            className='dropdown-custom'
-                                            title={chain}
-                                        >
-                                            {
-                                                innerCurrentCoin.coin_chains.length &&
-                                                innerCurrentCoin.coin_chains.map(i => {
-                                                        if (i.chain && i.contract_address) {
-                                                            return (
-                                                                <DropdownItem
-                                                                    onClick={event => chainHandler(event, i.contract_address)}
-                                                                    as="button"
-                                                                    title={i.chain}
-                                                                    key={i.id}
-                                                                >
-                                                                    {i.chain} - {i.contract_address}
-                                                                </DropdownItem>
-                                                            )
-                                                        }
-                                                    }
-                                                )
-                                            }
+                                <div className={s.tokenInput}/>
 
-                                        </DropdownButton>
-                                    }
-
-                                </InputGroup>
                             </div>
                             <div className={s.tokenBody}>
                                 <div className={s.logo}>
@@ -184,7 +155,7 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes, 
                                         <img src={innerCurrentCoin.logotype} alt="logo"/>
                                     </div>
                                 </div>
-                                <div className={s.tokenForm}>
+                                <div className={`mb-3 mt-3 ${s.tokenForm}`}>
                                     <div className={s.leftSide}>
                                         <InputGroup className="mb-3">
                                             <label className="input-label">
@@ -192,7 +163,7 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes, 
                                                 <FormControl
                                                     placeholder="Market cap"
                                                     className="input-text"
-                                                    value={`$${innerCurrentCoin.market_cap}`}
+                                                    value={`$${innerCurrentCoin.market_cap || '0'}`}
                                                     type="text"
                                                     disabled
                                                 />
@@ -204,7 +175,7 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes, 
                                                 <FormControl
                                                     placeholder="Price"
                                                     className="input-text"
-                                                    value={`$${innerCurrentCoin.price}`}
+                                                    value={`$${innerCurrentCoin.price || '0'}`}
                                                     type="text"
                                                     disabled
                                                 />
@@ -216,7 +187,7 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes, 
                                                 <FormControl
                                                     placeholder="Price"
                                                     className="input-text"
-                                                    value={innerCurrentCoin.launch_date}
+                                                    value={innerCurrentCoin.launch_date || '0'}
                                                     type="text"
                                                     disabled
                                                 />
@@ -254,6 +225,37 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes, 
                                             </p>
                                         </div>
                                     </div>
+                                    <InputGroup className={s.tokenInput}>
+                                        {
+                                            innerCurrentCoin.coin_chains && innerCurrentCoin.coin_chains.length &&
+                                            <DropdownButton
+                                                id="dropdown-custom"
+                                                className='dropdown-custom'
+                                                title={chain}
+                                            >
+                                                {
+                                                    innerCurrentCoin.coin_chains.length &&
+                                                    innerCurrentCoin.coin_chains.map(i => {
+                                                            if (i.chain && i.contract_address) {
+                                                                return (
+                                                                    <DropdownItem
+                                                                        onClick={event => chainHandler(event, i.contract_address)}
+                                                                        as="button"
+                                                                        title={i.chain}
+                                                                        key={i.id}
+                                                                    >
+                                                                        {i.chain} - {i.contract_address}
+                                                                    </DropdownItem>
+                                                                )
+                                                            }
+                                                        }
+                                                    )
+                                                }
+
+                                            </DropdownButton>
+                                        }
+
+                                    </InputGroup>
                                 </div>
                             </div>
                         </section>

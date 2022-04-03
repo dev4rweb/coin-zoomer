@@ -155,6 +155,7 @@ td {
           width: 100%;
           display: flex;
           justify-content: space-between;
+          flex-wrap: wrap;
           align-items: flex-end;
           min-height: 322px;
           -webkit-border-radius: 59px;
