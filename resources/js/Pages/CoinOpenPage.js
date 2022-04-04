@@ -24,12 +24,14 @@ import {getSingleRecordMoralis} from "../asyncAction/coinMolaris";
 
 const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes, coins}) => {
     const dispatch = useDispatch();
-    const innerCurrentCoin = useSelector(state => state.coin.currentInnerCoin)
     const currentVotes = useSelector(state => state.vote.curVotes)
     const allVotes = useSelector(state => state.vote.votes)
     const curUser = useSelector(state => state.currentUser.user)
     const [chain, setChain] = useState('Chains')
     const [isGetResponse, setIsGetResponse] = useState(false)
+
+    const [chainsStr, setChainsStr] = useState(null)
+    const [curCoin, setCurCoin] = useState(innerCoin)
 
     useEffect(() => {
         if (!isGetResponse) {
@@ -39,33 +41,46 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes, 
             dispatch(setCurrentInnerCoinAction(innerCoin));
             dispatch(fetchCurrentVotesAction(curVotes));
             dispatch(fetchVotesAction(votes));
+            chainsString()
             // dispatch(setErrorsAction(errors))
-            if (innerCurrentCoin && innerCurrentCoin.is_coin_gecko) {
-                const urlParts = innerCurrentCoin.coin_gecko_link.split('/')
+            if (curCoin && curCoin.is_coin_gecko) {
+                const urlParts = curCoin.coin_gecko_link.split('/')
                 const geckoId = urlParts[urlParts.length - 1]
                 console.log('send request to coin gecko', geckoId)
                 getCoinGeckoLiteData(geckoId)
             }
-            if (innerCurrentCoin && !innerCurrentCoin.is_coin_gecko) {
+            if (curCoin && !curCoin.is_coin_gecko) {
                 console.log('send molaris')
                 getSingleRecordMoralis(
-                    innerCurrentCoin.coin_chains[0].contract_address,
-                    innerCurrentCoin.coin_chains[0].chain
+                    curCoin.coin_chains[0].contract_address,
+                    curCoin.coin_chains[0].chain
                 ).then(res => {
                     if (res.status === 200) {
                         // console.log('molarisData', res);
-                        // console.log('DIF DATA', difData)
-                        dispatch(setCurrentInnerCoinAction(({
-                            ...innerCurrentCoin,
+                        setCurCoin({
+                            ...curCoin,
                             price: res.data.usdPrice,
-                            market_cap: innerCurrentCoin.circulating_supply * res.data.usdPrice
-                        })))
+                            market_cap: curCoin.circulating_supply * res.data.usdPrice
+                        })
 
                     }
                 }).finally(() => setIsGetResponse(true));
             }
         }
-    }, [innerCurrentCoin, innerCoin]);
+    },);
+
+    const chainsString = () => {
+        if (curCoin && curCoin.coin_chains.length) {
+            let exp = '';
+            for (let i = 0; i < curCoin.coin_chains.length; i++) {
+                if (i < curCoin.coin_chains.length - 1)
+                    exp += curCoin.coin_chains[i].chain + ', '
+                else exp += curCoin.coin_chains[i].chain
+            }
+            console.log('EXP', exp)
+            setChainsStr(exp)
+        }
+    };
 
 
     const getCoinGeckoLiteData = (
@@ -77,17 +92,16 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes, 
         axios.get(`${GECKO_ROOT_PATH}/coins/${nameId}?${dopData}`)
             .then(res => {
                 // console.log('getCoinGeckoLiteData CURRENT', res)
-                // console.log('getCoinGeckoLiteData CURRENT INNER', innerCurrentCoin)
 
                 if (res.data) {
-                    dispatch(setCurrentInnerCoinAction({
-                        ...innerCurrentCoin,
-                        ['logotype']: res.data.image.large || innerCoin.logotype,
+                    setCurCoin({
+                        ...curCoin,
+                        ['logotype']: res.data.image.large || curCoin.logotype,
                         ['symbol']: res.data.symbol,
                         ['price']: res.data.market_data.current_price.usd,
                         ['market_cap']: res.data.market_data.market_cap.usd,
-                        ['launch_date']: res.data.genesis_date || innerCoin.launch_date
-                    }))
+                        ['launch_date']: res.data.genesis_date || curCoin.launch_date
+                    })
                 }
             })
             .catch(err => {
@@ -116,7 +130,8 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes, 
                 if (todayVotes.length < 5) {
                     dispatch(addVote({
                         user_id: curUser.id,
-                        coin_id: innerCurrentCoin.id
+                        // coin_id: innerCurrentCoin.id
+                        coin_id: curCoin.id
                     }, true));
 
                     dispatch(setErrorsAction({message: `left vote limits ${4 - todayVotes.length} of 5`}))
@@ -139,20 +154,51 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes, 
                     <CustomAlert/>
                     <BannerBlock/>
                     {
-                        innerCurrentCoin &&
+                        curCoin &&
                         <section className={s.tokenSection}>
                             <div className={s.tokenHeader}>
                                 <div className={s.name}>
-                                    <h1>{innerCurrentCoin.name}</h1>
-                                    <h3>{innerCurrentCoin.symbol}</h3>
+                                    <h1>{curCoin.name}</h1>
+                                    <h3>{curCoin.symbol}</h3>
                                 </div>
-                                <div className={s.tokenInput}/>
+                                <InputGroup className={s.tokenInput}>
+                                    {
+                                        curCoin.coin_chains &&
+                                        curCoin.coin_chains.length &&
+                                        <DropdownButton
+                                            id="dropdown-custom"
+                                            className='dropdown-custom'
+                                            title={chain}
+                                        >
+                                            {
+                                                curCoin.coin_chains.length &&
+                                                curCoin.coin_chains.map(i => {
+                                                        if (i.chain && i.contract_address) {
+                                                            return (
+                                                                <DropdownItem
+                                                                    onClick={event => chainHandler(event, i.contract_address)}
+                                                                    as="button"
+                                                                    title={i.chain}
+                                                                    key={i.id}
+                                                                >
+                                                                    {i.chain} - {i.contract_address}
+                                                                </DropdownItem>
+                                                            )
+                                                        }
+                                                    }
+                                                )
+                                            }
+
+                                        </DropdownButton>
+                                    }
+
+                                </InputGroup>
 
                             </div>
                             <div className={s.tokenBody}>
                                 <div className={s.logo}>
                                     <div className={s.logoWrapper}>
-                                        <img src={innerCurrentCoin.logotype} alt="logo"/>
+                                        <img src={curCoin.logotype} alt="logo"/>
                                     </div>
                                 </div>
                                 <div className={`mb-3 mt-3 ${s.tokenForm}`}>
@@ -163,7 +209,7 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes, 
                                                 <FormControl
                                                     placeholder="Market cap"
                                                     className="input-text"
-                                                    value={`$${innerCurrentCoin.market_cap || '0'}`}
+                                                    value={`$${curCoin.market_cap || '0'}`}
                                                     type="text"
                                                     disabled
                                                 />
@@ -175,7 +221,7 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes, 
                                                 <FormControl
                                                     placeholder="Price"
                                                     className="input-text"
-                                                    value={`$${innerCurrentCoin.price || '0'}`}
+                                                    value={`$${curCoin.price || '0'}`}
                                                     type="text"
                                                     disabled
                                                 />
@@ -187,18 +233,34 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes, 
                                                 <FormControl
                                                     placeholder="Price"
                                                     className="input-text"
-                                                    value={innerCurrentCoin.launch_date || '0'}
+                                                    value={curCoin.launch_date || '0'}
                                                     type="text"
                                                     disabled
                                                 />
                                             </label>
                                         </InputGroup>
+                                        {
+                                            chainsStr &&
+                                            <InputGroup className="mb-3">
+                                                <label className="input-label">
+                                                    Chains
+                                                    <FormControl
+                                                        placeholder="Price"
+                                                        className="input-text"
+                                                        value={chainsStr}
+                                                        type="text"
+                                                        disabled
+                                                    />
+                                                </label>
+                                            </InputGroup>
+                                        }
                                     </div>
                                     <div className={s.rightSide}>
                                         <div className={s.statisticBlock}>
                                             {
                                                 currentVotes &&
-                                                <div className={s.btnWrapper} style={{width: '200px'}}>
+                                                <div className={s.btnWrapper}
+                                                     style={{width: '200px'}}>
                                                     <Button
                                                         variant="info"
                                                         className="fill-btn"
@@ -221,86 +283,56 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes, 
                                         <div className={s.coinContent}>
                                             <h3>About coin</h3>
                                             <p>
-                                                {innerCurrentCoin.description}
+                                                {curCoin.description}
                                             </p>
                                         </div>
                                     </div>
-                                    <InputGroup className={s.tokenInput}>
-                                        {
-                                            innerCurrentCoin.coin_chains && innerCurrentCoin.coin_chains.length &&
-                                            <DropdownButton
-                                                id="dropdown-custom"
-                                                className='dropdown-custom'
-                                                title={chain}
-                                            >
-                                                {
-                                                    innerCurrentCoin.coin_chains.length &&
-                                                    innerCurrentCoin.coin_chains.map(i => {
-                                                            if (i.chain && i.contract_address) {
-                                                                return (
-                                                                    <DropdownItem
-                                                                        onClick={event => chainHandler(event, i.contract_address)}
-                                                                        as="button"
-                                                                        title={i.chain}
-                                                                        key={i.id}
-                                                                    >
-                                                                        {i.chain} - {i.contract_address}
-                                                                    </DropdownItem>
-                                                                )
-                                                            }
-                                                        }
-                                                    )
-                                                }
 
-                                            </DropdownButton>
-                                        }
-
-                                    </InputGroup>
                                 </div>
                             </div>
                         </section>
                     }
                     <section className={s.buttonSection}>
                         {
-                            innerCurrentCoin && innerCurrentCoin.contractTelegram &&
+                            curCoin && curCoin.contractTelegram &&
                             <Button
                                 variant="primary"
                                 size="lg"
-                                onClick={e => window.open(innerCurrentCoin.contractTelegram, '_blank').focus()}
+                                onClick={e => window.open(curCoin.contractTelegram, '_blank').focus()}
                                 className={`btn-big btn-violet`}
                             >
                                 Telegram
                             </Button>
                         }
                         {
-                            innerCurrentCoin && innerCurrentCoin.contractTwitter &&
+                            curCoin && curCoin.contractTwitter &&
                             <Button
                                 variant="danger"
                                 size="lg"
                                 className={`btn-big btn-orange`}
-                                onClick={e => window.open(innerCurrentCoin.contractTwitter, '_blank').focus()}
+                                onClick={e => window.open(curCoin.contractTwitter, '_blank').focus()}
                             >
                                 Twitter
                             </Button>
                         }
                         {
-                            innerCurrentCoin && innerCurrentCoin.contractReddit &&
+                            curCoin && curCoin.contractReddit &&
                             <Button
                                 variant="primary"
                                 size="lg"
                                 className={`btn-big btn-violet`}
-                                onClick={e => window.open(innerCurrentCoin.contractReddit, '_blank').focus()}
+                                onClick={e => window.open(curCoin.contractReddit, '_blank').focus()}
                             >
                                 Reddit
                             </Button>
                         }
                         {
-                            innerCurrentCoin && innerCurrentCoin.contractWeb &&
+                            curCoin && curCoin.contractWeb &&
                             <Button
                                 variant="danger"
                                 size="lg"
                                 className={`btn-big btn-orange`}
-                                onClick={e => window.open(innerCurrentCoin.contractWeb, '_blank').focus()}
+                                onClick={e => window.open(curCoin.contractWeb, '_blank').focus()}
                             >
                                 Web
                             </Button>

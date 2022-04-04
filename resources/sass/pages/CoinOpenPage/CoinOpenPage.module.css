@@ -104,7 +104,7 @@ td {
           font-weight: bold;
           color: #ffa138; }
         .coinOpenPage .wrapper .tokenSection .tokenHeader .tokenInput {
-          max-width: 510px; }
+          max-width: 450px; }
       .coinOpenPage .wrapper .tokenSection .tokenBody {
         position: relative;
         display: flex;
@@ -156,7 +156,7 @@ td {
           display: flex;
           justify-content: space-between;
           flex-wrap: wrap;
-          align-items: flex-end;
+          align-items: center;
           min-height: 322px;
           -webkit-border-radius: 59px;
           -moz-border-radius: 59px;
