@@ -3,7 +3,8 @@ import axios from "axios";
 export const getSingleRecordMoralis = (address = null, chain = 'eth') => {
     const mainPath = 'https://deep-index.moralis.io/api/v2/erc20/'
     const contract_address = address ?? '0x320d31183100280CcdF69366CD56180Ea442A3E8'
-    // axios.get('https://deep-index.moralis.io/api/v2/erc20/0x95ad61b0a150d79219dcf64e1e6cc01f0b64c4ce/price?chain=eth', {
+
+// axios.get('https://deep-index.moralis.io/api/v2/erc20/0x95ad61b0a150d79219dcf64e1e6cc01f0b64c4ce/price?chain=eth', {
     // axios.get('https://deep-index.moralis.io/api/v2/erc20/0x320d31183100280CcdF69366CD56180Ea442A3E8/price?chain=eth', {
     return  axios.get(`${mainPath}${contract_address}/price?chain=${chain}`, {
         headers: {
@@ -15,6 +16,8 @@ export const getSingleRecordMoralis = (address = null, chain = 'eth') => {
     }).catch(err => {
         // console.log(err)
     });
+
+
 };
 
 /*export const testProm = new Promise((resolve, reject) => {

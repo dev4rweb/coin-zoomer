@@ -38,13 +38,16 @@ const SimpleTableItem = ({data, index}) => {
                 const urlParsed = difData.coin_gecko_link.split('/')
                 // console.log('DIFDATA LIGHT COIN', urlParsed[urlParsed.length - 1])
                 // console.log('CoinsTableRowInner coinGecko', urlParsed[urlParsed.length - 1])
-                getCoinGeckoLiteData(urlParsed[urlParsed.length - 1])
+                if (urlParsed[urlParsed.length - 1])
+                    getCoinGeckoLiteData(urlParsed[urlParsed.length - 1])
             }
         }
     }, []);
 
     useEffect(() => {
-        if (!difData.is_coin_gecko && difData.coin_chains.length) {
+        if (!difData.is_coin_gecko && difData.coin_chains.length
+            && difData.coin_chains[0].contract_address &&
+            !difData.coin_chains[0].chain.includes('miannet')) {
             // console.log('difData', difData)
             getSingleRecordMoralis(
                 difData.coin_chains[0].contract_address,
@@ -154,12 +157,14 @@ const SimpleTableItem = ({data, index}) => {
                         difData.one_hour > 0 ?
                             <div className={s.greenCol}>
                                 <span style={{marginRight: '5px'}}>&uarr;</span>
-                                {difData.one_hour.toFixed(2)}%
+                                {/*{difData.one_hour.toFixed(2)}%*/}
+                                {difData.one_hour}%
                             </div>
                             :
                             <div className={s.redCol}>
                                 <span style={{marginRight: '5px'}}>&darr;</span>
-                                {difData.one_hour.toFixed(2)}%
+                                {/*{difData.one_hour.toFixed(2)}%*/}
+                                {difData.one_hour}%
                             </div>
                         :
                         <div>0.0%</div>

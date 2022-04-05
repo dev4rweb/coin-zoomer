@@ -47,9 +47,12 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes, 
                 const urlParts = curCoin.coin_gecko_link.split('/')
                 const geckoId = urlParts[urlParts.length - 1]
                 console.log('send request to coin gecko', geckoId)
-                getCoinGeckoLiteData(geckoId)
+                if (urlParsed[urlParsed.length - 1])
+                    getCoinGeckoLiteData(geckoId)
             }
-            if (curCoin && !curCoin.is_coin_gecko) {
+            if (curCoin && !curCoin.is_coin_gecko
+                && curCoin.coin_chains[0].contract_address &&
+                !curCoin.coin_chains[0].chain.includes('miannet')) {
                 console.log('send molaris')
                 getSingleRecordMoralis(
                     curCoin.coin_chains[0].contract_address,
@@ -91,7 +94,7 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes, 
         console.log('data', dopData)
         axios.get(`${GECKO_ROOT_PATH}/coins/${nameId}?${dopData}`)
             .then(res => {
-                // console.log('getCoinGeckoLiteData CURRENT', res)
+                console.log('getCoinGeckoLiteData CURRENT', res)
 
                 if (res.data) {
                     setCurCoin({

@@ -18,7 +18,9 @@ const TopCoinsItem = ({data, index}) => {
     const [difData, setDifData] = useState(data)
     // console.log('TopCoinsItem', difData)
     useEffect(() => {
-        if (!difData.is_coin_gecko && difData.coin_chains && difData.coin_chains.length) {
+        if (!difData.is_coin_gecko && difData.coin_chains && difData.coin_chains.length &&
+            difData.coin_chains[0].contract_address &&
+            !difData.coin_chains[0].chain.includes('miannet')) {
 
             getSingleRecordMoralis(
                 difData.coin_chains[0].contract_address,
@@ -44,7 +46,8 @@ const TopCoinsItem = ({data, index}) => {
                 const urlParsed = difData.coin_gecko_link.split('/')
                 // console.log('DIFDATA LIGHT COIN', urlParsed[urlParsed.length - 1])
                 // console.log('CoinsTableRowInner coinGecko', urlParsed[urlParsed.length - 1])
-                getCoinGeckoLiteData(urlParsed[urlParsed.length - 1])
+                if (urlParsed[urlParsed.length - 1])
+                    getCoinGeckoLiteData(urlParsed[urlParsed.length - 1])
             }
         }
     }, []);
@@ -60,18 +63,26 @@ const TopCoinsItem = ({data, index}) => {
                 // console.log('getCoinGeckoLiteData', res)
                 difData.price_change_percentage_1h_in_currency = res.data.market_data.price_change_percentage_1h_in_currency.usd
                 if (res.data) {
-                    setDifData({
+                    const result = setDifData({
                         ...difData,
                         ['logotype']: res.data.image.small,
                         ['symbol']: res.data.symbol,
                         ['price']: res.data.market_data.current_price.usd,
                         ['market_cap']: res.data.market_data.market_cap.usd,
                         ['launch_date']: res.data.genesis_date ?? difData.launch_date,
-                        ['one_hour']: res.data.market_data.price_change_percentage_1h_in_currency.usd
+                        ['one_hour']: res.data.market_data.price_change_percentage_1h_in_currency.usd || 0
                     })
                     if (bestLeader.id == difData.id) {
-                        console.log('UPDATE')
-                        dispatch(setTheBestLeaderAction(difData));
+                        console.log('UPDATE', difData, bestLeader)
+                        dispatch(setTheBestLeaderAction({
+                            ...difData,
+                            ['logotype']: res.data.image.small,
+                            ['symbol']: res.data.symbol,
+                            ['price']: res.data.market_data.current_price.usd,
+                            ['market_cap']: res.data.market_data.market_cap.usd,
+                            ['launch_date']: res.data.genesis_date ?? difData.launch_date,
+                            ['one_hour']: res.data.market_data.price_change_percentage_1h_in_currency.usd || 0
+                        }));
                     }
 
                 }
@@ -97,16 +108,18 @@ const TopCoinsItem = ({data, index}) => {
                 <div className={s.data}>
                     <p className={s.name}>{difData.name}</p>
                     {
-                        difData.one_hour ?
+                        difData && difData.one_hour ?
                             difData.one_hour > 0 ?
                                 <div className={s.greenCol}>
                                     <span style={{marginRight: '5px'}}>&uarr;</span>
-                                    {difData.one_hour.toFixed(2)}%
+                                    {difData.one_hour}%
+                                    {/*{difData.one_hour.toFixed(2)}%*/}
                                 </div>
                                 :
                                 <div className={s.redCol}>
                                     <span style={{marginRight: '5px'}}>&darr;</span>
-                                    {difData.one_hour.toFixed(2)}%
+                                    {difData.one_hour}%
+                                    {/*{difData.one_hour.toFixed(2)}%*/}
                                 </div>
                             :
                             <div>0.0%</div>

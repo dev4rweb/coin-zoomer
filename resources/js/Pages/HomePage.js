@@ -140,7 +140,13 @@ const HomePage = ({currentUser, errors, coins, votes}) => {
                                     <div className={s.dataWrapper}>
                                         <h2>{bestCoin.name}</h2>
                                         <div className={s.graphWrapper}>
-                                            <GraphicIncrease text={bestCoin.one_hour.toFixed(7)}/>
+                                            {/*<GraphicIncrease text={bestCoin.one_hour.toFixed(7) || '0'}/>*/}
+                                            {
+                                                bestCoin.one_hour ?
+                                                    <GraphicIncrease text={bestCoin.one_hour}/> :
+                                                    <GraphicIncrease text={0}/>
+                                            }
+
                                         </div>
                                     </div>
 
