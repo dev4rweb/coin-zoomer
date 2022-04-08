@@ -38,7 +38,7 @@ const TopCoinsItem = ({data, index}) => {
                 }
             });
         }
-    });
+    },[]);
 
     useEffect(() => {
         if (!difData.is_fake) {

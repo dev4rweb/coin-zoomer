@@ -157,14 +157,14 @@ const SimpleTableItem = ({data, index}) => {
                         difData.one_hour > 0 ?
                             <div className={s.greenCol}>
                                 <span style={{marginRight: '5px'}}>&uarr;</span>
-                                {/*{difData.one_hour.toFixed(2)}%*/}
-                                {difData.one_hour}%
+                                {difData.one_hour.toFixed(2)}%
+                                {/*{difData.one_hour}%*/}
                             </div>
                             :
                             <div className={s.redCol}>
                                 <span style={{marginRight: '5px'}}>&darr;</span>
-                                {/*{difData.one_hour.toFixed(2)}%*/}
-                                {difData.one_hour}%
+                                {difData.one_hour.toFixed(2)}%
+                                {/*{difData.one_hour}%*/}
                             </div>
                         :
                         <div>0.0%</div>
@@ -175,7 +175,7 @@ const SimpleTableItem = ({data, index}) => {
                     {/*{`$ ${data.current_price.toFixed(2)}`}*/}
                     {/*$ {priceConverter(data.current_price)}*/}
                     <span style={{color: '#7dd75c', marginRight: '5px'}}>$</span>
-                    $ {priceConverter(difData.price)}
+                    {priceConverter(difData.price)}
                 </div>
             </td>
             <td>

@@ -47,7 +47,7 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes, 
                 const urlParts = curCoin.coin_gecko_link.split('/')
                 const geckoId = urlParts[urlParts.length - 1]
                 console.log('send request to coin gecko', geckoId)
-                if (urlParsed[urlParsed.length - 1])
+                if (urlParts[urlParts.length - 1])
                     getCoinGeckoLiteData(geckoId)
             }
             if (curCoin && !curCoin.is_coin_gecko

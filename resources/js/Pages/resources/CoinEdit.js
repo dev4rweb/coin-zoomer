@@ -44,7 +44,8 @@ const CoinEdit = ({coin}) => {
         is_coin_gecko: coin.is_coin_gecko || false,
         is_promoted: coin.is_promoted || false,
         is_approved: coin.is_approved || false,
-        coin_chains: coin.coin_chains || null
+        coin_chains: coin.coin_chains || null,
+        circulating_supply: coin.circulating_supply || null,
     })
 
     const [titleChain, setTitleChain] = useState('Select')
@@ -165,7 +166,9 @@ const CoinEdit = ({coin}) => {
             is_coin_gecko: data.is_coin_gecko,
             is_promoted: data.is_promoted,
             is_fake: false,
-            coin_chains: data.coin_chains
+            coin_chains: data.coin_chains,
+            circulating_supply: data.circulating_supply,
+
         }).then(res => {
             console.log(res)
             if (res.data.success) {
@@ -340,6 +343,26 @@ const CoinEdit = ({coin}) => {
                                             />
                                         </label>
                                     </InputGroup>
+
+                                    {
+                                        !data.is_coin_gecko &&
+                                        <InputGroup className="mb-3">
+                                            <label className="input-label">
+                                                <span>*</span> Approximately Circulating Supply
+                                                <FormControl
+                                                    placeholder="Example: 100000000"
+                                                    className="input-text"
+                                                    type="number"
+                                                    value={data.circulating_supply}
+                                                    onChange={e => setData({
+                                                        ...data,
+                                                        ['circulating_supply']: e.target.value
+                                                    })}
+                                                    required
+                                                />
+                                            </label>
+                                        </InputGroup>
+                                    }
 
                                     <InputGroup className="mb-3">
                                         <label className="input-label">
