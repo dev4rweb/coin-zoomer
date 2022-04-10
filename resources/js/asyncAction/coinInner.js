@@ -86,7 +86,7 @@ export const fetchTopCoins = byWhat => {
     return function (dispatch) {
         axios.get(`api/coins?${sortObj.sortName}=${sortObj.sortValue}&limit=${sortObj.limit}`)
             .then(res => {
-                console.log('fetchTopCoinsByHour', res)
+                // console.log('fetchTopCoinsByHour', res)
                 if (res.data.success) {
                     switch (byWhat) {
                         case 'hour':

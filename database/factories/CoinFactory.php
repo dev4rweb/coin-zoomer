@@ -16,7 +16,8 @@ class CoinFactory extends Factory
         return [
             'is_approved' => $this->faker->boolean,
             'is_promoted' => $this->faker->boolean,
-            'is_coin_gecko' => $this->faker->boolean(80),
+            'is_coin_gecko' => true,
+//            'is_coin_gecko' => $this->faker->boolean(80),
 //            'is_coin_gecko' => true,
             'is_presale' => $this->faker->boolean,
             'name' => $this->faker->word,

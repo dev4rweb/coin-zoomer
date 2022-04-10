@@ -29,13 +29,13 @@ const CoinsTableRowInner = ({data}) => {
 
         // console.log('CoinsTableRowInner', coinsGeckoList, data.name, difData.is_coin_gecko)
         if (!difData.is_fake) {
-            if (difData.is_coin_gecko) {
+            /*if (difData.is_coin_gecko) {
                 const urlParsed = difData.coin_gecko_link.split('/')
                 // console.log('DIFDATA LIGHT COIN', urlParsed[urlParsed.length - 1])
                 // console.log('CoinsTableRowInner coinGecko', urlParsed[urlParsed.length - 1])
                 if (urlParsed[urlParsed.length - 1])
                     getCoinGeckoLiteData(urlParsed[urlParsed.length - 1])
-            }
+            }*/
 
 
             /*if (difData.is_coin_gecko && coinsGeckoList.length) {
@@ -48,7 +48,7 @@ const CoinsTableRowInner = ({data}) => {
         }
     }, []);
 
-    useEffect(() => {
+    /*useEffect(() => {
         if (!difData.is_coin_gecko && difData.coin_chains.length
             && difData.coin_chains[0].contract_address &&
             !difData.coin_chains[0].chain.includes('miannet')) {
@@ -68,7 +68,7 @@ const CoinsTableRowInner = ({data}) => {
                 }
             });
         }
-    }, []);
+    }, []);*/
 
     const dateFormat = date => {
         const d = new Date(date),

@@ -50,7 +50,7 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes, 
                 if (urlParts[urlParts.length - 1])
                     getCoinGeckoLiteData(geckoId)
             }
-            if (curCoin && !curCoin.is_coin_gecko
+            /*if (curCoin && !curCoin.is_coin_gecko
                 && curCoin.coin_chains[0].contract_address &&
                 !curCoin.coin_chains[0].chain.includes('miannet')) {
                 console.log('send molaris')
@@ -68,7 +68,7 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes, 
 
                     }
                 }).finally(() => setIsGetResponse(true));
-            }
+            }*/
         }
     },);
 
