@@ -14,6 +14,7 @@ import {fillUserVoteLimit} from "../../../../asyncAction/user";
 import axios from "axios";
 import {priceConverter} from "../../../../utils/priceConverter";
 import {getSingleRecordMoralis} from "../../../../asyncAction/coinMolaris";
+import CustomBadge from "../../CustomBadge/CustomBadge";
 
 const CoinsTableRowInner = ({data}) => {
     const dispatch = useDispatch()
@@ -25,28 +26,28 @@ const CoinsTableRowInner = ({data}) => {
     const [difData, setDifData] = useState(data)
 
 
-    useEffect(() => {
+    /*useEffect(() => {
 
         // console.log('CoinsTableRowInner', coinsGeckoList, data.name, difData.is_coin_gecko)
         if (!difData.is_fake) {
-            /*if (difData.is_coin_gecko) {
+            if (difData.is_coin_gecko) {
                 const urlParsed = difData.coin_gecko_link.split('/')
                 // console.log('DIFDATA LIGHT COIN', urlParsed[urlParsed.length - 1])
                 // console.log('CoinsTableRowInner coinGecko', urlParsed[urlParsed.length - 1])
                 if (urlParsed[urlParsed.length - 1])
                     getCoinGeckoLiteData(urlParsed[urlParsed.length - 1])
-            }*/
+            }
 
 
-            /*if (difData.is_coin_gecko && coinsGeckoList.length) {
+            /!*if (difData.is_coin_gecko && coinsGeckoList.length) {
                 const coinGecko = coinsGeckoList.find(i => i.id === difData.name);
                 if (coinGecko) {
                     console.log('CoinsTableRowInner coinGecko', coinGecko)
                     getCoinGeckoLiteData(coinGecko.id)
                 }
-            }*/
+            }*!/
         }
-    }, []);
+    }, []);*/
 
     /*useEffect(() => {
         if (!difData.is_coin_gecko && difData.coin_chains.length
@@ -60,10 +61,14 @@ const CoinsTableRowInner = ({data}) => {
                 if (res.status === 200) {
                     // console.log('molarisData', res);
                     // console.log('DIF DATA', difData)
+                    const oneHour = difData.price > res.data.usdPrice ?
+                        -(res.data.usdPrice / difData.price * 100) :
+                        difData.price / res.data.usdPrice * 100
                     setDifData({
                         ...difData,
                         price: res.data.usdPrice,
-                        market_cap: difData.circulating_supply * res.data.usdPrice
+                        market_cap: difData.circulating_supply * res.data.usdPrice,
+                        one_hour: oneHour
                     })
                 }
             });
@@ -151,7 +156,23 @@ const CoinsTableRowInner = ({data}) => {
             <td className={s.coinsCol}>
                 <div className={s.coinsLong}>
                     <img src={difData.logotype} alt="coin"/>
-                    <p>{difData.name}</p>
+                    <div>
+                        <p>{difData.name}</p>
+                        <div className="d-flex">
+                            {
+                                difData.is_presale ? <CustomBadge data={'kyc'}/> : ''
+                            }
+                            {
+                                difData.coin_chains && difData.coin_chains.length &&
+                                difData.coin_chains.map((item, index) => {
+                                    if (index < 3) {
+                                        return  <CustomBadge data={item.chain}/>
+
+                                    }
+                                })
+                            }
+                        </div>
+                    </div>
                 </div>
             </td>
             <td className={s.symbol}>
@@ -165,14 +186,14 @@ const CoinsTableRowInner = ({data}) => {
                         difData.one_hour > 0 ?
                             <div className={s.greenCol}>
                                 <span style={{marginRight: '5px'}}>&uarr;</span>
-                                {difData.one_hour.toFixed(2)}%
-                                {/*{difData.one_hour}%*/}
+                                {/*{difData.one_hour.toFixed(8)}%*/}
+                                {difData.one_hour}%
                             </div>
                             :
                             <div className={s.redCol}>
                                 <span style={{marginRight: '5px'}}>&darr;</span>
-                                {difData.one_hour.toFixed(2)}%
-                                {/*{difData.one_hour}%*/}
+                                {/*{difData.one_hour.toFixed(8)}%*/}
+                                {difData.one_hour}%
                             </div>
                         :
                         <div>0.0%</div>
@@ -182,8 +203,8 @@ const CoinsTableRowInner = ({data}) => {
                 <div>
                     {/*{`$ ${difData.price}`}*/}
                     <span style={{color: '#7dd75c', marginRight: '5px'}}>$</span>
-                    {priceConverter(difData.price)}
-                    {/*$ {difData.price}*/}
+                    {/*{priceConverter(difData.price)}*/}
+                    {difData.price}
                 </div>
             </td>
             <td>

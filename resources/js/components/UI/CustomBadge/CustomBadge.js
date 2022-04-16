@@ -4,6 +4,30 @@ import {Badge} from "react-bootstrap";
 import {useDispatch} from "react-redux";
 
 const CustomBadge = ({data, removeHandler = null}) => {
+    let bgColor = 'info'
+    switch (data) {
+        case 'eth':
+            bgColor = 'success'
+            break;
+        case 'bsc':
+            bgColor = 'warning'
+            break
+        case 'fantom':
+            bgColor = 'primary'
+            break
+        case 'mumbai':
+            bgColor = 'secondary'
+            break
+        case 'polygon':
+            bgColor= 'danger'
+            break
+        case 'avalanche':
+            bgColor = 'light'
+            break
+        case 'mainnet':
+            bgColor='dark'
+            break
+    }
 
     const handleRemove = e => {
         // console.log('handleRemove', data)
@@ -14,15 +38,15 @@ const CustomBadge = ({data, removeHandler = null}) => {
 
     return (
         <div className={s.customBadge}>
-            <Badge className={s.badge} pill bg="info">
+            <Badge className={s.badge} bg={bgColor}>
                 {data}
             </Badge>
-            <span
+            {/*<span
                 onClick={handleRemove}
                 className={s.close}
             >
                 &times;
-            </span>
+            </span>*/}
         </div>
     );
 };

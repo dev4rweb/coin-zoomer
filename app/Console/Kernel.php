@@ -13,7 +13,7 @@ class Kernel extends ConsoleKernel
     /**
      * Define the application's command schedule.
      *
-     * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
+     * @param \Illuminate\Console\Scheduling\Schedule $schedule
      * @return void
      */
     protected function schedule(Schedule $schedule)
@@ -26,11 +26,12 @@ class Kernel extends ConsoleKernel
         // public_html/lsapp/artisan schedule:run
 
         $schedule->call(function () {
-            $coinsGecko = $coins = Coin::where('is_coin_gecko', 1)
+            $coinsGecko = Coin::where('is_coin_gecko', 1)
                 ->orderBy('updated_at')
                 ->with('coinChains')
                 ->take(30)
                 ->get();
+
             foreach ($coinsGecko as $coin) {
                 $parts_url = explode("/", $coin->coin_gecko_link);
                 $url_id = $parts_url[count($parts_url) - 1];
@@ -43,10 +44,13 @@ class Kernel extends ConsoleKernel
                     $coin['symbol'] = $response['symbol'];
                     $coin['price'] = $response['market_data']['current_price']['usd'];
                     $coin['market_cap'] = $response['market_data']['market_cap']['usd'];
+                    $coin['one_hour'] = $response['market_data']['price_change_percentage_1h_in_currency']['usd'];
                     if ($response['genesis_date']) {
                         $coin['launch_date'] = $response['genesis_date'];
                     }
                     $coin->save();
+                } else {
+                    break;
                 }
             }
             $coins = Coin::where('is_coin_gecko', 0)
@@ -64,10 +68,21 @@ class Kernel extends ConsoleKernel
                     ])
                         ->get('https://deep-index.moralis.io/api/v2/erc20/' . $contract_address . '/price?chain=' . $chain);
                     if ($responseCoin->ok()) {
-                        $coin->price = $responseCoin['usdPrice'];
+                        if ($coin->price > $responseCoin['usdPrice']) {
+//                            $coin->one_hour = -($responseCoin['usdPrice'] * 100 / $coin->price);
+                            $coin->one_hour = -round(($coin->price / $responseCoin['usdPrice'] - 1) * 100, 7);
+                        }
+                        if ($coin->price < $responseCoin['usdPrice']) {
+//                            $coin->one_hour = $coin->price * 100 / $responseCoin['usdPrice'];
+                            $coin->one_hour = round(($responseCoin['usdPrice'] / $coin->price - 1) * 100, 7);
+                        }
+                        $coin->price = round($responseCoin['usdPrice'], 8);
                         $coin->market_cap = $responseCoin['usdPrice'] * $coin->circulating_supply;
+
                         $coin->save();
                     }
+                } else {
+                    break;
                 }
             }
         })->everyMinute();
@@ -81,7 +96,7 @@ class Kernel extends ConsoleKernel
      */
     protected function commands()
     {
-        $this->load(__DIR__.'/Commands');
+        $this->load(__DIR__ . '/Commands');
 
         require base_path('routes/console.php');
     }

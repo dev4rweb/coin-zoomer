@@ -43,14 +43,14 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes, 
             dispatch(fetchVotesAction(votes));
             chainsString()
             // dispatch(setErrorsAction(errors))
-            if (curCoin && curCoin.is_coin_gecko) {
+           /* if (curCoin && curCoin.is_coin_gecko) {
                 const urlParts = curCoin.coin_gecko_link.split('/')
                 const geckoId = urlParts[urlParts.length - 1]
                 console.log('send request to coin gecko', geckoId)
                 if (urlParts[urlParts.length - 1])
                     getCoinGeckoLiteData(geckoId)
             }
-            /*if (curCoin && !curCoin.is_coin_gecko
+            if (curCoin && !curCoin.is_coin_gecko
                 && curCoin.coin_chains[0].contract_address &&
                 !curCoin.coin_chains[0].chain.includes('miannet')) {
                 console.log('send molaris')
@@ -60,10 +60,14 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes, 
                 ).then(res => {
                     if (res.status === 200) {
                         // console.log('molarisData', res);
+                        const oneHour = curCoin.price > res.data.usdPrice ?
+                            -(res.data.usdPrice / curCoin.price * 100) :
+                            curCoin.price / res.data.usdPrice * 100
                         setCurCoin({
                             ...curCoin,
                             price: res.data.usdPrice,
-                            market_cap: curCoin.circulating_supply * res.data.usdPrice
+                            market_cap: curCoin.circulating_supply * res.data.usdPrice,
+                            one_hour: oneHour
                         })
 
                     }

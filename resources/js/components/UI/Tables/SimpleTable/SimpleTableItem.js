@@ -13,6 +13,7 @@ import {getTimeToNight, getTodayVotes} from "../../../../asyncAction/voteTimer";
 import {addVote} from "../../../../asyncAction/votes";
 import {setErrorsAction} from "../../../../reducers/errorsReducer";
 import {useDispatch, useSelector} from "react-redux";
+import CustomBadge from "../../CustomBadge/CustomBadge";
 
 const SimpleTableItem = ({data, index}) => {
     const dispatch = useDispatch()
@@ -32,39 +33,43 @@ const SimpleTableItem = ({data, index}) => {
         return dateFormat
     };
 
-    useEffect(() => {
-        if (!difData.is_fake) {
-            /*if (difData.is_coin_gecko) {
-                const urlParsed = difData.coin_gecko_link.split('/')
-                // console.log('DIFDATA LIGHT COIN', urlParsed[urlParsed.length - 1])
-                // console.log('CoinsTableRowInner coinGecko', urlParsed[urlParsed.length - 1])
-                if (urlParsed[urlParsed.length - 1])
-                    getCoinGeckoLiteData(urlParsed[urlParsed.length - 1])
-            }*/
-        }
-    }, []);
+    /* useEffect(() => {
+         if (!difData.is_fake) {
+             if (difData.is_coin_gecko) {
+                 const urlParsed = difData.coin_gecko_link.split('/')
+                 // console.log('DIFDATA LIGHT COIN', urlParsed[urlParsed.length - 1])
+                 // console.log('CoinsTableRowInner coinGecko', urlParsed[urlParsed.length - 1])
+                 if (urlParsed[urlParsed.length - 1])
+                     getCoinGeckoLiteData(urlParsed[urlParsed.length - 1])
+             }
+         }
+     }, []);*/
 
-    /*useEffect(() => {
-        if (!difData.is_coin_gecko && difData.coin_chains.length
-            && difData.coin_chains[0].contract_address &&
-            !difData.coin_chains[0].chain.includes('miannet')) {
-            // console.log('difData', difData)
-            getSingleRecordMoralis(
-                difData.coin_chains[0].contract_address,
-                difData.coin_chains[0].chain
-            ).then(res => {
-                if (res.status === 200) {
-                    // console.log('molarisData', res);
-                    // console.log('DIF DATA', difData)
-                    setDifData({
-                        ...difData,
-                        price: res.data.usdPrice,
-                        market_cap: difData.circulating_supply * res.data.usdPrice
-                    })
-                }
-            });
-        }
-    }, []);*/
+    /*   useEffect(() => {
+           if (!difData.is_coin_gecko && difData.coin_chains.length
+               && difData.coin_chains[0].contract_address &&
+               !difData.coin_chains[0].chain.includes('miannet')) {
+               // console.log('difData', difData)
+               getSingleRecordMoralis(
+                   difData.coin_chains[0].contract_address,
+                   difData.coin_chains[0].chain
+               ).then(res => {
+                   if (res.status === 200) {
+                       // console.log('molarisData', res);
+                       // console.log('DIF DATA', difData)
+                       const oneHour = difData.price > res.data.usdPrice ?
+                           -(res.data.usdPrice / difData.price * 100) :
+                           difData.price / res.data.usdPrice * 100
+                       setDifData({
+                           ...difData,
+                           price: res.data.usdPrice,
+                           market_cap: difData.circulating_supply * res.data.usdPrice,
+                           one_hour: oneHour
+                       })
+                   }
+               });
+           }
+       }, []);*/
 
     const getCoinGeckoLiteData = (
         nameId, tickers = false, market_data = true, community_data = false,
@@ -130,7 +135,15 @@ const SimpleTableItem = ({data, index}) => {
             <td className={s.coinsCol}>
                 <div className={s.coins}>
                     <img src={difData.logotype} alt="coin"/>
-                    <p>{data.name}</p>
+                    <div>
+                        <p>{data.name}</p>
+                        <div>
+                            {
+                                difData.is_presale && <CustomBadge data={'KYC'} />
+                            }
+                        </div>
+
+                    </div>
                 </div>
             </td>
             <td className={s.symbol}>
@@ -139,32 +152,20 @@ const SimpleTableItem = ({data, index}) => {
                 </div>
             </td>
             <td>
-                {/*{*/}
-                {/*    data.price_change_percentage_1h_in_currency > 0 ?*/}
-                {/*        <div className={s.greenCol}>*/}
-                {/*            <img src={iconUp} alt="up"/>*/}
-                {/*            <span style={{marginRight: '5px'}}>&uarr;</span>*/}
-                {/*            {data.price_change_percentage_1h_in_currency.toFixed(2) || 0}%*/}
-                {/*        </div> :*/}
-                {/*        <div className={s.redCol}>*/}
-                {/*            <span style={{marginRight: '5px'}}>&darr;</span>*/}
-                {/*            {data.price_change_percentage_1h_in_currency.toFixed(2) || 0}%*/}
-                {/*        </div>*/}
-                {/*}*/}
 
                 {
                     difData.one_hour ?
                         difData.one_hour > 0 ?
                             <div className={s.greenCol}>
                                 <span style={{marginRight: '5px'}}>&uarr;</span>
-                                {difData.one_hour.toFixed(2)}%
-                                {/*{difData.one_hour}%*/}
+                                {/*{difData.one_hour.toFixed(8)}%*/}
+                                {difData.one_hour}%
                             </div>
                             :
                             <div className={s.redCol}>
                                 <span style={{marginRight: '5px'}}>&darr;</span>
-                                {difData.one_hour.toFixed(2)}%
-                                {/*{difData.one_hour}%*/}
+                                {/*{difData.one_hour.toFixed(8)}%*/}
+                                {difData.one_hour}%
                             </div>
                         :
                         <div>0.0%</div>
@@ -175,20 +176,11 @@ const SimpleTableItem = ({data, index}) => {
                     {/*{`$ ${data.current_price.toFixed(2)}`}*/}
                     {/*$ {priceConverter(data.current_price)}*/}
                     <span style={{color: '#7dd75c', marginRight: '5px'}}>$</span>
-                    {priceConverter(difData.price)}
+                    {/*{priceConverter(difData.price)}*/}
+                    {difData.price}
                 </div>
             </td>
             <td>
-                {/*{*/}
-                {/*    data.market_cap > 0 ?*/}
-                {/*        <div>*/}
-                {/*            <span style={{color: '#7dd75c', marginRight: '5px'}}>$</span>*/}
-
-                {/*            /!*{((data.market_cap) / 100000000).toFixed(3)}*!/*/}
-                {/*            {priceConverter(data.market_cap)}*/}
-                {/*        </div> :*/}
-                {/*        <div><span>$</span> {priceConverter(data.market_cap)}</div>*/}
-                {/*}*/}
                 <div>
                     <span style={{color: '#7dd75c', marginRight: '5px'}}>$</span>
                     {priceConverter(difData.market_cap)}

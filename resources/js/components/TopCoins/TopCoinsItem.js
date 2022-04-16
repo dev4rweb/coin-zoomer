@@ -29,9 +29,14 @@ const TopCoinsItem = ({data, index}) => {
                 if (res.status === 200) {
                     // console.log('molarisData', res);
                     // console.log('DIF DATA', difData)
+                    const oneHour = difData.price > res.data.usdPrice ?
+                        -(res.data.usdPrice / difData.price * 100) :
+                        difData.price / res.data.usdPrice * 100
                     setDifData({
                         ...difData,
-                        price: priceConverter(res.data.usdPrice),
+                        // price: priceConverter(res.data.usdPrice),
+                        price: res.data.usdPrice,
+                        one_hour: oneHour
                     })
                     if (bestLeader.id == difData.id)
                         dispatch(setTheBestLeaderAction(difData))
@@ -40,17 +45,17 @@ const TopCoinsItem = ({data, index}) => {
         }
     },[]);*/
 
-    useEffect(() => {
+    /*useEffect(() => {
         if (!difData.is_fake) {
-            /*if (difData.is_coin_gecko) {
+            if (difData.is_coin_gecko) {
                 const urlParsed = difData.coin_gecko_link.split('/')
                 // console.log('DIFDATA LIGHT COIN', urlParsed[urlParsed.length - 1])
                 // console.log('CoinsTableRowInner coinGecko', urlParsed[urlParsed.length - 1])
                 if (urlParsed[urlParsed.length - 1])
                     getCoinGeckoLiteData(urlParsed[urlParsed.length - 1])
-            }*/
+            }
         }
-    }, []);
+    }, []);*/
 
     const getCoinGeckoLiteData = (
         nameId, tickers = false, market_data = true, community_data = false,
@@ -113,13 +118,13 @@ const TopCoinsItem = ({data, index}) => {
                                 <div className={s.greenCol}>
                                     <span style={{marginRight: '5px'}}>&uarr;</span>
                                     {difData.one_hour}%
-                                    {/*{difData.one_hour.toFixed(2)}%*/}
+                                    {/*{difData.one_hour.toFixed(8)}%*/}
                                 </div>
                                 :
                                 <div className={s.redCol}>
                                     <span style={{marginRight: '5px'}}>&darr;</span>
                                     {difData.one_hour}%
-                                    {/*{difData.one_hour.toFixed(2)}%*/}
+                                    {/*{difData.one_hour.toFixed(8)}%*/}
                                 </div>
                             :
                             <div>0.0%</div>

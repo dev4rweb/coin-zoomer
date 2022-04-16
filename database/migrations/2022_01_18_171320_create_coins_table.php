@@ -22,8 +22,8 @@ class CreateCoinsTable extends Migration
             $table->boolean('is_fake')->default(true);
             $table->string('name');
             $table->text('description');
-            $table->float('price')->nullable();
-            $table->float('one_hour')->nullable();
+            $table->double('price')->nullable();
+            $table->double('one_hour')->nullable();
             $table->string('symbol');
             $table->integer('circulating_supply')->nullable();
             $table->bigInteger('market_cap')->nullable();
