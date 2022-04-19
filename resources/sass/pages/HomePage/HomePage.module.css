@@ -133,7 +133,19 @@ td {
           background-color: black;
           -webkit-border-radius: 50%;
           -moz-border-radius: 50%;
-          border-radius: 50%; }
+          border-radius: 50%;
+          -webkit-transition: all .2s;
+          -moz-transition: all .2s;
+          -ms-transition: all .2s;
+          -o-transition: all .2s;
+          transition: all .2s; }
+          .homePage .tableBlock .rightSide .winWrapper .coinLogo:hover {
+            cursor: pointer;
+            -webkit-transform: scale(1.2, 1.2);
+            -moz-transform: scale(1.2, 1.2);
+            -ms-transform: scale(1.2, 1.2);
+            -o-transform: scale(1.2, 1.2);
+            transform: scale(1.2, 1.2); }
       .homePage .tableBlock .rightSide .dataWrapper {
         display: flex;
         justify-content: center;

@@ -17,6 +17,7 @@ class Coin extends Model
         'is_coin_gecko',
         'is_presale',
         'is_fake',
+        'is_kyc',
         'name',
         'description',
         'price',

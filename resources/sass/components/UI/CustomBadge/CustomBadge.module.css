@@ -80,7 +80,7 @@ td {
 .customBadge {
   display: flex;
   position: relative;
-  margin-right: 1rem; }
+  margin-right: 8px; }
   .customBadge .badge {
     text-transform: uppercase;
     font-size: 10px; }

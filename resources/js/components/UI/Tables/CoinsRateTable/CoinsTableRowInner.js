@@ -160,7 +160,7 @@ const CoinsTableRowInner = ({data}) => {
                         <p>{difData.name}</p>
                         <div className="d-flex">
                             {
-                                difData.is_presale ? <CustomBadge data={'kyc'}/> : ''
+                                difData.is_kyc ? <CustomBadge data={'kyc'}/> : ''
                             }
                             {
                                 difData.coin_chains && difData.coin_chains.length &&

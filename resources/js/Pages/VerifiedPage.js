@@ -24,13 +24,41 @@ const VerifiedPage = ({currentUser, errors}) => {
     const accordionData = [
         {
             id: 1,
-            title: 'Price',
-            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+            title: 'Price:',
+            content: `<p>Cryptocurrency: 0.25 BNB or 0.0025 BTC <br/> Paypal: 100 USD <br/> BankWire: 150 USD</p>
+            <p>The address for payment will be sent to the email or telegram from the official domain.</p>
+            <p>If we identify a scam or a fraudulent attempt during the KYC procedure, we may refuse to repay these money following a failed KYC. </p>`
         },
         {
             id: 2,
+            title: 'How to apply:',
+            content: `<p>you can complete the form below and we will contact you within 24 hours or you can contact us
+             directly on telegram: <br/> CoinZoomerPromo or email:  <a href="mailto:admin@coinzoomer.com">admin@coinzoomer.com</a> </p>`
+        },
+        {
+            id: 3,
             title: 'How is verification processed?',
-            content: 'You are required to join a video call which will be recorded, and in case of rug/honeypot schemes the recording would be uploaded to your social groups for the victims of scam. We will mark your project as verified by CoinMooner team, which will improve your trustworthiness for investors and entire crypto community.'
+            content: `<p>Following the signing of the GDPR-compliant data processing agreement.</p>
+            <p>We will request a photo with a visible face as well as a card with the date, name of the project,
+            the person's position in the organization, and your name.</p>
+            <p>The images will be reviewed for the use of a fake person, and if necessary, a video call will be set up.</p>
+            <p>We may also verify your entire name.</p>
+            <p>The photo will be made public on the server.</p>`
+        },
+        {
+            id: 4,
+            title: 'How long is KYC valid?',
+            content: `<p>As part of security, KYC is valid for one year after the project's expiration is announced publicly.</p>
+            <p>A KYC extension costs half the price of your initial payment.</p>`
+        },
+        {
+            id: 5,
+            title: 'How to delist project from  KYC?',
+            content: `<p>According to the regulation on the protection of personal data, we must give the possibility
+             of withdrawing the processed data and the possibility of removing KYC from a given coin. At the
+             request of the person who performed the KYC, we can delete all data related to it. But as a safety
+              measure, we will publicly announce that the KYC will be lifted on a given project within 24 hours.
+              After such information, users have time to rethink their investment.</p>`
         },
     ]
 
@@ -51,16 +79,27 @@ const VerifiedPage = ({currentUser, errors}) => {
                         <div className={s.contentBlock}>
                             <div className={s.medalWrapper}>
                                 <Medal>
-                                    <p>About us and contacts</p>
+                                    <p>About us and contacts </p>
                                 </Medal>
                             </div>
-                            <p>
+                            {/*<p>
                                 Doxxing - Get your team verified to show your community your transparency
                             </p>
                             <p>
                                 Know Your Customer (KYC) – is the essential method of verification the identity of the
                                 project teams. CoinMooner employs this procedure to verify the identity of the project
                                 team members. Let's make crypto space safer!
+                            </p>*/}
+                            <p>
+                                KYC - Get your team verified to show that your project is transparent and reliable for
+                                your community!
+                            </p>
+                            <p>
+                                Know Your Customer (KYC) – is a critical method for verifying the authenticity of
+                                project teams. <br/>
+                                This technique is used by CoinZommer to authenticate the identities of project team
+                                members. <br/>
+                                Let's make the crypto space more secure!
                             </p>
                             <h3 className={s.faqTitle}>FAQ</h3>
                             <CustomAccordion data={accordionData}/>
@@ -79,15 +118,15 @@ const VerifiedPage = ({currentUser, errors}) => {
                                     <p>
                                         Send us direct message on Telegram:
                                     </p>
-                                    <InputTwoImageGroup imgLink={telegram} content={'@TelegramSupportKYC'}/>
+                                    <InputTwoImageGroup imgLink={telegram} content={'@CoinZoomer'}/>
                                     <p style={{marginTop: '40px'}}>Or e-mail us at:</p>
-                                    <InputTwoImageGroup imgLink={mail} content={'support@sitename.com'}/>
+                                    <InputTwoImageGroup imgLink={mail} content={'admin@coinzoomer.com'}/>
                                 </div>
                                 <div className={s.rightSide}>
                                     <p>Feedback from the site</p>
                                     <InputGroup className="mb-3">
                                         <FormControl
-                                            placeholder="Your email"
+                                            placeholder="Your email: is necessary"
                                             className="input-text"
                                             type="email"
                                         />
@@ -95,7 +134,7 @@ const VerifiedPage = ({currentUser, errors}) => {
 
                                     <InputGroup className="mb-3">
                                         <FormControl
-                                            placeholder="Your name"
+                                            placeholder="Your name:"
                                             className="input-text"
                                             type="text"
                                         />
@@ -103,7 +142,13 @@ const VerifiedPage = ({currentUser, errors}) => {
 
                                     <InputGroup className="mb-3">
                                         <FormControl
-                                            placeholder="Your telegram / email"
+                                            placeholder="Your Telegram:"
+                                            className="input-text"
+                                        />
+                                    </InputGroup>
+                                    <InputGroup className="mb-3">
+                                        <FormControl
+                                            placeholder="Coin name: is necessary"
                                             className="input-text"
                                         />
                                     </InputGroup>
@@ -111,7 +156,7 @@ const VerifiedPage = ({currentUser, errors}) => {
                                         <FloatingLabel label="Message">
                                             <Form.Control
                                                 as="textarea"
-                                                placeholder="Message"
+                                                placeholder="Any questions: (like message this same input)"
                                                 style={{height: '150px', resize: 'none'}}
                                             />
                                         </FloatingLabel>

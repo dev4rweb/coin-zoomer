@@ -21,6 +21,7 @@ import {fetchCurrentVotesAction, fetchVotesAction} from "../reducers/voteReducer
 import {getTimeToNight, getTodayVotes} from "../asyncAction/voteTimer";
 import axios from "axios";
 import {getSingleRecordMoralis} from "../asyncAction/coinMolaris";
+import CustomBadge from "../components/UI/CustomBadge/CustomBadge";
 
 const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes, coins}) => {
     const dispatch = useDispatch();
@@ -167,6 +168,11 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes, 
                                 <div className={s.name}>
                                     <h1>{curCoin.name}</h1>
                                     <h3>{curCoin.symbol}</h3>
+                                    <div>
+                                        {
+                                            curCoin.is_kyc ? <CustomBadge data={'KYC'} /> : ''
+                                        }
+                                    </div>
                                 </div>
                                 <InputGroup className={s.tokenInput}>
                                     {

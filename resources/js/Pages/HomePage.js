@@ -26,7 +26,7 @@ import LeadersCard from "../components/LeadersCard/LeadersCard";
 import SubscribeBlock from "../components/SubscribeBlock/SubscribeBlock";
 import LeadersSubscribeBlock from "../components/LeadersSubscribeBlock/LeadersSubscribeBlock";
 import {Inertia} from "@inertiajs/inertia";
-import {PATH_ADD_COIN_PAGE} from "../utils/routesPath";
+import {PATH_ADD_COIN_PAGE, PATH_COIN_OPEN_PAGE} from "../utils/routesPath";
 import {geckoGetPing} from "../asyncAction/coinGecko";
 import {fetchCoinAction, setCoinPageLimitAction, setTableRateLimitAction} from "../reducers/coinReducer";
 import {fetchCoinByQuery, fetchCoinByQueryObj, fetchTopCoins} from "../asyncAction/coinInner";
@@ -133,6 +133,7 @@ const HomePage = ({currentUser, errors, coins, votes}) => {
                                         <img
                                             className={s.coinLogo}
                                             src={bestCoin.logotype}
+                                            onClick={event => Inertia.visit(`${PATH_COIN_OPEN_PAGE}/${bestCoin.name.replaceAll(' ', '_')}`)}
                                             alt="logo"
                                         />
                                     </div>

@@ -20,6 +20,7 @@ class CreateCoinsTable extends Migration
             $table->boolean('is_coin_gecko')->default(false);
             $table->boolean('is_presale')->default(false);
             $table->boolean('is_fake')->default(true);
+            $table->boolean('is_kyc')->default(false);
             $table->string('name');
             $table->text('description');
             $table->double('price')->nullable();

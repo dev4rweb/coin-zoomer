@@ -9,7 +9,11 @@ const CustomAccordion = ({data}) => {
                 data.map((item, index) =>
                     <Accordion.Item key={index} eventKey={`${index}`}>
                         <Accordion.Header>{item.title}</Accordion.Header>
-                        <Accordion.Body>{item.content}</Accordion.Body>
+                        <Accordion.Body>
+                            <div dangerouslySetInnerHTML={{__html: item.content}}>
+
+                            </div>
+                        </Accordion.Body>
                     </Accordion.Item>
                 )
             }

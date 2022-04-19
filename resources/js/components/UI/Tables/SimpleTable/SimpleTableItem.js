@@ -139,7 +139,7 @@ const SimpleTableItem = ({data, index}) => {
                         <p>{data.name}</p>
                         <div>
                             {
-                                difData.is_presale && <CustomBadge data={'KYC'} />
+                                difData.is_kyc ? <CustomBadge data={'KYC'} /> : ''
                             }
                         </div>
 

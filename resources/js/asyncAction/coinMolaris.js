@@ -3,12 +3,17 @@ import axios from "axios";
 export const getSingleRecordMoralis = (address = null, chain = 'eth') => {
     const mainPath = 'https://deep-index.moralis.io/api/v2/erc20/'
     const contract_address = address ?? '0x320d31183100280CcdF69366CD56180Ea442A3E8'
+    const apiKey = window.location.href.includes('coinzoomer.com') ?
+        'jTG1sdNlkrUtapkTO7Tt5UEa1P8lgLlHn21M32F56G5nSZrmfoGQy4F7I8DBNFP6' :
+        'UpQ3vKSY4Lwb4c09DfS4pNMsf43YXLplFTudha98Iitks2giWK4e3Swv3S0f3Ic5'
 
 // axios.get('https://deep-index.moralis.io/api/v2/erc20/0x95ad61b0a150d79219dcf64e1e6cc01f0b64c4ce/price?chain=eth', {
     // axios.get('https://deep-index.moralis.io/api/v2/erc20/0x320d31183100280CcdF69366CD56180Ea442A3E8/price?chain=eth', {
     return  axios.get(`${mainPath}${contract_address}/price?chain=${chain}`, {
         headers: {
-            'X-API-Key': 'UpQ3vKSY4Lwb4c09DfS4pNMsf43YXLplFTudha98Iitks2giWK4e3Swv3S0f3Ic5'
+            'X-API-Key': apiKey
+            // 'X-API-Key': 'UpQ3vKSY4Lwb4c09DfS4pNMsf43YXLplFTudha98Iitks2giWK4e3Swv3S0f3Ic5' // mine
+            // 'X-API-Key': 'jTG1sdNlkrUtapkTO7Tt5UEa1P8lgLlHn21M32F56G5nSZrmfoGQy4F7I8DBNFP6' // Nikodem
         }
     }).then(res => {
         // console.log('getSingleRecord res', res)

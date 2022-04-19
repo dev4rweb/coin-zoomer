@@ -14,7 +14,7 @@ import SocialBlock from "../../SocialBlock";
 const FooterNav = () => {
     const routes = [
         {name: 'AirDrop', url: PATH_AIR_DROP_PAGE},
-        {name: 'Verified', url: PATH_VERIFIED_PAGE},
+        {name: 'KYC', url: PATH_VERIFIED_PAGE},
         {name: 'Adc', url: PATH_ADC_PAGE},
         {name: 'Contacts', url: PATH_CONTACTS_PAGE},
         {name: 'Token', url: PATH_TOKEN_PAGE},

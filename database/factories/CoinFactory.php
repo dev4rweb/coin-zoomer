@@ -19,6 +19,7 @@ class CoinFactory extends Factory
             'is_coin_gecko' => true,
 //            'is_coin_gecko' => $this->faker->boolean(80),
 //            'is_coin_gecko' => true,
+            'is_kyc' => $this->faker->boolean,
             'is_presale' => $this->faker->boolean,
             'name' => $this->faker->word,
             'description' => $this->faker->text(200),
