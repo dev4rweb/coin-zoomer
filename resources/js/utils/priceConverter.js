@@ -36,6 +36,6 @@ export const priceConverter = price => {
         return price.toFixed(4)
     }
 
-    return price ? price.toFixed(2) : price;
-    // return price
+    // return price ? price.toFixed(2) : price;
+    return price
 };

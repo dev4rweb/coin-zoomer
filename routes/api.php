@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\BannerController;
 use App\Http\Controllers\Api\CoinController;
+use App\Http\Controllers\Api\MailController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\VoteController;
 use Illuminate\Http\Request;
@@ -30,3 +31,4 @@ Route::apiResources([
 ]);
 
 Route::post('/fill-vote-limit', [UserController::class, 'fillVoteLimit']);
+Route::post('/send-email', [MailController::class, 'sendEmail']);

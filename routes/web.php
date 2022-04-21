@@ -20,6 +20,9 @@ use App\Http\Controllers\TokenPageController;
 use App\Http\Controllers\UploadFileController;
 use App\Http\Controllers\UserPageController;
 use App\Http\Controllers\VerifiedPageController;
+use App\Mail\SendMail;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -66,5 +69,13 @@ Route::resources([
     'innerBanners' => BannerController::class
 ]);
 
+Route::get('/send-email', function () {
+    $data['email'] = 'a@gmail.com';
+    $data['userName'] = 'user name';
+    $data['contact'] = 'Telegram';
+    $data['coinName'] = 'Coin Name';
+    $data['message'] = 'Some message';
+    return new SendMail($data);
+});
 // Error Page
 Route::fallback([ErrorPageController::class, 'index']);

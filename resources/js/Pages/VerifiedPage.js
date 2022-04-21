@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import s from '../../sass/pages/VerifiedPage/VerifiedPage.module.scss'
 import Layout from "../components/Layout";
 import {useDispatch} from "react-redux";
@@ -61,11 +61,30 @@ const VerifiedPage = ({currentUser, errors}) => {
               After such information, users have time to rethink their investment.</p>`
         },
     ]
+    const [mailData, setMailData] = useState({
+        email: '',
+        userName: '',
+        contact: '',
+        coinName: '',
+        message: '',
+    })
 
     useEffect(() => {
         dispatch(setCurrentUserAction(currentUser))
         // dispatch(setErrorsAction(errors))
     }, []);
+
+    const sendEmail = e => {
+        e.preventDefault()
+        console.log('sendEmail', mailData)
+        axios.post('/api/send-email', mailData)
+            .then(res => {
+                console.log('sendEmail', res)
+            })
+            .catch(err => {
+                console.log('sendEmail', err)
+            });
+    };
 
     return (
         <Layout>
@@ -113,7 +132,10 @@ const VerifiedPage = ({currentUser, errors}) => {
                                 The field marked with <span style={{color: '#f14b4e'}}>*</span> must be filled in!
                             </p>
                         }>
-                            <div className={s.contactForm}>
+                            <form
+                                onSubmit={sendEmail}
+                                className={s.contactForm}
+                            >
                                 <div className={s.leftSide}>
                                     <p>
                                         Send us direct message on Telegram:
@@ -129,6 +151,12 @@ const VerifiedPage = ({currentUser, errors}) => {
                                             placeholder="Your email: is necessary"
                                             className="input-text"
                                             type="email"
+                                            value={mailData.email}
+                                            onChange={e => setMailData({
+                                                ...mailData,
+                                                ['email']: e.target.value
+                                            })}
+                                            required
                                         />
                                     </InputGroup>
 
@@ -137,6 +165,11 @@ const VerifiedPage = ({currentUser, errors}) => {
                                             placeholder="Your name:"
                                             className="input-text"
                                             type="text"
+                                            value={mailData.userName}
+                                            onChange={e => setMailData({
+                                                ...mailData,
+                                                ['userName']: e.target.value
+                                            })}
                                         />
                                     </InputGroup>
 
@@ -144,12 +177,24 @@ const VerifiedPage = ({currentUser, errors}) => {
                                         <FormControl
                                             placeholder="Your Telegram:"
                                             className="input-text"
+                                            value={mailData.contact}
+                                            onChange={e => setMailData({
+                                                ...mailData,
+                                                ['contact']: e.target.value
+                                            })}
                                         />
                                     </InputGroup>
                                     <InputGroup className="mb-3">
                                         <FormControl
+                                            type="text"
                                             placeholder="Coin name: is necessary"
                                             className="input-text"
+                                            value={mailData.coinName}
+                                            onChange={e => setMailData({
+                                                ...mailData,
+                                                ['coinName']: e.target.value
+                                            })}
+                                            required
                                         />
                                     </InputGroup>
                                     <InputGroup className="mb-3">
@@ -158,6 +203,11 @@ const VerifiedPage = ({currentUser, errors}) => {
                                                 as="textarea"
                                                 placeholder="Any questions: (like message this same input)"
                                                 style={{height: '150px', resize: 'none'}}
+                                                value={mailData.message}
+                                                onChange={e => setMailData({
+                                                    ...mailData,
+                                                    ['message']: e.target.value
+                                                })}
                                             />
                                         </FloatingLabel>
                                     </InputGroup>
@@ -170,12 +220,13 @@ const VerifiedPage = ({currentUser, errors}) => {
                                         </button>
                                         <button
                                             className="simple-btn-filled"
+                                            type={"submit"}
                                         >
                                             Submit
                                         </button>
                                     </div>
                                 </div>
-                            </div>
+                            </form>
                         </CustomForm>
                     </section>
                 </Container>
