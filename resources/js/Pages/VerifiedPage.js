@@ -18,6 +18,7 @@ import DropdownItem from "react-bootstrap/DropdownItem";
 import Form from "react-bootstrap/Form";
 import SectionSeparator from "../components/UI/SectionSeparator/SectionSeparator";
 import LeadersSubscribeBlock from "../components/LeadersSubscribeBlock/LeadersSubscribeBlock";
+import {Inertia} from "@inertiajs/inertia";
 
 const VerifiedPage = ({currentUser, errors}) => {
     const dispatch = useDispatch();
@@ -80,6 +81,10 @@ const VerifiedPage = ({currentUser, errors}) => {
         axios.post('/api/send-email', mailData)
             .then(res => {
                 console.log('sendEmail', res)
+                if (res.data.success) {
+                    dispatch(setErrorsAction({message: 'Email sent'}))
+                    Inertia.visit('/verified')
+                }
             })
             .catch(err => {
                 console.log('sendEmail', err)
@@ -170,6 +175,7 @@ const VerifiedPage = ({currentUser, errors}) => {
                                                 ...mailData,
                                                 ['userName']: e.target.value
                                             })}
+                                            required
                                         />
                                     </InputGroup>
 

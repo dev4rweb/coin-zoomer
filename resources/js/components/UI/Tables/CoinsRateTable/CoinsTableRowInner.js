@@ -164,12 +164,14 @@ const CoinsTableRowInner = ({data}) => {
                             }
                             {
                                 difData.coin_chains && difData.coin_chains.length &&
+                                difData.coin_chains.length > 0  ?
                                 difData.coin_chains.map((item, index) => {
                                     if (index < 3) {
-                                        return  <CustomBadge data={item.chain}/>
+                                        return  <CustomBadge data={item.chain} key={index}/>
 
                                     }
                                 })
+                                    : ''
                             }
                         </div>
                     </div>

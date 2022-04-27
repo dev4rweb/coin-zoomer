@@ -22,6 +22,7 @@ use App\Http\Controllers\UserPageController;
 use App\Http\Controllers\VerifiedPageController;
 use App\Mail\SendMail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
@@ -76,6 +77,16 @@ Route::get('/send-email', function () {
     $data['coinName'] = 'Coin Name';
     $data['message'] = 'Some message';
     return new SendMail($data);
+});
+
+Route::get('/test-route', function () {
+//    Artisan::call('cache:clear');
+//    Artisan::call('route:cache');
+//    Artisan::call('migrate:refresh --seed');
+    Artisan::call('migrate');
+
+//    dd("Cache is cleared");
+    return 'Migrate done';
 });
 // Error Page
 Route::fallback([ErrorPageController::class, 'index']);

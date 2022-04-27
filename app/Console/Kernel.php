@@ -43,7 +43,7 @@ class Kernel extends ConsoleKernel
                     $coin['logotype'] = $response['image']['large'];
                     $coin['symbol'] = $response['symbol'];
                     $coin['price'] = $response['market_data']['current_price']['usd'];
-                    $coin['market_cap'] = $response['market_data']['market_cap']['usd'];
+                    $coin['market_cap'] = intval($response['market_data']['market_cap']['usd'], 20);
                     $coin['one_hour'] = $response['market_data']['price_change_percentage_1h_in_currency']['usd'];
                     if ($response['genesis_date']) {
                         $coin['launch_date'] = $response['genesis_date'];
