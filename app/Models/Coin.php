@@ -38,6 +38,30 @@ class Coin extends Model
         'telegram',
     ];
 
+    protected $appends = [
+        'full_name'
+    ];
+
+    /**
+     * Получить полное имя пользователя.
+     *
+     * @return string
+     */
+    public function getFullNameAttribute()
+    {
+        return  $this->market_cap_big ? (int) $this->market_cap_big : $this->market_cap;
+    }
+
+    /*public function getMarketCapBigAttribute()
+    {
+        if ($this->market_cap_big !== null) {
+            return (int) $this->market_cap_big;
+        } else {
+            return $this->market_cap;
+        }
+        return (int) $this->market_cap_big || $this->market_cap;
+    }*/
+
     public function coinChains()
     {
         return $this->hasMany(CoinChain::class);

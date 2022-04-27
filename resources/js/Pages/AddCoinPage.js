@@ -53,14 +53,17 @@ const AddCoinPage = ({currentUser, errors}) => {
     };
 
     const addNewChainHandler = e => {
-        if (chain.includes('Select')) {
-            dispatch(setErrorsAction({message: 'Choose chain'}));
-            return
+        if (!coin.is_coin_gecko) {
+            if (chain.includes('Select')) {
+                dispatch(setErrorsAction({message: 'Choose chain'}));
+                return;
+            }
+            if (!chain.includes('miannet') && !contractAddress.length) {
+                dispatch(setErrorsAction({message: 'Fill Contract Address field'}));
+                return
+            }
         }
-        if (!chain.includes('miannet') && !contractAddress.length) {
-            dispatch(setErrorsAction({message: 'Fill Contract Address field'}));
-            return
-        }
+
         const newChain = {
             id: Date.now(),
             chainName: chain,
@@ -139,7 +142,7 @@ const AddCoinPage = ({currentUser, errors}) => {
 
     const submitHandler = e => {
         e.preventDefault()
-        if (chains.length === 0) {
+        if (!coin.is_coin_gecko && chains.length === 0) {
             dispatch(setErrorsAction({message: 'Add chain'}));
             return
         }
@@ -442,13 +445,17 @@ const AddCoinPage = ({currentUser, errors}) => {
                                         <label
                                             className="input-label me-5"
                                         >
-                                            <span>*</span> Chain
+                                            {
+                                                !coin.is_coin_gecko ?
+                                                    <span>*</span>:
+                                                    ''
+                                            } Chain
                                             <InputGroup className="mb-3">
                                                 <DropdownButton
                                                     id="dropdown-custom"
                                                     className='dropdown-custom'
                                                     title={chain}
-                                                    required
+                                                    required={!coin.is_coin_gecko}
                                                 >
                                                     <DropdownItem
                                                         onClick={chainHandler}

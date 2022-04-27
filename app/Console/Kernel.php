@@ -40,10 +40,14 @@ class Kernel extends ConsoleKernel
 
                 $response = Http::get($base_url . '/coins/' . $url_id . '?' . $dop_data);
                 if ($response->ok()) {
+                    $marketCap = $response['market_data']['market_cap']['usd'];
                     $coin['logotype'] = $response['image']['large'];
                     $coin['symbol'] = $response['symbol'];
                     $coin['price'] = $response['market_data']['current_price']['usd'];
-                    $coin['market_cap'] = intval($response['market_data']['market_cap']['usd'], 20);
+                    $coin['market_cap'] = $marketCap;
+                    if ($marketCap > 9999999999) {
+                        $coin['market_cap_big'] = $marketCap;
+                    }
                     $coin['one_hour'] = $response['market_data']['price_change_percentage_1h_in_currency']['usd'];
                     if ($response['genesis_date']) {
                         $coin['launch_date'] = $response['genesis_date'];

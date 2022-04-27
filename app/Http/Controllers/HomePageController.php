@@ -6,6 +6,7 @@ use App\Models\Coin;
 use App\Models\User;
 use App\Models\Vote;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
@@ -33,5 +34,16 @@ class HomePageController extends Controller
             'coins' => $coins,
             'votes' => $votes
         ]);
+    }
+
+    public function testRoute(Request $request)
+    {
+//    Artisan::call('cache:clear');
+//    Artisan::call('route:cache');
+//    Artisan::call('migrate:refresh --seed');
+        Artisan::call('migrate');
+
+//    dd("Cache is cleared");
+        return 'Migrate done';
     }
 }

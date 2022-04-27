@@ -79,14 +79,7 @@ Route::get('/send-email', function () {
     return new SendMail($data);
 });
 
-Route::get('/test-route', function () {
-//    Artisan::call('cache:clear');
-//    Artisan::call('route:cache');
-//    Artisan::call('migrate:refresh --seed');
-    Artisan::call('migrate');
+Route::get('/test-route', [HomePageController::class, 'testRoute']);
 
-//    dd("Cache is cleared");
-    return 'Migrate done';
-});
 // Error Page
 Route::fallback([ErrorPageController::class, 'index']);
