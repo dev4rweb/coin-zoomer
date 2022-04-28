@@ -42,6 +42,15 @@ class Coin extends Model
         'full_name'
     ];
 
+    protected $casts = [
+        'is_approved' => 'boolean',
+        'is_promoted' => 'boolean',
+        'is_coin_gecko' => 'boolean',
+        'is_presale' => 'boolean',
+        'is_fake' => 'boolean',
+        'is_kyc' => 'boolean',
+    ];
+
     /**
      * Получить полное имя пользователя.
      *
