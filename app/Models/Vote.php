@@ -12,4 +12,9 @@ class Vote extends Model
         'user_id', 'coin_id', 'is_airdrop'
     ];
 
+    protected $casts = [
+      'user_id' => 'integer',
+      'coin_id' => 'integer',
+      'is_airdrop' => 'boolean',
+    ];
 }

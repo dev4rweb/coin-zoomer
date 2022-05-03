@@ -33,6 +33,11 @@ const SimpleTableItem = ({data, index}) => {
         return dateFormat
     };
 
+    console.log('SimpleTableItem votes', votes)
+    console.log('SimpleTableItem data', data)
+    console.log('SimpleTableItem votesFilter', votes.filter(i => i.coin_id === data.id))
+
+
     /* useEffect(() => {
          if (!difData.is_fake) {
              if (difData.is_coin_gecko) {
@@ -210,7 +215,7 @@ const SimpleTableItem = ({data, index}) => {
                     {/*    <span>{data.current_price.toFixed(2) || 0}</span>*/}
                     {/*</OutlineBtn>*/}
                     <OutlineBtn>
-                        <span>{currentVotes.length && currentVotes.length}</span>
+                        <span>{currentVotes.length}</span>
                     </OutlineBtn>
                 </div>
             </td>
