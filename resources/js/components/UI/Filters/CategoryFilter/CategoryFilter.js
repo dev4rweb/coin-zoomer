@@ -15,7 +15,7 @@ import {setIsTimerFilterAction, setSortingNameObjAction} from "../../../../reduc
 
 const CategoryFilter = () => {
     const dispatch = useDispatch()
-    const [value, setValue] = useState('new_coin');
+    const [value, setValue] = useState('all_time_best');
     const sortObj = useSelector(state => state.coin.sortObj)
     const isTimerFilterActive = useSelector(state => state.coin.isTimerFilter)
 

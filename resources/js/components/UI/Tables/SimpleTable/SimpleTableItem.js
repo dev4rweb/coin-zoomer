@@ -33,9 +33,9 @@ const SimpleTableItem = ({data, index}) => {
         return dateFormat
     };
 
-    console.log('SimpleTableItem votes', votes)
-    console.log('SimpleTableItem data', data)
-    console.log('SimpleTableItem votesFilter', votes.filter(i => i.coin_id === data.id))
+    // console.log('SimpleTableItem votes', votes)
+    // console.log('SimpleTableItem data', data)
+    // console.log('SimpleTableItem votesFilter', votes.filter(i => i.coin_id === data.id))
 
 
     /* useEffect(() => {
