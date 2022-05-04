@@ -14,4 +14,8 @@ class Banner extends Model
         'link',
         'img_path'
     ];
+
+    protected $casts = [
+        'is_show' => 'boolean'
+    ];
 }

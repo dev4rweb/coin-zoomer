@@ -25,7 +25,7 @@ const MobNavBar = () => {
     const dispatch = useDispatch()
     const currentUser = useSelector(state => state.currentUser.user)
     const routes = [
-        {name: 'AirDrop', url: PATH_AIR_DROP_PAGE},
+        // {name: 'AirDrop', url: PATH_AIR_DROP_PAGE},
         {name: 'Verified', url: PATH_VERIFIED_PAGE},
         {name: 'Adc', url: PATH_ADC_PAGE},
         {name: 'Contntacts', url: PATH_CONTACTS_PAGE},

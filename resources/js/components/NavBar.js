@@ -20,7 +20,7 @@ const NavBar = () => {
     const dispatch = useDispatch()
     const currentUser = useSelector(state => state.currentUser.user)
     const routes = [
-        {name: 'AirDrop', url: PATH_AIR_DROP_PAGE},
+        // {name: 'AirDrop', url: PATH_AIR_DROP_PAGE},
         {name: 'KYC', url: PATH_VERIFIED_PAGE},
         {name: 'Adc', url: PATH_ADC_PAGE},
         {name: 'Contacts', url: PATH_CONTACTS_PAGE},
