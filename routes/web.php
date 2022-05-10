@@ -46,6 +46,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/', [HomePageController::class, 'index'])->name('home.index');
+Route::get('/admin-subscribers', [HomePageController::class, 'subscriberIndex'])->name('subscriber.index');
 Route::get('/adc', [AdcPageController::class, 'index']);
 Route::get('/admin-panel', [AdminPageController::class, 'index'])->name('adminPanel.index');
 Route::get('/air-drop', [AirDropPageController::class, 'index']);

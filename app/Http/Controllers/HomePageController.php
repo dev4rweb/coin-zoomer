@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Coin;
+use App\Models\Subscriber;
 use App\Models\User;
 use App\Models\Vote;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 
 class HomePageController extends Controller
@@ -45,5 +47,21 @@ class HomePageController extends Controller
 
 //    dd("Cache is cleared");
         return 'Migrate done';
+    }
+
+    public function subscriberIndex()
+    {
+        $user = Auth::user();
+        if (!$user) {
+            return Redirect::route('home.index');
+        } else if (!$user->is_admin) {
+            return Redirect::route('userPanel.index');
+        } else {
+            $subscribers = Subscriber::orderBy('id', 'desc')->get();
+            return Inertia::render('resources/SubscriberIndex', [
+                'subscribers' => $subscribers
+            ]);
+        }
+
     }
 }

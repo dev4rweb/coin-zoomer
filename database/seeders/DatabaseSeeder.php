@@ -30,5 +30,6 @@ class DatabaseSeeder extends Seeder
 //         $this->call(CoinChainSeeder::class);
          $this->call(VoteSeeder::class);
          $this->call(BannerSeeder::class);
+         $this->call(SubscriberSeeder::class);
     }
 }

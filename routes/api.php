@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\BannerController;
 use App\Http\Controllers\Api\CoinController;
 use App\Http\Controllers\Api\MailController;
+use App\Http\Controllers\Api\SubscriberController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\VoteController;
 use Illuminate\Http\Request;
@@ -27,7 +28,8 @@ Route::apiResources([
     'coins' => CoinController::class,
     'votes' => VoteController::class,
     'users' => UserController::class,
-    'banners' => BannerController::class
+    'banners' => BannerController::class,
+    'subscribers' => SubscriberController::class,
 ]);
 
 Route::post('/fill-vote-limit', [UserController::class, 'fillVoteLimit']);
