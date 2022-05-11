@@ -10,6 +10,7 @@ import {
     PATH_VERIFIED_PAGE
 } from "../../../utils/routesPath";
 import SocialBlock from "../../SocialBlock";
+import logo from '../../../../assets/img/logo.png'
 
 const FooterNav = () => {
     const routes = [
@@ -25,7 +26,7 @@ const FooterNav = () => {
                 href={PATH_HOME_PAGE}
                 className={'navbar-brand'}
             >
-                Coin Zoomer
+                <img src={logo} alt="logo" width="200px"/>
             </InertiaLink>
             <Nav className={`me-auto ${s.navBar}`}>
                 <div className={s.menuWrapper}>

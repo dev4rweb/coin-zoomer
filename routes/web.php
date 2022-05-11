@@ -81,6 +81,7 @@ Route::get('/send-email', function () {
 });
 
 Route::get('/test-route', [HomePageController::class, 'testRoute']);
+Route::post('/get-text-file', [HomePageController::class, 'createSubscribersFile']);
 
 // Error Page
 Route::fallback([ErrorPageController::class, 'index']);

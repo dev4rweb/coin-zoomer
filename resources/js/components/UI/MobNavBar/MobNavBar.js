@@ -15,6 +15,7 @@ import {setCurrentUserAction} from "../../../reducers/currentUserReducer";
 import {Inertia} from "@inertiajs/inertia";
 import OutlineBtn from "../OutlineBtn/OutlineBtn";
 import SocialBlock from "../../SocialBlock";
+import logo from '../../../../assets/img/logo.png'
 
 const MobNavBar = () => {
     const [show, setShow] = useState(false);
@@ -56,7 +57,7 @@ const MobNavBar = () => {
                     href={PATH_HOME_PAGE}
                     className={`navbar-brand ${s.brand}`}
                 >
-                    Coin Zoomer
+                    <img src={logo} alt="logo" width="200px"/>
                 </InertiaLink>
                 <Button
                     className={s.burgerBtn}

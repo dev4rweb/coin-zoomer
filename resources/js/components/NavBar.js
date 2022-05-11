@@ -15,6 +15,7 @@ import {setErrorsAction} from "../reducers/errorsReducer";
 import {Inertia} from "@inertiajs/inertia";
 import AppNavBtn from "./UI/AppNavBtn";
 import OutlineBtn from "./UI/OutlineBtn/OutlineBtn";
+import logo from '../../assets/img/logo.png'
 
 const NavBar = () => {
     const dispatch = useDispatch()
@@ -63,7 +64,7 @@ const NavBar = () => {
                     href={PATH_HOME_PAGE}
                     className={'navbar-brand'}
                 >
-                    Coin Zoomer
+                    <img src={logo} alt="logo" width="200px"/>
                 </InertiaLink>
                 <Nav className={`me-auto ${s.navBar}`}>
                     <div className={s.menuWrapper}>
