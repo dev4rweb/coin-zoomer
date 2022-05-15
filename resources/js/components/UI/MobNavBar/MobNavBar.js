@@ -27,9 +27,9 @@ const MobNavBar = () => {
     const currentUser = useSelector(state => state.currentUser.user)
     const routes = [
         // {name: 'AirDrop', url: PATH_AIR_DROP_PAGE},
-        {name: 'Verified', url: PATH_VERIFIED_PAGE},
-        {name: 'Adc', url: PATH_ADC_PAGE},
-        {name: 'Contntacts', url: PATH_CONTACTS_PAGE},
+        {name: 'KYC', url: PATH_VERIFIED_PAGE},
+        {name: 'PROMOTION', url: PATH_ADC_PAGE},
+        {name: 'CONTACT US', url: PATH_CONTACTS_PAGE},
     ]
 
     // console.log('NavBar location', window.location.href.includes(PATH_AIR_DROP_PAGE))

@@ -134,7 +134,7 @@ td {
           align-items: center; } }
   .adcPage .discountSection {
     display: flex;
-    justify-content: space-between; }
+    justify-content: center; }
     @media screen and (max-width: 1200px) {
       .adcPage .discountSection {
         flex-direction: column;

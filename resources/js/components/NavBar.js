@@ -23,8 +23,8 @@ const NavBar = () => {
     const routes = [
         // {name: 'AirDrop', url: PATH_AIR_DROP_PAGE},
         {name: 'KYC', url: PATH_VERIFIED_PAGE},
-        {name: 'Adc', url: PATH_ADC_PAGE},
-        {name: 'Contacts', url: PATH_CONTACTS_PAGE},
+        {name: 'PROMOTION', url: PATH_ADC_PAGE},
+        {name: 'CONTACT US', url: PATH_CONTACTS_PAGE},
         // {name: 'Molaris', url: PATH_MOLARIS_PAGE},
     ]
 

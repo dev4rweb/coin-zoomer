@@ -97,7 +97,7 @@ td {
     .footerNav .navBar .menuWrapper {
       display: flex;
       justify-self: flex-end;
-      width: 250px;
+      width: 350px;
       justify-content: space-between;
       align-items: center; }
       @media screen and (max-width: 388px) {

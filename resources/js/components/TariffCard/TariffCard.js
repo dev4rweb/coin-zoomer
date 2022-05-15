@@ -1,6 +1,7 @@
 import React from 'react';
 import s from '../../../sass/components/TariffCard/TariffCard.module.scss'
 import {Card, ListGroup, ListGroupItem} from "react-bootstrap";
+import {Inertia} from "@inertiajs/inertia";
 
 const TariffCard = ({data}) => {
     return (
@@ -31,8 +32,9 @@ const TariffCard = ({data}) => {
                 <button
                     className="simple-btn-filled"
                     style={{width: '200px'}}
+                    onClick={event => Inertia.visit('/contacts')}
                 >
-                    Setting plan
+                    Contact us
                 </button>
             </Card.Body>
         </Card>

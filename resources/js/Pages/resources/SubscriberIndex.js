@@ -45,7 +45,7 @@ const SubscriberIndex = ({subscribers}) => {
                         {
                             show ?
                                 <a
-                                    href="/file.txt"
+                                    href="/lsapp/public/file.txt"
                                     className="btn btn-info"
                                     onClick={event => setShow(false)}
                                     download

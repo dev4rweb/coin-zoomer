@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import s from '../../sass/pages/ContactsPage/ContactsPage.module.scss'
 import telegram from '../../assets/img/ic-telegram.png'
 import mail from '../../assets/img/ic_email.png'
@@ -15,14 +15,39 @@ import BlueSocialBlock from "../components/BlueSocialBlock/BlueSocialBlock";
 import CustomForm from "../components/CustomForm/CustomForm";
 import InputTwoImageGroup from "../components/UI/InputTwoImageGroup/InputTwoImageGroup";
 import DropdownItem from "react-bootstrap/DropdownItem";
+import {setErrorsAction} from "../reducers/errorsReducer";
+import {Inertia} from "@inertiajs/inertia";
 
 const ContactsPage = ({currentUser, errors}) => {
     const dispatch = useDispatch();
+    const [mailData, setMailData] = useState({
+        email: '',
+        userName: '',
+        contact: '',
+        coinName: '',
+        message: '',
+    })
 
     useEffect(() => {
         dispatch(setCurrentUserAction(currentUser))
         // dispatch(setErrorsAction(errors))
     }, []);
+
+    const sendEmail = e => {
+        e.preventDefault()
+        console.log('sendEmail', mailData)
+        axios.post('/api/send-email', mailData)
+            .then(res => {
+                console.log('sendEmail', res)
+                if (res.data.success) {
+                    dispatch(setErrorsAction({message: 'Email sent'}))
+                    Inertia.visit('/verified')
+                }
+            })
+            .catch(err => {
+                console.log('sendEmail', err)
+            });
+    };
 
     return (
         <Layout>
@@ -60,7 +85,10 @@ const ContactsPage = ({currentUser, errors}) => {
                                 The field marked with <span style={{color: '#f14b4e'}}>*</span> must be filled in!
                             </p>
                         }>
-                            <div className={s.contactForm}>
+                            <form
+                                onSubmit={sendEmail}
+                                className={s.contactForm}
+                            >
                                 <div className={s.leftSide}>
                                     <p>
                                         Send us direct message on Telegram:
@@ -76,10 +104,16 @@ const ContactsPage = ({currentUser, errors}) => {
                                             placeholder="Your email"
                                             className="input-text"
                                             type="email"
+                                            value={mailData.email}
+                                            onChange={e => setMailData({
+                                                ...mailData,
+                                                ['email']: e.target.value
+                                            })}
+                                            required
                                         />
                                     </InputGroup>
 
-                                    <InputGroup className="mb-3">
+                                    {/*<InputGroup className="mb-3">
                                         <DropdownButton
                                             id="dropdown-custom"
                                             className='dropdown-custom'
@@ -88,19 +122,59 @@ const ContactsPage = ({currentUser, errors}) => {
                                             <DropdownItem as="button">Two action</DropdownItem>
                                             <DropdownItem as="button">Three else</DropdownItem>
                                         </DropdownButton>
-                                    </InputGroup>
+                                    </InputGroup>*/}
+
                                     <InputGroup className="mb-3">
                                         <FormControl
-                                            placeholder="Your telegram / email"
+                                            placeholder="Your name:"
                                             className="input-text"
+                                            type="text"
+                                            value={mailData.userName}
+                                            onChange={e => setMailData({
+                                                ...mailData,
+                                                ['userName']: e.target.value
+                                            })}
+                                            required
                                         />
                                     </InputGroup>
+
+                                    <InputGroup className="mb-3">
+                                        <FormControl
+                                            placeholder="Your Telegram:"
+                                            className="input-text"
+                                            value={mailData.contact}
+                                            onChange={e => setMailData({
+                                                ...mailData,
+                                                ['contact']: e.target.value
+                                            })}
+                                        />
+                                    </InputGroup>
+
+                                    <InputGroup className="mb-3">
+                                        <FormControl
+                                            type="text"
+                                            placeholder="Coin name: is necessary"
+                                            className="input-text"
+                                            value={mailData.coinName}
+                                            onChange={e => setMailData({
+                                                ...mailData,
+                                                ['coinName']: e.target.value
+                                            })}
+                                            required
+                                        />
+                                    </InputGroup>
+
                                     <InputGroup className="mb-3">
                                         <FloatingLabel label="Message">
                                             <Form.Control
                                                 as="textarea"
                                                 placeholder="Message"
                                                 style={{ height: '150px', resize: 'none' }}
+                                                value={mailData.message}
+                                                onChange={e => setMailData({
+                                                    ...mailData,
+                                                    ['message']: e.target.value
+                                                })}
                                             />
                                         </FloatingLabel>
                                     </InputGroup>
@@ -113,12 +187,13 @@ const ContactsPage = ({currentUser, errors}) => {
                                         </button>
                                         <button
                                             className="simple-btn-filled"
+                                            type={"submit"}
                                         >
                                             Submit
                                         </button>
                                     </div>
                                 </div>
-                            </div>
+                            </form>
                         </CustomForm>
                     </section>
                 </Container>

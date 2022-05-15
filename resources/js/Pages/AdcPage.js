@@ -13,44 +13,44 @@ import Medal from "../components/Medal/Medal";
 import SectionSeparator from "../components/UI/SectionSeparator/SectionSeparator";
 import TariffCard from "../components/TariffCard/TariffCard";
 import OutlineBtn from "../components/UI/OutlineBtn/OutlineBtn";
+import {Inertia} from "@inertiajs/inertia";
+import ChartBlock from "../components/ChartBlock/ChartBlock";
 
 const AdcPage = ({currentUser, errors}) => {
     const tariffCards = [
         {
             id: 1,
-            title: 'Tarif 1',
-            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+            title: '1. Banners',
+            content: 'Thousands of people will discover about your project as a result of the marketing on our website, allowing you to obtain new investors and boost your number of followers. ',
             discount: null,
             planList: [
-                {id: 1, name: 'Name plan', cost: 12},
-                {id: 2, name: 'Name plan', cost: 12},
-                {id: 3, name: 'Name plan', cost: 12},
-                {id: 4, name: 'Name plan', cost: 12}
+                {id: 1, name: '1 day promotion', cost: '0.05 BNB'},
+                {id: 2, name: '3 days promotion', cost: '0.1 BNB'},
+                {id: 3, name: '5 days promotion', cost: '0.15 BNB'},
+                {id: 4, name: '1 week promotion', cost: '0.2 BNB'}
             ]
         },
         {
             id: 2,
-            title: 'Tarif 2',
-            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+            title: 'Promoted coins section',
+            content: 'The highlighted coins on the main page receive much more votes than the others, which is a tremendous honor for the project and allows you to uncover possible investors and unique entries to share on your social network accounts. ',
             discount: -55,
             planList: [
-                {id: 1, name: 'Name plan', cost: 12},
-                {id: 2, name: 'Name plan', cost: 12},
-                {id: 3, name: 'Name plan', cost: 12},
-                {id: 4, name: 'Name plan', cost: 12},
-                {id: 5, name: 'Name plan', cost: 12},
+                {id: 1, name: '1 day promotion', cost: '0.02 BNB'},
+                {id: 2, name: '3 days promotion', cost: '0.05 BNB'},
+                {id: 3, name: '5 days promotion', cost: '0.07 BNB'},
+                {id: 4, name: '1 week promotion', cost: '0.08 BNB'},
             ]
         },
         {
             id: 3,
-            title: 'Tarif 1',
-            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+            title: 'Promoted + Banner',
+            content: '',
             discount: null,
             planList: [
-                {id: 1, name: 'Name plan', cost: 12},
-                {id: 2, name: 'Name plan', cost: 12},
-                {id: 3, name: 'Name plan', cost: 12},
-                {id: 4, name: 'Name plan', cost: 12},
+                {id: 1, name: '3 days', cost: '0.13 BNB'},
+                {id: 2, name: '5 days', cost: '0.2 BNB'},
+                {id: 3, name: '7 days', cost: '0.23 BNB'},
             ]
         }
     ]
@@ -81,7 +81,8 @@ const AdcPage = ({currentUser, errors}) => {
                                 You are in the right place and your ad will be shown to the right people. Driving
                                 traffic is our bread and butter and we are constantly growing.
                             </p>
-                            <img className={s.graphic} src={graphicImg} alt="graphic"/>
+                            {/*<img className={s.graphic} src={graphicImg} alt="graphic"/>*/}
+                            <ChartBlock />
                         </div>
                     </section>
 
@@ -97,7 +98,7 @@ const AdcPage = ({currentUser, errors}) => {
                     </section>
 
                     <section className={s.discountSection}>
-                        <div className={s.discountPart}>
+                        {/*<div className={s.discountPart}>
                             <Medal>
                                 <h3>Need to boost your marketing efforts?</h3>
                             </Medal>
@@ -124,23 +125,27 @@ const AdcPage = ({currentUser, errors}) => {
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>*/}
                         <div className={s.discountPart}>
                             <Medal>
-                                <h3>Need to boost your marketing efforts?</h3>
+                                <h3>Would you like to receive a big discount on a promotion?</h3>
                             </Medal>
                             <div className={s.discountCard}>
                                 <div className={s.point}>
                                     <span className={s.pointNum}>1</span>
                                     <div className={s.pointBLock}>
-                                        <h4 className={s.pointTitle}>Put a backlink to CoinMooner on your project
-                                            website and
-                                            receive a 10% discount for any ad package!</h4>
-                                        <p className={s.pointContent}>Pay 40% of total price in BNB, and 35% in $MOONER equivalent, and get 25% discount.</p>
+                                        <h4 className={s.pointTitle}> Place a backlink to CoinZoomer on your project
+                                            website and receive a 25% discount on any ad package! </h4>
+                                        {/*<p className={s.pointContent}>Pay 40% of total price in BNB, and 35% in $MOONER equivalent, and get 25% discount.</p>*/}
                                     </div>
                                 </div>
                                 <div className={s.btnWrapper}>
-                                    <OutlineBtn maxWith={'225px'}>FeedBack</OutlineBtn>
+                                    <OutlineBtn
+                                        maxWith={'225px'}
+                                        clickHandler={e => Inertia.visit('/contacts')}
+                                    >
+                                        FeedBack
+                                    </OutlineBtn>
                                 </div>
                             </div>
                         </div>
