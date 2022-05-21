@@ -41,7 +41,7 @@ const ContactsPage = ({currentUser, errors}) => {
                 console.log('sendEmail', res)
                 if (res.data.success) {
                     dispatch(setErrorsAction({message: 'Email sent'}))
-                    Inertia.visit('/verified')
+                    Inertia.visit('/contacts')
                 }
             })
             .catch(err => {

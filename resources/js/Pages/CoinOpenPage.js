@@ -34,6 +34,9 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes, 
     const [chainsStr, setChainsStr] = useState(null)
     const [curCoin, setCurCoin] = useState(innerCoin)
 
+    const [pancakeswap, setPancakeswap] = useState(null)
+    const [uniswap, setUniswap] = useState(null)
+
     useEffect(() => {
         if (!isGetResponse) {
             dispatch(fetchCoinAction(coins));
@@ -43,37 +46,43 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes, 
             dispatch(fetchCurrentVotesAction(curVotes));
             dispatch(fetchVotesAction(votes));
             chainsString()
-            // dispatch(setErrorsAction(errors))
-           /* if (curCoin && curCoin.is_coin_gecko) {
-                const urlParts = curCoin.coin_gecko_link.split('/')
-                const geckoId = urlParts[urlParts.length - 1]
-                console.log('send request to coin gecko', geckoId)
-                if (urlParts[urlParts.length - 1])
-                    getCoinGeckoLiteData(geckoId)
+            if (innerCoin.coin_chains.length > 0) {
+                const cakeSwap = innerCoin.coin_chains.find(i => i.chain === 'bsc')
+                if (cakeSwap) setPancakeswap(cakeSwap)
+                const uniSwap = innerCoin.coin_chains.find(i => i.chain === 'eth')
+                if (uniSwap) setUniswap(uniSwap)
             }
-            if (curCoin && !curCoin.is_coin_gecko
-                && curCoin.coin_chains[0].contract_address &&
-                !curCoin.coin_chains[0].chain.includes('miannet')) {
-                console.log('send molaris')
-                getSingleRecordMoralis(
-                    curCoin.coin_chains[0].contract_address,
-                    curCoin.coin_chains[0].chain
-                ).then(res => {
-                    if (res.status === 200) {
-                        // console.log('molarisData', res);
-                        const oneHour = curCoin.price > res.data.usdPrice ?
-                            -(res.data.usdPrice / curCoin.price * 100) :
-                            curCoin.price / res.data.usdPrice * 100
-                        setCurCoin({
-                            ...curCoin,
-                            price: res.data.usdPrice,
-                            market_cap: curCoin.circulating_supply * res.data.usdPrice,
-                            one_hour: oneHour
-                        })
+            // dispatch(setErrorsAction(errors))
+            /* if (curCoin && curCoin.is_coin_gecko) {
+                 const urlParts = curCoin.coin_gecko_link.split('/')
+                 const geckoId = urlParts[urlParts.length - 1]
+                 console.log('send request to coin gecko', geckoId)
+                 if (urlParts[urlParts.length - 1])
+                     getCoinGeckoLiteData(geckoId)
+             }
+             if (curCoin && !curCoin.is_coin_gecko
+                 && curCoin.coin_chains[0].contract_address &&
+                 !curCoin.coin_chains[0].chain.includes('miannet')) {
+                 console.log('send molaris')
+                 getSingleRecordMoralis(
+                     curCoin.coin_chains[0].contract_address,
+                     curCoin.coin_chains[0].chain
+                 ).then(res => {
+                     if (res.status === 200) {
+                         // console.log('molarisData', res);
+                         const oneHour = curCoin.price > res.data.usdPrice ?
+                             -(res.data.usdPrice / curCoin.price * 100) :
+                             curCoin.price / res.data.usdPrice * 100
+                         setCurCoin({
+                             ...curCoin,
+                             price: res.data.usdPrice,
+                             market_cap: curCoin.circulating_supply * res.data.usdPrice,
+                             one_hour: oneHour
+                         })
 
-                    }
-                }).finally(() => setIsGetResponse(true));
-            }*/
+                     }
+                 }).finally(() => setIsGetResponse(true));
+             }*/
         }
     },);
 
@@ -170,7 +179,7 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes, 
                                     <h3>{curCoin.symbol}</h3>
                                     <div>
                                         {
-                                            curCoin.is_kyc ? <CustomBadge data={'KYC'} /> : ''
+                                            curCoin.is_kyc ? <CustomBadge data={'KYC'}/> : ''
                                         }
                                     </div>
                                 </div>
@@ -231,15 +240,84 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes, 
                                         <InputGroup className="mb-3">
                                             <label className="input-label">
                                                 Price
-                                                <FormControl
+                                                {/*<FormControl
                                                     placeholder="Price"
                                                     className="input-text"
-                                                    value={`$${curCoin.price || '0'}`}
                                                     type="text"
+                                                    dangerouslySetInnerHTML={{}}
                                                     disabled
+                                                />*/}
+                                                <div
+                                                    className="input-text"
+                                                    style={{
+                                                        backgroundColor: '#181c3f',
+                                                        display: 'flex',
+                                                        alignItems: 'center',
+                                                        paddingLeft: '8px',
+                                                        color: 'white',
+                                                        fontWeight: 700
+                                                    }}
+                                                    dangerouslySetInnerHTML={{__html: `<span style="color: rgb(125, 215, 92); margin-right: 5px;">$</span> ${curCoin.price || '0'}`}}
                                                 />
                                             </label>
                                         </InputGroup>
+                                        {
+                                            curCoin.one_hour ?
+                                                <InputGroup className="mb-3">
+                                                    <label className="input-label">
+                                                        1 H
+                                                        <div
+                                                            className="input-text"
+                                                            style={{
+                                                                backgroundColor: '#181c3f',
+                                                                display: 'flex',
+                                                                alignItems: 'center',
+                                                                paddingLeft: '8px',
+                                                                color: 'white',
+                                                                fontWeight: 700
+                                                            }}>
+                                                            {
+                                                                curCoin.one_hour > 0 ?
+                                                                    <div
+                                                                        style={{
+                                                                            color: '#7dd75c'
+                                                                        }}
+                                                                    >
+                                                                        <span
+                                                                            style={{
+                                                                            marginRight: '5px',
+                                                                            color: '#7dd75c'
+                                                                        }}
+                                                                        >
+                                                                            &uarr;
+                                                                        </span>
+                                                                        {curCoin.one_hour}%
+                                                                    </div>
+                                                                    :
+                                                                    <div
+                                                                        style={{
+                                                                            color: '#ef3e3e'
+                                                                        }}
+                                                                    >
+                                                                        <span
+                                                                            style={{
+                                                                                marginRight: '5px',
+                                                                                color: '#ef3e3e'
+                                                                            }}
+                                                                        >
+                                                                            &darr;
+                                                                        </span>
+                                                                        {curCoin.one_hour}%
+                                                                    </div>
+                                                            }
+                                                        </div>
+                                                    </label>
+                                                </InputGroup>
+                                                :
+                                                <div/>
+
+                                        }
+
                                         <InputGroup className="mb-3">
                                             <label className="input-label">
                                                 Launch
@@ -312,7 +390,7 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes, 
                                 variant="primary"
                                 size="lg"
                                 onClick={e => window.open(curCoin.contractTelegram, '_blank').focus()}
-                                className={`btn-big btn-violet`}
+                                className={`btn-big btn-violet mb-3`}
                             >
                                 Telegram
                             </Button>
@@ -322,7 +400,7 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes, 
                             <Button
                                 variant="danger"
                                 size="lg"
-                                className={`btn-big btn-orange`}
+                                className={`btn-big btn-orange  mb-3`}
                                 onClick={e => window.open(curCoin.contractTwitter, '_blank').focus()}
                             >
                                 Twitter
@@ -333,7 +411,7 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes, 
                             <Button
                                 variant="primary"
                                 size="lg"
-                                className={`btn-big btn-violet`}
+                                className={`btn-big btn-violet mb-3`}
                                 onClick={e => window.open(curCoin.contractReddit, '_blank').focus()}
                             >
                                 Reddit
@@ -344,10 +422,34 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes, 
                             <Button
                                 variant="danger"
                                 size="lg"
-                                className={`btn-big btn-orange`}
+                                className={`btn-big btn-orange mb-3`}
                                 onClick={e => window.open(curCoin.contractWeb, '_blank').focus()}
                             >
                                 Web
+                            </Button>
+                        }
+
+                        {
+                            pancakeswap &&
+                            <Button
+                                variant="danger"
+                                size="lg"
+                                className={`btn-big btn-violet mb-3`}
+                                onClick={e => window.open(`https://pancakeswap.finance/swap?outputCurrency=${pancakeswap.contract_address}`, '_blank').focus()}
+                            >
+                                Pancakeswap
+                            </Button>
+                        }
+
+                        {
+                            uniswap &&
+                            <Button
+                                variant="danger"
+                                size="lg"
+                                className={`btn-big btn-orange  mb-3`}
+                                onClick={e => window.open(`https://app.uniswap.org/#/swap?exactField=input&exactAmount=10&inputCurrency=${uniswap.contract_address}`, '_blank').focus()}
+                            >
+                                Uniswap
                             </Button>
                         }
                     </section>
