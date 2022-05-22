@@ -11,6 +11,7 @@ import voteReducer from "./voteReducer";
 import topCoinsReducer from "./topCoinsReducer";
 import leadersCoinsReducer from "./leadersCoinsReducer";
 import subscribeReducer from "./subscribeReducer";
+import hotNotification from "./hotNotification";
 
 const rootReducer = combineReducers({
     currentUser: currentUserReducer,
@@ -22,7 +23,8 @@ const rootReducer = combineReducers({
     vote: voteReducer,
     topCoins: topCoinsReducer,
     leaderCoins: leadersCoinsReducer,
-    subscribers: subscribeReducer
+    subscribers: subscribeReducer,
+    hotNotifications: hotNotification
 })
 
 export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))

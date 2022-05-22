@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Coin;
+use App\Models\HotNotification;
 use App\Models\Subscriber;
 use App\Models\User;
 use App\Models\Vote;
@@ -32,18 +33,20 @@ class HomePageController extends Controller
             ->paginate(10);
 
         $votes = Vote::all();
+        $hotNotifications = HotNotification::all();
 
         return Inertia::render('HomePage', [
             'currentUser' => $user,
             'coins' => $coins,
-            'votes' => $votes
+            'votes' => $votes,
+            'hotNotifications' => $hotNotifications,
         ]);
     }
 
     public function testRoute(Request $request)
     {
-//    Artisan::call('cache:clear');
-//    Artisan::call('route:cache');
+    Artisan::call('cache:clear');
+    Artisan::call('route:cache');
 //    Artisan::call('migrate:refresh --seed');
 //        Artisan::call('migrate');
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Coin;
+use App\Models\HotNotification;
 use App\Models\User;
 use App\Models\Vote;
 use Illuminate\Http\Request;
@@ -54,7 +55,8 @@ class CoinOpenPageController extends Controller
             'innerCoin' => $coin,
             'votes' => $votes,
             'curVotes' => $curVotes,
-            'coins' => $coins
+            'coins' => $coins,
+            'hotNotifications' => HotNotification::all(),
         ]);
     }
 }

@@ -63,6 +63,7 @@ Route::get('/molaris', [MolarisPageController::class, 'index']);
 Route::get('/admin-coins', [AdminCoinsPageController::class, 'index']);
 Route::get('/admin-air-drop', [AdminAirDropPageController::class, 'index']);
 Route::get('/admin-banner', [AdminBannerPageController::class, 'index']);
+Route::get('/admin-hot-notifications', [AdminPageController::class, 'hotNotificationIndex']);
 
 Route::post('/upload-file', [UploadFileController::class, 'uploadFile']);
 

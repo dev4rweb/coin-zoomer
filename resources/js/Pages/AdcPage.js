@@ -15,8 +15,9 @@ import TariffCard from "../components/TariffCard/TariffCard";
 import OutlineBtn from "../components/UI/OutlineBtn/OutlineBtn";
 import {Inertia} from "@inertiajs/inertia";
 import ChartBlock from "../components/ChartBlock/ChartBlock";
+import {fetchHotNotificationsAction} from "../reducers/hotNotification";
 
-const AdcPage = ({currentUser, errors}) => {
+const AdcPage = ({currentUser, errors, hotNotifications}) => {
     const tariffCards = [
         {
             id: 1,
@@ -58,6 +59,7 @@ const AdcPage = ({currentUser, errors}) => {
 
     useEffect(() => {
         dispatch(setCurrentUserAction(currentUser))
+        dispatch(fetchHotNotificationsAction(hotNotifications))
         // dispatch(setErrorsAction(errors))
     }, []);
 

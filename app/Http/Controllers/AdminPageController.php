@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\HotNotification;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -22,6 +23,21 @@ class AdminPageController extends Controller
             return Inertia::render('AdminPage', [
                 'currentUser' => $user,
                 'users' => $users
+            ]);
+        }
+    }
+
+    public function hotNotificationIndex()
+    {
+        $user = Auth::user();
+        if (!$user) {
+            return Redirect::route('home.index');
+        } else if (!$user->is_admin) {
+            return Redirect::route('userPanel.index');
+        } else {
+            return Inertia::render('AdminHotNotificationPage', [
+                'currentUser' => $user,
+                'hotNotifications' => HotNotification::all()
             ]);
         }
     }

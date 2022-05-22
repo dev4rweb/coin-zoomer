@@ -20,7 +20,7 @@ import SectionSeparator from "../components/UI/SectionSeparator/SectionSeparator
 import LeadersSubscribeBlock from "../components/LeadersSubscribeBlock/LeadersSubscribeBlock";
 import {Inertia} from "@inertiajs/inertia";
 
-const VerifiedPage = ({currentUser, errors}) => {
+const VerifiedPage = ({currentUser, errors, hotNotifications}) => {
     const dispatch = useDispatch();
     const accordionData = [
         {
@@ -73,6 +73,8 @@ const VerifiedPage = ({currentUser, errors}) => {
     useEffect(() => {
         dispatch(setCurrentUserAction(currentUser))
         // dispatch(setErrorsAction(errors))
+
+        dispatch(fetchHotNotificationsAction(hotNotifications))
     }, []);
 
     const sendEmail = e => {

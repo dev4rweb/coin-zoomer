@@ -32,8 +32,9 @@ import {fetchCoinAction, setCoinPageLimitAction, setTableRateLimitAction} from "
 import {fetchCoinByQuery, fetchCoinByQueryObj, fetchTopCoins} from "../asyncAction/coinInner";
 import {fetchVotesAction} from "../reducers/voteReducer";
 import Paginate from "../components/UI/Pagination/Paginate";
+import {fetchHotNotificationsAction} from "../reducers/hotNotification";
 
-const HomePage = ({currentUser, errors, coins, votes}) => {
+const HomePage = ({currentUser, errors, coins, votes, hotNotifications}) => {
     const dispatch = useDispatch();
     const sortObj = useSelector(state => state.coin.sortObj)
     // const topCoinsGecko = useSelector(state => state.coinGecko.topCoinsGecko)
@@ -73,6 +74,8 @@ const HomePage = ({currentUser, errors, coins, votes}) => {
         dispatch(fetchTopCoins('leader_day'))
         dispatch(fetchTopCoins('leader_week'))
         dispatch(fetchTopCoins('leader_market_cap'))
+
+        dispatch(fetchHotNotificationsAction(hotNotifications))
 
         // dispatch(setErrorsAction(errors))
     }, []);

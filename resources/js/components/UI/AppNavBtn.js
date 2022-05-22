@@ -7,9 +7,9 @@ import PopoverItem from "./Popover/PopoverItem";
 /*https://react-bootstrap.github.io/components/overlays/#popovers*/
 
 const data = [
-    {id: 0, img: winImg, title: 'NFT MARKETPLACE', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do'},
-    {id: 1, img: winImg, title: 'NFT MARKETPLACE', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do'},
-    {id: 2, img: winImg, title: 'NFT MARKETPLACE', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do'},
+    {id: 0, img: winImg, title: 'NFT MARKETPLACE', text: 'Soon and just one label'},
+    // {id: 1, img: winImg, title: 'NFT MARKETPLACE', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do'},
+    // {id: 2, img: winImg, title: 'NFT MARKETPLACE', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do'},
 ]
 
 const popover = (

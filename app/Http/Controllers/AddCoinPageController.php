@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Coin;
 use App\Models\CoinChain;
+use App\Models\HotNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
@@ -16,6 +17,7 @@ class AddCoinPageController extends Controller
 
         return Inertia::render('AddCoinPage', [
             'currentUser' => $user,
+            'hotNotifications' => HotNotification::all(),
         ]);
     }
 

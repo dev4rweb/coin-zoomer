@@ -17,8 +17,9 @@ import InputTwoImageGroup from "../components/UI/InputTwoImageGroup/InputTwoImag
 import DropdownItem from "react-bootstrap/DropdownItem";
 import {setErrorsAction} from "../reducers/errorsReducer";
 import {Inertia} from "@inertiajs/inertia";
+import {fetchHotNotificationsAction} from "../reducers/hotNotification";
 
-const ContactsPage = ({currentUser, errors}) => {
+const ContactsPage = ({currentUser, errors, hotNotifications}) => {
     const dispatch = useDispatch();
     const [mailData, setMailData] = useState({
         email: '',
@@ -30,6 +31,7 @@ const ContactsPage = ({currentUser, errors}) => {
 
     useEffect(() => {
         dispatch(setCurrentUserAction(currentUser))
+        dispatch(fetchHotNotificationsAction(hotNotifications))
         // dispatch(setErrorsAction(errors))
     }, []);
 

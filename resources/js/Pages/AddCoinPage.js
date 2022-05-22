@@ -27,8 +27,9 @@ import {Inertia} from "@inertiajs/inertia";
 import {PATH_HOME_PAGE} from "../utils/routesPath";
 import ChainItem from "../components/ChainItem/ChainItem";
 import {addNewChainAction} from "../reducers/chainReducer";
+import {fetchHotNotificationsAction} from "../reducers/hotNotification";
 
-const AddCoinPage = ({currentUser, errors}) => {
+const AddCoinPage = ({currentUser, errors, hotNotifications}) => {
     const coin = useSelector(state => state.coin.addCoin)
     const chains = useSelector(state => state.chains.chains)
     const [chain, setChain] = useState('Select')
@@ -38,6 +39,7 @@ const AddCoinPage = ({currentUser, errors}) => {
 
     useEffect(() => {
         dispatch(setCurrentUserAction(currentUser))
+        dispatch(fetchHotNotificationsAction(hotNotifications))
         // dispatch(setErrorsAction(errors))
     }, []);
 

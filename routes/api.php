@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\BannerController;
 use App\Http\Controllers\Api\CoinController;
+use App\Http\Controllers\Api\HotNotificationController;
 use App\Http\Controllers\Api\MailController;
 use App\Http\Controllers\Api\SubscriberController;
 use App\Http\Controllers\Api\UserController;
@@ -30,6 +31,7 @@ Route::apiResources([
     'users' => UserController::class,
     'banners' => BannerController::class,
     'subscribers' => SubscriberController::class,
+    'hot_notifications' => HotNotificationController::class,
 ]);
 
 Route::post('/fill-vote-limit', [UserController::class, 'fillVoteLimit']);

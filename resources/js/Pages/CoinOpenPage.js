@@ -22,8 +22,9 @@ import {getTimeToNight, getTodayVotes} from "../asyncAction/voteTimer";
 import axios from "axios";
 import {getSingleRecordMoralis} from "../asyncAction/coinMolaris";
 import CustomBadge from "../components/UI/CustomBadge/CustomBadge";
+import {fetchHotNotificationsAction} from "../reducers/hotNotification";
 
-const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes, coins}) => {
+const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes, coins, hotNotifications}) => {
     const dispatch = useDispatch();
     const currentVotes = useSelector(state => state.vote.curVotes)
     const allVotes = useSelector(state => state.vote.votes)
@@ -45,6 +46,7 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes, 
             dispatch(setCurrentInnerCoinAction(innerCoin));
             dispatch(fetchCurrentVotesAction(curVotes));
             dispatch(fetchVotesAction(votes));
+            dispatch(fetchHotNotificationsAction(hotNotifications))
             chainsString()
             if (innerCoin.coin_chains.length > 0) {
                 const cakeSwap = innerCoin.coin_chains.find(i => i.chain === 'bsc')
