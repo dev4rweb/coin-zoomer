@@ -97,7 +97,7 @@ const ContactsPage = ({currentUser, errors, hotNotifications}) => {
                                     </p>
                                     <InputTwoImageGroup imgLink={telegram} content={'@TelegramSupportKYC'}/>
                                     <p style={{marginTop: '40px'}}>Or e-mail us at:</p>
-                                    <InputTwoImageGroup imgLink={mail} content={'support@sitename.com'}/>
+                                    <InputTwoImageGroup imgLink={mail} content={'admin@coinzoomer.com'}/>
                                 </div>
                                 <div className={s.rightSide}>
                                     <p>Feedback from the site</p>

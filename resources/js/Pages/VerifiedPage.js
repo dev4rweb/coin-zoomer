@@ -19,6 +19,7 @@ import Form from "react-bootstrap/Form";
 import SectionSeparator from "../components/UI/SectionSeparator/SectionSeparator";
 import LeadersSubscribeBlock from "../components/LeadersSubscribeBlock/LeadersSubscribeBlock";
 import {Inertia} from "@inertiajs/inertia";
+import {fetchHotNotificationsAction} from "../reducers/hotNotification";
 
 const VerifiedPage = ({currentUser, errors, hotNotifications}) => {
     const dispatch = useDispatch();
