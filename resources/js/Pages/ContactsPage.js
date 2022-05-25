@@ -95,12 +95,15 @@ const ContactsPage = ({currentUser, errors, hotNotifications}) => {
                                     <p>
                                         Send us direct message on Telegram:
                                     </p>
-                                    <InputTwoImageGroup imgLink={telegram} content={'@TelegramSupportKYC'}/>
+                                    <InputTwoImageGroup imgLink={telegram} content={'@coinzoomer'}/>
                                     <p style={{marginTop: '40px'}}>Or e-mail us at:</p>
                                     <InputTwoImageGroup imgLink={mail} content={'admin@coinzoomer.com'}/>
                                 </div>
                                 <div className={s.rightSide}>
                                     <p>Feedback from the site</p>
+                                    <p className="mb-0">
+                                        email <span style={{color: '#f14b4e'}}>*</span>
+                                    </p>
                                     <InputGroup className="mb-3">
                                         <FormControl
                                             placeholder="Your email"
@@ -126,6 +129,9 @@ const ContactsPage = ({currentUser, errors, hotNotifications}) => {
                                         </DropdownButton>
                                     </InputGroup>*/}
 
+                                    <p className="mb-0">
+                                        name
+                                    </p>
                                     <InputGroup className="mb-3">
                                         <FormControl
                                             placeholder="Your name:"
@@ -136,10 +142,13 @@ const ContactsPage = ({currentUser, errors, hotNotifications}) => {
                                                 ...mailData,
                                                 ['userName']: e.target.value
                                             })}
-                                            required
+
                                         />
                                     </InputGroup>
 
+                                    <p className="mb-0">
+                                        telegram
+                                    </p>
                                     <InputGroup className="mb-3">
                                         <FormControl
                                             placeholder="Your Telegram:"
@@ -152,6 +161,10 @@ const ContactsPage = ({currentUser, errors, hotNotifications}) => {
                                         />
                                     </InputGroup>
 
+
+                                    <p className="mb-0">
+                                        coin name <span style={{color: '#f14b4e'}}>*</span>
+                                    </p>
                                     <InputGroup className="mb-3">
                                         <FormControl
                                             type="text"
@@ -166,6 +179,10 @@ const ContactsPage = ({currentUser, errors, hotNotifications}) => {
                                         />
                                     </InputGroup>
 
+
+                                    <p className="mb-0">
+                                        message <span style={{color: '#f14b4e'}}>*</span>
+                                    </p>
                                     <InputGroup className="mb-3">
                                         <FloatingLabel label="Message">
                                             <Form.Control
@@ -177,6 +194,7 @@ const ContactsPage = ({currentUser, errors, hotNotifications}) => {
                                                     ...mailData,
                                                     ['message']: e.target.value
                                                 })}
+                                                required
                                             />
                                         </FloatingLabel>
                                     </InputGroup>
