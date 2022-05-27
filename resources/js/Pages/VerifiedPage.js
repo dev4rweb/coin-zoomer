@@ -148,12 +148,15 @@ const VerifiedPage = ({currentUser, errors, hotNotifications}) => {
                                     <p>
                                         Send us direct message on Telegram:
                                     </p>
-                                    <InputTwoImageGroup imgLink={telegram} content={'@CoinZoomer'}/>
+                                    <InputTwoImageGroup imgLink={telegram} content={'@coinzoomer'}/>
                                     <p style={{marginTop: '40px'}}>Or e-mail us at:</p>
                                     <InputTwoImageGroup imgLink={mail} content={'admin@coinzoomer.com'}/>
                                 </div>
                                 <div className={s.rightSide}>
                                     <p>Feedback from the site</p>
+                                    <p className="mb-0">
+                                        email <span style={{color: '#f14b4e'}}>*</span>
+                                    </p>
                                     <InputGroup className="mb-3">
                                         <FormControl
                                             placeholder="Your email: is necessary"
@@ -168,6 +171,9 @@ const VerifiedPage = ({currentUser, errors, hotNotifications}) => {
                                         />
                                     </InputGroup>
 
+                                    <p className="mb-0">
+                                        name
+                                    </p>
                                     <InputGroup className="mb-3">
                                         <FormControl
                                             placeholder="Your name:"
@@ -182,6 +188,9 @@ const VerifiedPage = ({currentUser, errors, hotNotifications}) => {
                                         />
                                     </InputGroup>
 
+                                    <p className="mb-0">
+                                        telegram
+                                    </p>
                                     <InputGroup className="mb-3">
                                         <FormControl
                                             placeholder="Your Telegram:"
@@ -193,6 +202,10 @@ const VerifiedPage = ({currentUser, errors, hotNotifications}) => {
                                             })}
                                         />
                                     </InputGroup>
+
+                                    <p className="mb-0">
+                                        coin name <span style={{color: '#f14b4e'}}>*</span>
+                                    </p>
                                     <InputGroup className="mb-3">
                                         <FormControl
                                             type="text"
@@ -206,6 +219,10 @@ const VerifiedPage = ({currentUser, errors, hotNotifications}) => {
                                             required
                                         />
                                     </InputGroup>
+
+                                    <p className="mb-0">
+                                        message <span style={{color: '#f14b4e'}}>*</span>
+                                    </p>
                                     <InputGroup className="mb-3">
                                         <FloatingLabel label="Message">
                                             <Form.Control
