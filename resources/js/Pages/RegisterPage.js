@@ -30,11 +30,11 @@ const RegisterPage = () => {
 
             axios.post('/register', fd)
                 .then(res => {
-                    // console.log('register', res)
+                    console.log('register', res)
                     if (res.status === 201) { // before was 204
                         // console.log('You are logged in')
-                        Inertia.visit('/user-panel')
-                        dispatch(setErrorsAction({message: 'Account Created!'}))
+                        Inertia.visit('/')
+                        dispatch(setErrorsAction({message: 'You need to confirm your email!'}))
                     }
                 })
                 .catch(err => {

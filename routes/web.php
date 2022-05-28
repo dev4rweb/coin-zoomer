@@ -45,7 +45,7 @@ use Illuminate\Support\Facades\URL;
     return view('welcome');
 });*/
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -55,7 +55,7 @@ Route::get('/adc', [AdcPageController::class, 'index']);
 Route::get('/admin-panel', [AdminPageController::class, 'index'])->name('adminPanel.index');
 Route::get('/air-drop', [AirDropPageController::class, 'index']);
 Route::get('/contacts', [ContactsPageController::class, 'index']);
-Route::get('/user-panel', [UserPageController::class, 'index'])->name('userPanel.index');
+Route::get('/user-panel', [UserPageController::class, 'index'])->middleware(['auth', 'verified'])->name('userPanel.index');
 Route::get('/verified', [VerifiedPageController::class, 'index']);
 Route::get('/add-coin', [AddCoinPageController::class, 'index']);
 Route::post('/add-coin-create', [AddCoinPageController::class, 'addCoin']);

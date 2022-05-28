@@ -149,6 +149,7 @@ const AddCoinPage = ({currentUser, errors, hotNotifications}) => {
             return
         }
         console.log('submitHandler coin', coin);
+        if (!coin.price) coin.price = 0
         axios.post('/add-coin-create', {
             coin: coin,
             chains: chains

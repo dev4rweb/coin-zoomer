@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
@@ -45,13 +46,33 @@ class HomePageController extends Controller
 
     public function testRoute(Request $request)
     {
-    Artisan::call('cache:clear');
-    Artisan::call('route:cache');
+//    Artisan::call('cache:clear');
+//    Artisan::call('route:cache');
 //    Artisan::call('migrate:refresh --seed');
 //        Artisan::call('migrate');
 
 //    dd("Cache is cleared");
-        return 'Migrate done';
+        $coins = Coin::where('is_coin_gecko', 0)
+            ->orderBy('updated_at')
+            ->with('coinChains')
+            ->take(5)
+            ->get();
+        $chain = $coins[0]->coinChains[0]['chain'];
+        $contract_address = $coins[0]->coinChains[0]['contract_address'];
+        if (str_contains($chain, 'miannet') == false) {
+            $responseCoin = Http::withHeaders([
+//                        'X-API-Key' => 'UpQ3vKSY4Lwb4c09DfS4pNMsf43YXLplFTudha98Iitks2giWK4e3Swv3S0f3Ic5'
+                'accept: application/json',
+                'X-API-Key' => 'jTG1sdNlkrUtapkTO7Tt5UEa1P8lgLlHn21M32F56G5nSZrmfoGQy4F7I8DBNFP6' // from moralis example requests
+            ])
+                ->get('https://deep-index.moralis.io/api/v2/erc20/' . $contract_address . '/price?chain=' . $chain);
+
+//            return 'https://deep-index.moralis.io/api/v2/erc20/' . $contract_address . '/price?chain=' . $chain;
+            if ($responseCoin->ok())
+//                return floatval($responseCoin['usdPrice']) . ' - ' . $coins[0];
+                return $coins[1]->price;
+            else return $responseCoin->ok();
+        } else return 'Something wrong';
     }
 
     public function createSubscribersFile(Request $request)
