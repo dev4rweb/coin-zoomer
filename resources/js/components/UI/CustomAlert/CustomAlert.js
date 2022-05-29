@@ -9,7 +9,7 @@ const CustomAlert = () => {
     const [show, setShow] = useState(false);
 
     useEffect(() => {
-        if (alerts) setShow(alerts[0].is_show)
+        if (alerts && alerts.length > 0) setShow(alerts[0].is_show)
         console.log('CustomAlert', alerts)
     }, [alerts]);
 

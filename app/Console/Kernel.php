@@ -54,8 +54,8 @@ class Kernel extends ConsoleKernel
                     } else {
                         $coin->description = 'coingecko error' . $response;
                     }
-                    $coin->save();
-                } else {
+                }
+                if($coin['is_coin_gecko'] == 0){
                     $contract_address = $coin->coinChains[0]['contract_address'];
                     $chain = $coin->coinChains[0]['chain'];
                     if (str_contains($chain, 'miannet') == false) {
@@ -81,9 +81,11 @@ class Kernel extends ConsoleKernel
                         } else {
                             $coin->description = 'moralis error' . $responseCoin;
                         }
-                        $coin->save();
+                    } else {
+                        $coin->description = 'moralis error  miannet';
                     }
                 }
+                $coin->save();
             }
 //            $coins = Coin::where('is_coin_gecko', 0)
 //                ->orderBy('updated_at')

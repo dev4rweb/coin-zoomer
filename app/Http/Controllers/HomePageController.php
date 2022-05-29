@@ -70,7 +70,7 @@ class HomePageController extends Controller
 //            return 'https://deep-index.moralis.io/api/v2/erc20/' . $contract_address . '/price?chain=' . $chain;
             if ($responseCoin->ok())
 //                return floatval($responseCoin['usdPrice']) . ' - ' . $coins[0];
-                return $coins[1]->price;
+                return $responseCoin;
             else return $responseCoin->ok();
         } else return 'Something wrong';
     }

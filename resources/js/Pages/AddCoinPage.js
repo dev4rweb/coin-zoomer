@@ -151,6 +151,7 @@ const AddCoinPage = ({currentUser, errors, hotNotifications}) => {
         }
         console.log('submitHandler coin', coin);
         if (!coin.price) coin.price = 0
+        if (!coin.one_hour) coin.one_hour = 0
         setDisabled(true)
         axios.post('/add-coin-create', {
             coin: coin,
