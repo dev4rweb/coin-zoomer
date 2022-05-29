@@ -31,7 +31,7 @@ const AdminHotNotificationPage = ({currentUser, hotNotifications, errors}) => {
         e.preventDefault()
         console.log('handleEdit', alert)
         axios.post(`/api/hot_notifications/${alert.id}`, {
-            _method: 'PUT', ...alert
+            _method: 'PATCH', ...alert
         }).then(res => {
             console.log('handleEdit res', res)
             if (res.data.success)

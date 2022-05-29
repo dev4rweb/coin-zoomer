@@ -32,6 +32,7 @@ import {fetchHotNotificationsAction} from "../reducers/hotNotification";
 const AddCoinPage = ({currentUser, errors, hotNotifications}) => {
     const coin = useSelector(state => state.coin.addCoin)
     const chains = useSelector(state => state.chains.chains)
+    const [isDisabled, setDisabled] = useState(false)
     const [chain, setChain] = useState('Select')
     const [contractAddress, setContactAddress] = useState('')
 
@@ -150,25 +151,28 @@ const AddCoinPage = ({currentUser, errors, hotNotifications}) => {
         }
         console.log('submitHandler coin', coin);
         if (!coin.price) coin.price = 0
+        setDisabled(true)
         axios.post('/add-coin-create', {
             coin: coin,
             chains: chains
-        })
-            .then(res => {
-                console.log(res)
-                if (res.data.success) {
-                    setErrorsAction({message: res.data.message});
-                    // setTimeout(() => {
-                    Inertia.visit(PATH_HOME_PAGE)
-                    // }, 2000);
-                } else {
-                    setErrorsAction({message: 'Something wrong! Try again later'});
-                }
-            })
-            .catch(err => {
-                console.log(err)
-                setErrorsAction({message: 'Something wrong!'});
-            });
+        }).then(res => {
+            console.log(res)
+            if (res.data.success) {
+                dispatch(setErrorsAction({message: res.data.message}));
+                // setTimeout(() => {
+                Inertia.visit(PATH_HOME_PAGE)
+                // }, 2000);
+            } else {
+                // setErrorsAction({message: 'Something wrong! Try again later'});
+                dispatch(setErrorsAction({message: res.data.message}));
+            }
+        }).catch(err => {
+            console.log(err)
+            // setErrorsAction({message: 'Something wrong!'});
+            dispatch(setErrorsAction(err.response.data));
+        }).finally(() => {
+            setDisabled(false)
+        });
     };
 
     return (
@@ -364,9 +368,11 @@ const AddCoinPage = ({currentUser, errors, hotNotifications}) => {
                                                 <label className="input-label">
                                                     <span>*</span> Approximately Circulating Supply
                                                     <FormControl
-                                                        placeholder="Example: 100000000"
+                                                        placeholder="Example: 100000"
                                                         className="input-text"
                                                         type="number"
+                                                        min="0"
+                                                        max="999999999"
                                                         value={coin.circulating_supply}
                                                         onChange={e => setCoin({
                                                             ...coin,
@@ -680,6 +686,7 @@ const AddCoinPage = ({currentUser, errors, hotNotifications}) => {
                                         className={`fill-btn`}
                                         style={{width: '165px'}}
                                         type="submit"
+                                        disabled={isDisabled}
                                     >
                                         Submit
                                     </Button>

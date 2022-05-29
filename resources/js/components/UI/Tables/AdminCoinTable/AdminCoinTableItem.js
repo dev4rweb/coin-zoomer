@@ -37,15 +37,16 @@ const AdminCoinTableItem = ({data, index}) => {
 
     const changeApproveApi = isApproved => {
         axios.post(`/api/coins/${data.id}`, {
-            _method: 'PUT',
+            _method: 'PATCH',
             is_approved: isApproved
         }).then(res => {
             console.log('changeApproveApi', res)
-            setErrorsAction({message: res.data.message});
+            dispatch(setErrorsAction({message: res.data.message}));
             Inertia.visit(PATH_ADMIN_COINS_PAGE);
         }).catch(err => {
             console.log(err)
-            setErrorsAction({message: 'Something wrong!'});
+            // setErrorsAction({message: 'Something wrong!'});
+            dispatch(setErrorsAction(err.response.data));
         });
     };
 

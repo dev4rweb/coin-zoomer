@@ -50,6 +50,7 @@ const CoinEdit = ({coin}) => {
 
     const [titleChain, setTitleChain] = useState('Select')
     const [contractAddress, setContractAddress] = useState('')
+    const [isDisabled, setDisabled] = useState(false)
 
     console.log('CoinEdit', coin)
 
@@ -145,6 +146,7 @@ const CoinEdit = ({coin}) => {
     const handleSubmit = e => {
         e.preventDefault()
         console.log('handleSubmit', data)
+        setDisabled(true)
         axios.post(`/api/coins/${data.id}`, {
             _method: 'PUT',
             name: data.name,
@@ -172,14 +174,18 @@ const CoinEdit = ({coin}) => {
         }).then(res => {
             console.log(res)
             if (res.data.success) {
-                setErrorsAction({message: res.data.message});
+                dispatch(setErrorsAction({message: res.data.message}));
                 Inertia.visit(PATH_ADMIN_COINS_PAGE);
             } else {
-                setErrorsAction({message: 'Something wrong! Try again later'});
+                // setErrorsAction({message: 'Something wrong! Try again later'});
+                dispatch(setErrorsAction({message: res.data.message}));
             }
         }).catch(err => {
             console.log(err)
-            setErrorsAction({message: 'Something wrong!'});
+            // setErrorsAction({message: 'Something wrong!'});
+            dispatch(setErrorsAction(err.response.data));
+        }).finally(() => {
+            setDisabled(false)
         });
     };
 
@@ -353,6 +359,8 @@ const CoinEdit = ({coin}) => {
                                                     placeholder="Example: 100000000"
                                                     className="input-text"
                                                     type="number"
+                                                    min="0"
+                                                    max="999999999"
                                                     value={data.circulating_supply}
                                                     onChange={e => setData({
                                                         ...data,
@@ -678,6 +686,7 @@ const CoinEdit = ({coin}) => {
                                     className={`fill-btn`}
                                     style={{width: '165px'}}
                                     type="submit"
+                                    disabled={isDisabled}
                                 >
                                     Submit
                                 </Button>

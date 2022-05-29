@@ -71,20 +71,22 @@ class CoinController extends Controller
         try {
             $coin = Coin::findOrFail($id);
             $coin->update($request->all());
-            $oldCoinsChains = CoinChain::where('coin_id', $id)->get();
-            if ($oldCoinsChains) {
-                foreach ($oldCoinsChains as $chain) {
-                    $chain->delete();
+            if ($request->isMethod('PUT')) {
+                $oldCoinsChains = CoinChain::where('coin_id', $id)->get();
+                if ($oldCoinsChains) {
+                    foreach ($oldCoinsChains as $chain) {
+                        $chain->delete();
+                    }
                 }
-            }
-            $coinChains = $request['coin_chains'];
-            if ($coinChains) {
-                foreach ($coinChains as $chain)
-                    CoinChain::create([
-                        'coin_id' => $id,
-                        'chain' => $chain['chain'],
-                        'contract_address' => $chain['contract_address']
-                    ]);
+                $coinChains = $request['coin_chains'];
+                if ($coinChains) {
+                    foreach ($coinChains as $chain)
+                        CoinChain::create([
+                            'coin_id' => $id,
+                            'chain' => $chain['chain'],
+                            'contract_address' => $chain['contract_address']
+                        ]);
+                }
             }
             $response['success'] = true;
             $response['message'] = 'Coin updated';

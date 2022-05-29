@@ -4,7 +4,7 @@ export const PATH_REGISTER_PAGE = '/register'
 export const PATH_LOGOUT = '/logout'
 export const PATH_AIR_DROP_PAGE = '/air-drop'
 export const PATH_VERIFIED_PAGE = '/verified'
-export const PATH_ADC_PAGE = '/adc'
+export const PATH_ADC_PAGE = '/promotion'
 export const PATH_CONTACTS_PAGE = '/contacts'
 
 
