@@ -372,8 +372,6 @@ const AddCoinPage = ({currentUser, errors, hotNotifications}) => {
                                                         placeholder="Example: 100000"
                                                         className="input-text"
                                                         type="number"
-                                                        min="0"
-                                                        max="999999999"
                                                         value={coin.circulating_supply}
                                                         onChange={e => setCoin({
                                                             ...coin,

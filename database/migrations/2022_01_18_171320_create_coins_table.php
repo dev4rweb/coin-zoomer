@@ -26,7 +26,7 @@ class CreateCoinsTable extends Migration
             $table->double('price')->nullable();
             $table->double('one_hour')->nullable();
             $table->string('symbol');
-            $table->integer('circulating_supply')->nullable();
+            $table->bigInteger('circulating_supply')->nullable();
             $table->bigInteger('market_cap')->nullable();
             $table->date('launch_date');
             $table->string('coin_gecko_link')->nullable();
