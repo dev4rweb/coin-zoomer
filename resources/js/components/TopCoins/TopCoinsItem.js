@@ -4,7 +4,6 @@ import starImg from '../../../assets/img/top_coins/star.png'
 import partStarImg from '../../../assets/img/top_coins/part-star.png'
 import Increase from "../UI/Increase/Increase";
 import {getSingleRecordMoralis} from "../../asyncAction/coinMolaris";
-import {priceConverter} from "../../utils/priceConverter";
 import {GECKO_ROOT_PATH, PATH_COIN_OPEN_PAGE} from "../../utils/routesPath";
 import {Inertia} from "@inertiajs/inertia";
 import {useDispatch, useSelector} from "react-redux";

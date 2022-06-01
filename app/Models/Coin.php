@@ -49,6 +49,7 @@ class Coin extends Model
         'is_presale' => 'boolean',
         'is_fake' => 'boolean',
         'is_kyc' => 'boolean',
+        'price' => 'float'
     ];
 
     /**
@@ -59,6 +60,54 @@ class Coin extends Model
     public function getFullNameAttribute()
     {
         return  $this->market_cap_big ? (int) $this->market_cap_big : $this->market_cap;
+    }
+
+    public function getPriceAttribute($value)
+    {
+        $decimals = 2;
+        if (abs($value) >= 1 && abs($value) < 2) $decimals = 3;
+        if (abs($value) >= 0.1 && abs($value) < 1) $decimals = 4;
+        if (abs($value) >= 0.01 && abs($value) < 0.1) $decimals = 5;
+        if (abs($value) >= 0.001 && abs($value) < 0.01) $decimals = 6;
+        if (abs($value) >= 0.0001 && abs($value) < 0.001) $decimals = 7;
+        if (abs($value) >= 0.00001 && abs($value) < 0.0001) $decimals = 8;
+        if (abs($value) >= 0.000001 && abs($value) < 0.00001) $decimals = 9;
+        if (abs($value) >= 0.0000001 && abs($value) < 0.000001) $decimals = 10;
+        if (abs($value) >= 0.00000001 && abs($value) < 0.0000001) $decimals = 11;
+        if (abs($value) >= 0.000000001 && abs($value) < 0.00000001) $decimals = 12;
+        if (abs($value) >= 0.0000000001 && abs($value) < 0.000000001) $decimals = 13;
+        if (abs($value) >= 0.00000000001 && abs($value) < 0.0000000001) $decimals = 14;
+        if (abs($value) >= 0.000000000001 && abs($value) < 0.00000000001) $decimals = 15;
+        if (abs($value) >= 0.0000000000001 && abs($value) < 0.000000000001) $decimals = 16;
+        if (abs($value) >= 0.00000000000001 && abs($value) < 0.0000000000001) $decimals = 17;
+        if (abs($value) >= 0.000000000000001 && abs($value) < 0.00000000000001) $decimals = 18;
+        if (abs($value) >= 0.0000000000000001 && abs($value) < 0.000000000000001) $decimals = 19;
+        if (abs($value) >= 0.00000000000000001 && abs($value) < 0.0000000000000001) $decimals = 20;
+        return number_format((float) $value, $decimals, '.', ' ');
+    }
+
+    public function getOneHourAttribute($value)
+    {
+        $decimals = 2;
+        if (abs($value) >= 1 && abs($value) < 2) $decimals = 3;
+        if (abs($value) >= 0.1 && abs($value) < 1) $decimals = 3;
+        if (abs($value) >= 0.01 && abs($value) < 0.1) $decimals = 4;
+        if (abs($value) >= 0.001 && abs($value) < 0.01) $decimals = 5;
+        if (abs($value) >= 0.0001 && abs($value) < 0.001) $decimals = 6;
+        if (abs($value) >= 0.00001 && abs($value) < 0.0001) $decimals = 7;
+        if (abs($value) >= 0.000001 && abs($value) < 0.00001) $decimals = 8;
+        if (abs($value) >= 0.0000001 && abs($value) < 0.000001) $decimals = 9;
+        if (abs($value) >= 0.00000001 && abs($value) < 0.0000001) $decimals = 10;
+        if (abs($value) >= 0.000000001 && abs($value) < 0.00000001) $decimals = 11;
+        if (abs($value) >= 0.0000000001 && abs($value) < 0.000000001) $decimals = 12;
+        if (abs($value) >= 0.00000000001 && abs($value) < 0.0000000001) $decimals = 13;
+        if (abs($value) >= 0.000000000001 && abs($value) < 0.00000000001) $decimals = 14;
+        if (abs($value) >= 0.0000000000001 && abs($value) < 0.000000000001) $decimals = 15;
+        if (abs($value) >= 0.00000000000001 && abs($value) < 0.0000000000001) $decimals = 16;
+        if (abs($value) >= 0.000000000000001 && abs($value) < 0.00000000000001) $decimals = 17;
+        if (abs($value) >= 0.0000000000000001 && abs($value) < 0.000000000000001) $decimals = 18;
+        if (abs($value) >= 0.00000000000000001 && abs($value) < 0.0000000000000001) $decimals = 19;
+        return number_format((float) $value, $decimals, '.', ' ');
     }
 
     /*public function getMarketCapBigAttribute()

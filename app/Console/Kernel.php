@@ -76,23 +76,20 @@ class Kernel extends ConsoleKernel
                         ->get('https://deep-index.moralis.io/api/v2/erc20/' . $contract_address . '/price?chain=' . $chain);
 
                     if ($responseCoin->ok()) {
-                        if (!$coin['price'] ) $coin['price'] = 0;
+                        if (!$coin['price']) $coin['price'] = 0;
 
-//                        $coin['contractAdditional'] = round(floatval($responseCoin['usdPrice']), 7);
                         $coin['contractAdditional'] = $responseCoin;
+                        $coin['price'] = (string)$responseCoin['usdPrice'];
+                        $coin['market_cap'] = (string) ($responseCoin['usdPrice'] * $coin['circulating_supply']);
                         $coin->save();
 
-                        if (floatval($coin['price']) >= floatval($responseCoin['usdPrice'])) {
-                            if ($coin['price']) $coin['one_hour'] = 0;
-                            else $coin['one_hour'] = -round((floatval($coin['price']) / round(floatval($responseCoin['usdPrice']), 7) - 1) * 100, 7);
+                        if ($coin['price'] == $responseCoin['usdPrice']) $coin['one_hour'] = 0;
+                        if ($coin['price'] != $responseCoin['usdPrice']) {
+                            if ($coin['price'] == 0) $coin['one_hour'] = 0;
+                            else $coin['one_hour'] = (string)(($responseCoin['usdPrice'] / $coin['price'] - 1) * 100);
+//                            $coin['contractAdditional'] = (string)(($responseCoin['usdPrice'] / $coin['price'] - 1) * 100);
                         }
-                        if (floatval($coin['price']) < floatval($responseCoin['usdPrice'])) {
-                            if ($coin['price']) $coin['one_hour'] = 0;
-                            else $coin['one_hour'] = round((round($responseCoin['usdPrice'], 7) / floatval($coin['price']) - 1) * 100, 7);
 
-                        }
-                        $coin['price'] = round(floatval($responseCoin['usdPrice']), 7);
-                        $coin['market_cap'] = round(floatval($responseCoin['usdPrice']), 7) * $coin['circulating_supply'];
                         $coin->save();
 
                     } else {

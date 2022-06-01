@@ -166,12 +166,14 @@ const SimpleTableItem = ({data, index}) => {
                                 {/*{difData.one_hour.toFixed(8)}%*/}
                                 {difData.one_hour}%
                             </div>
-                            :
+                            : difData.one_hour < 0 ?
                             <div className={s.redCol}>
                                 <span style={{marginRight: '5px'}}>&darr;</span>
                                 {/*{difData.one_hour.toFixed(8)}%*/}
                                 {difData.one_hour}%
                             </div>
+                            :
+                            <div>0.0%</div>
                         :
                         <div>0.0%</div>
                 }
