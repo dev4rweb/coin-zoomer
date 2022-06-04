@@ -7,7 +7,7 @@ const InputTwoImageGroup = ({imgLink, content}) => {
 
     const connectSocialHandler = e => {
         console.log('connectSocialHandler', content)
-        if (content === '@TelegramSupportKYC')
+        if (content === '@coinzoomer')
             window.open('https://t.me/COINZOOMER', '_blank').focus();
         if(content === 'admin@coinzoomer.com')
             window.open('mailto:admin@coinzoomer.com', '_blank').focus();

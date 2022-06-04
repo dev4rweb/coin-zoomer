@@ -116,13 +116,13 @@ const TopCoinsItem = ({data, index}) => {
                             difData.one_hour > 0 ?
                                 <div className={s.greenCol}>
                                     <span style={{marginRight: '5px'}}>&uarr;</span>
-                                    {difData.one_hour}%
+                                    {difData.one_hour_formatted}%
                                     {/*{difData.one_hour.toFixed(8)}%*/}
                                 </div>
                                 :
                                 <div className={s.redCol}>
                                     <span style={{marginRight: '5px'}}>&darr;</span>
-                                    {difData.one_hour}%
+                                    {difData.one_hour_formatted}%
                                     {/*{difData.one_hour.toFixed(8)}%*/}
                                 </div>
                             :
@@ -133,7 +133,7 @@ const TopCoinsItem = ({data, index}) => {
                 <p className={s.price}>
                     <span style={{color: '#7dd75c', marginRight: '5px'}}>$</span>
                     {/*{priceConverter(difData.price)}*/}
-                    {difData.price}
+                    {difData.price_formatted}
                 </p>
                 {
                     difData.is_promoted ?

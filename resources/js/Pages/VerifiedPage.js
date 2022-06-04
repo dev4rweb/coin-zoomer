@@ -209,7 +209,7 @@ const VerifiedPage = ({currentUser, errors, hotNotifications}) => {
                                     <InputGroup className="mb-3">
                                         <FormControl
                                             type="text"
-                                            placeholder="Coin name: is necessary"
+                                            placeholder="Coin name:"
                                             className="input-text"
                                             value={mailData.coinName}
                                             onChange={e => setMailData({

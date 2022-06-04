@@ -9,12 +9,18 @@ import {OverlayTrigger, Popover, Tooltip} from "react-bootstrap";
 
 const BlueSocialBlock = () => {
     const socials = [
-        {name: 'facebook', img: fb},
-        {name: 'insta', img: insta},
-        {name: 'telegram', img: telegram},
-        {name: 'twitter', img: twitter},
-        {name: 'youtube', img: youtube},
+        {name: 'facebook', img: fb, link: 'https://www.facebook.com/CoinZoomer'},
+        {name: 'insta', img: insta, link: 'https://www.instagram.com/coinzoomer/'},
+        {name: 'telegram', img: telegram, link: 'https://t.me/COINZOOMER'},
+        {name: 'twitter', img: twitter, link: 'https://twitter.com/coinzoomer'},
+        {name: 'youtube', img: youtube, link: 'https://www.youtube.com/channel/UC3NO8K12lNKz9qaZ5KoM19w'},
     ]
+
+    const clickHandler = i => {
+        console.log('clickHandler', i)
+        window.open(i.link, '_blank').focus();
+    };
+
     return (
         <div className={s.socialBlock}>
             {
@@ -39,7 +45,12 @@ const BlueSocialBlock = () => {
                             </Popover>
                         }
                     >
-                        <img key={index} className={s.social} src={item.img} alt="fb"/>
+                        <img
+                            key={index}
+                            className={s.social}
+                            src={item.img} alt="fb"
+                            onClick={e => clickHandler(item)}
+                        />
                     </OverlayTrigger>
                 )
             }

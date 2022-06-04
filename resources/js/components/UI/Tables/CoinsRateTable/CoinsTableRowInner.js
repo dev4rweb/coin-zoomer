@@ -189,13 +189,13 @@ const CoinsTableRowInner = ({data}) => {
                             <div className={s.greenCol}>
                                 <span style={{marginRight: '5px'}}>&uarr;</span>
                                 {/*{difData.one_hour.toFixed(8)}%*/}
-                                {difData.one_hour}%
+                                {difData.one_hour_formatted}%
                             </div>
                             : difData.one_hour < 0 ?
                             <div className={s.redCol}>
                                 <span style={{marginRight: '5px'}}>&darr;</span>
                                 {/*{difData.one_hour.toFixed(8)}%*/}
-                                {difData.one_hour}%
+                                {difData.one_hour_formatted}%
                             </div>
                             :
                             <div>0.0%</div>
@@ -208,7 +208,7 @@ const CoinsTableRowInner = ({data}) => {
                     {/*{`$ ${difData.price}`}*/}
                     <span style={{color: '#7dd75c', marginRight: '5px'}}>$</span>
                     {/*{priceConverter(difData.price)}*/}
-                    {difData.price}
+                    {difData.price_formatted}
                 </div>
             </td>
             <td>

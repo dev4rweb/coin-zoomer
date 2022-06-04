@@ -4,6 +4,8 @@ import {Button, Container, FloatingLabel, Form} from "react-bootstrap";
 import Layout from "../components/Layout";
 import {useDispatch} from "react-redux";
 import {setErrorsAction} from "../reducers/errorsReducer";
+import {load} from 'recaptcha-v3'
+import {ReCaptchaInstance} from "recaptcha-v3";
 
 const RegisterPage = () => {
     const dispatch = useDispatch()
@@ -12,13 +14,45 @@ const RegisterPage = () => {
     const [password, setPassword] = useState('')
     const [passwordConfirm, setPasswordConfirm] = useState('')
     const [validated, setValidated] = useState(false);
+    const [token, setToken] = useState('')
+
+
+    load('6LeBuCUgAAAAAI_eV0e8sBNagwb-S_mZZH_juBxG')
+        .then((recaptcha) => {
+            recaptcha.execute(submitHandler)
+                .then((tokenRes) => {
+                    // console.log('token', tokenRes)
+                    setToken(tokenRes)
+                });
+        });
 
     const submitHandler = (e) => {
         const form = e.currentTarget;
         e.preventDefault();
         e.stopPropagation();
+        console.log('submitHandler success')
         // console.log('email', email)
         // console.log('password', password)
+
+        /*if (token) {
+            const secret = '6LeBuCUgAAAAAAjCo0uJ69XmE_F3Y5k77RWpRUi1'
+            axios.post(
+                `https://www.google.com/recaptcha/api/siteverify?secret=${secret}&response=${token}`,
+                {},
+                {
+                    headers: {
+                        // "Content-Type": "application/x-www-form-urlencoded; charset=utf-8",
+                        "Content-Type": "application/x-www-form-urlencoded",
+                        "Access-Control-Allow-Origin": "*"
+                    },
+                },
+            ).then(res => {
+                console.log('submitHandler res', res)
+            }).catch(err => {
+                console.log('submitHandler err', err)
+            });
+        }*/
+
 
         if (form.checkValidity() === true) {
 
@@ -142,9 +176,12 @@ const RegisterPage = () => {
                                     </Form.Control.Feedback>
                                 </FloatingLabel>
 
-                                <Button variant="primary" type="submit">
-                                    Submit
-                                </Button>
+                                <div className="d-flex justify-content-around align-items-center">
+
+                                    <Button variant="primary" type="submit">
+                                        Submit
+                                    </Button>
+                                </div>
                             </Form>
                         </div>
                     </div>

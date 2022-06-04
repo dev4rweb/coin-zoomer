@@ -147,7 +147,7 @@ const HomePage = ({currentUser, errors, coins, votes, hotNotifications}) => {
                                             {/*<GraphicIncrease text={bestCoin.one_hour.toFixed(7) || '0'}/>*/}
                                             {
                                                 bestCoin.one_hour ?
-                                                    <GraphicIncrease text={bestCoin.one_hour}/> :
+                                                    <GraphicIncrease text={bestCoin.one_hour_formatted}/> :
                                                     <GraphicIncrease text={0}/>
                                             }
 

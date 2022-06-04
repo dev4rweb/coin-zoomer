@@ -163,7 +163,7 @@ const ContactsPage = ({currentUser, errors, hotNotifications}) => {
 
 
                                     <p className="mb-0">
-                                        coin name <span style={{color: '#f14b4e'}}>*</span>
+                                        coin name
                                     </p>
                                     <InputGroup className="mb-3">
                                         <FormControl
@@ -175,7 +175,6 @@ const ContactsPage = ({currentUser, errors, hotNotifications}) => {
                                                 ...mailData,
                                                 ['coinName']: e.target.value
                                             })}
-                                            required
                                         />
                                     </InputGroup>
 

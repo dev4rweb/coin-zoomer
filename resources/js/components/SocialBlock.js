@@ -11,25 +11,26 @@ import youtube from '../../assets/img/youtube_alt.png'
 
 const SocialBlock = () => {
     const socials = [
-        {img: instagram},
-        {img: telegram},
-        {img: tumblr},
-        {img: twitter},
-        {img: youtube},
-        {img: fb},
+        {img: instagram, link: 'https://www.instagram.com/coinzoomer/'},
+        {img: telegram, link: 'https://t.me/COINZOOMER'},
+        {img: tumblr, link: 'https://discord.gg/TKjPfSUc4g'},
+        {img: twitter, link: 'https://twitter.com/coinzoomer'},
+        {img: youtube, link: 'https://www.youtube.com/channel/UC3NO8K12lNKz9qaZ5KoM19w'},
+        {img: fb, link: 'https://www.facebook.com/CoinZoomer'},
     ]
 
     return (
         <div className={s.socialBlock}>
             {
                 socials.map((social, index) =>
-                    <InertiaLink
-                        href={PATH_HOME_PAGE}
+                    <a
+                        href={social.link}
+                        target="_blank"
                         key={index}
                         className={s.social}
                     >
                         <img src={social.img} alt="social"/>
-                    </InertiaLink>
+                    </a>
                 )
             }
         </div>
