@@ -64,7 +64,7 @@ class CoinFilter extends QueryFilter
 
     public function is_presale($isPresale = 1)
     {
-        return $this->builder->where('is_presale', $isPresale);
+        return $this->builder->where('is_presale', $isPresale)->orderBy('id', 'desc');
     }
 
     public function new_coin($isNew = 1)

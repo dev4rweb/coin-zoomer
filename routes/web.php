@@ -9,6 +9,7 @@ use App\Http\Controllers\AdminCoinsPageController;
 use App\Http\Controllers\AdminPageController;
 use App\Http\Controllers\AirDropOpenPageController;
 use App\Http\Controllers\AirDropPageController;
+use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CoinController;
 use App\Http\Controllers\CoinOpenPageController;
@@ -73,7 +74,11 @@ Route::post('/upload-file', [UploadFileController::class, 'uploadFile']);
 
 Route::resources([
     'innerCoins' => CoinController::class,
-    'innerBanners' => BannerController::class
+    'innerBanners' => BannerController::class,
+]);
+
+Route::apiResources([
+    'userModels' => UserController::class
 ]);
 
 Route::get('/send-email', function () {

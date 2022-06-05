@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Vote;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -60,7 +62,29 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $admin = Auth::user();
+            if ($admin->is_admin) {
+                $user = User::findOrFail($id);
+                $votes = Vote::where('user_id', $id)->get();
+                $msg = 'User - ' . $user->name . ' removed with ' . count($votes) . ' his votes';
+                if (count($votes) > 0) {
+                    foreach ($votes as $vote) {
+                        $vote->delete();
+                    }
+                }
+                $user->delete();
+                $response['message'] = $msg;
+            } else {
+                $response['message'] = 'You can do it';
+            }
+            $response['success'] = true;
+        } catch (\Exception $exception) {
+            $response['success'] = false;
+            $response['message'] = $exception->getMessage();
+        }
+
+        return response()->json($response);
     }
 
     public function fillVoteLimit(Request $request)
