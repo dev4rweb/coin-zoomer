@@ -4,6 +4,8 @@ import {Button} from "react-bootstrap";
 import axios from "axios";
 import {useDispatch} from "react-redux";
 import {setErrorsAction, setLoadingAction} from "../../../../reducers/errorsReducer";
+import {Inertia} from "@inertiajs/inertia";
+import {PATH_ADMIN_PAGE} from "../../../../utils/routesPath";
 
 
 const UserTableItem = ({data, index}) => {
@@ -23,6 +25,7 @@ const UserTableItem = ({data, index}) => {
             dispatch(setErrorsAction(err.response.data));
         }).finally(() => {
             dispatch(setLoadingAction(false))
+            Inertia.visit(PATH_ADMIN_PAGE);
         });
     };
 

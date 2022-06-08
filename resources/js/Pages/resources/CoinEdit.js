@@ -200,20 +200,28 @@ const CoinEdit = ({coin}) => {
                         title={
                             <div className="d-flex justify-content-between align-items-center">
                                 <h1>{data.name}</h1>
-                                {
-                                    data.is_approved &&
-                                    <Form.Group className="mb-3">
-                                        <Form.Check
-                                            type="checkbox"
-                                            checked={data.is_promoted}
-                                            onChange={e => setData({
-                                                ...data,
-                                                ['is_promoted']: e.target.checked
-                                            })}
-                                            label={data.is_promoted ? 'PROMOTED' : 'NOT PROMOTED'}
-                                        />
-                                    </Form.Group>
-                                }
+                                <Form.Group className="mb-3">
+                                    <Form.Check
+                                        type="checkbox"
+                                        checked={data.is_promoted}
+                                        onChange={e => setData({
+                                            ...data,
+                                            ['is_promoted']: e.target.checked
+                                        })}
+                                        label={data.is_promoted ? 'PROMOTED' : 'NOT PROMOTED'}
+                                    />
+                                </Form.Group>
+                                <Form.Group className="mb-3">
+                                    <Form.Check
+                                        type="checkbox"
+                                        checked={data.is_presale}
+                                        onChange={e => setData({
+                                            ...data,
+                                            ['is_presale']: e.target.checked
+                                        })}
+                                        label={data.is_presale ? 'PRESALE' : 'NOT PRESALE'}
+                                    />
+                                </Form.Group>
                                 <img
                                     style={{width: '126px', height: 'auto'}}
                                     src={data.logotype}

@@ -2,6 +2,7 @@ import axios from "axios";
 import {setErrorsAction, setLoadingAction} from "../reducers/errorsReducer";
 import {setCurrentUserAction} from "../reducers/currentUserReducer";
 import {createCurrentVoteAction, createVoteAction} from "../reducers/voteReducer";
+import {Inertia} from "@inertiajs/inertia";
 
 export const addVote = (vote, forCurrent = false) => {
     return function (dispatch) {
@@ -15,6 +16,7 @@ export const addVote = (vote, forCurrent = false) => {
                     }
                     dispatch(createVoteAction(res.data.model))
                     dispatch(setCurrentUserAction(res.data.user))
+                    Inertia.reload()
                     // window.location.reload()
                 } else {
                     dispatch(setErrorsAction({message: 'something wrong'}))

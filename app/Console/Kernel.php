@@ -52,7 +52,7 @@ class Kernel extends ConsoleKernel
                     }
                     $coin->save();
                 } else {
-                    $coin->description = 'coingecko error' . $response;
+                    $coin->contractAdditional = 'coingecko error' . $response;
                     $coin->save();
                     break;
                 }
@@ -93,7 +93,7 @@ class Kernel extends ConsoleKernel
                         $coin->save();
 
                     } else {
-                        $coin['description'] = $responseCoin;
+                        $coin['contractAdditional'] = $responseCoin;
                     }
                     $coin->save();
                 } else {
