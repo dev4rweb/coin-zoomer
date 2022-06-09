@@ -151,7 +151,7 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes, 
                         user_id: curUser.id,
                         // coin_id: innerCurrentCoin.id
                         coin_id: curCoin.id
-                    }, true));
+                    }));
 
                     dispatch(setErrorsAction({message: `left vote limits ${4 - todayVotes.length} of 5`}))
 

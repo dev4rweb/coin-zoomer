@@ -116,7 +116,7 @@ const SimpleTableItem = ({data, index}) => {
             if (curUser) {
                 const todayVotes = getTodayVotes(votes.filter(i => i.user_id === curUser.id))
                 console.log('todayVotes', todayVotes)
-                // console.log('todayVotes user', curUser)
+                console.log('todayVotes user', curUser)
                 if (todayVotes.length < 5) {
                     dispatch(addVote({
                         user_id: curUser.id,
