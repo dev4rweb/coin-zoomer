@@ -38,7 +38,7 @@ const CustomBadge = ({data, removeHandler = null}) => {
 
     return (
         <div className={s.customBadge}>
-            <Badge className={s.badge} bg={bgColor}>
+            <Badge className={s.badge} bg={bgColor} text={bgColor === 'avalanche' ? 'dark' : ''}>
                 {data}
             </Badge>
             {/*<span

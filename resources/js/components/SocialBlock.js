@@ -8,12 +8,13 @@ import twitter from '../../assets/img/twitter.png'
 import telegram from '../../assets/img/telegram.png'
 import tumblr from '../../assets/img/tumblr.png'
 import youtube from '../../assets/img/youtube_alt.png'
+import discord from '../../assets/img/social/discord.png'
 
 const SocialBlock = () => {
     const socials = [
         {img: instagram, link: 'https://www.instagram.com/coinzoomer/'},
         {img: telegram, link: 'https://t.me/COINZOOMER'},
-        {img: tumblr, link: 'https://discord.gg/TKjPfSUc4g'},
+        {img: discord, link: 'https://discord.gg/TKjPfSUc4g'},
         {img: twitter, link: 'https://twitter.com/coinzoomer'},
         {img: youtube, link: 'https://www.youtube.com/channel/UC3NO8K12lNKz9qaZ5KoM19w'},
         {img: fb, link: 'https://www.facebook.com/CoinZoomer'},

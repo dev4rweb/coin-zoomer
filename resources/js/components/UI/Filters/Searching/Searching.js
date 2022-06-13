@@ -18,6 +18,15 @@ const Searching = () => {
         dispatch(fetchCoinByQueryObj(sortObj))
     };
 
+    const quickSearchHandler = e => {
+        e.preventDefault()
+        setText(e.target.value)
+        console.log('quickSearchHandler', e.target.value)
+        dispatch(setSearchingWordAction(e.target.value))
+        sortObj.search = e.target.value
+        dispatch(fetchCoinByQueryObj(sortObj))
+    };
+
     return (
         <div className={s.searching}>
             <p className={s.title}>Searching</p>
@@ -28,7 +37,7 @@ const Searching = () => {
                     className={`me-2 ${s.inputSearch}`}
                     aria-label="Search"
                     value={text}
-                    onChange={e => setText(e.target.value)}
+                    onChange={quickSearchHandler}
                 />
                 <Button
                     variant="outline-light"
