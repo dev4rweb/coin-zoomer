@@ -15,6 +15,7 @@ use App\Http\Controllers\CoinController;
 use App\Http\Controllers\CoinOpenPageController;
 use App\Http\Controllers\ContactsPageController;
 use App\Http\Controllers\ErrorPageController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\MolarisPageController;
 use App\Http\Controllers\TokenPageController;
@@ -27,6 +28,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\URL;
@@ -48,7 +50,7 @@ use Illuminate\Support\Facades\URL;
 
 Auth::routes(['verify' => true]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/', [HomePageController::class, 'index'])->name('home.index');
 Route::get('/admin-subscribers', [HomePageController::class, 'subscriberIndex'])->name('subscriber.index');
@@ -87,6 +89,7 @@ Route::get('/send-email', function () {
     $data['contact'] = 'Telegram';
     $data['coinName'] = 'Coin Name';
     $data['message'] = 'Some message';
+
     return new SendMail($data);
 });
 
