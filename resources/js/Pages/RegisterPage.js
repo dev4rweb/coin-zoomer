@@ -68,7 +68,7 @@ const RegisterPage = () => {
                     if (res.status === 201) { // before was 204
                         // console.log('You are logged in')
                         Inertia.visit('/')
-                        dispatch(setErrorsAction({message: 'You need to confirm your email!'}))
+                        // dispatch(setErrorsAction({message: 'You need to confirm your email!'}))
                     }
                 })
                 .catch(err => {

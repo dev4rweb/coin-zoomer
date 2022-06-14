@@ -48,7 +48,7 @@ use Illuminate\Support\Facades\URL;
     return view('welcome');
 });*/
 
-Auth::routes(['verify' => true]);
+Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
@@ -84,13 +84,30 @@ Route::apiResources([
 ]);
 
 Route::get('/send-email', function () {
-    $data['email'] = 'a@gmail.com';
-    $data['userName'] = 'user name';
-    $data['contact'] = 'Telegram';
-    $data['coinName'] = 'Coin Name';
-    $data['message'] = 'Some message';
+    try {
+        $data['email'] = 'dev4rweb@gmail.com';
+        $data['userName'] = 'user name';
+        $data['contact'] = 'Telegram';
+        $data['coinName'] = 'Coin Name';
+        $data['message'] = 'Some message';
+        Mail::to('dev4rweb@gmail.com')->send(new SendMail($data));
 
-    return new SendMail($data);
+        /*$data = [
+            'subject' => 'Contact Form',
+            'content' => "<div>Message</div>"
+
+        ];
+        Mail::send('email-template', $data, function ($message) use ($data) {
+            $message->to('dev4rweb@gmail.com');
+//            $message->to('admin@source-byte.com');
+            $message->subject($data['subject']);
+        });*/
+        $response['message'] = 'Mail sent';
+    } catch (\Exception $exception) {
+        $response['message'] = $exception->getMessage();
+    }
+
+    return response()->json($response);
 });
 
 Route::get('/test-route', [HomePageController::class, 'testRoute']);
