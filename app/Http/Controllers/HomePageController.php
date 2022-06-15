@@ -28,6 +28,7 @@ class HomePageController extends Controller
         }
 //        $coins = Coin::orderBy('id', 'desc')->take(10)->get();
         $coins = Coin::withCount('votes')
+            ->where('is_approved', 1)
             ->orderBy('votes_count', 'desc')
             ->with('votes')
             ->with('coinChains')

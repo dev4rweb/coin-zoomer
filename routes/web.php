@@ -85,14 +85,14 @@ Route::apiResources([
 
 Route::get('/send-email', function () {
     try {
-        $data['email'] = 'dev4rweb@gmail.com';
+        /*$data['email'] = 'dev4rweb@gmail.com';
         $data['userName'] = 'user name';
         $data['contact'] = 'Telegram';
         $data['coinName'] = 'Coin Name';
         $data['message'] = 'Some message';
-        Mail::to('dev4rweb@gmail.com')->send(new SendMail($data));
+        Mail::to('dev4rweb@gmail.com')->send(new SendMail($data));*/
 
-        /*$data = [
+        $data = [
             'subject' => 'Contact Form',
             'content' => "<div>Message</div>"
 
@@ -101,7 +101,7 @@ Route::get('/send-email', function () {
             $message->to('dev4rweb@gmail.com');
 //            $message->to('admin@source-byte.com');
             $message->subject($data['subject']);
-        });*/
+        });
         $response['message'] = 'Mail sent';
     } catch (\Exception $exception) {
         $response['message'] = $exception->getMessage();
