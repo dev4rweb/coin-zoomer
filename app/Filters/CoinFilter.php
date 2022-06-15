@@ -47,7 +47,7 @@ class CoinFilter extends QueryFilter
                 ->whereHas('votes', function ($q) {
                     $week = Carbon::createFromTimestamp(Carbon::now()->getTimestamp() - 60 * 60 * 24 *7);
                     $q->where('created_at', '>', $week);
-                });
+                })->orderBy('votes_count', 'desc');
         }
     }
 
@@ -58,13 +58,16 @@ class CoinFilter extends QueryFilter
                 ->whereHas('votes', function ($q) {
                     $hour = Carbon::createFromTimestamp(Carbon::now()->getTimestamp() - 60 * 60);
                     $q->where('created_at', '>', $hour);
-                });
+                })->orderBy('votes_count', 'desc');
         }
     }
 
     public function is_presale($isPresale = 1)
     {
-        return $this->builder->where('is_presale', $isPresale)->orderBy('id', 'desc');
+        return $this->builder
+            ->withCount('votes')
+            ->where('is_presale', $isPresale)
+            ->orderBy('id', 'desc');
     }
 
     public function new_coin($isNew = 1)

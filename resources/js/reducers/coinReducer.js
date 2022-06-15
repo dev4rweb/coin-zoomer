@@ -34,7 +34,7 @@ const defaultState = {
     tableRateLimit: 10,
     sortObj: {
         sort: {
-            name: 'new_coin',
+            name: 'all_time_best',
             value: 1
         },
         page: 1,
