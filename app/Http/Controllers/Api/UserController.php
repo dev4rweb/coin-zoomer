@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Mail\SendVerificationCode;
 use App\Models\User;
 use App\Models\Vote;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
@@ -51,7 +53,18 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            $user = User::findOrFail($id);
+            $user->update($request->all());
+            $response['success'] = true;
+            $response['message'] = 'User updated';
+            $response['model'] = $user;
+        } catch (\Exception $exception) {
+            $response['success'] = false;
+            $response['message'] = $exception->getMessage();
+        }
+
+        return response()->json($response);
     }
 
     /**
@@ -98,6 +111,45 @@ class UserController extends Controller
             $user = User::find($user->id)->with('votes')->first();
             $response['success'] = true;
             $response['message'] = 'vote limit updated';
+            $response['model'] = $user;
+        } catch (\Exception $exception) {
+            $response['success'] = false;
+            $response['message'] = $exception->getMessage();
+        }
+
+        return response()->json($response);
+    }
+
+    public function getVerifiedCode(Request $request)
+    {
+        try {
+            $user = User::where('email', $request['email'])->first();
+            if ($user && !$user->verification_code) {
+                $user->verification_code = random_int(100000, 999999);
+                $user->save();
+                $data['code'] = $user->verification_code;
+                Mail::to($user->email)->send(new SendVerificationCode($data));
+            }
+            $response['success'] = true;
+            $response['message'] = 'User found';
+            $response['model'] = $user;
+        } catch (\Exception $exception) {
+            $response['success'] = false;
+            $response['message'] = $exception->getMessage();
+        }
+        return response()->json($response);
+    }
+
+    public function changeVerificationCode(Request $request)
+    {
+        try {
+            $user = User::where('id', $request['user_id'])->first();
+            if ($user) {
+                $user->verification_code = 1;
+                $user->save();
+            }
+            $response['success'] = true;
+            $response['message'] = 'User updated';
             $response['model'] = $user;
         } catch (\Exception $exception) {
             $response['success'] = false;

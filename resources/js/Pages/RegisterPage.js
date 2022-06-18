@@ -6,6 +6,8 @@ import {useDispatch} from "react-redux";
 import {setErrorsAction} from "../reducers/errorsReducer";
 import {load} from 'recaptcha-v3'
 import {ReCaptchaInstance} from "recaptcha-v3";
+import {setCurrentUserAction} from "../reducers/currentUserReducer";
+import {PATH_HOME_PAGE, PATH_LOGIN_PAGE} from "../utils/routesPath";
 
 const RegisterPage = () => {
     const dispatch = useDispatch()
@@ -67,8 +69,16 @@ const RegisterPage = () => {
                     console.log('register', res)
                     if (res.status === 201) { // before was 204
                         // console.log('You are logged in')
-                        Inertia.visit('/')
-                        // dispatch(setErrorsAction({message: 'You need to confirm your email!'}))
+                        dispatch(setErrorsAction({message: 'Try to login to get secret code by email'}))
+                        return axios.post('/logout')
+                    }
+                })
+                .then(res => {
+                    console.log('logoutHandler res', res)
+                    if (res.status === 204) {
+                        // dispatch(setErrorsAction({message: 'You are logout'}))
+                        dispatch(setCurrentUserAction(null))
+                        Inertia.visit(PATH_LOGIN_PAGE)
                     }
                 })
                 .catch(err => {

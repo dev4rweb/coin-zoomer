@@ -36,3 +36,5 @@ Route::apiResources([
 
 Route::post('/fill-vote-limit', [UserController::class, 'fillVoteLimit']);
 Route::post('/send-email', [MailController::class, 'sendEmail']);
+Route::post('/get-verified-code', [UserController::class, 'getVerifiedCode']);
+Route::post('/change-verification-code', [UserController::class, 'changeVerificationCode']);

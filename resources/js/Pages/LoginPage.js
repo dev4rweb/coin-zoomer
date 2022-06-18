@@ -3,7 +3,7 @@ import {Button, Card, Container, FloatingLabel, Form} from "react-bootstrap";
 import {Inertia} from "@inertiajs/inertia";
 import Layout from "../components/Layout";
 import {useDispatch} from "react-redux";
-import {setErrorsAction} from "../reducers/errorsReducer";
+import {setErrorsAction, setLoadingAction} from "../reducers/errorsReducer";
 
 const LoginPage = () => {
     const dispatch = useDispatch()
@@ -11,37 +11,96 @@ const LoginPage = () => {
     const [password, setPassword] = useState('')
     const [isRemember, setIsRemember] = useState(false)
     const [validated, setValidated] = useState(false);
+    const [isShowCode, setIsShowCode] = useState(false)
+    const [verificationCode, setVerificationCode] = useState('')
+    const [user, setUser] = useState(null)
+
+    const getUserCode = e => {
+        e.preventDefault();
+        e.stopPropagation();
+        const fd = new FormData();
+        fd.set('email', email);
+        fd.set('password', password);
+        fd.set('remember', isRemember);
+
+        if (!user) {
+            dispatch(setLoadingAction(true))
+            axios.post('/api/get-verified-code', fd)
+                .then(res => {
+                    console.log('get-verified-code', res)
+                    const curUser = res.data.model
+                    setUser(curUser)
+                    if (curUser && (curUser.is_admin || curUser.verification_code === 1)) {
+                        submitHandler(e)
+                    }
+                    if (curUser && curUser.verification_code > 1) {
+                        setIsShowCode(true);
+                    }
+                }).catch(err => {
+                console.log('get-verified-code', err)
+            }).finally(() => {
+                dispatch(setLoadingAction(false))
+            });
+        }
+        if (user && user.verification_code === 1)
+            submitHandler(e)
+
+        if (user && user.verification_code === +verificationCode) {
+            axios.post(`/api/change-verification-code`, {
+                user_id: user.id
+            }).then(res => {
+                console.log('update code', res)
+                if (res.data.success) {
+                    submitHandler(e);
+                }
+                else dispatch(setErrorsAction({
+                    message: 'Something was wrong'
+                }));
+            }).catch(err => {
+                console.log('update code', err)
+                dispatch(setErrorsAction({
+                    message: 'Something was wrong'
+                }))
+            });
+        }
+
+
+        if (user && user.verification_code !== +verificationCode)
+            dispatch(setErrorsAction({
+                message: 'Incorrect code'
+            }))
+    };
 
     const submitHandler = (e) => {
         const form = e.currentTarget;
         e.preventDefault();
         e.stopPropagation();
-        if (form.checkValidity() === false) {
+        const fd = new FormData();
+        fd.set('email', email);
+        fd.set('password', password);
+        fd.set('remember', isRemember);
+
+        axios.post('/login', fd)
+            .then(res => {
+                // console.log('LoginPage res', res)
+                if (res.status === 204) {
+                    dispatch(setErrorsAction({
+                        message: 'You are logged in'
+                    }))
+                    // console.log('You are logged in')
+                    Inertia.visit('/user-panel')
+                }
+            })
+            .catch(err => {
+                // console.log('LoginPage err', err.response.data)
+                dispatch(setErrorsAction(err.response.data))
+            });
+        /*if (form.checkValidity() === false) {
 
         } else {
-            const fd = new FormData();
-            fd.set('email', email);
-            fd.set('password', password);
-            fd.set('remember', isRemember);
 
-            axios.post('/login', fd)
-                .then(res => {
-                    // console.log('LoginPage res', res)
-                    if (res.status === 204) {
-                        dispatch(setErrorsAction({
-                            message: 'You are logged in'
-                            }))
-                        // console.log('You are logged in')
-                        Inertia.visit('/user-panel')
-                    }
-                })
-                .catch(err => {
-                    // console.log('LoginPage err', err.response.data)
-                    dispatch(setErrorsAction(err.response.data))
-                });
         }
-
-        setValidated(true);
+        setValidated(true);*/
 
     };
 
@@ -55,7 +114,7 @@ const LoginPage = () => {
                             <Form
                                 noValidate
                                 validated={validated}
-                                onSubmit={submitHandler}
+                                onSubmit={getUserCode}
                             >
                                 <FloatingLabel
                                     label="Enter email"
@@ -77,6 +136,30 @@ const LoginPage = () => {
                                         Please write Email.
                                     </Form.Control.Feedback>
                                 </FloatingLabel>
+
+                                {
+                                    isShowCode &&
+                                    <FloatingLabel
+                                        label="Verification code"
+                                        className="mb-3"
+                                        controlId="formBasicEmail"
+                                    >
+                                        <Form.Control
+                                            required
+                                            type="text"
+                                            name="code"
+                                            value={verificationCode}
+                                            placeholder="verification code"
+                                            onChange={event => setVerificationCode(event.target.value)}
+                                        />
+                                        <Form.Control.Feedback>
+                                            Looks good!
+                                        </Form.Control.Feedback>
+                                        <Form.Control.Feedback type="invalid">
+                                            Please verification code
+                                        </Form.Control.Feedback>
+                                    </FloatingLabel>
+                                }
 
                                 <FloatingLabel
                                     className="mb-3"
