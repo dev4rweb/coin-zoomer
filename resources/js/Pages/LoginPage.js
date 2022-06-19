@@ -35,6 +35,10 @@ const LoginPage = () => {
                     }
                     if (curUser && curUser.verification_code > 1) {
                         setIsShowCode(true);
+                        dispatch(setErrorsAction({message: 'We have sent a verification code to your' +
+                                ' email - xxx. Please check your email and provide the code that you' +
+                                ' have received. Don\'t forget to check spam if you did not receive it.' +
+                                ' If you have any problems, please contact admin@coinzoomer.com'}))
                     }
                 }).catch(err => {
                 console.log('get-verified-code', err)
@@ -52,8 +56,7 @@ const LoginPage = () => {
                 console.log('update code', res)
                 if (res.data.success) {
                     submitHandler(e);
-                }
-                else dispatch(setErrorsAction({
+                } else dispatch(setErrorsAction({
                     message: 'Something was wrong'
                 }));
             }).catch(err => {
