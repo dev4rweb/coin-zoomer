@@ -368,7 +368,6 @@ const CoinEdit = ({coin}) => {
                                                     className="input-text"
                                                     type="number"
                                                     min="0"
-                                                    max="999999999"
                                                     value={data.circulating_supply}
                                                     onChange={e => setData({
                                                         ...data,

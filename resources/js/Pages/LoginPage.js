@@ -14,6 +14,10 @@ const LoginPage = () => {
     const [isShowCode, setIsShowCode] = useState(false)
     const [verificationCode, setVerificationCode] = useState('')
     const [user, setUser] = useState(null)
+    const upperText = 'We have sent a verification code to your' +
+        ' email - xxx. Please check your email and provide the code that you' +
+        ' have received. Don\'t forget to check spam if you did not receive it.' +
+        ' If you have any problems, please contact '
 
     const getUserCode = e => {
         e.preventDefault();
@@ -35,10 +39,9 @@ const LoginPage = () => {
                     }
                     if (curUser && curUser.verification_code > 1) {
                         setIsShowCode(true);
-                        dispatch(setErrorsAction({message: 'We have sent a verification code to your' +
-                                ' email - xxx. Please check your email and provide the code that you' +
-                                ' have received. Don\'t forget to check spam if you did not receive it.' +
-                                ' If you have any problems, please contact admin@coinzoomer.com'}))
+                        dispatch(setErrorsAction({
+                            message: 'Verification code has been sent to your email'
+                        }))
                     }
                 }).catch(err => {
                 console.log('get-verified-code', err)
@@ -119,6 +122,16 @@ const LoginPage = () => {
                                 validated={validated}
                                 onSubmit={getUserCode}
                             >
+                                {
+                                    isShowCode &&
+                                    <h3
+                                        className="mb-3"
+                                        style={{color: '#1d2147', textAlign: 'center'}}
+                                    >
+                                        {upperText} <a href="mailto:admin@coinzoomer.com">admin@coinzoomer.com</a>
+                                    </h3>
+                                }
+
                                 <FloatingLabel
                                     label="Enter email"
                                     className="mb-3"
