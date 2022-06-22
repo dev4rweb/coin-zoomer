@@ -43,6 +43,7 @@ const HomePage = ({currentUser, errors, coins, votes, hotNotifications}) => {
     const topWeekCoins = useSelector(state => state.topCoins.topCoinsByWeek)
     const bestCoin = useSelector(state => state.leaderCoins.theBestLeader)
 
+
     const topCoinsData = [
         {id: 1, logo: oneImg, name: 'CoinName', isIncrease: true, val: `12.993%`, price: '$ 475.45', isFav: true},
         {id: 2, logo: twoImg, name: 'CoinName', isIncrease: true, val: `12.993%`, price: '$ 475.45', isFav: true},
@@ -80,9 +81,9 @@ const HomePage = ({currentUser, errors, coins, votes, hotNotifications}) => {
         // dispatch(setErrorsAction(errors))
     }, []);
 
-/*    useEffect(() => {
-        console.log('BEST COIN', bestCoin)
-    }, [bestCoin]);*/
+    /*    useEffect(() => {
+            console.log('BEST COIN', bestCoin)
+        }, [bestCoin]);*/
 
     const changeLimit = async (e, lim) => {
         dispatch(setCoinPageLimitAction(lim))
@@ -167,7 +168,7 @@ const HomePage = ({currentUser, errors, coins, votes, hotNotifications}) => {
                                 topHourCoins &&
                                 <TopCoins
                                     title={'coins of the 1h'}
-                                    data={topHourCoins.data}
+                                    data={topHourCoins.data.sort((a, b) => b.hour_votes - a.hour_votes)}
                                 />
                             }
 
@@ -176,7 +177,7 @@ const HomePage = ({currentUser, errors, coins, votes, hotNotifications}) => {
                                 <TopCoins
                                     title={'coins of the 24h'}
                                     classBg={'pink'}
-                                    data={topDayCoins.data}
+                                    data={topDayCoins.data.sort((a, b) => b.today_votes - a.today_votes)}
                                 />
                             }
 
@@ -185,7 +186,7 @@ const HomePage = ({currentUser, errors, coins, votes, hotNotifications}) => {
                                 <TopCoins
                                     title={'coins of the week'}
                                     classBg={'blue'}
-                                    data={topWeekCoins.data}
+                                    data={topWeekCoins.data.sort((a, b) => b.week_votes - a.week_votes)}
                                 />
                             }
 

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Filters\QueryFilter;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -41,7 +42,10 @@ class Coin extends Model
     protected $appends = [
         'full_name',
         'price_formatted',
-        'one_hour_formatted'
+        'one_hour_formatted',
+        'hour_votes',
+        'today_votes',
+        'week_votes',
     ];
 
     protected $casts = [
@@ -51,7 +55,10 @@ class Coin extends Model
         'is_presale' => 'boolean',
         'is_fake' => 'boolean',
         'is_kyc' => 'boolean',
-        'price' => 'float'
+        'price' => 'float',
+        'hour_votes' => 'integer',
+        'today_votes' => 'integer',
+        'week_votes' => 'integer',
     ];
 
     /**
@@ -62,6 +69,33 @@ class Coin extends Model
     public function getFullNameAttribute()
     {
         return  $this->market_cap_big ? (int) $this->market_cap_big : $this->market_cap;
+    }
+
+    public function getHourVotesAttribute()
+    {
+        $hour = Carbon::createFromTimestamp(Carbon::now()->getTimestamp() - 60 * 60);
+        $votes = Vote::where('coin_id', $this->id)
+            ->where('created_at', '>', $hour)
+            ->get();
+        return count($votes);
+    }
+
+    public function getTodayVotesAttribute()
+    {
+        $today = Carbon::createFromTimestamp(Carbon::now()->getTimestamp() - 60 * 60 * 24);
+        $votes = Vote::where('coin_id', $this->id)
+            ->where('created_at', '>', $today)
+            ->get();
+        return count($votes);
+    }
+
+    public function getWeekVotesAttribute()
+    {
+        $week = Carbon::createFromTimestamp(Carbon::now()->getTimestamp() - 60 * 60 * 24 *7);
+        $votes = Vote::where('coin_id', $this->id)
+            ->where('created_at', '>', $week)
+            ->get();
+        return count($votes);
     }
 
     public function getPriceFormattedAttribute()

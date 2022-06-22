@@ -31,34 +31,33 @@ class CoinFilter extends QueryFilter
     {
 
         if ($isDesk) {
-            return $this->builder
+            return $this->builder->withCount('votes')
                 ->whereHas('votes', function ($q) {
                     $today = Carbon::createFromTimestamp(Carbon::now()->getTimestamp() - 60 * 60 * 24);
                     $q->where('created_at', '>', $today);
-                })->withCount('votes')
-                ->orderBy('votes_count', 'desc');
+                })->orderBy('votes_count', 'desc');
         }
     }
 
     public function week_hot($isDesk = 1)
     {
         if ($isDesk) {
-            return $this->builder
+            return $this->builder->withCount('votes')
                 ->whereHas('votes', function ($q) {
                     $week = Carbon::createFromTimestamp(Carbon::now()->getTimestamp() - 60 * 60 * 24 *7);
                     $q->where('created_at', '>', $week);
-                })->withCount('votes')->orderBy('votes_count', 'desc');
+                })->orderBy('votes_count', 'desc');
         }
     }
 
     public function hour_hot($isDesk = 1)
     {
         if ($isDesk) {
-            return $this->builder
+            return $this->builder->withCount('votes')
                 ->whereHas('votes', function ($q) {
                     $hour = Carbon::createFromTimestamp(Carbon::now()->getTimestamp() - 60 * 60);
                     $q->where('created_at', '>', $hour);
-                })->withCount('votes')->orderBy('votes_count', 'desc');
+                })->orderBy('votes_count', 'desc');
         }
     }
 
