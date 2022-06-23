@@ -27,7 +27,7 @@ const LeadersSubscribeBlock = () => {
                     leadersDay &&
                     <LeadersCard
                         title={`Leaders of 24 hours`}
-                        data={leadersDay.data}
+                        data={leadersDay.data.sort((a, b) => b.today_votes - a.today_votes)}
                     />
                 }
 
@@ -35,7 +35,7 @@ const LeadersSubscribeBlock = () => {
                     leadersWeek &&
                     <LeadersCard
                         title={`Leaders of week`}
-                        data={leadersWeek.data}
+                        data={leadersWeek.data.sort((a, b) => b.week_votes - a.week_votes)}
                     />
                 }
                 <SubscribeBlock />
