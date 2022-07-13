@@ -259,7 +259,7 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes, 
                                                         color: 'white',
                                                         fontWeight: 700
                                                     }}
-                                                    dangerouslySetInnerHTML={{__html: `<span style="color: rgb(125, 215, 92); margin-right: 5px;">$</span> ${curCoin.price || '0'}`}}
+                                                    dangerouslySetInnerHTML={{__html: `<span style="color: rgb(125, 215, 92); margin-right: 5px;">$</span> ${curCoin.price_formatted || '0'}`}}
                                                 />
                                             </label>
                                         </InputGroup>

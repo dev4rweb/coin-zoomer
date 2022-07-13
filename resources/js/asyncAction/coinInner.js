@@ -71,11 +71,11 @@ export const fetchTopCoins = byWhat => {
             break
         case 'leader_day':
             sortObj.sortName = 'today_hot'
-            sortObj.limit = 2
+            // sortObj.limit = 2
             break
         case 'leader_week':
             sortObj.sortName = 'week_hot'
-            sortObj.limit = 2
+            // sortObj.limit = 2
             break
         case 'leader_market_cap':
             sortObj.sortName = 'isPromoted'
@@ -86,7 +86,7 @@ export const fetchTopCoins = byWhat => {
     return function (dispatch) {
         axios.get(`api/coins?${sortObj.sortName}=${sortObj.sortValue}&limit=${sortObj.limit}`)
             .then(res => {
-                // console.log('fetchTopCoinsByHour', res)
+                // console.log(`fetchTopCoinsBy ${sortObj.sortName}`, res)
                 if (res.data.success) {
                     switch (byWhat) {
                         case 'hour':

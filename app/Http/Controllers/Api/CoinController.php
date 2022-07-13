@@ -17,9 +17,9 @@ class CoinController extends Controller
      */
     public function index(CoinFilter $filter)
     {
-
         try {
 //            $coins = Coin::filter($filter)->take($filter->request['limit'])->get();
+
             $coins = Coin::filter($filter)
                 ->where('is_approved', 1)
                 ->with('votes')
@@ -28,7 +28,8 @@ class CoinController extends Controller
             $response['success'] = true;
             $response['message'] = 'Filter and Search';
             $response['models'] = $coins;
-            $response['filter'] = $filter->request['limit'];
+//            $response['filter'] = $filter->request['limit'];
+            $response['filter'] = isset($filter->request['limit']);
         } catch (\Exception $exception) {
             $response['success'] = false;
             $response['message'] = $exception->getMessage();

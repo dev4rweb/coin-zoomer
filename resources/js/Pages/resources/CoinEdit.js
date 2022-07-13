@@ -44,6 +44,9 @@ const CoinEdit = ({coin}) => {
         is_coin_gecko: coin.is_coin_gecko || false,
         is_promoted: coin.is_promoted || false,
         is_approved: coin.is_approved || false,
+        is_kyc: coin.is_kyc || false,
+        is_market_cap_gecko: coin.is_market_cap_gecko || false,
+        is_own_logo: coin.is_own_logo || false,
         coin_chains: coin.coin_chains || null,
         circulating_supply: coin.circulating_supply || null,
     })
@@ -168,6 +171,9 @@ const CoinEdit = ({coin}) => {
             is_coin_gecko: data.is_coin_gecko,
             is_promoted: data.is_promoted,
             is_fake: false,
+            is_kyc: data.is_kyc,
+            is_market_cap_gecko: data.is_market_cap_gecko,
+            is_own_logo: data.is_own_logo,
             coin_chains: data.coin_chains,
             circulating_supply: data.circulating_supply,
 
@@ -200,28 +206,64 @@ const CoinEdit = ({coin}) => {
                         title={
                             <div className="d-flex justify-content-between align-items-center">
                                 <h1>{data.name}</h1>
-                                <Form.Group className="mb-3">
-                                    <Form.Check
-                                        type="checkbox"
-                                        checked={data.is_promoted}
-                                        onChange={e => setData({
-                                            ...data,
-                                            ['is_promoted']: e.target.checked
-                                        })}
-                                        label={data.is_promoted ? 'PROMOTED' : 'NOT PROMOTED'}
-                                    />
-                                </Form.Group>
-                                <Form.Group className="mb-3">
-                                    <Form.Check
-                                        type="checkbox"
-                                        checked={data.is_presale}
-                                        onChange={e => setData({
-                                            ...data,
-                                            ['is_presale']: e.target.checked
-                                        })}
-                                        label={data.is_presale ? 'PRESALE' : 'NOT PRESALE'}
-                                    />
-                                </Form.Group>
+                                <div className="mb-3">
+                                    <Form.Group>
+                                        <Form.Check
+                                            type="checkbox"
+                                            checked={data.is_promoted}
+                                            onChange={e => setData({
+                                                ...data,
+                                                ['is_promoted']: e.target.checked
+                                            })}
+                                            label={data.is_promoted ? 'PROMOTED' : 'NOT PROMOTED'}
+                                        />
+                                    </Form.Group>
+                                    <Form.Group>
+                                        <Form.Check
+                                            type="checkbox"
+                                            checked={data.is_kyc}
+                                            onChange={e => setData({
+                                                ...data,
+                                                ['is_kyc']: e.target.checked
+                                            })}
+                                            label={data.is_kyc ? 'KYC' : 'NOT KYC'}
+                                        />
+                                    </Form.Group>
+                                    <Form.Group>
+                                        <Form.Check
+                                            type="checkbox"
+                                            checked={data.is_market_cap_gecko}
+                                            onChange={e => setData({
+                                                ...data,
+                                                ['is_market_cap_gecko']: e.target.checked
+                                            })}
+                                            label={data.is_market_cap_gecko ? 'OWN MARKET CUP' : 'MARKET CUP'}
+                                        />
+                                    </Form.Group>
+                                    <Form.Group>
+                                        <Form.Check
+                                            type="checkbox"
+                                            checked={data.is_own_logo}
+                                            onChange={e => setData({
+                                                ...data,
+                                                ['is_own_logo']: e.target.checked
+                                            })}
+                                            label={data.is_own_logo ? 'OWN LOGO' : 'FROM RESOURCE'}
+                                        />
+                                    </Form.Group>
+                                    <Form.Group>
+                                        <Form.Check
+                                            type="checkbox"
+                                            checked={data.is_presale}
+                                            onChange={e => setData({
+                                                ...data,
+                                                ['is_presale']: e.target.checked
+                                            })}
+                                            label={data.is_presale ? 'PRESALE' : 'NOT PRESALE'}
+                                        />
+                                    </Form.Group>
+                                </div>
+
                                 <img
                                     style={{width: '126px', height: 'auto'}}
                                     src={data.logotype}

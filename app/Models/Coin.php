@@ -37,6 +37,8 @@ class Coin extends Model
         'contractAdditional',
         'email',
         'telegram',
+        'is_market_cap_gecko',
+        'is_own_logo',
     ];
 
     protected $appends = [
@@ -55,6 +57,8 @@ class Coin extends Model
         'is_presale' => 'boolean',
         'is_fake' => 'boolean',
         'is_kyc' => 'boolean',
+        'is_market_cap_gecko' => 'boolean',
+        'is_own_logo' => 'boolean',
         'price' => 'float',
         'hour_votes' => 'integer',
         'today_votes' => 'integer',

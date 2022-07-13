@@ -63,6 +63,7 @@ const HomePage = ({currentUser, errors, coins, votes, hotNotifications}) => {
 
     useEffect(() => {
         console.log('HomePage', coins)
+        // console.log('HomePage process', process.env.MIX_HTTP_PATH) doesn't work
         // getSingleRecordMoralis().then(res => console.log('HOME', res.data))
 
         dispatch(setCurrentUserAction(currentUser))
@@ -88,6 +89,7 @@ const HomePage = ({currentUser, errors, coins, votes, hotNotifications}) => {
     const changeLimit = async (e, lim) => {
         dispatch(setCoinPageLimitAction(lim))
         sortObj.limit = lim
+        sortObj.page = 1
         dispatch(fetchCoinByQueryObj(sortObj))
     };
 
