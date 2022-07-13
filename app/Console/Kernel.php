@@ -84,17 +84,17 @@ class Kernel extends ConsoleKernel
                         if (!$coin['price']) $coin['price'] = 0;
 
                         $coin['contractAdditional'] = $responseCoin;
-                        $coin['price'] = (string)$responseCoin['usdPrice'];
-                        $coin['market_cap'] = (string)($responseCoin['usdPrice'] * $coin['circulating_supply']);
+
+                        $coin['market_cap'] = (string) ($responseCoin['usdPrice'] * $coin['circulating_supply']);
                         $coin->save();
 
-                        if ($coin['price'] == $responseCoin['usdPrice']) $coin['one_hour'] = 0;
+//                        if ($coin['price'] == $responseCoin['usdPrice']) $coin['one_hour'] = 0; // need to remove 0
                         if ($coin['price'] != $responseCoin['usdPrice']) {
                             if ($coin['price'] == 0) $coin['one_hour'] = 0;
                             else $coin['one_hour'] = (string)(($responseCoin['usdPrice'] / $coin['price'] - 1) * 100);
 //                            $coin['contractAdditional'] = (string)(($responseCoin['usdPrice'] / $coin['price'] - 1) * 100);
                         }
-
+                        $coin['price'] = (string)$responseCoin['usdPrice'];
                         $coin->save();
 
                     } else {
