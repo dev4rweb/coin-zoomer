@@ -22,7 +22,7 @@ const TariffCard = ({data}) => {
                             className={s.planItem}
                         >
                             <span className={s.planName}>{item.name}</span>
-                            <span className={s.planCost}>${item.cost}</span>
+                            <span className={s.planCost}>{item.cost}</span>
                         </ListGroupItem>
                     )
                 }

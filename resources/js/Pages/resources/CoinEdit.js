@@ -237,7 +237,7 @@ const CoinEdit = ({coin}) => {
                                                 ...data,
                                                 ['is_market_cap_gecko']: e.target.checked
                                             })}
-                                            label={data.is_market_cap_gecko ? 'OWN MARKET CUP' : 'MARKET CUP'}
+                                            label={data.is_market_cap_gecko ? 'MARKET CUP' : 'OWN MARKET CUP'}
                                         />
                                     </Form.Group>
                                     <Form.Group>
@@ -401,7 +401,7 @@ const CoinEdit = ({coin}) => {
                                     </InputGroup>
 
                                     {
-                                        !data.is_coin_gecko &&
+                                        (!data.is_coin_gecko || !data.is_market_cap_gecko) &&
                                         <InputGroup className="mb-3">
                                             <label className="input-label">
                                                 <span>*</span> Approximately Circulating Supply

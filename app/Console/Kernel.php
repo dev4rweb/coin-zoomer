@@ -40,17 +40,20 @@ class Kernel extends ConsoleKernel
 
                 $response = Http::get($base_url . '/coins/' . $url_id . '?' . $dop_data);
                 if ($response->ok()) {
-                    $marketCap = (string)$response['market_data']['market_cap']['usd'];
+
                     if ($coin['is_own_logo'] == false) {
                         $coin['logotype'] = $response['image']['large'];
                     }
                     $coin['symbol'] = $response['symbol'];
                     $coin['price'] = (string)$response['market_data']['current_price']['usd'];
+
                     if ($coin['is_market_cap_gecko'] == true) {
                         $coin['market_cap'] = (string)$response['market_data']['market_cap']['usd'];
-                        $coin['market_cap_big'] = $marketCap;
+                    }else {
+                        $coin['market_cap'] = (string)($response['market_data']['current_price']['usd'] * $coin['circulating_supply']);
                     }
 
+                    $coin['market_cap_big'] = $coin['market_cap'];
                     $coin['one_hour'] = $response['market_data']['price_change_percentage_1h_in_currency']['usd'];
                     if ($response['genesis_date']) {
                         $coin['launch_date'] = $response['genesis_date'];
@@ -85,7 +88,7 @@ class Kernel extends ConsoleKernel
 
                         $coin['contractAdditional'] = $responseCoin;
 
-                        $coin['market_cap'] = (string) ($responseCoin['usdPrice'] * $coin['circulating_supply']);
+                        $coin['market_cap'] = (string)($responseCoin['usdPrice'] * $coin['circulating_supply']);
                         $coin->save();
 
 //                        if ($coin['price'] == $responseCoin['usdPrice']) $coin['one_hour'] = 0; // need to remove 0

@@ -79,7 +79,7 @@ export const fetchTopCoins = byWhat => {
             break
         case 'leader_market_cap':
             sortObj.sortName = 'isPromoted'
-            sortObj.limit = 5
+            sortObj.limit = 10
             break
     }
 

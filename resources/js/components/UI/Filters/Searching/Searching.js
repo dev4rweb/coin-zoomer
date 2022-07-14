@@ -15,6 +15,7 @@ const Searching = () => {
         e.preventDefault()
         dispatch(setSearchingWordAction(text))
         sortObj.search = text
+        sortObj.page = "1"
         dispatch(fetchCoinByQueryObj(sortObj))
     };
 
@@ -24,6 +25,7 @@ const Searching = () => {
         console.log('quickSearchHandler', e.target.value)
         dispatch(setSearchingWordAction(e.target.value))
         sortObj.search = e.target.value
+        sortObj.page = "1"
         dispatch(fetchCoinByQueryObj(sortObj))
     };
 

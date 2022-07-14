@@ -79,6 +79,7 @@ td {
 
 .outlineBtn {
   max-height: 35px;
+  min-width: 75px;
   color: white;
   padding-left: 20px;
   padding-right: 20px;
