@@ -77,7 +77,7 @@ class Kernel extends ConsoleKernel
             foreach ($coins as $coin) {
                 $contract_address = $coin['coinChains'][0]['contract_address'];
                 $chain = $coin['coinChains'][0]['chain'];
-                if (str_contains($chain, 'miannet') == false) {
+                if (str_contains($chain, 'mainnet') == false) {
                     $responseCoin = Http::withHeaders([
                         'X-API-Key' => 'jTG1sdNlkrUtapkTO7Tt5UEa1P8lgLlHn21M32F56G5nSZrmfoGQy4F7I8DBNFP6' // from moralis example requests
                     ])

@@ -61,7 +61,7 @@ const AddCoinPage = ({currentUser, errors, hotNotifications}) => {
                 dispatch(setErrorsAction({message: 'Choose chain'}));
                 return;
             }
-            if (!chain.includes('miannet') && !contractAddress.length) {
+            if (!chain.includes('mainnet') && !contractAddress.length) {
                 dispatch(setErrorsAction({message: 'Fill Contract Address field'}));
                 return
             }
@@ -511,9 +511,9 @@ const AddCoinPage = ({currentUser, errors, hotNotifications}) => {
                                                     <DropdownItem
                                                         onClick={chainHandler}
                                                         as="button"
-                                                        title={'miannet'}
+                                                        title={'mainnet'}
                                                     >
-                                                        miannet
+                                                        mainnet
                                                     </DropdownItem>
                                                 </DropdownButton>
                                             </InputGroup>
@@ -522,14 +522,14 @@ const AddCoinPage = ({currentUser, errors, hotNotifications}) => {
                                         <InputGroup className="mb-3 me-5">
                                             <label className="input-label">
                                                 {
-                                                    chain !== 'miannet' ?
+                                                    chain !== 'mainnet' ?
                                                         <span>*</span>
                                                         :
                                                         ''
                                                 }
                                                 Contract address
                                                 {
-                                                    chain !== 'miannet' ?
+                                                    chain !== 'mainnet' ?
                                                         <FormControl
                                                             placeholder="Example: BTC"
                                                             className="input-text"

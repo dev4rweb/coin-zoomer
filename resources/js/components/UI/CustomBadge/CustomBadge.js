@@ -5,6 +5,7 @@ import {useDispatch} from "react-redux";
 
 const CustomBadge = ({data, removeHandler = null}) => {
     let bgColor = 'info'
+    let text = 'light'
     switch (data) {
         case 'eth':
             bgColor = 'success'
@@ -23,6 +24,7 @@ const CustomBadge = ({data, removeHandler = null}) => {
             break
         case 'avalanche':
             bgColor = 'light'
+            text = 'dark'
             break
         case 'mainnet':
             bgColor='dark'
@@ -38,7 +40,7 @@ const CustomBadge = ({data, removeHandler = null}) => {
 
     return (
         <div className={s.customBadge}>
-            <Badge className={s.badge} bg={bgColor} text={'dark'}>
+            <Badge className={s.badge} bg={bgColor} text={text}>
                 {data}
             </Badge>
             {/*<span

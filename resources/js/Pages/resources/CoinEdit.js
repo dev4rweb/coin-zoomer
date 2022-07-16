@@ -127,7 +127,7 @@ const CoinEdit = ({coin}) => {
         if (
             (titleChain !== 'Select' && contractAddress)
             ||
-            titleChain === 'miannet'
+            titleChain === 'mainnet'
         ) {
             const newChain = {
                 id: Date.now(),
@@ -545,9 +545,9 @@ const CoinEdit = ({coin}) => {
                                             <DropdownItem
                                                 onClick={chainTitleHandler}
                                                 as="button"
-                                                title={'miannet'}
+                                                title={'mainnet'}
                                             >
-                                                miannet
+                                                mainnet
                                             </DropdownItem>
                                         </DropdownButton>
                                     </InputGroup>
@@ -556,14 +556,14 @@ const CoinEdit = ({coin}) => {
                                 <InputGroup className="mb-3 me-5">
                                     <label className="input-label">
                                         {
-                                            titleChain !== 'miannet' ?
+                                            titleChain !== 'mainnet' ?
                                                 <span>*</span>
                                                 :
                                                 ''
                                         }
                                         Contract address
                                         {
-                                            titleChain !== 'miannet' ?
+                                            titleChain !== 'mainnet' ?
                                                 <FormControl
                                                     placeholder="Example: BTC"
                                                     className="input-text"

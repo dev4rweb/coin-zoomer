@@ -133,6 +133,7 @@ class CoinFilter extends QueryFilter
 
     public function search_name($search = '')
     {
-        return $this->builder->where('name', 'LIKE', '%' . $search . '%');
+        return $this->builder->where('name', 'LIKE', '%' . $search . '%')
+            ->orWhere('symbol', 'LIKE', '%' . $search . '%');
     }
 }

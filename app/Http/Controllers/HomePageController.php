@@ -60,7 +60,7 @@ class HomePageController extends Controller
             ->get();
         $chain = $coins[0]->coinChains[0]['chain'];
         $contract_address = $coins[0]->coinChains[0]['contract_address'];
-        if (str_contains($chain, 'miannet') == false) {
+        if (str_contains($chain, 'mainnet') == false) {
             $responseCoin = Http::withHeaders([
 //                        'X-API-Key' => 'UpQ3vKSY4Lwb4c09DfS4pNMsf43YXLplFTudha98Iitks2giWK4e3Swv3S0f3Ic5'
                 'accept: application/json',
