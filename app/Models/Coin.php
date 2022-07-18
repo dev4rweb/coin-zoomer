@@ -65,6 +65,11 @@ class Coin extends Model
         'week_votes' => 'integer',
     ];
 
+    public function getSymbolAttribute($value)
+    {
+        return strtoupper($value);
+    }
+
     /**
      * Получить полное имя пользователя.
      *
