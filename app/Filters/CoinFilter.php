@@ -65,8 +65,8 @@ class CoinFilter extends QueryFilter
     {
         return $this->builder
             ->withCount('votes')
-            ->where('is_presale', $isPresale)
-            ->orderBy('id', 'desc');
+            ->orderBy('id', 'desc')
+            ->where('is_presale', 1);
     }
 
     public function new_coin($isNew = 1)
@@ -133,7 +133,9 @@ class CoinFilter extends QueryFilter
 
     public function search_name($search = '')
     {
-        return $this->builder->where('name', 'LIKE', '%' . $search . '%')
-            ->orWhere('symbol', 'LIKE', '%' . $search . '%');
+        return $this->builder->when($search, function ($query) use ($search){
+            $query->where('name', 'LIKE', '%' . $search . '%')
+                ->orWhere('symbol', 'LIKE', '%' . $search . '%');
+        });
     }
 }

@@ -163,6 +163,9 @@ const CoinsTableRowInner = ({data}) => {
                                 difData.is_kyc ? <CustomBadge data={'kyc'}/> : ''
                             }
                             {
+                                difData.is_presale ? <CustomBadge data={'PRESALE'} /> : ''
+                            }
+                            {
                                 difData.coin_chains && difData.coin_chains.length &&
                                 difData.coin_chains.length > 0  ?
                                 difData.coin_chains.map((item, index) => {

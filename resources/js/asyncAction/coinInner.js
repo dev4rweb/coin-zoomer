@@ -40,7 +40,8 @@ export const fetchCoinByQuery = (sort = null, page = 1, search = '', limit = 10)
 
 export const fetchCoinByQueryObj = (sortObj) => {
     return function (dispatch) {
-        axios.get(`api/coins?${sortObj.sort.name}=${sortObj.sort.value}&page=${sortObj.page}&search_name=${sortObj.search}&limit=${sortObj.limit}`)
+        // axios.get(`api/coins?${sortObj.sort.name}=${sortObj.sort.value}&page=${sortObj.page}&search_name=${sortObj.search}&limit=${sortObj.limit}`)
+        axios.get(`api/coins?search_name=${sortObj.search}&${sortObj.sort.name}=${sortObj.sort.value}&page=${sortObj.page}&limit=${sortObj.limit}`)
             .then(res => {
                 console.log('fetchCoinByQueryObj', res)
                 if (res.data.success) {

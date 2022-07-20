@@ -142,9 +142,12 @@ const SimpleTableItem = ({data, index}) => {
                     <img src={difData.logotype} alt="coin"/>
                     <div>
                         <p>{data.name}</p>
-                        <div>
+                        <div className="d-flex">
                             {
                                 difData.is_kyc ? <CustomBadge data={'KYC'} /> : ''
+                            }
+                            {
+                                difData.is_presale ? <CustomBadge data={'PRESALE'} /> : ''
                             }
                         </div>
 
