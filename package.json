@@ -29,6 +29,8 @@
         "@inertiajs/inertia": "^0.10.1",
         "@inertiajs/inertia-react": "^0.7.1",
         "@inertiajs/progress": "^0.2.6",
+        "@tiptap/react": "^2.0.0-beta.114",
+        "@tiptap/starter-kit": "^2.0.0-beta.191",
         "chart.js": "^2.9.4",
         "react-bootstrap": "^2.0.3",
         "react-chartjs-2": "^2.11.2",

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, Component} from 'react';
 import {Button, Container, DropdownButton, FloatingLabel, FormControl, InputGroup} from "react-bootstrap";
 import s from "../../../sass/pages/AdminPage/AdminPage.module.scss";
 import c from '../../../sass/pages/AddCoinPage/AddCoinPage.module.scss'
@@ -20,6 +20,8 @@ import InputFile from "../../components/InputFile/InputFile";
 import Chain from "../../components/ChainItem/Chain";
 import DropdownItem from "react-bootstrap/DropdownItem";
 import {useDispatch} from "react-redux";
+import TextEditor from "../../components/TextEditor/TextEditor";
+import TextEditorMenu from "../../components/TextEditor/TextEditorMenu";
 
 const CoinEdit = ({coin}) => {
     const dispatch = useDispatch()
@@ -68,6 +70,14 @@ const CoinEdit = ({coin}) => {
         } else {
             e.target.style.color = 'red'
         }
+    };
+
+    const saveEditorHandler = textHtml => {
+        console.log('saveEditorHandler', textHtml)
+        setData({
+            ...data,
+            ['description']: textHtml
+        })
     };
 
     const contractTwitterHandler = value => {
@@ -466,12 +476,16 @@ const CoinEdit = ({coin}) => {
                                                 as="textarea"
                                                 value={data.description}
                                                 onChange={limitTextHandler}
-                                                style={{height: '60px'}}
+                                                style={{height: '300px'}}
                                                 required
                                             />
                                         </FloatingLabel>
                                     </InputGroup>
                                 </label>
+                            </div>
+
+                            <div>
+                                <TextEditor content={data.description} onChange={saveEditorHandler}/>
                             </div>
                             <FormBlockDivider/>
 

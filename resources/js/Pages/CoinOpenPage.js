@@ -375,8 +375,8 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes, 
 
                                         <div className={s.coinContent}>
                                             <h3>About coin</h3>
-                                            <p>
-                                                {curCoin.description}
+                                            <p dangerouslySetInnerHTML={{__html: curCoin.description}}>
+                                                {/*{curCoin.description}*/}
                                             </p>
                                         </div>
                                     </div>
