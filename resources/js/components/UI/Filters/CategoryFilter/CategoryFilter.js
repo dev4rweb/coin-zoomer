@@ -24,6 +24,7 @@ const CategoryFilter = () => {
         {id: 11, name: 'New', value: 'new_coin', img: newGrayImg, active: newImg, cl: s.news},
         {id: 12, name: 'All time best', value: 'all_time_best', img: trophyImg, active: trophyGrayImg, cl: s.best},
         {id: 13, name: 'Presale', value: 'is_presale', img: discountGrayImg, active: discountImg, cl: s.presale},
+        {id: 14, name: 'KYC', value: 'is_kyc', img: discountGrayImg, active: discountImg, cl: s.presale},
     ];
 
     useEffect(() => {
@@ -36,6 +37,12 @@ const CategoryFilter = () => {
         setValue(e.currentTarget.value)
         let sort = null
         switch (e.currentTarget.value) {
+            case 'is_kyc':
+                sort = {name: 'is_kyc', value: 1}
+                dispatch(setSortingNameObjAction(sort))
+                sortObj.sort = sort
+                dispatch(fetchCoinByQueryObj(sortObj))
+                return
             case 'is_presale':
                 sort = {name: 'is_presale', value: 1}
                 dispatch(setSortingNameObjAction(sort))

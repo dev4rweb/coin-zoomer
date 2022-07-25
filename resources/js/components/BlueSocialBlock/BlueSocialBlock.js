@@ -13,7 +13,7 @@ const BlueSocialBlock = () => {
         {name: 'insta', img: insta, link: 'https://www.instagram.com/coinzoomer/'},
         {name: 'telegram', img: telegram, link: 'https://t.me/COINZOOMER'},
         {name: 'twitter', img: twitter, link: 'https://twitter.com/coinzoomer'},
-        {name: 'youtube', img: youtube, link: 'https://www.youtube.com/channel/UC3NO8K12lNKz9qaZ5KoM19w'},
+        {name: 'youtube', img: youtube, link: 'https://www.youtube.com/c/CoinZoomer/'},
     ]
 
     const clickHandler = i => {

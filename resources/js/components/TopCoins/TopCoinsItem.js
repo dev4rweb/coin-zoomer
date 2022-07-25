@@ -108,7 +108,14 @@ const TopCoinsItem = ({data, index}) => {
         <li className={`${s.coinItem}`} onClick={handleClick}>
             <span className={s.num}>{index + 1}</span>
             <div className={s.content}>
-                <img className={s.logo} src={difData.logotype} alt="logo"/>
+                <img
+                    className={s.logo}
+                    style={{
+                        borderRadius: '50%'
+                    }}
+                    src={difData.logotype}
+                    alt="logo"
+                />
                 <div className={s.data}>
                     <p className={s.name}>{difData.name}</p>
                     {

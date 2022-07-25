@@ -16,7 +16,7 @@ const SocialBlock = () => {
         {img: telegram, link: 'https://t.me/CoinZoomerOfficial'},
         {img: discord, link: 'https://discord.gg/coinzoomer'},
         {img: twitter, link: 'https://twitter.com/coinzoomer'},
-        {img: youtube, link: 'https://www.youtube.com/channel/UC3NO8K12lNKz9qaZ5KoM19w'},
+        {img: youtube, link: ' https://www.youtube.com/c/CoinZoomer/'},
         {img: fb, link: 'https://www.facebook.com/CoinZoomer'},
     ]
 

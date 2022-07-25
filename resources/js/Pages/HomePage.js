@@ -61,6 +61,7 @@ const HomePage = ({currentUser, errors, coins, votes, hotNotifications}) => {
         console.log('creating data', jsonData)
     }, []);*/
 
+
     useEffect(() => {
         console.log('HomePage', coins)
         // console.log('HomePage process', process.env.MIX_HTTP_PATH) doesn't work

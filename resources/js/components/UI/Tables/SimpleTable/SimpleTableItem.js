@@ -139,7 +139,13 @@ const SimpleTableItem = ({data, index}) => {
         <tr className={s.tableItem} onClick={handleClick}>
             <td className={s.coinsCol}>
                 <div className={s.coins}>
-                    <img src={difData.logotype} alt="coin"/>
+                    <img
+                        style={{
+                            borderRadius: '50%'
+                        }}
+                        src={difData.logotype}
+                        alt="coin"
+                    />
                     <div>
                         <p>{data.name}</p>
                         <div className="d-flex">

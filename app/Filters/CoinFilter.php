@@ -69,6 +69,14 @@ class CoinFilter extends QueryFilter
             ->where('is_presale', 1);
     }
 
+    public function is_kyc()
+    {
+        return $this->builder
+            ->withCount('votes')
+            ->orderBy('id', 'desc')
+            ->where('is_kyc', 1);
+    }
+
     public function new_coin($isNew = 1)
     {
         if ($isNew == 1) {

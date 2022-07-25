@@ -287,9 +287,9 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes, 
                                                                     >
                                                                         <span
                                                                             style={{
-                                                                            marginRight: '5px',
-                                                                            color: '#7dd75c'
-                                                                        }}
+                                                                                marginRight: '5px',
+                                                                                color: '#7dd75c'
+                                                                            }}
                                                                         >
                                                                             &uarr;
                                                                         </span>
@@ -455,6 +455,15 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes, 
                             </Button>
                         }
                     </section>
+
+                    {
+                        curCoin && curCoin.coin_chains.length && curCoin.coin_chains[0].chain === 'bsc' &&
+                        <section>
+                            <iframe width="100%" height="1040" frameBorder="0" scrolling="no"
+                                    src={`https://coinbrain.com/embed/${curCoin.coin_chains[0].contract_address}?chainId=56&theme=dark&padding=12&chart=1&trades=1&ratio=0.45`}/>
+                        </section>
+                    }
+
                     <section className={s.coinsRateSection}>
                         <SectionSeparator sectionName={`Coins rate`}/>
                         <div className={s.coinsTableWrapper}>
