@@ -255,7 +255,8 @@ const AddCoinPage = ({currentUser, errors, hotNotifications}) => {
                                                         <span>*</span> :
                                                         ''
                                                 }
-                                                Price in USD
+                                                {coin.is_presale ? ' Presale price in USD' : 'Price in USD'}
+
                                                 {
                                                     coin.is_presale ?
                                                         <FormControl
@@ -284,6 +285,8 @@ const AddCoinPage = ({currentUser, errors, hotNotifications}) => {
 
                                             </label>
                                         </InputGroup>
+
+
                                         <Form.Group className="mb-3">
                                             <Form.Check
                                                 type="checkbox"
@@ -403,7 +406,7 @@ const AddCoinPage = ({currentUser, errors, hotNotifications}) => {
 
                                         <InputGroup className="mb-3">
                                             <label className="input-label">
-                                                <span>*</span> Launch date (DD.MM.YYYY)
+                                                <span>*</span> {coin.is_presale ? 'Upcoming launch date (DD.MM.YYYY)' : 'Launch date (DD.MM.YYYY)'}
                                                 <FormControl
                                                     placeholder="Example: 15.05.2021"
                                                     className="input-text"
@@ -618,6 +621,26 @@ const AddCoinPage = ({currentUser, errors, hotNotifications}) => {
                                                 />
                                             </label>
                                         </InputGroup>
+
+                                        {
+                                            coin.is_presale &&
+                                            <InputGroup className="mb-3">
+                                                <label className="input-label">
+                                                    Presale Link
+                                                    <FormControl
+                                                        placeholder="Http://"
+                                                        className="input-text"
+                                                        type="url"
+                                                        value={coin.presale_link}
+                                                        onChange={e => setCoin({
+                                                            ...coin,
+                                                            ['presale_link']: e.target.value
+                                                        })}
+                                                    />
+                                                </label>
+                                            </InputGroup>
+                                        }
+
 
                                         <InputGroup className="mb-3">
                                             <label className="input-label">

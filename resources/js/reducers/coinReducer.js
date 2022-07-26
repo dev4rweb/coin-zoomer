@@ -27,7 +27,10 @@ const defaultState = {
         logotype: '',
         contractAdditional: '',
         email: '',
-        telegram: ''
+        telegram: '',
+        presale_link: '',
+        presale_price: '',
+        presale_launch: '',
     },
     coins: [],
     currentInnerCoin: null,

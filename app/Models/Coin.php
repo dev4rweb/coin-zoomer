@@ -39,6 +39,9 @@ class Coin extends Model
         'telegram',
         'is_market_cap_gecko',
         'is_own_logo',
+        'presale_link',
+        'presale_price',
+        'presale_launch',
     ];
 
     protected $appends = [
@@ -63,6 +66,7 @@ class Coin extends Model
         'hour_votes' => 'integer',
         'today_votes' => 'integer',
         'week_votes' => 'integer',
+        'presale_price' => 'float',
     ];
 
     public function getSymbolAttribute($value)

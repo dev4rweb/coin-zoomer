@@ -51,6 +51,7 @@ const CoinEdit = ({coin}) => {
         is_own_logo: coin.is_own_logo || false,
         coin_chains: coin.coin_chains || null,
         circulating_supply: coin.circulating_supply || null,
+        presale_link: coin.presale_link || '',
     })
 
     const [titleChain, setTitleChain] = useState('Select')
@@ -186,12 +187,13 @@ const CoinEdit = ({coin}) => {
             is_own_logo: data.is_own_logo,
             coin_chains: data.coin_chains,
             circulating_supply: data.circulating_supply,
+            presale_link: data.presale_link
 
         }).then(res => {
             console.log(res)
             if (res.data.success) {
                 dispatch(setErrorsAction({message: res.data.message}));
-                Inertia.visit(PATH_ADMIN_COINS_PAGE);
+                // Inertia.visit(PATH_ADMIN_COINS_PAGE);
             } else {
                 // setErrorsAction({message: 'Something wrong! Try again later'});
                 dispatch(setErrorsAction({message: res.data.message}));
@@ -312,7 +314,8 @@ const CoinEdit = ({coin}) => {
                                                     <span>*</span> :
                                                     ''
                                             }
-                                            Price in USD
+                                            {data.is_presale ? ' Presale price in USD' : 'Price in USD'}
+
                                             {
                                                 data.is_presale ?
                                                     <FormControl
@@ -450,7 +453,9 @@ const CoinEdit = ({coin}) => {
 
                                     <InputGroup className="mb-3">
                                         <label className="input-label">
-                                            <span>*</span> Launch date (DD.MM.YYYY)
+                                            <span>*</span>
+                                            {data.is_presale ? 'Upcoming launch date (DD.MM.YYYY)' : 'Launch date (DD.MM.YYYY)'}
+
                                             <FormControl
                                                 placeholder="Example: 15.05.2021"
                                                 className="input-text"
@@ -675,6 +680,25 @@ const CoinEdit = ({coin}) => {
                                             />
                                         </label>
                                     </InputGroup>
+
+                                    {
+                                        data.is_presale &&
+                                        <InputGroup className="mb-3">
+                                            <label className="input-label">
+                                                Presale Link
+                                                <FormControl
+                                                    placeholder="Http://"
+                                                    className="input-text"
+                                                    type="url"
+                                                    value={data.presale_link}
+                                                    onChange={e => setData({
+                                                        ...data,
+                                                        ['presale_link']: e.target.value
+                                                    })}
+                                                />
+                                            </label>
+                                        </InputGroup>
+                                    }
 
                                     <InputGroup className="mb-3">
                                         <label className="input-label">

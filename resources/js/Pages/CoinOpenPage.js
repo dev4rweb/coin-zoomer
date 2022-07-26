@@ -241,7 +241,8 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes, 
                                         </InputGroup>
                                         <InputGroup className="mb-3">
                                             <label className="input-label">
-                                                Price
+                                                {curCoin.is_presale ? 'Presale Price' : 'Price'}
+
                                                 {/*<FormControl
                                                     placeholder="Price"
                                                     className="input-text"
@@ -261,6 +262,7 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes, 
                                                     }}
                                                     dangerouslySetInnerHTML={{__html: `<span style="color: rgb(125, 215, 92); margin-right: 5px;">$</span> ${curCoin.price_formatted || '0'}`}}
                                                 />
+
                                             </label>
                                         </InputGroup>
                                         {
@@ -322,7 +324,8 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes, 
 
                                         <InputGroup className="mb-3">
                                             <label className="input-label">
-                                                Launch
+                                                {curCoin.is_presale ? 'Upcoming Launch' : 'Launch'}
+
                                                 <FormControl
                                                     placeholder="Price"
                                                     className="input-text"
@@ -452,6 +455,19 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes, 
                                 onClick={e => window.open(`https://app.uniswap.org/#/swap?exactField=input&exactAmount=10&inputCurrency=${uniswap.contract_address}`, '_blank').focus()}
                             >
                                 Uniswap
+                            </Button>
+                        }
+
+
+                        {
+                            curCoin && curCoin.is_presale && curCoin.presale_link &&
+                            <Button
+                                variant="primary"
+                                size="lg"
+                                className={`btn-big btn-violet mb-3`}
+                                onClick={e => window.open(curCoin.presale_link, '_blank').focus()}
+                            >
+                                Presale
                             </Button>
                         }
                     </section>
