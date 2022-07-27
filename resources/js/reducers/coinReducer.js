@@ -29,8 +29,6 @@ const defaultState = {
         email: '',
         telegram: '',
         presale_link: '',
-        presale_price: '',
-        presale_launch: '',
     },
     coins: [],
     currentInnerCoin: null,
