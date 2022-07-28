@@ -2,10 +2,19 @@ import React, {useState} from 'react';
 import s from '../../../../sass/components/UI/MobNavBar/MobNavBar.module.scss'
 import {Button, Nav, Offcanvas} from "react-bootstrap";
 import {
-    PATH_ADC_PAGE, PATH_ADMIN_PAGE,
+    PATH_ADC_PAGE,
+    PATH_ADMIN_AIR_DROP_PAGE,
+    PATH_ADMIN_BANNER_PAGE,
+    PATH_ADMIN_COINS_PAGE, PATH_ADMIN_HOT_NOTIFICATION_PAGE,
+    PATH_ADMIN_PAGE,
+    PATH_ADMIN_SUBSCRIBERS_PAGE,
     PATH_AIR_DROP_PAGE,
     PATH_CONTACTS_PAGE,
-    PATH_HOME_PAGE, PATH_LOGIN_PAGE, PATH_LOGOUT, PATH_REGISTER_PAGE, PATH_USER_PAGE,
+    PATH_HOME_PAGE,
+    PATH_LOGIN_PAGE,
+    PATH_LOGOUT,
+    PATH_REGISTER_PAGE,
+    PATH_USER_PAGE,
     PATH_VERIFIED_PAGE
 } from "../../../utils/routesPath";
 import {InertiaLink} from "@inertiajs/inertia-react";
@@ -108,12 +117,50 @@ const MobNavBar = () => {
                                 <div className={s.authWrapper}>
                                     {
                                         currentUser.is_admin ?
-                                            <InertiaLink
-                                                className={`nav-link ${s.navLink}`}
-                                                href={PATH_ADMIN_PAGE}
-                                            >
-                                                AdminPanel
-                                            </InertiaLink>
+                                            <div>
+                                                <InertiaLink
+                                                    className={`nav-link ${s.navLink}`}
+                                                    href={PATH_ADMIN_PAGE}
+                                                >
+                                                    AdminPanel
+                                                </InertiaLink>
+                                                <InertiaLink
+                                                    className={`nav-link ${s.navLink}`}
+                                                    href={PATH_ADMIN_PAGE}
+                                                >
+                                                    USERS
+                                                </InertiaLink>
+                                                <InertiaLink
+                                                    className={`nav-link ${s.navLink}`}
+                                                    href={PATH_ADMIN_COINS_PAGE}
+                                                >
+                                                    COINS
+                                                </InertiaLink>
+                                                <InertiaLink
+                                                    className={`nav-link ${s.navLink}`}
+                                                    href={PATH_ADMIN_AIR_DROP_PAGE}
+                                                >
+                                                    AIRDROP
+                                                </InertiaLink>
+                                                <InertiaLink
+                                                    className={`nav-link ${s.navLink}`}
+                                                    href={PATH_ADMIN_BANNER_PAGE}
+                                                >
+                                                    BANNER
+                                                </InertiaLink>
+                                                <InertiaLink
+                                                    className={`nav-link ${s.navLink}`}
+                                                    href={PATH_ADMIN_SUBSCRIBERS_PAGE}
+                                                >
+                                                    SUBSCRIBERS
+                                                </InertiaLink>
+                                                <InertiaLink
+                                                    className={`nav-link ${s.navLink}`}
+                                                    href={PATH_ADMIN_HOT_NOTIFICATION_PAGE}
+                                                >
+                                                    NOTIFICATIONS
+                                                </InertiaLink>
+                                            </div>
                                             :
                                             <InertiaLink
                                                 className={`nav-link ${s.navLink}`}

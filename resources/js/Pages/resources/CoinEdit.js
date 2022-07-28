@@ -193,7 +193,7 @@ const CoinEdit = ({coin}) => {
             console.log(res)
             if (res.data.success) {
                 dispatch(setErrorsAction({message: res.data.message}));
-                // Inertia.visit(PATH_ADMIN_COINS_PAGE);
+                Inertia.visit(PATH_ADMIN_COINS_PAGE);
             } else {
                 // setErrorsAction({message: 'Something wrong! Try again later'});
                 dispatch(setErrorsAction({message: res.data.message}));
@@ -210,13 +210,13 @@ const CoinEdit = ({coin}) => {
     return (
         <Layout>
             <Container className={s.adminPage}>
-                <div className="mt-3">
+                <div className={`mt-3 ${s.adminSideBar}`}>
                     <AdminSidebar/>
                 </div>
                 <div className={`mt-5 mb-5 ${c.formWrapper}`}>
                     <CustomForm
                         title={
-                            <div className="d-flex justify-content-between align-items-center">
+                            <div className="d-flex justify-content-between align-items-center flex-wrap">
                                 <h1>{data.name}</h1>
                                 <div className="mb-3">
                                     <Form.Group>

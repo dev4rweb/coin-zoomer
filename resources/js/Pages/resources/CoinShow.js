@@ -17,7 +17,7 @@ const CoinShow = ({coin}) => {
     return (
         <Layout>
             <Container className={s.adminPage}>
-                <div className="mt-3">
+                <div className={`mt-3 ${s.adminSideBar}`}>
                     <AdminSidebar/>
                 </div>
                 <div className="mt-3 coin-show-page mb-5">

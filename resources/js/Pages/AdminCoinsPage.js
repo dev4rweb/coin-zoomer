@@ -19,7 +19,7 @@ const AdminCoinsPage = ({currentUser, coins, errors}) => {
     return (
         <Layout>
             <Container className={s.adminPage}>
-                <div className="mt-3">
+                <div className={`mt-3 ${s.adminSideBar}`}>
                     <AdminSidebar/>
                 </div>
                 <div className="mt-3">
