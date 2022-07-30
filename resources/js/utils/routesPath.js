@@ -14,6 +14,7 @@ export const PATH_ADMIN_AIR_DROP_PAGE = '/admin-air-drop'
 export const PATH_ADMIN_BANNER_PAGE = '/admin-banner'
 export const PATH_ADMIN_SUBSCRIBERS_PAGE = '/admin-subscribers'
 export const PATH_ADMIN_HOT_NOTIFICATION_PAGE = '/admin-hot-notifications'
+export const PATH_ADMIN_REFERRAL_LINKS_PAGE = '/admin-referral-links'
 
 
 export const PATH_USER_PAGE = '/user-panel'

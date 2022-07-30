@@ -3,7 +3,7 @@ import {Nav} from "react-bootstrap";
 import {
     PATH_ADMIN_AIR_DROP_PAGE, PATH_ADMIN_BANNER_PAGE,
     PATH_ADMIN_COINS_PAGE, PATH_ADMIN_HOT_NOTIFICATION_PAGE,
-    PATH_ADMIN_PAGE, PATH_ADMIN_SUBSCRIBERS_PAGE,
+    PATH_ADMIN_PAGE, PATH_ADMIN_REFERRAL_LINKS_PAGE, PATH_ADMIN_SUBSCRIBERS_PAGE,
 } from "../../../utils/routesPath";
 import {InertiaLink} from "@inertiajs/inertia-react";
 
@@ -15,6 +15,7 @@ const AdminSidebar = () => {
         {name: 'BANNER', url: PATH_ADMIN_BANNER_PAGE},
         {name: 'SUBSCRIBERS', url: PATH_ADMIN_SUBSCRIBERS_PAGE},
         {name: 'NOTIFICATIONS', url: PATH_ADMIN_HOT_NOTIFICATION_PAGE},
+        {name: 'REFERRAL LINKS', url: PATH_ADMIN_REFERRAL_LINKS_PAGE},
     ]
     return (
         <Nav defaultActiveKey="/home" className="flex-column">

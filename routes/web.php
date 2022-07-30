@@ -18,6 +18,7 @@ use App\Http\Controllers\ErrorPageController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\MolarisPageController;
+use App\Http\Controllers\ReferralLinkController;
 use App\Http\Controllers\TokenPageController;
 use App\Http\Controllers\UploadFileController;
 use App\Http\Controllers\UserPageController;
@@ -71,6 +72,7 @@ Route::get('/admin-coins', [AdminCoinsPageController::class, 'index']);
 Route::get('/admin-air-drop', [AdminAirDropPageController::class, 'index']);
 Route::get('/admin-banner', [AdminBannerPageController::class, 'index']);
 Route::get('/admin-hot-notifications', [AdminPageController::class, 'hotNotificationIndex']);
+Route::get('/admin-referral-links', [AdminPageController::class, 'referralLinksIndex']);
 
 Route::post('/upload-file', [UploadFileController::class, 'uploadFile']);
 
@@ -80,7 +82,8 @@ Route::resources([
 ]);
 
 Route::apiResources([
-    'userModels' => UserController::class
+    'userModels' => UserController::class,
+    'referral-links' => ReferralLinkController::class
 ]);
 
 Route::get('/send-email', function () {

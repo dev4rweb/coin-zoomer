@@ -73,6 +73,7 @@ const AdminCoinTableItem = ({data, index}) => {
             <td>
                 <div>
                     {data.name}
+                    {data.invite_link && <span style={{color: '#f14b4e', fontWeight: 'bold', fontSize: '30px'}}> *</span>}
                 </div>
             </td>
             <td>

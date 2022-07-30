@@ -29,7 +29,7 @@ import ChainItem from "../components/ChainItem/ChainItem";
 import {addNewChainAction} from "../reducers/chainReducer";
 import {fetchHotNotificationsAction} from "../reducers/hotNotification";
 
-const AddCoinPage = ({currentUser, errors, hotNotifications}) => {
+const AddCoinPage = ({currentUser, errors, hotNotifications, refLink}) => {
     const coin = useSelector(state => state.coin.addCoin)
     const chains = useSelector(state => state.chains.chains)
     const [isDisabled, setDisabled] = useState(false)
@@ -42,6 +42,7 @@ const AddCoinPage = ({currentUser, errors, hotNotifications}) => {
         dispatch(setCurrentUserAction(currentUser))
         dispatch(fetchHotNotificationsAction(hotNotifications))
         // dispatch(setErrorsAction(errors))
+        console.log('refLink', refLink)
     }, []);
 
     const chainHandler = e => {
@@ -153,6 +154,7 @@ const AddCoinPage = ({currentUser, errors, hotNotifications}) => {
         if (!coin.price) coin.price = 0
         if (!coin.one_hour) coin.one_hour = 0
         setDisabled(true)
+        if (refLink)  coin.invite_link = refLink.ref_link
         axios.post('/add-coin-create', {
             coin: coin,
             chains: chains
@@ -202,13 +204,21 @@ const AddCoinPage = ({currentUser, errors, hotNotifications}) => {
                         <CustomForm title={
                             <p>
                                 The field marked with <span style={{color: '#f14b4e'}}>*</span> must be filled in!
+
                             </p>
                         }>
                             <form
                                 onSubmit={submitHandler}
                                 className={s.addCoinForm}
                             >
-                                <h2 className={s.titleBlock}>Coin info</h2>
+                                {
+                                    refLink && refLink.inviter &&
+                                    <h2>Invited by {refLink.inviter.name}</h2>
+                                }
+                                <h2 className={s.titleBlock}>
+                                    Coin info
+
+                                </h2>
                                 <div className={s.formBlock}>
 
                                     <div className={s.side}>
@@ -459,7 +469,7 @@ const AddCoinPage = ({currentUser, errors, hotNotifications}) => {
                                         >
                                             {
                                                 !coin.is_coin_gecko ?
-                                                    <span>*</span>:
+                                                    <span>*</span> :
                                                     ''
                                             } Chain
                                             <InputGroup className="mb-3">

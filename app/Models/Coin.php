@@ -40,6 +40,7 @@ class Coin extends Model
         'is_market_cap_gecko',
         'is_own_logo',
         'presale_link',
+        'invite_link'
     ];
 
     protected $appends = [

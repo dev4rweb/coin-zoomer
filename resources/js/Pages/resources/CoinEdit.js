@@ -52,6 +52,7 @@ const CoinEdit = ({coin}) => {
         coin_chains: coin.coin_chains || null,
         circulating_supply: coin.circulating_supply || null,
         presale_link: coin.presale_link || '',
+        invite_link: coin.invite_link || '',
     })
 
     const [titleChain, setTitleChain] = useState('Select')
@@ -187,7 +188,8 @@ const CoinEdit = ({coin}) => {
             is_own_logo: data.is_own_logo,
             coin_chains: data.coin_chains,
             circulating_supply: data.circulating_supply,
-            presale_link: data.presale_link
+            presale_link: data.presale_link,
+            invite_link: data.invite_link
 
         }).then(res => {
             console.log(res)
@@ -218,6 +220,10 @@ const CoinEdit = ({coin}) => {
                         title={
                             <div className="d-flex justify-content-between align-items-center flex-wrap">
                                 <h1>{data.name}</h1>
+                                {
+                                    data.invite_link &&
+                                        <h2>Invite link {data.invite_link}</h2>
+                                }
                                 <div className="mb-3">
                                     <Form.Group>
                                         <Form.Check
