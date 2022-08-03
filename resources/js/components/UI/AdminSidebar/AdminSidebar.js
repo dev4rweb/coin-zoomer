@@ -1,7 +1,7 @@
 import React from 'react';
 import {Nav} from "react-bootstrap";
 import {
-    PATH_ADMIN_AIR_DROP_PAGE, PATH_ADMIN_BANNER_PAGE,
+    PATH_ADMIN_AIR_DROP_PAGE, PATH_ADMIN_BANNER_PAGE, PATH_ADMIN_BONUS_PAGE,
     PATH_ADMIN_COINS_PAGE, PATH_ADMIN_HOT_NOTIFICATION_PAGE,
     PATH_ADMIN_PAGE, PATH_ADMIN_REFERRAL_LINKS_PAGE, PATH_ADMIN_SUBSCRIBERS_PAGE,
 } from "../../../utils/routesPath";
@@ -16,6 +16,7 @@ const AdminSidebar = () => {
         {name: 'SUBSCRIBERS', url: PATH_ADMIN_SUBSCRIBERS_PAGE},
         {name: 'NOTIFICATIONS', url: PATH_ADMIN_HOT_NOTIFICATION_PAGE},
         {name: 'REFERRAL LINKS', url: PATH_ADMIN_REFERRAL_LINKS_PAGE},
+        {name: 'BONUSES', url: PATH_ADMIN_BONUS_PAGE},
     ]
     return (
         <Nav defaultActiveKey="/home" className="flex-column">

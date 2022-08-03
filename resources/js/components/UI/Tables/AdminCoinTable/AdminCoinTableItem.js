@@ -3,7 +3,7 @@ import s from "../../../../../sass/components/UI/Tables/SimpleTable/Item/SimpleT
 import {Button, CloseButton} from "react-bootstrap";
 import {Inertia} from "@inertiajs/inertia";
 import {useDispatch} from "react-redux";
-import {setErrorsAction} from "../../../../reducers/errorsReducer";
+import {setErrorsAction, setLoadingAction} from "../../../../reducers/errorsReducer";
 import {PATH_ADMIN_COINS_PAGE} from "../../../../utils/routesPath";
 import {removeCoin} from "../../../../asyncAction/coinInner";
 
@@ -25,8 +25,22 @@ const AdminCoinTableItem = ({data, index}) => {
 
     const approveHandler = e => {
         console.log('approveHandler', data)
-        if (data.is_approved) dispatch(setErrorsAction({message: 'Already APPROVED'}))
-        else changeApproveApi(true)
+
+        if (data.is_approved) dispatch(setErrorsAction({message: 'Already APPROVED'}));
+        else {
+            if (data.invite_link) {
+                dispatch(setLoadingAction(true))
+                axios.post(`/bonuses`, {
+                    coin_id: data.id,
+                }).then(res => {
+                    console.log('approveHandler bonus', res)
+                    changeApproveApi(true)
+                }).catch(err => {
+                    console.log('approveHandler bonus err', err)
+                }).finally(()=>dispatch(setLoadingAction(false)));
+            } else changeApproveApi(true);
+
+        }
     };
 
     const rejectHandler = e => {

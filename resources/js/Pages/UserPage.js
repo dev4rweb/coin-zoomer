@@ -13,6 +13,8 @@ const UserPage = ({currentUser, refLinks, errors}) => {
     const user = useSelector(state => state.currentUser.user)
     const links = useSelector(state => state.referralLinks.referral_links)
 
+    console.log('UserPage links', links)
+
     useEffect(() => {
         dispatch(setCurrentUserAction(currentUser))
         dispatch(fetchReferralLinksAction(refLinks))
@@ -107,13 +109,35 @@ const UserPage = ({currentUser, refLinks, errors}) => {
                                     Copy Link
                                 </Button>
 
-                                <Button
-                                    variant="outline-danger"
-                                    onClick={e => removeLinkHandler(e, link.id)}
-                                >
-                                    &times;
-                                </Button>
+                                {
+                                    link.added_coin && link.added_coin.length === 0 &&
+                                    <Button
+                                        variant="outline-danger"
+                                        onClick={e => removeLinkHandler(e, link.id)}
+                                    >
+                                        &times;
+                                    </Button>
+                                }
+
                             </InputGroup>
+                            {
+                                link.added_coin && link.added_coin.length > 0 &&
+                                link.added_coin.map((i, index) =>
+                                <div key={i.id}>
+                                    <h3>
+                                        {index + 1}. Coin - {i.name} -
+                                        ( {i.is_approved ? 'Approved' : 'Not Approved'} )
+                                    </h3>
+                                    {
+                                        i.bonus &&
+                                            <div className="ms-3">
+                                                <h4>Bonuses - {i.bonus.amount}</h4>
+                                                <p>{i.bonus.paid ? 'Paid' : 'Not Paid'}</p>
+                                            </div>
+                                    }
+                                </div>
+                                )
+                            }
                         </div>
                     )
                 }

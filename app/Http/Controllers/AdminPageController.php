@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bonus;
 use App\Models\HotNotification;
 use App\Models\ReferralLink;
 use App\Models\User;
@@ -54,6 +55,21 @@ class AdminPageController extends Controller
             return Inertia::render('AdminReferralLinksPage', [
                 'currentUser' => $user,
                 'refLinks' => ReferralLink::all()
+            ]);
+        }
+    }
+
+    public function bonusIndex()
+    {
+        $user = Auth::user();
+        if (!$user) {
+            return Redirect::route('home.index');
+        } else if (!$user->is_admin) {
+            return Redirect::route('userPanel.index');
+        } else {
+            return Inertia::render('AdminBonusPage', [
+                'currentUser' => $user,
+                'bonuses' => Bonus::all()
             ]);
         }
     }

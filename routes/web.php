@@ -11,6 +11,7 @@ use App\Http\Controllers\AirDropOpenPageController;
 use App\Http\Controllers\AirDropPageController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\BonusController;
 use App\Http\Controllers\CoinController;
 use App\Http\Controllers\CoinOpenPageController;
 use App\Http\Controllers\ContactsPageController;
@@ -23,6 +24,7 @@ use App\Http\Controllers\TokenPageController;
 use App\Http\Controllers\UploadFileController;
 use App\Http\Controllers\UserPageController;
 use App\Http\Controllers\VerifiedPageController;
+use App\Http\Controllers\WalletController;
 use App\Mail\SendMail;
 use App\Models\Coin;
 use Carbon\Carbon;
@@ -73,6 +75,7 @@ Route::get('/admin-air-drop', [AdminAirDropPageController::class, 'index']);
 Route::get('/admin-banner', [AdminBannerPageController::class, 'index']);
 Route::get('/admin-hot-notifications', [AdminPageController::class, 'hotNotificationIndex']);
 Route::get('/admin-referral-links', [AdminPageController::class, 'referralLinksIndex']);
+Route::get('/admin-bonuses', [AdminPageController::class, 'bonusIndex']);
 
 Route::post('/upload-file', [UploadFileController::class, 'uploadFile']);
 
@@ -83,7 +86,9 @@ Route::resources([
 
 Route::apiResources([
     'userModels' => UserController::class,
-    'referral-links' => ReferralLinkController::class
+    'referral-links' => ReferralLinkController::class,
+    'bonuses' => BonusController::class,
+    'wallets' => WalletController::class
 ]);
 
 Route::get('/send-email', function () {

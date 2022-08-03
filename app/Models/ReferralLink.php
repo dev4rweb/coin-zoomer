@@ -20,7 +20,8 @@ class ReferralLink extends Model
 
     protected $appends = [
         'inviter',
-        'added_coin'
+        'added_coin',
+
     ];
 
     public function getInviterAttribute()
@@ -33,6 +34,9 @@ class ReferralLink extends Model
     public function getAddedCoinAttribute()
     {
         $coins = Coin::where('invite_link', $this->ref_link)->get();
+        foreach ($coins as $coin) {
+            $coin['bonus'] = Bonus::where('coin_id', $coin->id)->first();
+        }
         if ($coins) return $coins;
         return null;
     }
