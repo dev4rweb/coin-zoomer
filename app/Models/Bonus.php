@@ -26,8 +26,24 @@ class Bonus extends Model
 
     protected $appends = [
         'coin_name',
-        'owner_name'
+        'owner_name',
+        'user_wallets'
     ];
+
+    public function getUserWalletsAttribute()
+    {
+        $coin = Coin::where('id', $this->coin_id)->first();
+        if ($coin && $coin->invite_link) {
+            $link = ReferralLink::where('ref_link', $coin->invite_link)->first();
+            if ($link) {
+                $user = User::where('id', $link->user_id)->first();
+                if ($user) {
+                    return Wallet::where('user_id', $user->id)->get();
+                }
+            }
+        }
+        return null;
+    }
 
     public function getCoinNameAttribute()
     {

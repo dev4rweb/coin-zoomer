@@ -7,13 +7,15 @@ import {Button, Container, FormControl, InputGroup} from "react-bootstrap";
 import {fetchReferralLinksAction} from "../reducers/referralLinksReducer";
 import {destroyReferralLinkApi, storeReferralLinkApi} from "../asyncAction/referralLinksApi";
 import {Inertia} from "@inertiajs/inertia";
+import UserWallets from "../components/UserWallets/UserWallets";
+import UserAddWallet from "../components/UserWallets/UserAddWallet";
 
-const UserPage = ({currentUser, refLinks, errors}) => {
+const UserPage = ({currentUser, refLinks, wallets, errors}) => {
     const dispatch = useDispatch();
     const user = useSelector(state => state.currentUser.user)
     const links = useSelector(state => state.referralLinks.referral_links)
 
-    console.log('UserPage links', links)
+    // console.log('UserPage links', links)
 
     useEffect(() => {
         dispatch(setCurrentUserAction(currentUser))
@@ -80,68 +82,76 @@ const UserPage = ({currentUser, refLinks, errors}) => {
                         <h4>Email: {user.email}</h4>
                     </div>
                 }
-                <div>
-                    <Button
-                        variant="outline-info mb-3"
-                        onClick={generateRefLinkHandler}
-                    >
-                        Generate Link
-                    </Button>
-                </div>
-                {
-                    links.length && links.map(link =>
-                        <div key={link.id}>
-                            <InputGroup
-                                className="mb-3"
-                                style={{maxWidth: '600px'}}
+                <div className="d-flex justify-content-between flex-wrap">
+                    <div className="me-3" style={{minWidth: '550px'}}>
+                        <div>
+                            <Button
+                                variant="outline-info mb-3"
+                                onClick={generateRefLinkHandler}
                             >
-                                <FormControl
-                                    value={link.ref_link}
-                                    className="input-text"
-                                    style={{background: '#1d2147', border: '1px solid #2b2f56', color: '#a6b2c6'}}
-                                    type="text"
-                                    disabled
-                                />
-                                <Button
-                                    variant="outline-info"
-                                    onClick={e => copyRefLinkHandler(e, link.ref_link)}
-                                >
-                                    Copy Link
-                                </Button>
-
-                                {
-                                    link.added_coin && link.added_coin.length === 0 &&
-                                    <Button
-                                        variant="outline-danger"
-                                        onClick={e => removeLinkHandler(e, link.id)}
+                                Generate Link
+                            </Button>
+                        </div>
+                        {
+                            links.length && links.map(link =>
+                                <div key={link.id} className="mb-3">
+                                    <InputGroup
+                                        className="mb-1"
+                                        style={{maxWidth: '600px'}}
                                     >
-                                        &times;
-                                    </Button>
-                                }
+                                        <FormControl
+                                            value={link.ref_link}
+                                            className="input-text"
+                                            style={{background: '#1d2147', border: '1px solid #2b2f56', color: '#a6b2c6'}}
+                                            type="text"
+                                            disabled
+                                        />
+                                        <Button
+                                            variant="outline-info"
+                                            onClick={e => copyRefLinkHandler(e, link.ref_link)}
+                                        >
+                                            Copy Link
+                                        </Button>
 
-                            </InputGroup>
-                            {
-                                link.added_coin && link.added_coin.length > 0 &&
-                                link.added_coin.map((i, index) =>
-                                <div key={i.id}>
-                                    <h3>
-                                        {index + 1}. Coin - {i.name} -
-                                        ( {i.is_approved ? 'Approved' : 'Not Approved'} )
-                                    </h3>
+                                        {
+                                            link.added_coin && link.added_coin.length === 0 &&
+                                            <Button
+                                                variant="outline-danger"
+                                                onClick={e => removeLinkHandler(e, link.id)}
+                                            >
+                                                &times;
+                                            </Button>
+                                        }
+
+                                    </InputGroup>
                                     {
-                                        i.bonus &&
-                                            <div className="ms-3">
-                                                <h4>Bonuses - {i.bonus.amount}</h4>
-                                                <p>{i.bonus.paid ? 'Paid' : 'Not Paid'}</p>
+                                        link.added_coin && link.added_coin.length > 0 &&
+                                        link.added_coin.map((i, index) =>
+                                            <div key={i.id}>
+                                                <h3>
+                                                    {index + 1}. Coin - {i.name} -
+                                                    ( {i.is_approved ? 'Approved' : 'Not Approved'} )
+                                                </h3>
+                                                {
+                                                    i.bonus &&
+                                                    <div className="ms-3">
+                                                        <h4>Bonuses - {i.bonus.amount}</h4>
+                                                        <p>{i.bonus.paid ? 'Paid' : 'Not Paid'}</p>
+                                                    </div>
+                                                }
                                             </div>
+                                        )
                                     }
                                 </div>
-                                )
-                            }
-                        </div>
-                    )
-                }
-
+                            )
+                        }
+                    </div>
+                    <div>
+                        <UserAddWallet />
+                        <h2>Your wallets</h2>
+                        <UserWallets />
+                    </div>
+                </div>
             </Container>
         </Layout>
     );

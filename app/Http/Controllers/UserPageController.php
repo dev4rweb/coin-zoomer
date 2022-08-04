@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Helpers\GenerateReferralLink;
 use App\Models\ReferralLink;
 use App\Models\User;
+use App\Models\Wallet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -22,10 +23,12 @@ class UserPageController extends Controller
         } else {
             $refLinks = ReferralLink::where('user_id', $user['id'])
                 ->orderBy('id', 'desc')->get();
+            $wallets = Wallet::where('user_id', $user['id'])->get();
             if (count($refLinks) == 0) $refLinks->push(GenerateReferralLink::generate($user['id']));
             return Inertia::render('UserPage', [
                 'currentUser' => $user,
-                'refLinks' => $refLinks
+                'refLinks' => $refLinks,
+                'wallets' => $wallets,
             ]);
         }
     }

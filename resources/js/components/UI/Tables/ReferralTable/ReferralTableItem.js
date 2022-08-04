@@ -17,13 +17,15 @@ const ReferralTableItem = ({data, index}) => {
                 <div><p>{data.ref_link}</p></div>
             </td>
             <td>
-                <div><p>{
-                    data.added_coin.length ?
-                        data.added_coin.map((i, index) =>
-                            <p key={i.id}>{i.name}</p>)
-                        :
-                        ' - '
-                }</p></div>
+                <div>
+                    {
+                        data.added_coin.length ?
+                            data.added_coin.map((i, index) =>
+                                <p key={i.id}>{i.name}</p>)
+                            :
+                            <p> - </p>
+                    }
+                </div>
             </td>
         </tr>
     );

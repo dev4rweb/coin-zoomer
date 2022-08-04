@@ -17,5 +17,17 @@ class Wallet extends Model
 
     protected $casts = [
         'user_id' => 'integer',
+        'is_use' => 'boolean'
     ];
+
+    protected $appends = [
+        'is_use'
+    ];
+
+    public function getIsUseAttribute()
+    {
+        $bonus = Bonus::where('wallet_id', $this->id)->first();
+        if ($bonus) return true;
+        return false;
+    }
 }

@@ -25,7 +25,17 @@ class WalletController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $wallet = Wallet::create($request->all());
+            $response['success'] = true;
+            $response['message'] = 'Wallet created';
+            $response['model'] = $wallet;
+        } catch (\Exception $exception) {
+            $response['success'] = false;
+            $response['message'] = $exception->getMessage();
+        }
+
+        return response()->json($response);
     }
 
     /**
@@ -59,6 +69,15 @@ class WalletController extends Controller
      */
     public function destroy(Wallet $wallet)
     {
-        //
+        try {
+            $wallet->delete();
+            $response['success'] = true;
+            $response['message'] = 'Wallet removed';
+        } catch (\Exception $exception) {
+            $response['success'] = false;
+            $response['message'] = $exception->getMessage();
+        }
+
+        return response()->json($response);
     }
 }
