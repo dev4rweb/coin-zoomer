@@ -703,10 +703,12 @@ const AddCoinPage = ({currentUser, errors, hotNotifications, refLink}) => {
                                     <div className={s.side}>
                                         <InputGroup className="mb-3">
                                             <label className="input-label">
+                                                {refLink && <span>* </span> }
                                                 Contact Telegram
                                                 <InputImage
                                                     imgLink={telegram}
                                                     inputHandler={telegramHandler}
+                                                    required={!!refLink}
                                                 />
                                             </label>
                                         </InputGroup>
