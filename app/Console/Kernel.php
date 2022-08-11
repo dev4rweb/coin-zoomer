@@ -29,7 +29,7 @@ class Kernel extends ConsoleKernel
             $coinsGecko = Coin::where('is_coin_gecko', 1)
                 ->orderBy('updated_at')
                 ->with('coinChains')
-                ->take(30)
+                ->take(15)
                 ->get();
 
             foreach ($coinsGecko as $coin) {
