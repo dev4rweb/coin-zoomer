@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\RemoteApiService;
 use App\Models\Coin;
 use App\Models\HotNotification;
 use App\Models\Subscriber;
@@ -53,7 +54,7 @@ class HomePageController extends Controller
 //        Artisan::call('migrate');
 
 //    dd("Cache is cleared");
-        $coins = Coin::where('is_coin_gecko', 0)
+/*        $coins = Coin::where('is_coin_gecko', 0)
             ->orderBy('updated_at')
             ->with('coinChains')
             ->take(5)
@@ -74,7 +75,12 @@ class HomePageController extends Controller
 //                return $responseCoin;
                 return round((floatval($responseCoin['usdPrice']) / floatval($coins[0]['price']) - 1) * 100, 7);
             else return $responseCoin->ok();
-        } else return 'Something wrong';
+        } else return 'Something wrong';*/
+        $coins = Coin::where('is_approved', 1)->orderBy('updated_at')->get();
+        foreach ($coins as $coin) {
+            RemoteApiService::getRemoteData($coin);
+            sleep(2);
+        }
     }
 
     public function createSubscribersFile(Request $request)

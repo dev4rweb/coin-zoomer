@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Helpers\RemoteApiService;
 use App\Models\Coin;
 use App\Models\User;
 use Illuminate\Console\Scheduling\Schedule;
@@ -25,11 +26,11 @@ class Kernel extends ConsoleKernel
 //        })->everyMinute();
         // public_html/lsapp/artisan schedule:run
 
-        $schedule->call(function () {
+        /*$schedule->call(function () {
             $coinsGecko = Coin::where('is_coin_gecko', 1)
                 ->orderBy('updated_at')
                 ->with('coinChains')
-                ->take(15)
+                ->take(5)
                 ->get();
 
             foreach ($coinsGecko as $coin) {
@@ -71,7 +72,7 @@ class Kernel extends ConsoleKernel
             $coins = Coin::where('is_coin_gecko', '=', 0)
                 ->orderBy('updated_at')
                 ->with('coinChains')
-                ->take(5)
+                ->take(1)
                 ->get();
 
             foreach ($coins as $coin) {
@@ -107,6 +108,14 @@ class Kernel extends ConsoleKernel
                 } else {
                     break;
                 }
+            }
+        })->cron('* * * * *');*/
+
+        $schedule->call(function () {
+            $coins = Coin::where('is_approved', 1)->orderBy('updated_at')->get();
+            foreach ($coins as $coin) {
+                RemoteApiService::getRemoteData($coin);
+                sleep(2);
             }
         })->cron('* * * * *');
     }
