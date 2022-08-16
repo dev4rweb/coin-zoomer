@@ -53,6 +53,7 @@ const CoinEdit = ({coin}) => {
         circulating_supply: coin.circulating_supply || null,
         presale_link: coin.presale_link || '',
         invite_link: coin.invite_link || '',
+        remote_response: coin.contractAdditional || ''
     })
 
     const [titleChain, setTitleChain] = useState('Select')
@@ -773,6 +774,7 @@ const CoinEdit = ({coin}) => {
                                 </div>
                             </div>
 
+
                             <div className={c.btnWrapper}>
                                 <Button
                                     variant="info"
@@ -785,6 +787,10 @@ const CoinEdit = ({coin}) => {
                                 </Button>
 
                             </div>
+
+                            <FormBlockDivider/>
+                            <h2 className={c.titleBlock}>Response from remote api</h2>
+                            <p dangerouslySetInnerHTML={{__html: data.remote_response}}/>
                         </form>
                     </CustomForm>
 
