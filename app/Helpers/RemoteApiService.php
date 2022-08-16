@@ -49,38 +49,38 @@ class RemoteApiService
             } else {
                 $coinChain = CoinChain::where('coin_id', $coin->id)->first();
                 if ($coinChain) {
-                    $cakeUrl = 'https://api.pancakeswap.info/api/v2/tokens/';
-                    $response = Http::get($cakeUrl . $coinChain->contract_address);
-                    $coin->contractAdditional = 'pancackeswap ' . $response;
-                    $coin->save();
+                    $arkenUrl = 'https://api.arken.finance/v2/token/price/';
+                    $chain = $coinChain->chain . '/';
+                    $address = $coinChain->contract_address;
+                    $response = Http::get($arkenUrl . $chain . $address);
                     if ($response->ok()) {
-                        $coin->contractAdditional = 'pancackeswap OK' . $response;
-                        $coin->save();
                         if (!$coin['price']) $coin['price'] = 0;
                         $coin['contractAdditional'] = $response;
-                        $coin['market_cap'] = (string)(floatval($response['data']['price']) * $coin['circulating_supply']);
-                        if ($coin['price'] != $response['data']['price']) {
+                        $coin['market_cap'] = (string)(floatval($response['price']) * $coin['circulating_supply']);
+                        if ($coin['price'] != $response['price']) {
                             if ($coin['price'] == 0) $coin['one_hour'] = 0;
-                            else $coin['one_hour'] = (string)((floatval($response['data']['price']) / $coin['price'] - 1) * 100);
+                            else $coin['one_hour'] = (string)((floatval($response['price']) / $coin['price'] - 1) * 100);
                         }
-                        $coin['price'] = (string)$response['data']['price'];
+                        $coin['price'] = (string)$response['price'];
+                        $coin->contractAdditional = 'arken OK' . $response;
                         $coin->save();
                         return $response;
                     } else {
-                        $arkenUrl = 'https://api.arken.finance/v2/token/price/';
-                        $chain = $coinChain->chain . '/';
-                        $address = $coinChain->contract_address;
-                        $response = Http::get($arkenUrl . $chain . $address);
+                        $cakeUrl = 'https://api.pancakeswap.info/api/v2/tokens/';
+                        $response = Http::get($cakeUrl . $coinChain->contract_address);
+                        $coin->contractAdditional = 'pancackeswap ' . $response;
+                        $coin->save();
                         if ($response->ok()) {
+                            $coin->contractAdditional = 'pancackeswap OK' . $response;
+                            $coin->save();
                             if (!$coin['price']) $coin['price'] = 0;
                             $coin['contractAdditional'] = $response;
-                            $coin['market_cap'] = (string)(floatval($response['price']) * $coin['circulating_supply']);
-                            if ($coin['price'] != $response['price']) {
+                            $coin['market_cap'] = (string)(floatval($response['data']['price']) * $coin['circulating_supply']);
+                            if ($coin['price'] != $response['data']['price']) {
                                 if ($coin['price'] == 0) $coin['one_hour'] = 0;
-                                else $coin['one_hour'] = (string)((floatval($response['price']) / $coin['price'] - 1) * 100);
+                                else $coin['one_hour'] = (string)((floatval($response['data']['price']) / $coin['price'] - 1) * 100);
                             }
-                            $coin['price'] = (string)$response['price'];
-                            $coin->contractAdditional = 'arken OK' . $response;
+                            $coin['price'] = (string)$response['data']['price'];
                             $coin->save();
                             return $response;
                         } else {

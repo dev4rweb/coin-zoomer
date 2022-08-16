@@ -115,7 +115,7 @@ class Kernel extends ConsoleKernel
             $coins = Coin::where('is_approved', 1)->orderBy('updated_at')->get();
             foreach ($coins as $coin) {
                 RemoteApiService::getRemoteData($coin);
-                sleep(2);
+                sleep(1);
             }
         })->cron('* * * * *');
     }
