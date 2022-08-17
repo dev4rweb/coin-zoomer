@@ -53,7 +53,8 @@ const CoinEdit = ({coin}) => {
         circulating_supply: coin.circulating_supply || null,
         presale_link: coin.presale_link || '',
         invite_link: coin.invite_link || '',
-        remote_response: coin.contractAdditional || ''
+        remote_response: coin.contractAdditional || '',
+        updated_at: coin.updated_at || '',
     })
 
     const [titleChain, setTitleChain] = useState('Select')
@@ -223,7 +224,7 @@ const CoinEdit = ({coin}) => {
                                 <h1>{data.name}</h1>
                                 {
                                     data.invite_link &&
-                                        <h2>Invite link {data.invite_link}</h2>
+                                    <h2>Invite link {data.invite_link}</h2>
                                 }
                                 <div className="mb-3">
                                     <Form.Group>
@@ -789,7 +790,7 @@ const CoinEdit = ({coin}) => {
                             </div>
 
                             <FormBlockDivider/>
-                            <h2 className={c.titleBlock}>Response from remote api</h2>
+                            <h2 className={c.titleBlock}>Response from remote api updated {data.updated_at}</h2>
                             <p dangerouslySetInnerHTML={{__html: data.remote_response}}/>
                         </form>
                     </CustomForm>

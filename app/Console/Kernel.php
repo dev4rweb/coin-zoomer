@@ -112,7 +112,17 @@ class Kernel extends ConsoleKernel
         })->cron('* * * * *');*/
 
         $schedule->call(function () {
-            $coins = Coin::where('is_approved', 1)->orderBy('updated_at')->get();
+            $coinsGecko = Coin::where('is_approved', 1)
+                ->where('is_coin_gecko', 1)
+                ->orderBy('updated_at')->get();
+            foreach ($coinsGecko as $coin) {
+                RemoteApiService::getRemoteData($coin);
+                sleep(3);
+            }
+
+            $coins = Coin::where('is_approved', 1)
+                ->where('is_coin_gecko', 0)
+                ->orderBy('updated_at')->get();
             foreach ($coins as $coin) {
                 RemoteApiService::getRemoteData($coin);
                 sleep(2);

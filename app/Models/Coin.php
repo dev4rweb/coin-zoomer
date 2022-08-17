@@ -65,6 +65,7 @@ class Coin extends Model
         'hour_votes' => 'integer',
         'today_votes' => 'integer',
         'week_votes' => 'integer',
+        'updated_at' => 'datetime:Y-m-d H:m'
     ];
 
     public function getSymbolAttribute($value)
