@@ -7,6 +7,9 @@ import {useDispatch} from "react-redux";
 import {setCurrentUserAction} from "../reducers/currentUserReducer";
 import {fetchAllUsersAction} from "../reducers/allUsersReducer";
 import AdminCoinTable from "../components/UI/Tables/AdminCoinTable/AdminCoinTable";
+import {setErrorsAction, setLoadingAction} from "../reducers/errorsReducer";
+import axios from "axios";
+import {Inertia} from "@inertiajs/inertia";
 
 const AdminCoinsPage = ({currentUser, coins, errors}) => {
     const dispatch = useDispatch();
@@ -16,6 +19,25 @@ const AdminCoinsPage = ({currentUser, coins, errors}) => {
         // dispatch(setErrorsAction(errors))
     }, []);
 
+    const sitemapHandler = e => {
+        e.preventDefault();
+        console.log('sitemapHandler')
+        dispatch(setLoadingAction(true))
+        axios.get('/generate-sitemap')
+            .then(res => {
+                console.log('sitemapHandler', res)
+                if (res.data.success) {
+                    dispatch(setErrorsAction({message: res.data.message}))
+                    Inertia.reload()
+                } else dispatch(setErrorsAction({message: res.data.message}));
+            })
+            .catch(err => {
+                console.log('sitemapHandler err', err)
+                dispatch(setErrorsAction(err.response.data))
+            })
+            .finally(()=> dispatch(setLoadingAction(false)));
+    };
+
     return (
         <Layout>
             <Container className={s.adminPage}>
@@ -23,6 +45,12 @@ const AdminCoinsPage = ({currentUser, coins, errors}) => {
                     <AdminSidebar/>
                 </div>
                 <div className="mt-3">
+                    <button
+                        className="btn btn-info mb-3"
+                        onClick={sitemapHandler}
+                    >
+                        Generate sitemap
+                    </button>
                     {
                         coins && coins.length > 0 ?
                             <AdminCoinTable coins={coins} />:
