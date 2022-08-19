@@ -1,373 +1,373 @@
 <?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://127.0.0.1:8000</loc>
+    <loc>https://coinzoomer.com/</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/adc</loc>
+    <loc>https://coinzoomer.com/adc</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/contacts</loc>
+    <loc>https://coinzoomer.com/contacts</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/verified</loc>
+    <loc>https://coinzoomer.com/verified</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/PAX_Gold</loc>
+    <loc>https://coinzoomer.com/coin/PAX_Gold</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/Tether</loc>
+    <loc>https://coinzoomer.com/coin/Tether</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/USD_Coin</loc>
+    <loc>https://coinzoomer.com/coin/USD_Coin</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/Avalanche</loc>
+    <loc>https://coinzoomer.com/coin/Avalanche</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/Binance_USD</loc>
+    <loc>https://coinzoomer.com/coin/Binance_USD</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/Shiba_Inu</loc>
+    <loc>https://coinzoomer.com/coin/Shiba_Inu</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/Wrapped_Bitcoin</loc>
+    <loc>https://coinzoomer.com/coin/Wrapped_Bitcoin</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/Cronos</loc>
+    <loc>https://coinzoomer.com/coin/Cronos</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/Polygon</loc>
+    <loc>https://coinzoomer.com/coin/Polygon</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/Dai</loc>
+    <loc>https://coinzoomer.com/coin/Dai</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/Lido_Staked_Ether</loc>
+    <loc>https://coinzoomer.com/coin/Lido_Staked_Ether</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/Chainlink</loc>
+    <loc>https://coinzoomer.com/coin/Chainlink</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/FTX_Token</loc>
+    <loc>https://coinzoomer.com/coin/FTX_Token</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/OKB</loc>
+    <loc>https://coinzoomer.com/coin/OKB</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/Axie_Infinity</loc>
+    <loc>https://coinzoomer.com/coin/Axie_Infinity</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/LEO_Token</loc>
+    <loc>https://coinzoomer.com/coin/LEO_Token</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/Uniswap</loc>
+    <loc>https://coinzoomer.com/coin/Uniswap</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/Decentraland</loc>
+    <loc>https://coinzoomer.com/coin/Decentraland</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/The_Sandbox</loc>
+    <loc>https://coinzoomer.com/coin/The_Sandbox</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/Fantom</loc>
+    <loc>https://coinzoomer.com/coin/Fantom</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/Frax</loc>
+    <loc>https://coinzoomer.com/coin/Frax</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/The_Graph</loc>
+    <loc>https://coinzoomer.com/coin/The_Graph</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/cUSDC</loc>
+    <loc>https://coinzoomer.com/coin/cUSDC</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/THORChain</loc>
+    <loc>https://coinzoomer.com/coin/THORChain</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/Aave</loc>
+    <loc>https://coinzoomer.com/coin/Aave</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/ApeCoin</loc>
+    <loc>https://coinzoomer.com/coin/ApeCoin</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/PancakeSwap</loc>
+    <loc>https://coinzoomer.com/coin/PancakeSwap</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/Quant</loc>
+    <loc>https://coinzoomer.com/coin/Quant</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/Gala</loc>
+    <loc>https://coinzoomer.com/coin/Gala</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/BitTorrent</loc>
+    <loc>https://coinzoomer.com/coin/BitTorrent</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/Maker</loc>
+    <loc>https://coinzoomer.com/coin/Maker</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/Harmony</loc>
+    <loc>https://coinzoomer.com/coin/Harmony</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/Huobi_BTC</loc>
+    <loc>https://coinzoomer.com/coin/Huobi_BTC</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/Enjin_Coin</loc>
+    <loc>https://coinzoomer.com/coin/Enjin_Coin</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/KuCoin_Token</loc>
+    <loc>https://coinzoomer.com/coin/KuCoin_Token</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/Huobi_Token</loc>
+    <loc>https://coinzoomer.com/coin/Huobi_Token</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/TrueUSD</loc>
+    <loc>https://coinzoomer.com/coin/TrueUSD</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/Humans.ai</loc>
+    <loc>https://coinzoomer.com/coin/Humans.ai</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/Amp</loc>
+    <loc>https://coinzoomer.com/coin/Amp</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/Basic_Attention_Token</loc>
+    <loc>https://coinzoomer.com/coin/Basic_Attention_Token</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/Chiliz</loc>
+    <loc>https://coinzoomer.com/coin/Chiliz</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/Synthetix_Network_Token</loc>
+    <loc>https://coinzoomer.com/coin/Synthetix_Network_Token</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/BitDAO</loc>
+    <loc>https://coinzoomer.com/coin/BitDAO</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/Holo</loc>
+    <loc>https://coinzoomer.com/coin/Holo</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/Curve_DAO_Token</loc>
+    <loc>https://coinzoomer.com/coin/Curve_DAO_Token</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/ECOMI</loc>
+    <loc>https://coinzoomer.com/coin/ECOMI</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/Neutrino_USD</loc>
+    <loc>https://coinzoomer.com/coin/Neutrino_USD</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/Nexus_Mutual</loc>
+    <loc>https://coinzoomer.com/coin/Nexus_Mutual</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/1inch</loc>
+    <loc>https://coinzoomer.com/coin/1inch</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/e-Radix</loc>
+    <loc>https://coinzoomer.com/coin/e-Radix</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/UMA</loc>
+    <loc>https://coinzoomer.com/coin/UMA</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/Immutable_X</loc>
+    <loc>https://coinzoomer.com/coin/Immutable_X</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/Everdome</loc>
+    <loc>https://coinzoomer.com/coin/Everdome</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/LooksRare</loc>
+    <loc>https://coinzoomer.com/coin/LooksRare</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/Convex_CRV</loc>
+    <loc>https://coinzoomer.com/coin/Convex_CRV</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/Loopring</loc>
+    <loc>https://coinzoomer.com/coin/Loopring</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/Convex_Finance</loc>
+    <loc>https://coinzoomer.com/coin/Convex_Finance</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://127.0.0.1:8000/coin/Invite_coin</loc>
+    <loc>https://coinzoomer.com/coin/Invite_coin</loc>
     <priority>1.0</priority>
     <lastmod>2022-08-08T11:05:02+03:00</lastmod>
     <changefreq>daily</changefreq>
