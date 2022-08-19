@@ -1,5 +1,6 @@
 <?php
 
+use App\Helpers\SitemapCreator;
 use App\Helpers\SiteMapGenerator;
 use App\Http\Controllers\AdcPageController;
 use App\Http\Controllers\AddAirDropPageController;
@@ -125,7 +126,8 @@ Route::post('/get-text-file', [HomePageController::class, 'createSubscribersFile
 
 Route::get('/generate-sitemap', function () {
 
-    $siteMap = SiteMapGenerator::generate();
+    $siteMap = SitemapCreator::generate();
+//    $siteMap = SiteMapGenerator::generate();
 //    return $siteMap;
 //    if ($siteMap['success'] == true)
 //        return redirect(\url('sitemap.xml'));
