@@ -8,6 +8,7 @@ use App\Models\Coin;
 use Carbon\Carbon;
 use DOMAttr;
 use DOMDocument;
+use Illuminate\Support\Facades\URL;
 
 class SitemapCreator
 {
@@ -16,16 +17,16 @@ class SitemapCreator
     public static function generate()
     {
         try {
-            self::addPage('https://coinzoomer.com/', Carbon::now());
-            self::addPage('https://coinzoomer.com/adc', Carbon::now());
-            self::addPage('https://coinzoomer.com/contacts', Carbon::now());
-            self::addPage('https://coinzoomer.com/verified', Carbon::now());
+            self::addPage(URL::to('/'), Carbon::now());
+            self::addPage(URL::to('/adc'), Carbon::now());
+            self::addPage(URL::to('/contacts'), Carbon::now());
+            self::addPage(URL::to('/verified'), Carbon::now());
 
             // get all coins from DB
             $coins = Coin::all();
             foreach ($coins as $coin) {
                 $name = str_replace(' ', '_', $coin->name);
-                self::addPage('https://coinzoomer.com/coin/' . $name, $coin['updated_at']);
+                self::addPage(URL::to('/coin/' . $name), $coin['updated_at'],);
             }
 
             $dom = new DOMDocument();
@@ -36,7 +37,7 @@ class SitemapCreator
             if (strpos($_SERVER['SERVER_NAME'], '127.0.0.1') !== false) {
                 $xml_file_name = '../sitemap.xml'; // local
             } else {
-                $xml_file_name = '../../sitemap.xml'; // external
+                $xml_file_name = '../coinzoomer.com/sitemap.xml'; // external
             }
 
             $dom = new DOMDocument();
