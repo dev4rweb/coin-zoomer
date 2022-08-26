@@ -26,7 +26,7 @@ class SitemapCreator
             $coins = Coin::all();
             foreach ($coins as $coin) {
                 $name = str_replace(' ', '_', $coin->name);
-                self::addPage(URL::to('/coin/' . $name), $coin['updated_at'],);
+                self::addPage(URL::to('/coin/' . $name), $coin['updated_at']);
             }
 
             $dom = new DOMDocument();

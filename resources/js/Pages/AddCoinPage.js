@@ -352,7 +352,7 @@ const AddCoinPage = ({currentUser, errors, hotNotifications, refLink}) => {
                                                     ...coin,
                                                     ['is_presale']: e.target.checked
                                                 })}
-                                                label="Presale listing is paid 0.1 BNB"
+                                                label="Is there ongoing Presale?"
                                             />
                                         </Form.Group>
                                     </div>

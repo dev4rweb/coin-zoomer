@@ -87,7 +87,7 @@ class RemoteApiService
                             $responseCoin = Http::withHeaders([
                                 'X-API-Key' => 'jTG1sdNlkrUtapkTO7Tt5UEa1P8lgLlHn21M32F56G5nSZrmfoGQy4F7I8DBNFP6' // from moralis example requests
                             ])
-                                ->get('https://deep-index.moralis.io/api/v2/erc20/' . $address . '/price?chain=' . $chain);
+                                ->get('https://deep-index.moralis.io/api/v2/erc20/' . $address . '/price?chain=' . $coinChain->chain);
 
                             if ($responseCoin->ok()) {
                                 if (!$coin['price']) $coin['price'] = 0;
