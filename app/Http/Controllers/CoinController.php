@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\RemoteApiService;
 use App\Models\Coin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -110,5 +111,21 @@ class CoinController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function getExternalData($id)
+    {
+        try {
+            $coin = Coin::findOrFail($id);
+            $response['remote'] = RemoteApiService::getRemoteData($coin);
+            $response['success'] = true;
+            $response['message'] = 'Coin found';
+            $response['model'] = $coin;
+        } catch (\Exception $exception) {
+            $response['success'] = false;
+            $response['message'] = $exception->getMessage();
+        }
+
+        return response()->json($response);
     }
 }

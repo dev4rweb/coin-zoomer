@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Layout from "../../components/Layout";
 import s from "../../../sass/pages/AdminPage/AdminPage.module.scss";
 import '../../../sass/pages/CoinShow/CoinShow.scss'
@@ -6,12 +6,32 @@ import AdminSidebar from "../../components/UI/AdminSidebar/AdminSidebar";
 import AdminCoinTable from "../../components/UI/Tables/AdminCoinTable/AdminCoinTable";
 import {Container, ListGroup, ListGroupItem, Table} from "react-bootstrap";
 import {Inertia} from "@inertiajs/inertia";
+import {useDispatch} from "react-redux";
+import {setErrorsAction, setLoadingAction} from "../../reducers/errorsReducer";
+import axios from "axios";
 
 const CoinShow = ({coin}) => {
+    const dispatch = useDispatch()
     console.log('CoinShow', coin)
 
     const goBack = e => {
         Inertia.visit('/admin-coins')
+    };
+
+    const tesApiHandler = e => {
+        console.log('tesApiHandler', coin.id)
+        dispatch(setLoadingAction(true))
+        axios.get(`/getExternalData/${coin.id}`)
+            .then(res => {
+                console.log('tesApiHandler', res)
+                if (res.data.success) Inertia.reload()
+                else dispatch(setErrorsAction({message: 'There is some Error. Try again later'}))
+            })
+            .catch(err => {
+                console.log('tesApiHandler err', err)
+                dispatch(setErrorsAction({message: 'There is some Error. Try again later'}))
+            })
+            .finally(() => dispatch(setLoadingAction(false)));
     };
 
     return (
@@ -84,6 +104,18 @@ const CoinShow = ({coin}) => {
                     <h2 className="mt-5">Contact info</h2>
                     {coin.email && <h3>Contact Email - {coin.email}</h3>}
                     {coin.telegram && <h3>Contact Telegram - {coin.telegram}</h3>}
+
+                    <div className="mt-5 mb-5 d-flex flex-wrap">
+                        <button
+                            className="btn btn-info me-3 mb-3"
+                            style={{minWidth: '120px'}}
+                            onClick={tesApiHandler}
+                        >
+                            Test Api
+                        </button>
+                        <p style={{fontSize: '16px'}}
+                           dangerouslySetInnerHTML={{__html: coin.contractAdditional}}/>
+                    </div>
                 </div>
             </Container>
         </Layout>

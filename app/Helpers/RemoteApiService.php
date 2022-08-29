@@ -22,7 +22,7 @@ class RemoteApiService
                 $response = Http::get($base_url . '/coins/' . $url_id . '?' . $dop_data);
 
                 if ($response->ok()) {
-                    $coin->contractAdditional = 'coingecko ' . $response;
+                    $coin->contractAdditional = 'coingecko price - ' . (string)$response['market_data']['current_price']['usd'];
                     if ($coin['is_own_logo'] == false) {
                         $coin['logotype'] = $response['image']['large'];
                     }

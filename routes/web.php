@@ -135,5 +135,7 @@ Route::get('/generate-sitemap', function () {
     return response()->json($siteMap);
 });
 
+Route::get('/getExternalData/{id}', [CoinController::class, 'getExternalData']);
+
 // Error Page
 Route::fallback([ErrorPageController::class, 'index']);
