@@ -55,6 +55,9 @@ const CoinEdit = ({coin}) => {
         invite_link: coin.invite_link || '',
         remote_response: coin.contractAdditional || '',
         updated_at: coin.updated_at || '',
+        warning_message: coin.warning_message || '',
+        show_warning_message: coin.show_warning_message || false,
+        important_warning_message: coin.important_warning_message || false,
     })
 
     const [titleChain, setTitleChain] = useState('Select')
@@ -191,7 +194,10 @@ const CoinEdit = ({coin}) => {
             coin_chains: data.coin_chains,
             circulating_supply: data.circulating_supply,
             presale_link: data.presale_link,
-            invite_link: data.invite_link
+            invite_link: data.invite_link,
+            warning_message: data.warning_message,
+            show_warning_message: data.show_warning_message,
+            important_warning_message: data.important_warning_message,
 
         }).then(res => {
             console.log(res)
@@ -295,6 +301,49 @@ const CoinEdit = ({coin}) => {
                     >
                         <form onSubmit={handleSubmit} className={c.addCoinForm}>
                             <h2 className={c.titleBlock}>Coin info</h2>
+                            <div className="mt-5 mb-5">
+                                <h3>Warning message</h3>
+                                <div className="d-flex justify-content-around">
+                                    <Form.Group>
+                                        <Form.Check
+                                            type="checkbox"
+                                            checked={data.show_warning_message}
+                                            onChange={e => setData({
+                                                ...data,
+                                                ['show_warning_message']: e.target.checked
+                                            })}
+                                            label={data.show_warning_message ? 'SHOW' : 'HIDDEN'}
+                                        />
+                                    </Form.Group>
+                                    <Form.Group>
+                                        <Form.Check
+                                            type="checkbox"
+                                            checked={data.important_warning_message}
+                                            onChange={e => setData({
+                                                ...data,
+                                                ['important_warning_message']: e.target.checked
+                                            })}
+                                            label={data.important_warning_message ? 'RED' : 'ORANGE'}
+                                        />
+                                    </Form.Group>
+                                </div>
+                                <InputGroup className="mb-3">
+                                    <label className="input-label">
+                                        Text Message
+                                        <FormControl
+                                            placeholder="Example: Warning message"
+                                            className="input-text"
+                                            type="text"
+                                            value={data.warning_message}
+                                            onChange={e => setData({
+                                                ...data,
+                                                ['warning_message']: e.target.value
+                                            })}
+                                            required
+                                        />
+                                    </label>
+                                </InputGroup>
+                            </div>
                             <div className={c.formBlock}>
                                 <div className={c.side}>
                                     <InputGroup className="mb-3">

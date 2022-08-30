@@ -23,6 +23,7 @@ import axios from "axios";
 import {getSingleRecordMoralis} from "../asyncAction/coinMolaris";
 import CustomBadge from "../components/UI/CustomBadge/CustomBadge";
 import {fetchHotNotificationsAction} from "../reducers/hotNotification";
+import WarningBlock from "../components/WarningBlock/WarningBlock";
 
 const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes, coins, hotNotifications}) => {
     const dispatch = useDispatch();
@@ -175,6 +176,14 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes, 
                     {
                         curCoin &&
                         <section className={s.tokenSection}>
+                            {
+                                curCoin.show_warning_message &&
+                                curCoin.warning_message &&
+                                <WarningBlock
+                                    text={curCoin.warning_message}
+                                    is_important={curCoin.important_warning_message}
+                                />
+                            }
                             <div className={s.tokenHeader}>
                                 <div className={s.name}>
                                     <h1>{curCoin.name}</h1>

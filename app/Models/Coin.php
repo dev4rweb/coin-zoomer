@@ -40,7 +40,10 @@ class Coin extends Model
         'is_market_cap_gecko',
         'is_own_logo',
         'presale_link',
-        'invite_link'
+        'invite_link',
+        'warning_message',
+        'show_warning_message',
+        'important_warning_message',
     ];
 
     protected $appends = [
@@ -61,11 +64,13 @@ class Coin extends Model
         'is_kyc' => 'boolean',
         'is_market_cap_gecko' => 'boolean',
         'is_own_logo' => 'boolean',
+        'show_warning_message' => 'boolean',
+        'important_warning_message' => 'boolean',
         'price' => 'float',
         'hour_votes' => 'integer',
         'today_votes' => 'integer',
         'week_votes' => 'integer',
-        'updated_at' => 'datetime:Y-m-d H:m'
+        'updated_at' => 'datetime:Y-m-d H:m',
     ];
 
     public function getSymbolAttribute($value)
