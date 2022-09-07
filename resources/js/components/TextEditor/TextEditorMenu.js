@@ -1,8 +1,15 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {EditorContent, useEditor} from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
+import {useSelector} from "react-redux";
 
 const TextEditorMenu = ({editor}) => {
+    const curUser = useSelector(state => state.currentUser.user)
+
+
+    useEffect(() => {
+        console.log('TextEditorMenu', curUser)
+    }, [curUser]);
 
     const toggleBoldHandler = e => {
         e.preventDefault()
@@ -73,6 +80,146 @@ const TextEditorMenu = ({editor}) => {
         return null
     }
 
+    if (curUser && curUser.is_admin) {
+        return (
+            <>
+                <div className="d-flex justify-content-between align-items-center mb-2">
+                    <button
+                        onClick={toggleBoldHandler}
+                        className={editor.isActive('bold') ? 'fill-btn btn btn-info' : 'btn btn-outline-info'}
+                    >
+                        bold
+                    </button>
+                    <button
+                        onClick={toggleItalicHandler}
+                        className={editor.isActive('italic') ? 'fill-btn btn btn-info' : 'btn btn-outline-info'}
+                    >
+                        italic
+                    </button>
+                    <button
+                        onClick={toggleStrikeHandler}
+                        className={editor.isActive('strike') ? 'fill-btn btn btn-info' : 'btn btn-outline-info'}
+                    >
+                        strike
+                    </button>
+                    <button
+                        onClick={toggleCodeHandler}
+                        className={editor.isActive('code') ? 'fill-btn btn btn-info' : 'btn btn-outline-info'}
+                    >
+                        code
+                    </button>
+                    <button
+                        className="btn btn-outline-info"
+                        onClick={unsetAllMarksHandler}
+                    >
+                        clear marks
+                    </button>
+                    <button
+                        className="btn btn-outline-info"
+                        onClick={clearNodesHandler}
+                    >
+                        clear nodes
+                    </button>
+                </div>
+
+                <div className="d-flex justify-content-between align-items-center mb-2">
+                    <button
+                        onClick={setParagraphHandler}
+                        className={editor.isActive('paragraph') ? 'fill-btn btn btn-info' : 'btn btn-outline-info'}
+                    >
+                        paragraph
+                    </button>
+                    <button
+                        onClick={toggleHeadingHandler}
+                        className={editor.isActive('heading', {level: 1}) ? 'fill-btn btn btn-info' : 'btn btn-outline-info'}
+                    >
+                        h1
+                    </button>
+                    <button
+                        onClick={toggleHeadingOneHandler}
+                        className={editor.isActive('heading', {level: 2}) ? 'fill-btn btn btn-info' : 'btn btn-outline-info'}
+                    >
+                        h2
+                    </button>
+                    <button
+                        onClick={toggleHeadingTwoHandler}
+                        className={editor.isActive('heading', {level: 3}) ? 'fill-btn btn btn-info' : 'btn btn-outline-info'}
+                    >
+                        h3
+                    </button>
+                    <button
+                        onClick={toggleHeadingThreeHandler}
+                        className={editor.isActive('heading', {level: 4}) ? 'fill-btn btn btn-info' : 'btn btn-outline-info'}
+                    >
+                        h4
+                    </button>
+                    <button
+                        onClick={toggleHeadingFourHandler}
+                        className={editor.isActive('heading', {level: 5}) ? 'fill-btn btn btn-info' : 'btn btn-outline-info'}
+                    >
+                        h5
+                    </button>
+                    <button
+                        onClick={toggleHeadingFiveHandler}
+                        className={editor.isActive('heading', {level: 6}) ? 'fill-btn btn btn-info' : 'btn btn-outline-info'}
+                    >
+                        h6
+                    </button>
+                </div>
+
+                <div className="d-flex justify-content-between align-items-center mb-2">
+                    <button
+                        onClick={() => editor.chain().focus().toggleBulletList().run()}
+                        className={editor.isActive('bulletList') ? 'fill-btn btn btn-info' : 'btn btn-outline-info'}
+                    >
+                        bullet list
+                    </button>
+                    <button
+                        onClick={() => editor.chain().focus().toggleOrderedList().run()}
+                        className={editor.isActive('orderedList') ? 'fill-btn btn btn-info' : 'btn btn-outline-info'}
+                    >
+                        ordered list
+                    </button>
+                    <button
+                        onClick={() => editor.chain().focus().toggleCodeBlock().run()}
+                        className={editor.isActive('codeBlock') ? 'fill-btn btn btn-info' : 'btn btn-outline-info'}
+                    >
+                        code block
+                    </button>
+                    <button
+                        onClick={() => editor.chain().focus().toggleBlockquote().run()}
+                        className={editor.isActive('blockquote') ? 'fill-btn btn btn-info' : 'btn btn-outline-info'}
+                    >
+                        blockquote
+                    </button>
+                    <button
+                        className="btn btn-outline-info"
+                        onClick={() => editor.chain().focus().setHorizontalRule().run()}>
+                        horizontal rule
+                    </button>
+                    <button
+                        className="btn btn-outline-info"
+                        onClick={() => editor.chain().focus().setHardBreak().run()}>
+                        hard break
+                    </button>
+                </div>
+
+                <div className="d-flex align-items-center mb-3">
+                    <button
+                        className="btn btn-outline-info me-3"
+                        onClick={() => editor.chain().focus().undo().run()}>
+                        undo
+                    </button>
+                    <button
+                        className="btn btn-outline-info"
+                        onClick={() => editor.chain().focus().redo().run()}>
+                        redo
+                    </button>
+                </div>
+            </>
+        )
+    }
+
     return (
         <>
             <div className="d-flex justify-content-between align-items-center mb-2">
@@ -95,71 +242,19 @@ const TextEditorMenu = ({editor}) => {
                     strike
                 </button>
                 <button
-                    onClick={toggleCodeHandler}
-                    className={editor.isActive('code') ? 'fill-btn btn btn-info' : 'btn btn-outline-info'}
-                >
-                    code
-                </button>
-                <button
                     className="btn btn-outline-info"
-                    onClick={unsetAllMarksHandler}
-                >
-                    clear marks
+                    onClick={() => editor.chain().focus().setHardBreak().run()}>
+                    break line
                 </button>
-                <button
-                    className="btn btn-outline-info"
-                    onClick={clearNodesHandler}
-                >
-                    clear nodes
-                </button>
-            </div>
-
-            <div className="d-flex justify-content-between align-items-center mb-2">
                 <button
                     onClick={setParagraphHandler}
                     className={editor.isActive('paragraph') ? 'fill-btn btn btn-info' : 'btn btn-outline-info'}
                 >
                     paragraph
                 </button>
-                <button
-                    onClick={toggleHeadingHandler}
-                    className={editor.isActive('heading', {level: 1}) ? 'fill-btn btn btn-info' : 'btn btn-outline-info'}
-                >
-                    h1
-                </button>
-                <button
-                    onClick={toggleHeadingOneHandler}
-                    className={editor.isActive('heading', {level: 2}) ? 'fill-btn btn btn-info' : 'btn btn-outline-info'}
-                >
-                    h2
-                </button>
-                <button
-                    onClick={toggleHeadingTwoHandler}
-                    className={editor.isActive('heading', {level: 3}) ? 'fill-btn btn btn-info' : 'btn btn-outline-info'}
-                >
-                    h3
-                </button>
-                <button
-                    onClick={toggleHeadingThreeHandler}
-                    className={editor.isActive('heading', {level: 4}) ? 'fill-btn btn btn-info' : 'btn btn-outline-info'}
-                >
-                    h4
-                </button>
-                <button
-                    onClick={toggleHeadingFourHandler}
-                    className={editor.isActive('heading', {level: 5}) ? 'fill-btn btn btn-info' : 'btn btn-outline-info'}
-                >
-                    h5
-                </button>
-                <button
-                    onClick={toggleHeadingFiveHandler}
-                    className={editor.isActive('heading', {level: 6}) ? 'fill-btn btn btn-info' : 'btn btn-outline-info'}
-                >
-                    h6
-                </button>
             </div>
 
-            <div className="d-flex justify-content-between align-items-center mb-2">
+            {/*<div className="d-flex justify-content-between align-items-center mb-2">
                 <button
                     onClick={() => editor.chain().focus().toggleBulletList().run()}
                     className={editor.isActive('bulletList') ? 'fill-btn btn btn-info' : 'btn btn-outline-info'}
@@ -189,11 +284,6 @@ const TextEditorMenu = ({editor}) => {
                     onClick={() => editor.chain().focus().setHorizontalRule().run()}>
                     horizontal rule
                 </button>
-                <button
-                    className="btn btn-outline-info"
-                    onClick={() => editor.chain().focus().setHardBreak().run()}>
-                    hard break
-                </button>
             </div>
 
             <div className="d-flex align-items-center mb-3">
@@ -207,9 +297,9 @@ const TextEditorMenu = ({editor}) => {
                     onClick={() => editor.chain().focus().redo().run()}>
                     redo
                 </button>
-            </div>
+            </div>*/}
         </>
-    )
+    );
 };
 
 export default TextEditorMenu;

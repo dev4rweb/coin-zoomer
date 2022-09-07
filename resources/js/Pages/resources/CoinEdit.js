@@ -379,7 +379,7 @@ const CoinEdit = ({coin}) => {
                                                         placeholder="Example: 0.05656"
                                                         className="input-text"
                                                         type="number"
-                                                        value={coin.price}
+                                                        value={data.price}
                                                         onChange={e => setData({
                                                             ...data,
                                                             ['price']: e.target.value

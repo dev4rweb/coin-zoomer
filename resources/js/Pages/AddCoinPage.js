@@ -28,6 +28,7 @@ import {PATH_HOME_PAGE} from "../utils/routesPath";
 import ChainItem from "../components/ChainItem/ChainItem";
 import {addNewChainAction} from "../reducers/chainReducer";
 import {fetchHotNotificationsAction} from "../reducers/hotNotification";
+import TextEditor from "../components/TextEditor/TextEditor";
 
 const AddCoinPage = ({currentUser, errors, hotNotifications, refLink}) => {
     const coin = useSelector(state => state.coin.addCoin)
@@ -139,6 +140,14 @@ const AddCoinPage = ({currentUser, errors, hotNotifications, refLink}) => {
             e.target.style.color = 'red'
         }
     };
+
+    const saveEditorHandler = textHtml => {
+        console.log('saveEditorHandler', textHtml)
+        setCoin({
+            ...coin,
+            ['description']: textHtml
+        })
+    }
 
     const setCoin = coin => {
         dispatch(addCoinAction(coin))
@@ -439,13 +448,14 @@ const AddCoinPage = ({currentUser, errors, hotNotifications, refLink}) => {
                                         <span>*</span> Coin description, other links and addresses (150 words limit)
                                         <InputGroup className="mb-3">
                                             <FloatingLabel label="">
-                                                <Form.Control
+                                                {/*<Form.Control
                                                     as="textarea"
                                                     value={coin.description}
                                                     onChange={limitTextHandler}
                                                     style={{height: '60px'}}
                                                     required
-                                                />
+                                                />*/}
+                                                <TextEditor content={coin.description} onChange={saveEditorHandler} />
                                             </FloatingLabel>
                                         </InputGroup>
                                     </label>
