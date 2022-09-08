@@ -29,6 +29,7 @@ import ChainItem from "../components/ChainItem/ChainItem";
 import {addNewChainAction} from "../reducers/chainReducer";
 import {fetchHotNotificationsAction} from "../reducers/hotNotification";
 import TextEditor from "../components/TextEditor/TextEditor";
+import {Head} from '@inertiajs/inertia-react'
 
 const AddCoinPage = ({currentUser, errors, hotNotifications, refLink}) => {
     const coin = useSelector(state => state.coin.addCoin)
@@ -189,6 +190,11 @@ const AddCoinPage = ({currentUser, errors, hotNotifications, refLink}) => {
 
     return (
         <Layout>
+            <Head>
+                <title>CoinZoomer.com - Your The best Crypto Browser!</title>
+                <meta name="description"
+                      content="CoinZoomer.com is innovative crypto voting and coin browsers platform. You can promote your coin or find the best coins to invest"/>
+            </Head>
             <div className={s.addCoinPage}>
                 <Container style={{marginTop: '30px'}}>
                     <CustomAlert/>

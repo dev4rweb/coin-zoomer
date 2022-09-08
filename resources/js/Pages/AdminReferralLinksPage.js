@@ -7,6 +7,7 @@ import AdminSidebar from "../components/UI/AdminSidebar/AdminSidebar";
 import {Container} from "react-bootstrap";
 import Layout from "../components/Layout";
 import ReferralTable from "../components/UI/Tables/ReferralTable/ReferralTable";
+import {Head} from '@inertiajs/inertia-react'
 
 const AdminReferralLinksPage = ({currentUser, refLinks}) => {
     const dispatch = useDispatch()
@@ -19,6 +20,11 @@ const AdminReferralLinksPage = ({currentUser, refLinks}) => {
 
     return (
         <Layout>
+            <Head>
+                <title>CoinZoomer.com - Your The best Crypto Browser!</title>
+                <meta name="description"
+                      content="CoinZoomer.com is innovative crypto voting and coin browsers platform. You can promote your coin or find the best coins to invest"/>
+            </Head>
             <Container className={s.adminPage}>
                 <div className={`mt-3 ${s.adminSideBar}`}>
                     <AdminSidebar />

@@ -8,6 +8,7 @@ import {load} from 'recaptcha-v3'
 import {ReCaptchaInstance} from "recaptcha-v3";
 import {setCurrentUserAction} from "../reducers/currentUserReducer";
 import {PATH_HOME_PAGE, PATH_LOGIN_PAGE} from "../utils/routesPath";
+import {Head} from '@inertiajs/inertia-react'
 
 const RegisterPage = () => {
     const dispatch = useDispatch()
@@ -92,6 +93,11 @@ const RegisterPage = () => {
 
     return (
         <Layout>
+            <Head>
+                <title>CoinZoomer.com - Your The best Crypto Browser!</title>
+                <meta name="description"
+                      content="CoinZoomer.com is innovative crypto voting and coin browsers platform. You can promote your coin or find the best coins to invest"/>
+            </Head>
             <Container>
                 <h1 className="mt-5 mb-5 text-center">Register Page</h1>
                 <div className="mt-5">

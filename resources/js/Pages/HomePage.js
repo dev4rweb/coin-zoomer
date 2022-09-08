@@ -33,6 +33,7 @@ import {fetchCoinByQuery, fetchCoinByQueryObj, fetchTopCoins} from "../asyncActi
 import {fetchVotesAction} from "../reducers/voteReducer";
 import Paginate from "../components/UI/Pagination/Paginate";
 import {fetchHotNotificationsAction} from "../reducers/hotNotification";
+import {Head} from '@inertiajs/inertia-react'
 
 const HomePage = ({currentUser, errors, coins, votes, hotNotifications}) => {
     const dispatch = useDispatch();
@@ -101,6 +102,11 @@ const HomePage = ({currentUser, errors, coins, votes, hotNotifications}) => {
 
     return (
         <Layout>
+            <Head>
+                <title>CoinZoomer.com - Your The best Crypto Browser!</title>
+                <meta name="description"
+                      content="CoinZoomer.com is innovative crypto voting and coin browsers platform. You can promote your coin or find the best coins to invest"/>
+            </Head>
             <div className={s.homePage}>
                 <Container>
                     <section className={s.mainSection}>

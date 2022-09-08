@@ -7,6 +7,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {fetchSubscribersAction} from "../../reducers/subscribeReducer";
 import AdminSubscriberTable from "../../components/UI/Tables/AdminSubscriberTable/AdminSubscriberTable";
 import {setErrorsAction} from "../../reducers/errorsReducer";
+import {Head} from '@inertiajs/inertia-react'
 
 const SubscriberIndex = ({subscribers}) => {
     const dispatch = useDispatch()
@@ -36,6 +37,11 @@ const SubscriberIndex = ({subscribers}) => {
 
     return (
         <Layout>
+            <Head>
+                <title>CoinZoomer.com - Your The best Crypto Browser!</title>
+                <meta name="description"
+                      content="CoinZoomer.com is innovative crypto voting and coin browsers platform. You can promote your coin or find the best coins to invest"/>
+            </Head>
             <Container className={s.adminPage}>
                 <div className={`mt-3 ${s.adminSideBar}`}>
                     <AdminSidebar />

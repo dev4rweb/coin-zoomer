@@ -18,6 +18,7 @@ import SectionSeparator from "../components/UI/SectionSeparator/SectionSeparator
 import CustomAccordion from "../components/CustomAccordion/CustomAccordion";
 import CustomForm from "../components/CustomForm/CustomForm";
 import DropdownItem from "react-bootstrap/DropdownItem";
+import {Head} from '@inertiajs/inertia-react'
 
 const TokenPage = ({currentUser, errors,}) => {
     const dispatch = useDispatch();
@@ -62,6 +63,11 @@ const TokenPage = ({currentUser, errors,}) => {
 
     return (
         <Layout>
+            <Head>
+                <title>CoinZoomer.com - Your The best Crypto Browser!</title>
+                <meta name="description"
+                      content="CoinZoomer.com is innovative crypto voting and coin browsers platform. You can promote your coin or find the best coins to invest"/>
+            </Head>
             <div className={s.tokenPage}>
                 <Container className={s.wrapper}>
                     <CustomAlert/>

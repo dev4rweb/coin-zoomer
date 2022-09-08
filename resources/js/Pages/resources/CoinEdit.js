@@ -22,6 +22,7 @@ import DropdownItem from "react-bootstrap/DropdownItem";
 import {useDispatch} from "react-redux";
 import TextEditor from "../../components/TextEditor/TextEditor";
 import TextEditorMenu from "../../components/TextEditor/TextEditorMenu";
+import {Head} from '@inertiajs/inertia-react'
 
 const CoinEdit = ({coin}) => {
     const dispatch = useDispatch()
@@ -219,6 +220,11 @@ const CoinEdit = ({coin}) => {
 
     return (
         <Layout>
+            <Head>
+                <title>CoinZoomer.com - Your The best Crypto Browser!</title>
+                <meta name="description"
+                      content="CoinZoomer.com is innovative crypto voting and coin browsers platform. You can promote your coin or find the best coins to invest"/>
+            </Head>
             <Container className={s.adminPage}>
                 <div className={`mt-3 ${s.adminSideBar}`}>
                     <AdminSidebar/>
@@ -847,7 +853,7 @@ const CoinEdit = ({coin}) => {
                 </div>
             </Container>
         </Layout>
-    );
+);
 };
 
 export default CoinEdit;

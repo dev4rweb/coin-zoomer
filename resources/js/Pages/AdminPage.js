@@ -7,6 +7,7 @@ import {Container} from "react-bootstrap";
 import {fetchAllUsersAction} from "../reducers/allUsersReducer";
 import UsersTable from "../components/UI/Tables/UsersTable/UsersTable";
 import AdminSidebar from "../components/UI/AdminSidebar/AdminSidebar";
+import {Head} from '@inertiajs/inertia-react'
 
 const AdminPage = ({currentUser, users, errors}) => {
     const dispatch = useDispatch();
@@ -20,6 +21,11 @@ const AdminPage = ({currentUser, users, errors}) => {
 
     return (
         <Layout>
+            <Head>
+                <title>CoinZoomer.com - Your The best Crypto Browser!</title>
+                <meta name="description"
+                      content="CoinZoomer.com is innovative crypto voting and coin browsers platform. You can promote your coin or find the best coins to invest"/>
+            </Head>
             <Container className={s.adminPage}>
                 <div className={`mt-3 ${s.adminSideBar}`}>
                     <AdminSidebar />

@@ -6,6 +6,7 @@ import s from "../../sass/pages/AdminPage/AdminPage.module.scss";
 import AdminSidebar from "../components/UI/AdminSidebar/AdminSidebar";
 import AdminCoinTable from "../components/UI/Tables/AdminCoinTable/AdminCoinTable";
 import Layout from "../components/Layout";
+import {Head} from '@inertiajs/inertia-react'
 
 const AdminAirDropPage = ({currentUser, errors}) => {
     const dispatch = useDispatch();
@@ -17,6 +18,11 @@ const AdminAirDropPage = ({currentUser, errors}) => {
 
     return (
         <Layout>
+            <Head>
+                <title>CoinZoomer.com - Your The best Crypto Browser!</title>
+                <meta name="description"
+                      content="CoinZoomer.com is innovative crypto voting and coin browsers platform. You can promote your coin or find the best coins to invest"/>
+            </Head>
             <Container className={s.adminPage}>
                 <div className={`mt-3 ${s.adminSideBar}`}>
                     <AdminSidebar/>

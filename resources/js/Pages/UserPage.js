@@ -9,6 +9,7 @@ import {destroyReferralLinkApi, storeReferralLinkApi} from "../asyncAction/refer
 import {Inertia} from "@inertiajs/inertia";
 import UserWallets from "../components/UserWallets/UserWallets";
 import UserAddWallet from "../components/UserWallets/UserAddWallet";
+import {Head} from '@inertiajs/inertia-react'
 
 const UserPage = ({currentUser, refLinks, wallets, errors}) => {
     const dispatch = useDispatch();
@@ -72,6 +73,11 @@ const UserPage = ({currentUser, refLinks, wallets, errors}) => {
 
     return (
         <Layout>
+            <Head>
+                <title>CoinZoomer.com - Your The best Crypto Browser!</title>
+                <meta name="description"
+                      content="CoinZoomer.com is innovative crypto voting and coin browsers platform. You can promote your coin or find the best coins to invest"/>
+            </Head>
             <Container>
                 <h1>User Panel</h1>
                 {

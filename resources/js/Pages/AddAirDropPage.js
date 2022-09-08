@@ -20,6 +20,7 @@ import discord from "../../assets/img/ic-discord.png";
 import InputFile from "../components/InputFile/InputFile";
 import Form from "react-bootstrap/Form";
 import InputCheckBoxBtn from "../components/InputCheckBoxBtn/InputCheckBoxBtn";
+import {Head} from '@inertiajs/inertia-react'
 
 const AddAirDropPage = ({currentUser, errors}) => {
     const dispatch = useDispatch();
@@ -31,6 +32,11 @@ const AddAirDropPage = ({currentUser, errors}) => {
 
     return (
         <Layout>
+            <Head>
+                <title>CoinZoomer.com - Your The best Crypto Browser!</title>
+                <meta name="description"
+                      content="CoinZoomer.com is innovative crypto voting and coin browsers platform. You can promote your coin or find the best coins to invest"/>
+            </Head>
             <div className={s.addAirDropPage}>
                 <Container style={{marginTop: '30px'}}>
                     <CustomAlert/>

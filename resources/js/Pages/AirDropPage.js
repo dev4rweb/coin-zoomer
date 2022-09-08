@@ -13,6 +13,7 @@ import OutlineBtn from "../components/UI/OutlineBtn/OutlineBtn";
 import StatusTable from "../components/UI/Tables/StatusTable/StatusTable";
 import {Inertia} from "@inertiajs/inertia";
 import {PATH_ADD_AIR_DROP_PAGE} from "../utils/routesPath";
+import {Head} from '@inertiajs/inertia-react'
 
 const AirDropPage = ({currentUser, errors}) => {
     const dispatch = useDispatch();
@@ -29,6 +30,11 @@ const AirDropPage = ({currentUser, errors}) => {
 
     return (
         <Layout>
+            <Head>
+                <title>CoinZoomer.com - Your The best Crypto Browser!</title>
+                <meta name="description"
+                      content="CoinZoomer.com is innovative crypto voting and coin browsers platform. You can promote your coin or find the best coins to invest"/>
+            </Head>
             <div className={s.airDropPage}>
                 <div className={s.airDropMain}>
                     <Container className={s.airDropWrapper}>

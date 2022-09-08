@@ -18,6 +18,7 @@ import DropdownItem from "react-bootstrap/DropdownItem";
 import {setErrorsAction} from "../reducers/errorsReducer";
 import {Inertia} from "@inertiajs/inertia";
 import {fetchHotNotificationsAction} from "../reducers/hotNotification";
+import {Head} from '@inertiajs/inertia-react'
 
 const ContactsPage = ({currentUser, errors, hotNotifications}) => {
     const dispatch = useDispatch();
@@ -53,6 +54,11 @@ const ContactsPage = ({currentUser, errors, hotNotifications}) => {
 
     return (
         <Layout>
+            <Head>
+                <title>CoinZoomer.com - Your The best Crypto Browser!</title>
+                <meta name="description"
+                      content="CoinZoomer.com is innovative crypto voting and coin browsers platform. You can promote your coin or find the best coins to invest"/>
+            </Head>
             <div className={s.contactsPage}>
                 <Container style={{marginTop: '30px'}}>
                     <CustomAlert/>

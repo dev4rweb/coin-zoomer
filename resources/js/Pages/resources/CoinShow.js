@@ -9,6 +9,7 @@ import {Inertia} from "@inertiajs/inertia";
 import {useDispatch} from "react-redux";
 import {setErrorsAction, setLoadingAction} from "../../reducers/errorsReducer";
 import axios from "axios";
+import {Head} from '@inertiajs/inertia-react'
 
 const CoinShow = ({coin}) => {
     const dispatch = useDispatch()
@@ -36,6 +37,11 @@ const CoinShow = ({coin}) => {
 
     return (
         <Layout>
+            <Head>
+                <title>CoinZoomer.com - Your The best Crypto Browser!</title>
+                <meta name="description"
+                      content="CoinZoomer.com is innovative crypto voting and coin browsers platform. You can promote your coin or find the best coins to invest"/>
+            </Head>
             <Container className={s.adminPage}>
                 <div className={`mt-3 ${s.adminSideBar}`}>
                     <AdminSidebar/>

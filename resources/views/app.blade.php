@@ -17,8 +17,6 @@
     <link href="{{ asset('/css/stylesheet.css') }}" rel="stylesheet"/>
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet"/>
     <script src="{{ mix('/js/app.js') }}" defer></script>
-    <title>CoinZoomer.com - Your The best Crypto Browser!</title>
-    <meta name="description" content="CoinZoomer.com is innovative crypto voting and coin browsers platform. You can promote your coin or find the best coins to invest">
 </head>
 <body>
 @inertia

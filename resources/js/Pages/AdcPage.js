@@ -16,6 +16,7 @@ import OutlineBtn from "../components/UI/OutlineBtn/OutlineBtn";
 import {Inertia} from "@inertiajs/inertia";
 import ChartBlock from "../components/ChartBlock/ChartBlock";
 import {fetchHotNotificationsAction} from "../reducers/hotNotification";
+import {Head} from '@inertiajs/inertia-react'
 
 const AdcPage = ({currentUser, errors, hotNotifications}) => {
     const tariffCards = [
@@ -65,6 +66,11 @@ const AdcPage = ({currentUser, errors, hotNotifications}) => {
 
     return (
         <Layout>
+            <Head>
+                <title>CoinZoomer.com - Your The best Crypto Browser!</title>
+                <meta name="description"
+                      content="CoinZoomer.com is innovative crypto voting and coin browsers platform. You can promote your coin or find the best coins to invest"/>
+            </Head>
             <div className={s.adcPage}>
                 <Container style={{marginTop: '30px'}}>
                     <CustomAlert/>
