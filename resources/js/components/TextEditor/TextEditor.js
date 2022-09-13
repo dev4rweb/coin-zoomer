@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useEditor, EditorContent} from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import TextEditorMenu from "./TextEditorMenu";
@@ -19,6 +19,7 @@ const TextEditor = ({content, onChange = null}) => {
         // console.log('saveHandler', editor.getHTML())
         if (onChange) onChange(editor.getHTML())
     };
+
     return (
         <div>
             <div className="mb-3 mt-3">
@@ -34,14 +35,14 @@ const TextEditor = ({content, onChange = null}) => {
                     marginBottom: '1rem'
                 }}
             >
-                <EditorContent editor={editor}/>
+                <EditorContent editor={editor} onInput={saveHandler} />
             </div>
-            <button
+            {/*<button
                 onClick={saveHandler}
                 className="fill-btn btn btn-info"
             >
                 Accept changes
-            </button>
+            </button>*/}
         </div>
     );
 };

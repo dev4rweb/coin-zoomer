@@ -171,8 +171,8 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes, 
     return (
         <Layout>
             <Head>
-                <title>{innerCoin.name}</title>
-                <meta name="description" content={`${innerCoin.description.slice(0, 89)}.. price - $ ${innerCoin.price}, ${innerCoin.one_hour === 0 ? `${innerCoin.one_hour}` : innerCoin.one_hour >= 0 ?
+                <title>{`${innerCoin.name} (${innerCoin.symbol.toUpperCase()}) - CoinZoomer`}</title>
+                <meta name="description" content={`${innerCoin.description.slice(0, 89)}.. price - $ ${innerCoin.price}, ${innerCoin.one_hour === 0 ? `${innerCoin.one_hour},` : innerCoin.one_hour >= 0 ?
                     `price change - &uArr; ${innerCoin.one_hour}%,` :
                     `price change - &dArr; ${innerCoin.one_hour}%,`
                 } launch - ${innerCoin.launch_date}`}/>

@@ -345,7 +345,6 @@ const CoinEdit = ({coin}) => {
                                                 ...data,
                                                 ['warning_message']: e.target.value
                                             })}
-                                            required
                                         />
                                     </label>
                                 </InputGroup>
