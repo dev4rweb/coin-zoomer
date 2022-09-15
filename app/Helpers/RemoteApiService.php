@@ -68,10 +68,10 @@ class RemoteApiService
                     } else {
                         $cakeUrl = 'https://api.pancakeswap.info/api/v2/tokens/';
                         $response = Http::get($cakeUrl . $coinChain->contract_address);
-                        $coin->contractAdditional = 'pancackeswap ' . $response;
+                        $coin->contractAdditional = 'arken error - ' . $response;
                         $coin->save();
                         if ($response->ok()) {
-                            $coin->contractAdditional = 'pancackeswap OK' . $response;
+                            $coin->contractAdditional .= '. pancackeswap OK' . $response;
                             $coin->save();
                             if (!$coin['price']) $coin['price'] = 0;
                             $coin['contractAdditional'] = $response;
@@ -84,6 +84,7 @@ class RemoteApiService
                             $coin->save();
                             return $response;
                         } else {
+                            $coin->contractAdditional .= '. pancackeswap error ' . $response;
                             $responseCoin = Http::withHeaders([
                                 'X-API-Key' => 'jTG1sdNlkrUtapkTO7Tt5UEa1P8lgLlHn21M32F56G5nSZrmfoGQy4F7I8DBNFP6' // from moralis example requests
                             ])
@@ -92,7 +93,7 @@ class RemoteApiService
                             if ($responseCoin->ok()) {
                                 if (!$coin['price']) $coin['price'] = 0;
 
-                                $coin['contractAdditional'] = 'Moralis Ok' . $responseCoin;
+                                $coin['contractAdditional'] .= '. Moralis Ok' . $responseCoin;
 
                                 $coin['market_cap'] = (string)($responseCoin['usdPrice'] * $coin['circulating_supply']);
                                 $coin->save();
@@ -106,7 +107,7 @@ class RemoteApiService
                                 $coin['price'] = (string)$responseCoin['usdPrice'];
                                 $coin->save();
                             } else {
-                                $coin->contractAdditional = 'Moralis Fail' . $responseCoin;
+                                $coin->contractAdditional .= '. Moralis Fail' . $responseCoin;
                             }
                             $coin->save();
                             return $responseCoin;
