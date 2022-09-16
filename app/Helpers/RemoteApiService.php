@@ -53,7 +53,7 @@ class RemoteApiService
                     $chain = $coinChain->chain . '/';
                     $address = $coinChain->contract_address;
                     $response = Http::get($arkenUrl . $chain . $address);
-                    if ($response->ok()) {
+                    if ($response->ok() && $response['price'] != 0) {
                         if (!$coin['price']) $coin['price'] = 0;
                         $coin['contractAdditional'] = $response;
                         $coin['market_cap'] = (string)(floatval($response['price']) * $coin['circulating_supply']);
@@ -70,7 +70,7 @@ class RemoteApiService
                         $response = Http::get($cakeUrl . $coinChain->contract_address);
                         $coin->contractAdditional = 'arken error - ' . $response;
                         $coin->save();
-                        if ($response->ok()) {
+                        if ($response->ok() && $response['data']['price'] != 0) {
                             $coin->contractAdditional .= '. pancackeswap OK' . $response;
                             $coin->save();
                             if (!$coin['price']) $coin['price'] = 0;
