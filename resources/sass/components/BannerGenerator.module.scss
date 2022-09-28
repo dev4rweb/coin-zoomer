@@ -1,0 +1,54 @@
+@import "../variables";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+.bnGenerator {
+    display: flex;
+    font-family: 'Montserrat', sans-serif;
+
+    .content {
+        width: 64%;
+        padding-left: 80px;
+        padding-top: 273px;
+        padding-right: 50px;
+        .title {
+            color: #FE7939;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .description {
+            font-family: 'Montserrat', sans-serif;
+            height: 73px;
+            overflow-y: hidden;
+        }
+
+        .link {
+            font-size: 14px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-top: 23px;
+            font-family: 'Montserrat', sans-serif;
+        }
+    }
+
+    .image {
+        .logo {
+            margin-top: 179px;
+            width: 150px;
+            height: 150px;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+            background-color: #121739;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .coinLogo{
+                width: 100px;
+                height: 100px;
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+                border-radius: 50%;
+            }
+        }
+    }
+}
