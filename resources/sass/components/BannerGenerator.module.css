@@ -94,7 +94,7 @@ td {
       height: 73px;
       overflow-y: hidden; }
     .bnGenerator .content .link {
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 900;
       text-transform: uppercase;
       margin-top: 23px;
@@ -111,8 +111,8 @@ td {
     justify-content: center;
     align-items: center; }
     .bnGenerator .image .logo .coinLogo {
-      width: 100px;
-      height: 100px;
+      width: 120px;
+      height: 120px;
       -webkit-border-radius: 50%;
       -moz-border-radius: 50%;
       border-radius: 50%; }

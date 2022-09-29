@@ -42,7 +42,6 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes, 
     const [uniswap, setUniswap] = useState(null)
 
 
-
     useEffect(() => {
         if (!isGetResponse) {
             dispatch(fetchCoinAction(coins));
@@ -170,7 +169,6 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes, 
         }
         // console.log('voteHandler ', e.currentTarget.tagName === 'BUTTON');
     };
-
 
 
     return (
@@ -497,7 +495,7 @@ const CoinOpenPage = ({currentUser, errors, pageId, innerCoin, curVotes, votes, 
 
                     </section>
 
-                    <div className="d-flex justify-content-center w-100 overflow-auto">
+                    <div className="d-flex justify-content-center w-100 overflow-auto mb-3">
                         {
                             curCoin &&
                             <BannerGenerator coin={curCoin}/>

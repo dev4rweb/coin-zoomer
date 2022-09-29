@@ -34,32 +34,37 @@ const BannerGenerator = ({coin}) => {
 
     return (
         <div className="d-flex flex-column justify-content-center align-items-center">
-            <div className="shadow-lg" ref={ref}>
-                <div
-                    className={s.bnGenerator}
-                    style={{
-                        backgroundImage: `url(${vaseToken})`,
-                        backgroundSize: 'cover',
-                        width: `${originalWidth / 2}px`,
-                        height: `${originalHeight / 2}px`
-                    }}
-                >
-                    <div className={s.content}>
-                        <h2 className={s.title}>{coin.name}</h2>
-                        <p className={s.description}  dangerouslySetInnerHTML={{__html: coin.description.substring(0, 200)}}/>
-                        <p className={s.link}>
-                            coinzoomer.com{ window.location.pathname }
-                        </p>
-                    </div>
-                    <div className={s.image}>
-                        <div className={s.logo}>
-                            <div
-                                className={s.coinLogo}
-                                style={{
-                                    backgroundImage: `url(${coin.logotype})`,
-                                    backgroundSize: 'cover',
-                                }}
-                            />
+            <div style={{
+                height: '0px',
+                overflow: 'hidden'
+            }}>
+                <div className="shadow-lg" ref={ref}>
+                    <div
+                        className={s.bnGenerator}
+                        style={{
+                            backgroundImage: `url(${vaseToken})`,
+                            backgroundSize: 'cover',
+                            width: `${originalWidth / 2}px`,
+                            height: `${originalHeight / 2}px`
+                        }}
+                    >
+                        <div className={s.content}>
+                            <h2 className={s.title}>{coin.name}</h2>
+                            <p className={s.description}  dangerouslySetInnerHTML={{__html: coin.description.substring(0, 200)}}/>
+                            <p className={s.link}>
+                                coinzoomer.com{ window.location.pathname }
+                            </p>
+                        </div>
+                        <div className={s.image}>
+                            <div className={s.logo}>
+                                <div
+                                    className={s.coinLogo}
+                                    style={{
+                                        backgroundImage: `url(${coin.logotype})`,
+                                        backgroundSize: 'cover',
+                                    }}
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -71,7 +76,7 @@ const BannerGenerator = ({coin}) => {
                 className={`btn-big btn-violet mt-3`}
                 onClick={downloadBannerHandler}
             >
-                Download Banner
+                Download listing Banner
             </Button>
         </div>
     );
