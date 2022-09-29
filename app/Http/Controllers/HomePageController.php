@@ -35,6 +35,11 @@ class HomePageController extends Controller
             ->with('coinChains')
             ->paginate(10);
 
+        foreach ($coins as $coin) {
+            unset($coin->description);
+            unset($coin->contractAdditional);
+        }
+
         $votes = Vote::all();
         $hotNotifications = HotNotification::all();
 
