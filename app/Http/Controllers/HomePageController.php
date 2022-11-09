@@ -53,6 +53,7 @@ class HomePageController extends Controller
 
     public function testRoute(Request $request)
     {
+    Artisan::call('up');
 //    Artisan::call('cache:clear');
 //    Artisan::call('route:cache');
 //    Artisan::call('migrate:refresh --seed');
@@ -81,11 +82,12 @@ class HomePageController extends Controller
                 return round((floatval($responseCoin['usdPrice']) / floatval($coins[0]['price']) - 1) * 100, 7);
             else return $responseCoin->ok();
         } else return 'Something wrong';*/
-        $coins = Coin::where('is_approved', 1)->orderBy('updated_at')->get();
+        /*$coins = Coin::where('is_approved', 1)->orderBy('updated_at')->get();
         foreach ($coins as $coin) {
             RemoteApiService::getRemoteData($coin);
             sleep(2);
-        }
+        }*/
+        return 'Done';
     }
 
     public function createSubscribersFile(Request $request)
