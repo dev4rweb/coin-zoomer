@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Filters\CoinFilter;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\CoinHomeCollection;
 use App\Models\Coin;
 use App\Models\CoinChain;
 use Illuminate\Http\Request;
@@ -20,7 +21,7 @@ class CoinController extends Controller
         try {
 //            $coins = Coin::filter($filter)->take($filter->request['limit'])->get();
 
-            $coins = Coin::filter($filter)
+            $coins =Coin::filter($filter)
                 ->where('is_approved', 1)
                 ->with('votes')
                 ->with('coinChains')

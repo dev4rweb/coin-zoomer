@@ -26,6 +26,7 @@ use App\Http\Controllers\TokenPageController;
 use App\Http\Controllers\UploadFileController;
 use App\Http\Controllers\UserPageController;
 use App\Http\Controllers\VerifiedPageController;
+use App\Http\Controllers\VoteController;
 use App\Http\Controllers\WalletController;
 use App\Mail\SendMail;
 use App\Models\Coin;
@@ -59,6 +60,7 @@ Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/', [HomePageController::class, 'index'])->name('home.index');
+Route::get('/dev-page', [HomePageController::class, 'devPage']);
 Route::get('/admin-subscribers', [HomePageController::class, 'subscriberIndex'])->name('subscriber.index');
 Route::get('/promotion', [AdcPageController::class, 'index']);
 Route::get('/admin-panel', [AdminPageController::class, 'index'])->name('adminPanel.index');
@@ -91,7 +93,8 @@ Route::apiResources([
     'userModels' => UserController::class,
     'referral-links' => ReferralLinkController::class,
     'bonuses' => BonusController::class,
-    'wallets' => WalletController::class
+    'wallets' => WalletController::class,
+    'vote' => VoteController::class
 ]);
 
 Route::get('/send-email', function () {
