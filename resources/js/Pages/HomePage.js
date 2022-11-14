@@ -180,12 +180,11 @@ const HomePage = ({currentUser, errors, coins, votes, hotNotifications}) => {
 
                                             </div>
                                         </div>
-
-
                                     </div>
                                 }
                             </div>
                         </section>
+
                         <section className={s.topCoinsSection}>
                             <SectionSeparator sectionName={`Tap coins`}/>
 

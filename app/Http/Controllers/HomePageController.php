@@ -62,6 +62,7 @@ class HomePageController extends Controller
 
         $promoted_coins = new CoinHomeCollection(Coin::withCount('votes')
             ->where('is_approved', 1)
+            ->where('is_promoted', 1)
             ->orderBy('market_cap', 'desc')
             ->with('votes')
             ->with('coinChains')

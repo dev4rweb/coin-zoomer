@@ -8,10 +8,12 @@ import LazyBackground from "../components/LazyBackground";
 import {Button, Container} from "react-bootstrap";
 import CustomAlert from "../components/UI/CustomAlert/CustomAlert";
 import {Inertia} from "@inertiajs/inertia";
-import {PATH_ADD_COIN_PAGE} from "../utils/routesPath";
+import {PATH_ADD_COIN_PAGE, PATH_COIN_OPEN_PAGE} from "../utils/routesPath";
 import Medal from "../components/Medal/Medal";
 import SimpleTableMod from "../components/UI/Tables/SimpleTable/SimpleTableMod";
 import {setErrorsAction} from "../reducers/errorsReducer";
+import dogWin from "../../assets/img/win-dog.png";
+import GraphicIncrease from "../components/UI/GraphicIncrease/GraphicIncrease";
 
 const HomePageMod = ({coins, promotedCoins, topCoinsWeek, topCoinsDay, topCoinsHour, errors}) => {
     const dispatch = useDispatch()
@@ -71,7 +73,7 @@ const HomePageMod = ({coins, promotedCoins, topCoinsWeek, topCoinsDay, topCoinsH
                                 <p>Promoted coins</p>
                             </Medal>
                             {
-                                topCoinsDay.length &&
+                                topCoinsDay.data.length &&
                                 <Medal isRight={true}>
                                     <p>Top Daily Winner</p>
                                 </Medal>
@@ -83,6 +85,35 @@ const HomePageMod = ({coins, promotedCoins, topCoinsWeek, topCoinsDay, topCoinsH
                             {
                                 promotedCoins && promotedCoins.data.length &&
                                 <SimpleTableMod coins={promotedCoins}/>
+                            }
+
+                            {
+                                topCoinsDay.data.length &&
+                                <div className={s.rightSide}>
+                                    <div className={s.winWrapper}>
+                                        <img className={s.dogWin} src={dogWin} alt="dog"/>
+                                        <img
+                                            className={s.coinLogo}
+                                            src={topCoinsDay.data[0].logotype}
+                                            onClick={event => Inertia.visit(`${PATH_COIN_OPEN_PAGE}/${topCoinsDay.data[0].name.replaceAll(' ', '_')}`)}
+                                            alt="logo"
+                                        />
+                                    </div>
+
+                                    <div className={s.dataWrapper}>
+                                        <h2>{topCoinsDay.data[0].name}</h2>
+                                        <div className={s.graphWrapper}>
+                                            {/*<GraphicIncrease text={bestCoin.one_hour.toFixed(7) || '0'}/>*/}
+                                            {
+                                                topCoinsDay.data[0].one_hour ?
+                                                    <GraphicIncrease text={topCoinsDay.data[0].one_hour_formatted}/> :
+                                                    <GraphicIncrease text={0}/>
+                                            }
+
+                                        </div>
+                                    </div>
+                                </div>
+
                             }
                         </div>
                     </section>
