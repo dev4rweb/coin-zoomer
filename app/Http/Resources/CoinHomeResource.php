@@ -23,6 +23,7 @@ class CoinHomeResource extends JsonResource
             'one_hour_formatted' => $this->one_hour_formatted,
             'is_kyc' => $this->is_kyc,
             'is_presale' => $this->is_presale,
+            'is_promoted' => $this->is_promoted,
             'coin_chains' => $this->coinChains,
             'price_formatted' => $this->price_formatted,
             'market_cap' => $this->market_cap,
