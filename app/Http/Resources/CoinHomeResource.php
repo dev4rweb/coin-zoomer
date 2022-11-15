@@ -29,9 +29,6 @@ class CoinHomeResource extends JsonResource
             'market_cap' => $this->market_cap,
             'launch_date' => $this->launch_date,
             'votes' => count($this->votes),
-            /*'hour_votes' => $this->hour_votes,
-            'today_votes' => $this->today_votes,
-            'week_votes' => $this->week_votes,*/
         ];
     }
 }

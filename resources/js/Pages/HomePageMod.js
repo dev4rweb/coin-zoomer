@@ -14,6 +14,8 @@ import SimpleTableMod from "../components/UI/Tables/SimpleTable/SimpleTableMod";
 import {setErrorsAction} from "../reducers/errorsReducer";
 import dogWin from "../../assets/img/win-dog.png";
 import GraphicIncrease from "../components/UI/GraphicIncrease/GraphicIncrease";
+import SectionSeparator from "../components/UI/SectionSeparator/SectionSeparator";
+import TopCoins from "../components/TopCoins/TopCoins";
 
 const HomePageMod = ({coins, promotedCoins, topCoinsWeek, topCoinsDay, topCoinsHour, errors}) => {
     const dispatch = useDispatch()
@@ -118,6 +120,35 @@ const HomePageMod = ({coins, promotedCoins, topCoinsWeek, topCoinsDay, topCoinsH
                         </div>
                     </section>
 
+                    <section className={s.topCoinsSection}>
+                        <SectionSeparator sectionName={`Tap coins`}/>
+
+                        <div className={s.cardWrapper}>
+                            {
+                                topCoinsHour &&
+                                    <TopCoins
+                                        title={'coins of the 1h'}
+                                        data={topCoinsHour.data.sort((a, b) => b.hour_votes - a.hour_votes)}
+                                    />
+                            }
+                            {
+                                topCoinsDay &&
+                                <TopCoins
+                                    title={'coins of the 24h'}
+                                    classBg={'pink'}
+                                    data={topCoinsDay.data.sort((a, b) => b.today_votes - a.today_votes)}
+                                />
+                            }
+                            {
+                                topCoinsWeek &&
+                                <TopCoins
+                                    title={'coins of the week'}
+                                    classBg={'blue'}
+                                    data={topCoinsWeek.data.sort((a, b) => b.week_votes - a.week_votes)}
+                                />
+                            }
+                        </div>
+                    </section>
                 </Container>
             </LazyBackground>
         </Layout>

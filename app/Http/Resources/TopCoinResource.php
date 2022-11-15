@@ -22,6 +22,9 @@ class TopCoinResource extends JsonResource
             'one_hour_formatted' => $this->one_hour_formatted,
             'price_formatted' => $this->price_formatted,
             'is_promoted' => $this->is_promoted,
+            'hour_votes' => $this->hour_votes,
+            'today_votes' => $this->today_votes,
+            'week_votes' => $this->week_votes,
         ];
     }
 }
