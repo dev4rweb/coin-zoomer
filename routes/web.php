@@ -20,6 +20,7 @@ use App\Http\Controllers\ContactsPageController;
 use App\Http\Controllers\ErrorPageController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HomePageController;
+use App\Http\Controllers\ImageCacheController;
 use App\Http\Controllers\MolarisPageController;
 use App\Http\Controllers\ReferralLinkController;
 use App\Http\Controllers\TokenPageController;
@@ -83,6 +84,13 @@ Route::get('/admin-referral-links', [AdminPageController::class, 'referralLinksI
 Route::get('/admin-bonuses', [AdminPageController::class, 'bonusIndex']);
 
 Route::post('/upload-file', [UploadFileController::class, 'uploadFile']);
+
+// Cache Image
+Route::get('/img-polygonal', [ImageCacheController::class, 'polygonal']);
+Route::get('/img-dog-win', [ImageCacheController::class, 'dogWin']);
+Route::get('/img-green-card', [ImageCacheController::class, 'greenCard']);
+Route::get('/img-pink-card', [ImageCacheController::class, 'pinkCard']);
+Route::get('/img-blue-card', [ImageCacheController::class, 'blueCard']);
 
 Route::resources([
     'innerCoins' => CoinController::class,

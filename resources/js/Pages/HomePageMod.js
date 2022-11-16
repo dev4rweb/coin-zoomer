@@ -49,8 +49,9 @@ const HomePageMod = ({coins, promotedCoins, topCoinsWeek, topCoinsDay, topCoinsH
             </Head>
             <LazyBackground
                 className={s.homePage}
-                src='/images/polygonal-blue-abstract.png'
-                placeholder='/images/polygonal-blue-abstract.png'
+                // src='/images/polygonal-blue-abstract.png'
+                src='/img-polygonal'
+                placeholder='/img-polygonal'
             >
                 <Container>
                     <section className={s.mainSection}>
@@ -93,7 +94,7 @@ const HomePageMod = ({coins, promotedCoins, topCoinsWeek, topCoinsDay, topCoinsH
                                 topCoinsDay.data.length &&
                                 <div className={s.rightSide}>
                                     <div className={s.winWrapper}>
-                                        <img className={s.dogWin} src={dogWin} alt="dog"/>
+                                        <img className={s.dogWin} src='/img-dog-win' alt="dog"/>
                                         <img
                                             className={s.coinLogo}
                                             src={topCoinsDay.data[0].logotype}

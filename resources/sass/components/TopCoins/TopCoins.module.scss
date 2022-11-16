@@ -28,7 +28,8 @@
 }
 
 .greenBg {
-    background-image: url(../../../assets/img/green-card.png);
+    //background-image: url(../../../assets/img/green-card.png);
+    background-image: url('/img-green-card');
     position: absolute;
     left: -120px;
     @media screen and (max-width: 998px) {
@@ -49,7 +50,8 @@
 }
 
 .pinkBg {
-    background-image: url(../../../assets/img/pink-card.png);
+    //background-image: url(../../../assets/img/pink-card.png);
+    background-image: url('/img-pink-card');
     position: absolute;
     left: 47%;
     transform: translate(-50%, 0);
@@ -76,7 +78,8 @@
 }
 
 .blueBg {
-    background-image: url(../../../assets/img/blue-card.png);
+    //background-image: url(../../../assets/img/blue-card.png);
+    background-image: url('/img-blue-card');
     position: absolute;
     right: -120px;
     @media screen and (max-width: 998px) {

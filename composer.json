@@ -8,16 +8,17 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^7.3|^8.0",
+        "php": "^7.4|^8.0",
+        "ext-dom": "*",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "inertiajs/inertia-laravel": "^0.4.5",
+        "intervention/imagecache": "^2.5",
         "laravel/framework": "^8.65",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.4",
-        "laravelium/sitemap": "8.*",
-        "ext-dom": "*"
+        "laravelium/sitemap": "8.*"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.6",

@@ -41,6 +41,7 @@ const SimpleTableItemMod = ({data, index}) => {
                     <img
                         style={{borderRadius: '50%'}}
                         src={data.logotype}
+                        // src='/img-polygonal'
                         alt="coin"
                     />
                     <div>
