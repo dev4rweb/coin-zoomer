@@ -16,6 +16,7 @@ import dogWin from "../../assets/img/win-dog.png";
 import GraphicIncrease from "../components/UI/GraphicIncrease/GraphicIncrease";
 import SectionSeparator from "../components/UI/SectionSeparator/SectionSeparator";
 import TopCoins from "../components/TopCoins/TopCoins";
+import CoinsRateTableMod from "../components/UI/Tables/CoinsRateTable/CoinsRateTableMod";
 
 const HomePageMod = ({coins, promotedCoins, topCoinsWeek, topCoinsDay, topCoinsHour, errors}) => {
     const dispatch = useDispatch()
@@ -49,9 +50,9 @@ const HomePageMod = ({coins, promotedCoins, topCoinsWeek, topCoinsDay, topCoinsH
             </Head>
             <LazyBackground
                 className={s.homePage}
-                // src='/images/polygonal-blue-abstract.png'
-                src='/img-polygonal'
-                placeholder='/img-polygonal'
+                src='/images/polygonal-blue-abstract.png'
+                // src='/img-polygonal'
+                placeholder='/images/polygonal-blue-abstract.png'
             >
                 <Container>
                     <section className={s.mainSection}>
@@ -94,7 +95,7 @@ const HomePageMod = ({coins, promotedCoins, topCoinsWeek, topCoinsDay, topCoinsH
                                 topCoinsDay.data.length &&
                                 <div className={s.rightSide}>
                                     <div className={s.winWrapper}>
-                                        <img className={s.dogWin} src='/img-dog-win' alt="dog"/>
+                                        <img className={s.dogWin} src={dogWin} alt="dog"/>
                                         <img
                                             className={s.coinLogo}
                                             src={topCoinsDay.data[0].logotype}
@@ -148,6 +149,16 @@ const HomePageMod = ({coins, promotedCoins, topCoinsWeek, topCoinsDay, topCoinsH
                                     data={topCoinsWeek.data.sort((a, b) => b.week_votes - a.week_votes)}
                                 />
                             }
+                        </div>
+                    </section>
+
+                    <section className={s.coinsRateSection}>
+                        <SectionSeparator sectionName={`Coins rate`}/>
+                        <div className={s.filterTableWrapper}>
+                            <div className={s.filterWrapper}>
+                                filters
+                            </div>
+                            <CoinsRateTableMod coins={coins.data} />
                         </div>
                     </section>
                 </Container>
