@@ -15,37 +15,37 @@ const CoinsRateTableMod = ({coins}) => {
                             <th className={s.coinsColLong}>
                                 <div className="d-flex justify-content-around align-items-center">
                                     <span>Coins</span>
-                                    <ToggleSortCoins sortBy={'byName'}/>
+                                    <ToggleSortCoins sortBy={'byName'} isMod={true}/>
                                 </div>
                             </th>
                             <th>
                                 <div className="d-flex justify-content-around align-items-center">
                                     <span>Symbol</span>
-                                    <ToggleSortCoins sortBy={'bySymbol'}/>
+                                    <ToggleSortCoins sortBy={'bySymbol'} isMod={true}/>
                                 </div>
                             </th>
                             <th>
                                 <div className="d-flex justify-content-around align-items-center">
                                     <span>1h</span>
-                                    <ToggleSortCoins sortBy={'byHour'}/>
+                                    <ToggleSortCoins sortBy={'byHour'} isMod={true}/>
                                 </div>
                             </th>
                             <th>
                                 <div className="d-flex justify-content-around align-items-center">
                                     <span>Price</span>
-                                    <ToggleSortCoins sortBy={'byPrice'}/>
+                                    <ToggleSortCoins sortBy={'byPrice'} isMod={true}/>
                                 </div>
                             </th>
                             <th>
                                 <div className="d-flex justify-content-around align-items-center">
                                     <span>Market Cap</span>
-                                    <ToggleSortCoins sortBy={'byMarketCap'}/>
+                                    <ToggleSortCoins sortBy={'byMarketCap'} isMod={true}/>
                                 </div>
                             </th>
                             <th>
                                 <div className="d-flex justify-content-around align-items-center">
                                     <span>Launch</span>
-                                    <ToggleSortCoins sortBy={'byLaunchDate'}/>
+                                    <ToggleSortCoins sortBy={'byLaunchDate'} isMod={true}/>
                                 </div>
                             </th>
                             <th>Upvotes</th>

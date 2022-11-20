@@ -54,6 +54,8 @@ export const fetchCoinByQueryObj = (sortObj) => {
     };
 };
 
+
+
 export const fetchTopCoins = byWhat => {
     const sortObj = {
         sortName: 'week_hot',

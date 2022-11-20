@@ -17,6 +17,7 @@ import GraphicIncrease from "../components/UI/GraphicIncrease/GraphicIncrease";
 import SectionSeparator from "../components/UI/SectionSeparator/SectionSeparator";
 import TopCoins from "../components/TopCoins/TopCoins";
 import CoinsRateTableMod from "../components/UI/Tables/CoinsRateTable/CoinsRateTableMod";
+import PaginateMod from "../components/UI/Pagination/PaginateMod";
 
 const HomePageMod = ({coins, promotedCoins, topCoinsWeek, topCoinsDay, topCoinsHour, errors}) => {
     const dispatch = useDispatch()
@@ -159,6 +160,9 @@ const HomePageMod = ({coins, promotedCoins, topCoinsWeek, topCoinsDay, topCoinsH
                                 filters
                             </div>
                             <CoinsRateTableMod coins={coins.data} />
+                            <div className='d-flex justify-content-center mt-3'>
+                                <PaginateMod links={coins.meta.links} currentPage={coins.meta.current_page} />
+                            </div>
                         </div>
                     </section>
                 </Container>

@@ -11,14 +11,6 @@ import OutlineBtn from "../../OutlineBtn/OutlineBtn";
 const SimpleTableItemMod = ({data, index}) => {
     const { auth } = usePage().props
 
-    const dateFormat = date => {
-        const d = new Date(date),
-            dateFormat = [d.getDate() < 10 ? '0' + d.getDate() : d.getDate(),
-                (d.getMonth() + 1) < 10 ? '0' + (d.getMonth() + 1) : (d.getMonth() + 1),
-                d.getFullYear()].join('-');
-        return dateFormat
-    };
-
     const handleClick = e => {
         if (e.target.tagName !== 'BUTTON')
             Inertia.visit(`${PATH_COIN_OPEN_PAGE}/${data.name.replaceAll(' ', '_')}`)
@@ -98,7 +90,7 @@ const SimpleTableItemMod = ({data, index}) => {
                     {priceConverter(data.market_cap)}
                 </div>
             </td>
-            <td><div>{dateFormat(data.launch_date)}</div></td>
+            <td><div>{data.launch_date}</div></td>
             <td>
                 <div style={{paddingRight: '15px', position: 'relative'}}>
                     <Button

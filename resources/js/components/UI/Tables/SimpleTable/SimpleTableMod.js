@@ -6,7 +6,7 @@ import SimpleTableItem from "./SimpleTableItem";
 
 const SimpleTableMod = ({coins}) => {
 
-    console.log('SimpleTableMod', coins)
+    // console.log('SimpleTableMod', coins)
 
     return (
         <Table className={s.simpleTable} striped hover responsive variant="dark">

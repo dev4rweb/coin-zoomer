@@ -1,21 +1,32 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import s from '../../../../sass/components/UI/ToggleSort/ToggleSort.module.scss'
 import {useDispatch, useSelector} from "react-redux";
 import {fetchCoinByQuery, fetchCoinByQueryObj} from "../../../asyncAction/coinInner";
 import {setSortingNameObjAction} from "../../../reducers/coinReducer";
+import {getCoinsByQueryObj} from "../../../utils/navigate";
 
-const ToggleSortCoins = ({sortBy}) => {
+const ToggleSortCoins = ({sortBy, isMod = false}) => {
     const [sort, setSort] = useState(0)
     const limit = useSelector(state => state.coin.tableRateLimit)
     const dispatch = useDispatch()
     const sortObj = useSelector(state => state.coin.sortObj)
+
+    useEffect(() => {
+        // console.log('ToggleSortCoins', isMod, sortBy)
+        const queryString = window.location.search;
+        console.log(queryString);
+        const urlParams = new URLSearchParams(queryString);
+        let val = urlParams.get(sortBy)
+        if (val) setSort(parseInt(val))
+    }, []);
 
     const handleClick = (e, index) => {
         setSort(index)
         const sort = {name: sortBy, value: index}
         dispatch(setSortingNameObjAction(sort))
         sortObj.sort = sort
-        dispatch(fetchCoinByQueryObj(sortObj))
+        if (isMod) getCoinsByQueryObj(sortObj)
+        else dispatch(fetchCoinByQueryObj(sortObj))
     };
 
     if (sort === 1) {

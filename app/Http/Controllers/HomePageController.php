@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Filters\CoinFilter;
 use App\Helpers\RemoteApiService;
 use App\Http\Resources\CoinHomeCollection;
 use App\Http\Resources\TopCoinCollection;
@@ -51,9 +52,10 @@ class HomePageController extends Controller
         ]);
     }
 
-    public function devPage(Request $request)
+    public function devPage(CoinFilter $filter)
     {
-        $coins = new CoinHomeCollection(Coin::withCount('votes')
+        $coins = new CoinHomeCollection(Coin::filter($filter)
+            ->withCount('votes')
             ->where('is_approved', 1)
             ->orderBy('votes_count', 'desc')
             ->with('votes')
@@ -70,7 +72,7 @@ class HomePageController extends Controller
 
         $top_coins_week = new TopCoinCollection(Coin::withCount('votes')
             ->whereHas('votes', function ($q) {
-                $week = Carbon::createFromTimestamp(Carbon::now()->getTimestamp() - 60 * 60 * 24 *7);
+                $week = Carbon::createFromTimestamp(Carbon::now()->getTimestamp() - 60 * 60 * 24 * 7);
                 $q->where('created_at', '>', $week);
             })->orderBy('votes_count', 'desc')->take(5)->get());
 

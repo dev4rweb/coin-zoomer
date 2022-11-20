@@ -1,13 +1,15 @@
 import React from 'react';
 import {Inertia} from "@inertiajs/inertia";
-import {PATH_COIN_OPEN_PAGE} from "../../../../utils/routesPath";
+import {PATH_COIN_OPEN_PAGE, PATH_LOGIN_PAGE} from "../../../../utils/routesPath";
 import s from "../../../../../sass/components/UI/Tables/SimpleTable/Item/SimpleTableItem.module.scss";
 import CustomBadge from "../../CustomBadge/CustomBadge";
 import {priceConverter} from "../../../../utils/priceConverter";
 import {Button} from "react-bootstrap";
 import OutlineBtn from "../../OutlineBtn/OutlineBtn";
+import {usePage} from "@inertiajs/inertia-react";
 
 const CoinsRateTableItem = ({coin}) => {
+    const { auth } = usePage().props
 
     const handleClick = e => {
         console.log('StatusTableRow click', coin)
@@ -16,7 +18,13 @@ const CoinsRateTableItem = ({coin}) => {
     };
 
     const voteHandler = e => {
-        console.log('StatusTableRow', coin)
+        if (e.target.tagName === 'BUTTON') {
+            if (auth.user) {
+                Inertia.post('/vote', {coin_id: coin.id})
+            } else {
+                Inertia.visit(`${PATH_LOGIN_PAGE}`)
+            }
+        }
     };
 
     return (
