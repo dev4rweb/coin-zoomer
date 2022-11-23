@@ -18,8 +18,14 @@ import SectionSeparator from "../components/UI/SectionSeparator/SectionSeparator
 import TopCoins from "../components/TopCoins/TopCoins";
 import CoinsRateTableMod from "../components/UI/Tables/CoinsRateTable/CoinsRateTableMod";
 import PaginateMod from "../components/UI/Pagination/PaginateMod";
+import TimeFilter from "../components/UI/Filters/TimeFilter/TimeFilter";
+import CategoryFilter from "../components/UI/Filters/CategoryFilter/CategoryFilter";
+import Searching from "../components/UI/Filters/Searching/Searching";
+import LeadersSubscribeBlock from "../components/LeadersSubscribeBlock/LeadersSubscribeBlock";
+import {setLeadersCoinsByDayAction, setLeadersCoinsByWeekAction} from "../reducers/leadersCoinsReducer";
 
-const HomePageMod = ({coins, promotedCoins, topCoinsWeek, topCoinsDay, topCoinsHour, errors}) => {
+const HomePageMod = ({coins, promotedCoins, topCoinsWeek, topCoinsDay, topCoinsHour,
+                         leadersDay, leadersWeek, errors}) => {
     const dispatch = useDispatch()
     const {auth} = usePage().props
     console.log('HomePageMod errors', errors)
@@ -29,9 +35,13 @@ const HomePageMod = ({coins, promotedCoins, topCoinsWeek, topCoinsDay, topCoinsH
     console.log('HomePageMod topCoinsHour', topCoinsHour)
     console.log('HomePageMod topCoinsDay', topCoinsDay)
     console.log('HomePageMod topCoinsWeek', topCoinsWeek)
+    console.log('HomePageMod leadersDay', leadersDay)
+    console.log('HomePageMod leadersWeek', leadersWeek)
 
     useEffect(() => {
         dispatch(setCurrentUserAction(auth.user))
+        dispatch(setLeadersCoinsByDayAction(leadersDay))
+        dispatch(setLeadersCoinsByWeekAction(leadersWeek))
     }, [auth.user]);
 
     useEffect(() => {
@@ -157,7 +167,9 @@ const HomePageMod = ({coins, promotedCoins, topCoinsWeek, topCoinsDay, topCoinsH
                         <SectionSeparator sectionName={`Coins rate`}/>
                         <div className={s.filterTableWrapper}>
                             <div className={s.filterWrapper}>
-                                filters
+                                <TimeFilter isMod={true}/>
+                                <CategoryFilter isMod={true}/>
+                                <Searching isMod={true}/>
                             </div>
                             <CoinsRateTableMod coins={coins.data} />
                             <div className='d-flex justify-content-center mt-3'>
@@ -166,6 +178,7 @@ const HomePageMod = ({coins, promotedCoins, topCoinsWeek, topCoinsDay, topCoinsH
                         </div>
                     </section>
                 </Container>
+                <LeadersSubscribeBlock/>
             </LazyBackground>
         </Layout>
     );

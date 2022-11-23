@@ -12,20 +12,40 @@ import discountGrayImg from '../../../../../assets/icons/discount-gray.png'
 import {useDispatch, useSelector} from "react-redux";
 import {fetchCoinByQuery, fetchCoinByQueryObj} from "../../../../asyncAction/coinInner";
 import {setIsTimerFilterAction, setSortingNameObjAction} from "../../../../reducers/coinReducer";
+import {getCoinsByQueryObj} from "../../../../utils/navigate";
 
-const CategoryFilter = () => {
+const CategoryFilter = ({isMod = false}) => {
     const dispatch = useDispatch()
     const [value, setValue] = useState('all_time_best');
     const sortObj = useSelector(state => state.coin.sortObj)
     const isTimerFilterActive = useSelector(state => state.coin.isTimerFilter)
 
     const radios = [
-        {id: 10, name: "Today's Hot", value: 'today_hot', img: notificationGrayImg, active: notificationImg, cl: s.hots},
+        {
+            id: 10,
+            name: "Today's Hot",
+            value: 'today_hot',
+            img: notificationGrayImg,
+            active: notificationImg,
+            cl: s.hots
+        },
         {id: 11, name: 'New', value: 'new_coin', img: newGrayImg, active: newImg, cl: s.news},
         {id: 12, name: 'All time best', value: 'all_time_best', img: trophyImg, active: trophyGrayImg, cl: s.best},
         {id: 13, name: 'Presale', value: 'is_presale', img: discountGrayImg, active: discountImg, cl: s.presale},
         {id: 14, name: 'KYC', value: 'is_kyc', img: discountGrayImg, active: discountImg, cl: s.presale},
     ];
+
+    useEffect(() => {
+        if (isMod) {
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            radios.forEach(i => {
+                let val = urlParams.get(i.value)
+                if (val) setValue(i.value)
+                // console.log(val)
+            });
+        }
+    }, []);
 
     useEffect(() => {
         if (isTimerFilterActive) setValue('10')
@@ -41,31 +61,36 @@ const CategoryFilter = () => {
                 sort = {name: 'is_kyc', value: 1}
                 dispatch(setSortingNameObjAction(sort))
                 sortObj.sort = sort
-                dispatch(fetchCoinByQueryObj(sortObj))
+                if (isMod) getCoinsByQueryObj(sortObj)
+                else dispatch(fetchCoinByQueryObj(sortObj))
                 return
             case 'is_presale':
                 sort = {name: 'is_presale', value: 1}
                 dispatch(setSortingNameObjAction(sort))
                 sortObj.sort = sort
-                dispatch(fetchCoinByQueryObj(sortObj))
+                if (isMod) getCoinsByQueryObj(sortObj)
+                else dispatch(fetchCoinByQueryObj(sortObj))
                 return
             case 'new_coin':
                 sort = {name: 'new_coin', value: 1}
                 dispatch(setSortingNameObjAction(sort))
                 sortObj.sort = sort
-                dispatch(fetchCoinByQueryObj(sortObj))
+                if (isMod) getCoinsByQueryObj(sortObj)
+                else dispatch(fetchCoinByQueryObj(sortObj))
                 return;
             case 'all_time_best':
                 sort = {name: 'all_time_best', value: 1}
                 dispatch(setSortingNameObjAction(sort))
                 sortObj.sort = sort
-                dispatch(fetchCoinByQueryObj(sortObj))
+                if (isMod) getCoinsByQueryObj(sortObj)
+                else dispatch(fetchCoinByQueryObj(sortObj))
                 return;
             case 'today_hot':
                 sort = {name: 'today_hot', value: 1}
                 dispatch(setSortingNameObjAction(sort))
                 sortObj.sort = sort
-                dispatch(fetchCoinByQueryObj(sortObj))
+                if (isMod) getCoinsByQueryObj(sortObj)
+                else dispatch(fetchCoinByQueryObj(sortObj))
                 return;
         }
     };
@@ -74,27 +99,29 @@ const CategoryFilter = () => {
         <div className={s.catFilter}>
             <p className={s.title}>Filter</p>
             <div className={s.btnGroupWrapper}>
-                {radios.map((rad, idx) => (
-                    <ToggleButton
-                        key={rad.id}
-                        id={`sort-${rad.id}`}
-                        type="checkbox"
-                        variant='outline-light'
-                        name="radio"
-                        className={`${s.toggleBtn} ${rad.cl}`}
-                        value={rad.value}
-                        checked={value === rad.value}
-                        onChange={sortHandler}
-                    >
-                        {rad.name}
-                        {
-                            value === rad.value ?
-                                <img src={rad.active} alt=""/> :
-                                <img src={rad.img} alt=""/>
-                        }
+                {radios.map((rad, idx) => {
+                    return (
+                        <ToggleButton
+                            key={rad.id}
+                            id={`sort-${rad.id}`}
+                            type="checkbox"
+                            variant='outline-light'
+                            name="radio"
+                            className={`${s.toggleBtn} ${rad.cl}`}
+                            value={rad.value}
+                            checked={value === rad.value}
+                            onChange={sortHandler}
+                        >
+                            {rad.name}
+                            {
+                                value === rad.value ?
+                                    <img src={rad.active} alt=""/> :
+                                    <img src={rad.img} alt=""/>
+                            }
 
-                    </ToggleButton>
-                ))}
+                        </ToggleButton>
+                    )
+                })}
             </div>
         </div>
     );

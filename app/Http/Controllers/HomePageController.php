@@ -88,12 +88,26 @@ class HomePageController extends Controller
                 $q->where('created_at', '>', $hour);
             })->orderBy('votes_count', 'desc')->take(5)->get());
 
+        $leaders_day = new TopCoinCollection(Coin::withCount('votes')
+            ->whereHas('votes', function ($q) {
+                $today = Carbon::createFromTimestamp(Carbon::now()->getTimestamp() - 60 * 60 * 24);
+                $q->where('created_at', '>', $today);
+            })->orderBy('votes_count', 'desc')->take(2)->get());
+
+        $leaders_week = new TopCoinCollection(Coin::withCount('votes')
+            ->whereHas('votes', function ($q) {
+                $week = Carbon::createFromTimestamp(Carbon::now()->getTimestamp() - 60 * 60 * 24 * 7);
+                $q->where('created_at', '>', $week);
+            })->orderBy('votes_count', 'desc')->take(2)->get());
+
         return Inertia::render('HomePageMod', [
             'coins' => $coins,
             'promotedCoins' => $promoted_coins,
             'topCoinsHour' => $top_coins_hour,
             'topCoinsDay' => $top_coins_day,
             'topCoinsWeek' => $top_coins_week,
+            'leadersDay' => $top_coins_week,
+            'leadersWeek' => $top_coins_week,
         ]);
     }
 

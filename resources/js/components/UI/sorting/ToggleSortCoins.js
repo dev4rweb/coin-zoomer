@@ -14,7 +14,7 @@ const ToggleSortCoins = ({sortBy, isMod = false}) => {
     useEffect(() => {
         // console.log('ToggleSortCoins', isMod, sortBy)
         const queryString = window.location.search;
-        console.log(queryString);
+        // console.log(queryString);
         const urlParams = new URLSearchParams(queryString);
         let val = urlParams.get(sortBy)
         if (val) setSort(parseInt(val))
