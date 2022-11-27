@@ -106,8 +106,8 @@ class HomePageController extends Controller
             'topCoinsHour' => $top_coins_hour,
             'topCoinsDay' => $top_coins_day,
             'topCoinsWeek' => $top_coins_week,
-            'leadersDay' => $top_coins_week,
-            'leadersWeek' => $top_coins_week,
+            'leadersDay' => $leaders_day,
+            'leadersWeek' => $leaders_week,
         ]);
     }
 
