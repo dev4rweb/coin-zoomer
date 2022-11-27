@@ -60,8 +60,8 @@ Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::get('/', [HomePageController::class, 'index'])->name('home.index');
-Route::get('/dev-page', [HomePageController::class, 'devPage']);
+Route::get('/dev-page', [HomePageController::class, 'index'])->name('home.index');
+Route::get('/', [HomePageController::class, 'devPage']);
 Route::get('/admin-subscribers', [HomePageController::class, 'subscriberIndex'])->name('subscriber.index');
 Route::get('/promotion', [AdcPageController::class, 'index']);
 Route::get('/admin-panel', [AdminPageController::class, 'index'])->name('adminPanel.index');
