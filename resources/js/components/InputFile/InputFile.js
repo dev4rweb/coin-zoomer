@@ -30,13 +30,13 @@ const InputFile = ({placeholder, inputHandler = null, isRequired = false,
                 // console.log('image width', this.width)
                 width = this.width
                 height = this.height
-                if (isNeedSmallImage && width > 128) {
+                if (isNeedSmallImage && width > 400) {
                     dispatch(setErrorsAction({message: `too big width of image ${width}`}))
                     setValue('')
                     return
                 }
 
-                if (isNeedSmallImage && height > 128) {
+                if (isNeedSmallImage && height > 400) {
                     dispatch(setErrorsAction({message: `too big height of image ${height}`}))
                     setValue('')
                     return

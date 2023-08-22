@@ -156,10 +156,8 @@ const AddCoinPage = ({currentUser, errors, hotNotifications, refLink}) => {
 
     const submitHandler = e => {
         e.preventDefault()
-        if (!coin.is_coin_gecko && chains.length === 0) {
-            dispatch(setErrorsAction({message: 'Add chain'}));
-            return
-        }
+        if (!coin.is_coin_gecko && chains.length === 0) return dispatch(setErrorsAction({message: 'Add chain'}));
+        if (!coin.description.length) return dispatch(setErrorsAction({message: 'Add description'}));
         console.log('submitHandler coin', coin);
         if (!coin.price) coin.price = 0
         if (!coin.one_hour) coin.one_hour = 0
@@ -461,7 +459,10 @@ const AddCoinPage = ({currentUser, errors, hotNotifications, refLink}) => {
                                                     style={{height: '60px'}}
                                                     required
                                                 />*/}
-                                                <TextEditor content={coin.description} onChange={saveEditorHandler} />
+                                                <TextEditor
+                                                    content={coin.description}
+                                                    onChange={saveEditorHandler}
+                                                />
                                             </FloatingLabel>
                                         </InputGroup>
                                     </label>
@@ -634,10 +635,9 @@ const AddCoinPage = ({currentUser, errors, hotNotifications, refLink}) => {
                                             <label className="input-label">
                                                 <span>*</span> Web Address
                                                 <FormControl
-                                                    placeholder="Http://"
+                                                    placeholder="http://"
                                                     className="input-text"
-                                                    type="url"
-                                                    pattern="https://.*" size="30"
+                                                    type="text"
                                                     value={coin.contractWeb}
                                                     onChange={e => setCoin({
                                                         ...coin,
@@ -645,6 +645,7 @@ const AddCoinPage = ({currentUser, errors, hotNotifications, refLink}) => {
                                                     })}
                                                     required
                                                 />
+                                                {/* pattern="http://.*" size="30" */}
                                             </label>
                                         </InputGroup>
 
