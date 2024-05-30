@@ -545,6 +545,13 @@ const AddCoinPage = ({currentUser, errors, hotNotifications, refLink}) => {
                                                     >
                                                         mainnet
                                                     </DropdownItem>
+                                                    <DropdownItem
+                                                        onClick={chainHandler}
+                                                        as="button"
+                                                        title={'solana'}
+                                                    >
+                                                        solana
+                                                    </DropdownItem>
                                                 </DropdownButton>
                                             </InputGroup>
                                         </label>
@@ -683,7 +690,7 @@ const AddCoinPage = ({currentUser, errors, hotNotifications, refLink}) => {
                                             <label className="input-label">
                                                 <span>*</span> Logotype
                                                 <InputFile
-                                                    placeholder={'Png/jpg 128 x 128'}
+                                                    placeholder={'Png/jpg 400 x 400'}
                                                     inputHandler={inputFileHandler}
                                                     isRequired={true}
                                                 />

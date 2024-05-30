@@ -630,6 +630,13 @@ const CoinEdit = ({coin}) => {
                                             >
                                                 mainnet
                                             </DropdownItem>
+                                            <DropdownItem
+                                                onClick={chainTitleHandler}
+                                                as="button"
+                                                title={'solana'}
+                                            >
+                                                solana
+                                            </DropdownItem>
                                         </DropdownButton>
                                     </InputGroup>
                                 </label>

@@ -29,6 +29,9 @@ const CustomBadge = ({data, removeHandler = null}) => {
         case 'mainnet':
             bgColor='dark'
             break
+        case 'solana':
+            bgColor = 'primary'
+            break
     }
 
     const handleRemove = e => {
