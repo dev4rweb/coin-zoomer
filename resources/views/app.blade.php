@@ -7,7 +7,11 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-V4WC4CZESX"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
         gtag('js', new Date());
 
         gtag('config', 'G-V4WC4CZESX');
@@ -17,16 +21,22 @@
     <link href="{{ asset('/css/stylesheet.css') }}" rel="stylesheet"/>
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet"/>
     <script src="{{ mix('/js/app.js') }}" defer></script>
+    @if(!str_contains(Request::url(),url('/admin')) )
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16618488114">
-    </script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16618488114">
+        </script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
 
-        gtag('config', 'AW-16618488114');
-    </script>
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+
+            gtag('js', new Date());
+
+            gtag('config', 'AW-16618488114');
+        </script>
+    @endif
 </head>
 <body>
 @inertia
