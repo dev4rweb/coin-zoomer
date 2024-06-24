@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
+    @if(!str_contains(Request::url(),url('/admin')) )
+    <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-KL05TF7JQX"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+
+            gtag('js', new Date());
+
+            gtag('config', 'G-KL05TF7JQX');
+        </script>
+    @endif
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
     <!-- Global site tag (gtag.js) - Google Analytics -->
