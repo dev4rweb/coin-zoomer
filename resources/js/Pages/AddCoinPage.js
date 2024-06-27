@@ -45,6 +45,7 @@ const AddCoinPage = ({currentUser, errors, hotNotifications, refLink}) => {
         dispatch(fetchHotNotificationsAction(hotNotifications))
         // dispatch(setErrorsAction(errors))
         console.log('refLink', refLink)
+        console.log('CHAIN', chain)
     }, []);
 
     const chainHandler = e => {
@@ -156,7 +157,7 @@ const AddCoinPage = ({currentUser, errors, hotNotifications, refLink}) => {
 
     const submitHandler = e => {
         e.preventDefault()
-        if (!coin.is_coin_gecko && chains.length === 0) return dispatch(setErrorsAction({message: 'Add chain'}));
+        //if (!coin.is_coin_gecko && chains.length === 0) return dispatch(setErrorsAction({message: 'Add chain'}));
         if (!coin.description.length) return dispatch(setErrorsAction({message: 'Add description'}));
         console.log('submitHandler coin', coin);
         if (!coin.price) coin.price = 0
@@ -323,11 +324,11 @@ const AddCoinPage = ({currentUser, errors, hotNotifications, refLink}) => {
                                         </Form.Group>
                                         <InputGroup className="mb-3">
                                             <label className="input-label">
-                                                {
-                                                    coin.is_coin_gecko ?
-                                                        <span>*</span> :
-                                                        ''
-                                                }
+                                                {/*{*/}
+                                                {/*    coin.is_coin_gecko ?*/}
+                                                {/*        <span>*</span> :*/}
+                                                {/*        ''*/}
+                                                {/*}*/}
                                                 Coingecko link
                                                 {
                                                     coin.is_coin_gecko ?
@@ -340,7 +341,6 @@ const AddCoinPage = ({currentUser, errors, hotNotifications, refLink}) => {
                                                                 ...coin,
                                                                 ['coin_gecko_link']: e.target.value
                                                             })}
-                                                            required
                                                         />
                                                         :
                                                         <FormControl
@@ -412,7 +412,7 @@ const AddCoinPage = ({currentUser, errors, hotNotifications, refLink}) => {
 
                                         <InputGroup className="mb-3">
                                             <label className="input-label">
-                                                <span>*</span> Market Cap in USD
+                                                 Market Cap in USD
                                                 <FormControl
                                                     placeholder="Example: 15955000"
                                                     className="input-text"
@@ -422,7 +422,6 @@ const AddCoinPage = ({currentUser, errors, hotNotifications, refLink}) => {
                                                         ...coin,
                                                         ['market_cap']: e.target.value
                                                     })}
-                                                    required
                                                 />
                                             </label>
                                         </InputGroup>
@@ -559,7 +558,7 @@ const AddCoinPage = ({currentUser, errors, hotNotifications, refLink}) => {
                                         <InputGroup className="mb-3 me-5">
                                             <label className="input-label">
                                                 {
-                                                    chain !== 'mainnet' ?
+                                                    chain !== 'Select' && chain !== 'mainnet' ?
                                                         <span>*</span>
                                                         :
                                                         ''
@@ -640,7 +639,7 @@ const AddCoinPage = ({currentUser, errors, hotNotifications, refLink}) => {
 
                                         <InputGroup className="mb-3">
                                             <label className="input-label">
-                                                <span>*</span> Web Address
+                                                 Web Address
                                                 <FormControl
                                                     placeholder="http://"
                                                     className="input-text"
@@ -650,7 +649,6 @@ const AddCoinPage = ({currentUser, errors, hotNotifications, refLink}) => {
                                                         ...coin,
                                                         ['contractWeb']: e.target.value
                                                     })}
-                                                    required
                                                 />
                                                 {/* pattern="http://.*" size="30" */}
                                             </label>
@@ -688,11 +686,11 @@ const AddCoinPage = ({currentUser, errors, hotNotifications, refLink}) => {
 
                                         <InputGroup className="mb-3">
                                             <label className="input-label">
-                                                <span>*</span> Logotype
+                                                Logotype
                                                 <InputFile
                                                     placeholder={'Png/jpg 400 x 400'}
                                                     inputHandler={inputFileHandler}
-                                                    isRequired={true}
+                                                    // isRequired={true}
                                                 />
                                             </label>
                                         </InputGroup>

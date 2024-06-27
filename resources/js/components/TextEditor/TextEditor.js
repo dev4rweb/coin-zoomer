@@ -35,7 +35,7 @@ const TextEditor = ({content, onChange = null}) => {
                     marginBottom: '1rem'
                 }}
             >
-                <EditorContent editor={editor} onInput={saveHandler} />
+                <EditorContent editor={editor} onBlur={saveHandler} onInput={saveHandler} />
             </div>
             {/*<button
                 onClick={saveHandler}
